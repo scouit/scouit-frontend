@@ -45,6 +45,3 @@ export const GlobalStyle = createGlobalStyle`
     border-spacing: 0;
   }
 `;
-chore: yarn berry이슈로 ts 버전 4.9.3 -> 4.8.3
-(#3) styled-components 디펜던시로 react-is 추가
-(#3) feat: Theme객체에 font, color, shadow추가
