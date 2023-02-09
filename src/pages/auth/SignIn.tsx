@@ -18,7 +18,7 @@ export const SignInPage = () => {
 
   return (
     <AuthWrapper onSubmit={() => signInMutate.mutate()}>
-      <_LogoWithText />
+      <LogoWithText />
       <Text size="heading1">로그인</Text>
       <Input
         type="text"
@@ -41,7 +41,3 @@ export const SignInPage = () => {
     </AuthWrapper>
   );
 };
-
-const _LogoWithText = styled(LogoWithText)`
-  margin: 85px 0 66px 0;
-`;

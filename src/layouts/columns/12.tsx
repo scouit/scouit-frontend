@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { ReactNode } from 'react';
 
-interface Props {
+interface PropsType {
   className?: string;
   children: ReactNode;
 }
 
-export const Columns12 = ({ className, children }: Props) => {
+export const Columns12 = ({ className, children }: PropsType) => {
   return <_Wrapper className={className}>{children}</_Wrapper>;
 };
 

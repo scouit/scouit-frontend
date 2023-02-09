@@ -11,7 +11,7 @@ export const JobPostingDetailPage = () => {
     <div>
       <Header />
       <Columns12>
-        <_Wrapper>
+        <div>
           <div>
             <Text size="heading1">FrontEnd Developer</Text>
             <div>비바리퍼블리카 (토스)</div>
@@ -188,8 +188,8 @@ export const JobPostingDetailPage = () => {
               </ul>
             </div>
           </div>
-          <_Aside>
-            <_W>
+          <div>
+            <div>
               <img src={Company} />
               <div>
                 <Text size="title1">토스 (비바리퍼블리카)</Text>
@@ -198,69 +198,36 @@ export const JobPostingDetailPage = () => {
                   <Share />
                 </div>
               </div>
-            </_W>
-            <_LineWrapper>
-              <_First>소속</_First>
+            </div>
+            <div>
+              <div>소속</div>
               <div>토스뱅크</div>
-            </_LineWrapper>
-            <_LineWrapper>
-              <_First>고용형태</_First>
+            </div>
+            <div>
+              <div>고용형태</div>
               <div>정규직</div>
-            </_LineWrapper>
-            <_LineWrapper>
-              <_First>연봉</_First>
+            </div>
+            <div>
+              <div>연봉</div>
               <div>3000 ~ 6000 만원</div>
-            </_LineWrapper>
-            <_LineWrapper>
-              <_First>근무 위치</_First>
+            </div>
+            <div>
+              <div>근무 위치</div>
               <div>서울 금천구 가산디지털1로 225, (가산동)</div>
-            </_LineWrapper>
-            <_LineWrapper>
-              <_First>경력</_First>
+            </div>
+            <div>
+              <div>경력</div>
               <div>3년 이상</div>
-            </_LineWrapper>
-            <_LineWrapper>
-              <_First>지원 마감</_First>
+            </div>
+            <div>
+              <div>지원 마감</div>
               <div>상시 채용</div>
-            </_LineWrapper>
+            </div>
             <Button margin="20px 0 0 0">지원하기</Button>
-          </_Aside>
-        </_Wrapper>
+          </div>
+        </div>
       </Columns12>
       <Footer />
     </div>
   );
 };
-
-const _W = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-`;
-
-const _Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 100px 0;
-`;
-
-const _Aside = styled.div`
-  position: sticky;
-  top: 100px;
-  width: 350px;
-  height: fit-content;
-`;
-
-const _LineWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  border-top: 1px solid ${({ theme }) => theme.color.gray4};
-  height: 53px;
-  padding: 14px 0;
-  color: ${({ theme }) => theme.color.primary};
-`;
-
-const _First = styled.div`
-  width: 90px;
-  color: ${({ theme }) => theme.color.gray6};
-`;

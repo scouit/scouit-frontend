@@ -1,6 +1,6 @@
 import { Button } from '@/components/common/button';
 import styled from 'styled-components';
-import { lio } from './Constants';
+import { lio } from './constants';
 
 export const WriteProfile = () => {
   return (

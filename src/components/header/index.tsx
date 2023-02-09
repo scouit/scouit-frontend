@@ -1,9 +1,9 @@
 import { LogoWithText } from '@/assets';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { NavigationList } from '../list/Navigation';
+import { NavigationList } from '../common/list/Navigation';
 import { Columns12 } from '../../layouts/columns/12';
-import { NavListIsLogin } from './Constants';
+import { NavListIsLogin } from './constants';
 import { useRecoilValue } from 'recoil';
 import { profileSelectBox } from '@/store/modal';
 import { ProfileSelectBox } from '../select-box/Profile';

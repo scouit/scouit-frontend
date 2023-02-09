@@ -15,7 +15,7 @@ export const HomePage = () => {
     <div>
       <Header />
       <Columns12>
-        <_ProfileCardWrapper>
+        <div>
           {data &&
             data.map(({ name, id, profile, tagList }, idx) => (
               <ProfileCard
@@ -24,18 +24,10 @@ export const HomePage = () => {
                 name={name}
               />
             ))}
-        </_ProfileCardWrapper>
+        </div>
       </Columns12>
       <Footer />
       {openModal && <SimplyModal closeModal={() => setOpenModal(false)} />}
     </div>
   );
 };
-
-const _ProfileCardWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
-  margin: 100px 0;
-`;

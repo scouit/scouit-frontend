@@ -4,14 +4,14 @@ import { Back, Profile } from '@/assets';
 import { Text } from '../common/text';
 import { Button } from '../common/button';
 import { Columns5 } from '../../layouts/columns/5';
-import { CareerItem } from '../item/Career';
+import { CareerItem } from '../common/item/Career';
 import { Link, useNavigate } from 'react-router-dom';
 
-interface Props {
+interface PropsType {
   closeModal: () => void;
 }
 
-export const SimplyModal = ({ closeModal }: Props) => {
+export const SimplyModal = ({ closeModal }: PropsType) => {
   const navigate = useNavigate();
   return (
     <ModalWrapper closeModal={closeModal}>

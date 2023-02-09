@@ -2,7 +2,7 @@ import { Warning } from '@/assets';
 import { Button } from '@/components/common/button';
 import { Text } from '@/components/common/text';
 
-export const NotFound = () => {
+export const NotFoundPage = () => {
   return (
     <div>
       <Warning width={80} height={80} />

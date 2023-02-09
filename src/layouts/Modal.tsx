@@ -2,12 +2,12 @@ import ReactOutsideClickHandler from 'react-outside-click-handler';
 import styled from 'styled-components';
 import { ReactNode } from 'react';
 
-interface Props {
+interface PropsType {
   children: ReactNode;
   closeModal: () => void;
 }
 
-export const ModalWrapper = ({ children, closeModal }: Props) => {
+export const ModalWrapper = ({ children, closeModal }: PropsType) => {
   return (
     <_Background>
       <ReactOutsideClickHandler onOutsideClick={closeModal}>

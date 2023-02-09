@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FormEvent } from 'react';
 
-interface Props {
+interface PropsType {
   children: ReactNode;
   onSubmit?: () => void;
 }
 
-export const AuthWrapper = ({ children, onSubmit }: Props) => {
+export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
   const onSubmitPreventDefault = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSubmit();
