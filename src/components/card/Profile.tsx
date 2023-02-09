@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-interface Props {
+interface PropsType {
   name: string;
   url?: string;
   onClick: () => void;
 }
 
 /* 탭 키로 이동안되는 이슈 !! */
-export const ProfileCard = ({ name, url, onClick }: Props) => {
+export const ProfileCard = ({ name, url, onClick }: PropsType) => {
   return (
     <_Wrapper onClick={onClick}>
       <img src={url} />

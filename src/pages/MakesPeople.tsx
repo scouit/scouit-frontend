@@ -1,6 +1,6 @@
 import { Header } from '@/components/header';
 
-const DevelopersList = [
+const developersList = [
   {
     field: 'FrontEnd',
     name: '조상현',
@@ -35,7 +35,7 @@ export const MakesPeoplePage = () => {
   return (
     <div>
       <Header />
-      {DevelopersList.map((developer) => {
+      {developersList.map((developer) => {
         return (
           <div>
             <div>{developer.field}</div>

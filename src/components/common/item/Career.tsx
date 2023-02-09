@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Text } from '../common/text';
+import { Text } from '../text';
 
 export const CareerItem = () => {
   return (

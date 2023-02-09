@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { NavigationList } from '../list/Navigation';
+import { NavigationList } from '../common/list/Navigation';
 import { Columns12 } from '../../layouts/columns/12';
-import { navList, SocialList } from './Constants';
+import { navList, socialList } from './constants';
 
 export const Footer = () => {
   return (
@@ -9,7 +9,7 @@ export const Footer = () => {
       <_Columns12>
         <_Navigation>
           <NavigationList list={navList} />
-          <NavigationList list={SocialList} />
+          <NavigationList list={socialList} />
         </_Navigation>
       </_Columns12>
     </_Wrapper>

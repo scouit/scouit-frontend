@@ -4,14 +4,14 @@ import { FrequentlyAskedQuestionsPage } from '@/pages/FrequentlyAskedQuestions';
 import { HomePage } from '@/pages/Home';
 import { JobPostingPage } from '@/pages/company/job-posting';
 import { SignInPage } from '@/pages/auth/SignIn';
-import { NotFound } from '@/pages/NotFound';
+import { NotFoundPage } from '@/pages/NotFound';
 import { ResumeDetailPage } from '@/pages/developers/resume/Detail';
 import { SignUpPage } from '@/pages/auth/SignUp';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { JobPostingDetailPage } from '@/pages/company/job-posting/Detail';
-import { routePath } from './Constants';
+import { routePath } from './constants';
 import { MyPage } from '@/pages/MyPage';
-import { EditProfile } from '@/pages/EditProfile';
+import { EditProfilePage } from '@/pages/EditProfile';
 
 const {
   home,
@@ -60,9 +60,9 @@ export const Router = () => {
         </Route>
         <Route path={myPage} element={<MyPage />} />
         <Route path={profile.index}>
-          <Route path={profile.edit} element={<EditProfile />} />
+          <Route path={profile.edit} element={<EditProfilePage />} />
         </Route>
-        <Route path={notFound} element={<NotFound />} />
+        <Route path={notFound} element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );

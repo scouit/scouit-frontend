@@ -6,7 +6,7 @@ export const navList = [
   { name: '자주 묻는 질문', link: '/frequently-asked-questions' },
 ];
 
-export const SocialList = [
+export const socialList = [
   { name: <Github hover="gray8" />, link: 'https://github.com/KOVELO2005' },
   {
     name: <Instargram />,
