@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { ModalWrapper } from '../../layouts/Modal';
 import { Back, Profile } from '@/assets';
-import { Text } from '../text';
-import { Button } from '../button';
+import { Text } from '../common/text';
+import { Button } from '../common/button';
 import { Columns5 } from '../../layouts/columns/5';
 import { CareerItem } from '../item/Career';
 import { Link, useNavigate } from 'react-router-dom';

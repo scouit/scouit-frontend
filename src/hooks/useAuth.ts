@@ -5,9 +5,9 @@ import {
   PostSignUpReqeustType,
   PostSignInReqeustType,
 } from '@scouit/api-types';
-import { customToast } from '@/utils/Toast';
+import { customToast } from '@/utils/toast';
 import { postSignIn } from '@/apis/auth';
-import { TOKEN } from '@/utils/auth';
+import { localStorgeSetItem, localStorgeRemoveItem } from '@/utils/storge';
 
 export const useSignUp = (req: PostSignUpReqeustType) => {
   const navigate = useNavigate();
@@ -27,8 +27,8 @@ export const useSignIn = (req: PostSignInReqeustType) => {
   return useMutation(() => postSignIn(req), {
     onSuccess: (res) => {
       const { access_token, refresh_token } = res.data;
-      localStorage.setItem(TOKEN.ACCESS, access_token);
-      localStorage.setItem(TOKEN.REFRESH, refresh_token);
+      localStorgeSetItem('access_token', access_token);
+      localStorgeSetItem('refresh_token', refresh_token);
       navigate('/');
       customToast('성공적으로 로그인하였습니다.', 'success');
     },
@@ -41,8 +41,8 @@ export const useSignIn = (req: PostSignInReqeustType) => {
 export const useLogout = () => {
   return useMutation(() => postLogout(), {
     onSuccess: () => {
-      localStorage.removeItem(TOKEN.ACCESS);
-      localStorage.removeItem(TOKEN.REFRESH);
+      localStorgeRemoveItem('access_token');
+      localStorgeRemoveItem('refresh_token');
     },
   });
 };

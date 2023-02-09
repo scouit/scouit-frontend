@@ -10,7 +10,6 @@ import { SignUpPage } from '@/pages/auth/SignUp';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { JobPostingDetailPage } from '@/pages/company/job-posting/Detail';
 import { routePath } from './Constants';
-import { DevelopersPage } from '@/pages/developers';
 import { MyPage } from '@/pages/MyPage';
 import { EditProfile } from '@/pages/EditProfile';
 
@@ -42,7 +41,7 @@ export const Router = () => {
           element={<FrequentlyAskedQuestionsPage />}
         />
         <Route path={developers.index}>
-          <Route index element={<DevelopersPage />} />
+          {/* <Route index element={<DevelopersPage />} /> */}
           <Route path={developers.resume.index}>
             <Route
               path={developers.resume.dynamic}

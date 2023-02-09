@@ -7,7 +7,7 @@ import { NavListIsLogin } from './Constants';
 import { useRecoilValue } from 'recoil';
 import { profileSelectBox } from '@/store/modal';
 import { ProfileSelectBox } from '../select-box/Profile';
-import { isLogin } from '@/utils/auth';
+import { localStorgeGetItem } from '@/utils/storge';
 
 export const Header = () => {
   const profile = useRecoilValue(profileSelectBox);
@@ -19,7 +19,11 @@ export const Header = () => {
             <LogoWithText />
           </Link>
           <nav>
-            <NavigationList list={NavListIsLogin(isLogin())} />
+            <NavigationList
+              list={NavListIsLogin(
+                localStorgeGetItem('access_token') ? true : false
+              )}
+            />
           </nav>
         </_Column12>
         {profile && <ProfileSelectBox />}

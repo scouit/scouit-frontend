@@ -1,4 +1,4 @@
-import { Button } from '@/components/button';
+import { Button } from '@/components/common/button';
 import styled from 'styled-components';
 import { lio } from './Constants';
 

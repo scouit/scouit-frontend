@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Text } from '../text';
 import { ChangeEvent } from 'react';
 
-interface Props {
+interface PropsType {
   type?: 'number' | 'password' | 'text';
   label: string;
   margin?: string;
@@ -21,7 +21,7 @@ export const Input = ({
   onChange,
   name,
   value,
-}: Props) => {
+}: PropsType) => {
   return (
     <_Wrapper margin={margin}>
       <Text color="gray6" size="body2" margin="0 0 10px 0">

@@ -1,4 +1,4 @@
-import { Button } from '@/components/button';
+import { Button } from '@/components/common/button';
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { WriteProfile } from '@/components/navigation/write-profile';

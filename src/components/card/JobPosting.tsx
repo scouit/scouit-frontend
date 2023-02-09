@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Company } from '@/assets';
-import { Text } from '../text';
+import { Text } from '../common/text';
 import { Link } from 'react-router-dom';
 
 export const JobPostingCard = () => {

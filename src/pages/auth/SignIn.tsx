@@ -1,7 +1,7 @@
 import { LogoWithText } from '@/assets';
-import { Button } from '@/components/button';
-import { Input } from '@/components/input';
-import { Text } from '@/components/text';
+import { Button } from '@/components/common/button';
+import { Input } from '@/components/common/input';
+import { Text } from '@/components/common/text';
 import { AuthWrapper } from '@/layouts/Auth';
 import { useSignIn } from '@/hooks/useAuth';
 import { useForm } from '@/hooks/useForm';

@@ -1,5 +1,5 @@
-import { Button } from '@/components/button';
-import { Input } from '@/components/input';
+import { Button } from '@/components/common/button';
+import { Input } from '@/components/common/input';
 import { AuthWrapper } from '@/layouts/Auth';
 import { useSignUp } from '@/hooks/useAuth';
 import { useForm } from '@/hooks/useForm';

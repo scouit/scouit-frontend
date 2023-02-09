@@ -1,6 +1,6 @@
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
-import { Text } from '@/components/text';
+import { Text } from '@/components/common/text';
 
 export const FrequentlyAskedQuestionsPage = () => {
   return (

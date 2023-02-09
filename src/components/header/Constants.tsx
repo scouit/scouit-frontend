@@ -2,10 +2,6 @@ import { ProfileHeader } from './Profile';
 
 const nonMemberNavList = [
   {
-    name: '개발자 탐색',
-    link: '/developers',
-  },
-  {
     name: '채용공고',
     link: '/company/job-posting',
   },
@@ -16,10 +12,6 @@ const nonMemberNavList = [
 ];
 
 const memberNavList = [
-  {
-    name: '개발자 탐색',
-    link: '/developers',
-  },
   {
     name: '채용공고',
     link: '/company/job-posting',

@@ -1,8 +1,8 @@
 import { BookMark, Company, Share } from '@/assets';
-import { Button } from '@/components/button';
+import { Button } from '@/components/common/button';
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
-import { Text } from '@/components/text';
+import { Text } from '@/components/common/text';
 import { Columns12 } from '@/layouts/columns/12';
 import styled from 'styled-components';
 

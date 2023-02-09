@@ -5,8 +5,8 @@ import { profileSelectBox } from '@/store/modal';
 import { Link } from 'react-router-dom';
 import { useLogout } from '@/hooks/useAuth';
 import { Profile } from '@/assets';
-import { Button } from '../button';
-import { Text } from '../text';
+import { Button } from '../common/button';
+import { Text } from '../common/text';
 
 export const ProfileSelectBox = () => {
   const [profile, setProfile] = useRecoilState(profileSelectBox);

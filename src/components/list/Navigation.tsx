@@ -30,3 +30,7 @@ const _Wrapper = styled.ul`
   align-items: center;
   gap: 60px;
 `;
+
+// 1. 컴포넌트는 컴포넌트에게 의존할 수 없다.
+// 2. 컴포넌트는 common 폴더에게 의존할 수 있다.
+// 즉, common은 원자수준의 컴포넌트여야함

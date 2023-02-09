@@ -1,6 +1,6 @@
 import { Warning } from '@/assets';
-import { Button } from '@/components/button';
-import { Text } from '@/components/text';
+import { Button } from '@/components/common/button';
+import { Text } from '@/components/common/text';
 
 export const NotFound = () => {
   return (
