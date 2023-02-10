@@ -1,4 +1,4 @@
-import { Arrow, AuthBack } from '@/assets';
+import { Arrow } from '@/assets';
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -24,8 +24,6 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
             <Arrow direction="left" color="#005DE8" />
             뒤로가기
           </_GoHome>
-
-          <Text size="heading1">Sign in</Text>
 
           <form onSubmit={onSubmitPreventDefault}>{children}</form>
 
