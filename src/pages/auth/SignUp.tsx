@@ -5,7 +5,7 @@ import { useSignUp } from '@/hooks/useAuth';
 import { useForm } from '@/hooks/useForm';
 import { Text } from '@/components/common/text';
 import { Link } from 'react-router-dom';
-import { RowGap } from '@/layouts/RowGap';
+import { DirectionGap } from '@/layouts/DirectionGap';
 
 /** 프로필, 이메일 인증 추가 요망 */
 export const SignUpPage = () => {
@@ -21,7 +21,7 @@ export const SignUpPage = () => {
   return (
     <AuthWrapper onSubmit={() => signUpMutate.mutate()}>
       <Text size="heading1">Sign up</Text>
-      <RowGap gap="15px" margin='45px 0 40px 0'>
+      <DirectionGap direction="column" gap="15px" margin="45px 0 40px 0">
         <Input
           value={text.name}
           name="name"
@@ -48,7 +48,7 @@ export const SignUpPage = () => {
           label="비밀번호 확인"
           placeholder="비밀번호를 한 번 더 입력해주세요."
         />
-      </RowGap>
+      </DirectionGap>
       <Button>회원가입</Button>
       <Text margin="20px 0 0 0" align="center" size="body1">
         <Link to="/signin">로그인</Link> |
