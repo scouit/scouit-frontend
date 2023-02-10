@@ -22,6 +22,9 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
       <_ContentInner>
         <Button
           width="fit-content"
+          kind="text"
+          color="primaryDarken2"
+          margin='60px 0 54px 0'
           Icon={<Arrow direction="left" color="#005DE8" />}
         >
           뒤로가기
@@ -40,7 +43,7 @@ const _PolicyLink = styled.div`
   position: absolute;
   width: 524px;
   text-align: center;
-  bottom: 150px;
+  bottom: 30px;
 `;
 
 const _Content = styled.div`
@@ -54,4 +57,5 @@ const _Content = styled.div`
 const _ContentInner = styled.div`
   width: 524px;
   margin: 0 auto;
+  overflow: hidden;
 `;

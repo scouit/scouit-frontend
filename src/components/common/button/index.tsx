@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { ReactNode } from 'react';
+import { keyOfColor } from '@/styles/theme/color';
 
 type KindType = 'contain' | 'round' | 'text';
 type WidthType = 'fit-content' | '100%';
@@ -11,6 +12,7 @@ interface PropsType {
   margin?: string;
   children: ReactNode;
   Icon?: JSX.Element;
+  color?: keyOfColor;
 }
 
 export const Button = ({
@@ -20,9 +22,16 @@ export const Button = ({
   margin,
   children,
   Icon,
+  color,
 }: PropsType) => {
   return (
-    <_Wrapper width={width} onClick={onClick} kind={kind} margin={margin}>
+    <_Wrapper
+      width={width}
+      onClick={onClick}
+      kind={kind}
+      margin={margin}
+      color={color}
+    >
       {Icon && Icon}
       {children}
     </_Wrapper>
@@ -46,12 +55,12 @@ const _Wrapper = styled.button<{
   border: none;
   margin: ${({ margin }) => margin && margin};
   ${({ theme }) => theme.font.body2};
-  ${({ kind, theme }) => {
+  ${({ kind, theme, color }) => {
     switch (kind) {
       case 'contain':
         return css`
           background-color: ${theme.color.primary};
-          color: ${theme.color.gray1};
+          color: ${theme.color[color || 'gray1']};
           :hover {
             background-color: ${theme.color.primaryDarken1};
           }
@@ -63,7 +72,7 @@ const _Wrapper = styled.button<{
         return css`
           border-radius: 30px;
           background-color: ${theme.color.primary};
-          color: ${theme.color.gray1};
+          color: ${theme.color[color || 'gray1']};
           :hover {
             background-color: ${theme.color.primaryDarken1};
           }
@@ -74,6 +83,7 @@ const _Wrapper = styled.button<{
       case 'text':
         return css`
           background-color: ${({ theme }) => theme.color.gray1};
+          color: ${theme.color[color || 'gray10']};
           :hover {
             background-color: ${({ theme }) => theme.color.gray3};
           }
