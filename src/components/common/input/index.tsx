@@ -47,6 +47,7 @@ const _Input = styled.input`
   height: 46px;
   padding-left: 18px;
   border-radius: 4px;
+  border: 1px solid ${({theme}) => theme.color.gray5};
   ${({ theme }) => theme.font.body1};
   ::placeholder {
     color: ${({ theme }) => theme.color.gray5};
