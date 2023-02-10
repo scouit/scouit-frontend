@@ -22,20 +22,24 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
     <_Wrapper>
       <_Content>
         <_ContentInner>
-          <Button
-            width="fit-content"
-            kind="text"
-            color="primaryDarken2"
-            margin="50px 0 30px 0"
-            Icon={<Arrow direction="left" color="#005DE8" />}
-          >
-            뒤로가기
-          </Button>
-          <form onSubmit={onSubmitPreventDefault}>{children}</form>
-          <_PolicyLink>
-            <Link to="/signup">개인정보 처리방침</Link> •
-            <Link to="/reset-password"> 회원이용약관</Link>
-          </_PolicyLink>
+          <_ButtonAbsolute>
+            <Button
+              width="fit-content"
+              kind="text"
+              color="primaryDarken2"
+              Icon={<Arrow direction="left" color="#005DE8" />}
+            >
+              뒤로가기
+            </Button>
+          </_ButtonAbsolute>
+
+          <form onSubmit={onSubmitPreventDefault}>
+            <_AuthContent>{children}</_AuthContent>
+            <Text align="center" underLine={true}>
+              <Link to="/signup">개인정보 처리방침</Link> •&nbsp;
+              <Link to="/reset-password">회원이용약관</Link>
+            </Text>
+          </form>
         </_ContentInner>
       </_Content>
       <_BackgroundImg src={AuthBack} />
@@ -48,11 +52,13 @@ const _Wrapper = styled.div`
   display: flex;
 `;
 
-const _PolicyLink = styled.div`
+const _ButtonAbsolute = styled.div`
   position: absolute;
-  width: 524px;
-  text-align: center;
-  bottom: 30px;
+  top: 50px;
+`;
+
+const _AuthContent = styled.div`
+  height: 550px;
 `;
 
 const _Content = styled.div`
@@ -66,8 +72,12 @@ const _Content = styled.div`
 
 const _ContentInner = styled.div`
   width: 524px;
+  height: 100%;
   margin: 0 auto;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const _BackgroundImg = styled.img`

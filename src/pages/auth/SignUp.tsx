@@ -50,9 +50,9 @@ export const SignUpPage = () => {
         />
       </ColumnGap>
       <Button>회원가입</Button>
-      <Text margin="20px 0 0 0" align="center" size="body1">
-        <Link to="/signin">로그인</Link> |
-        <Link to="/reset-password"> 비밀번호 찾기</Link>
+      <Text margin="20px 0 0 0" align="center" size="body1" underLine={true}>
+        <Link to="/signin">로그인</Link> |&nbsp;
+        <Link to="/reset-password">비밀번호 찾기</Link>
       </Text>
     </AuthWrapper>
   );
