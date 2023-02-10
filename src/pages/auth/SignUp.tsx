@@ -19,6 +19,7 @@ export const SignUpPage = () => {
 
   return (
     <AuthWrapper onSubmit={() => signUpMutate.mutate()}>
+      <Text size="heading1">Sign up</Text>
       <Input
         value={text.name}
         margin="30px 0 20px 0"
