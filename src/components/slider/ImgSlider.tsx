@@ -10,13 +10,14 @@ export const ImgSlider = () => {
 
   return (
     <DirectionGap
+      margin="0 auto"
       direction="column"
       gap="40px"
       width="530px"
-      margin="50px 0 0 950px"
       align="center"
+      justify="center"
     >
-      <_SlideImage src={currentImg} />
+      <_DescriptionImg width={500} height={460} src={currentImg} />
       <DirectionGap direction="column" gap="16px">
         <Text size="title1" color="gray1">
           원하는 회사의 멋진 동료가
@@ -25,7 +26,6 @@ export const ImgSlider = () => {
           될 기회를 얻을 수 있어요.
         </Text>
       </DirectionGap>
-
       <DirectionGap direction="row" gap="46px">
         {Array(3)
           .fill(0)
@@ -41,8 +41,8 @@ export const ImgSlider = () => {
   );
 };
 
-const _SlideImage = styled.img`
-  height: 500px;
+const _DescriptionImg = styled.img`
+  object-fit: contain;
 `;
 
 const _IndexBall = styled.div<{ color: keyOfColor; hover: keyOfColor }>`

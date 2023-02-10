@@ -20,7 +20,7 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
   };
 
   return (
-    <>
+    <_Wrapper>
       <_Content>
         <_ContentInner>
           <Button
@@ -39,12 +39,15 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
           </_PolicyLink>
         </_ContentInner>
       </_Content>
-      <_BackgroundImg src={AuthBack}>
-        <ImgSlider />
-      </_BackgroundImg>
-    </>
+      <ImgSlider />
+      <_BackgroundImg src={AuthBack} />
+    </_Wrapper>
   );
 };
+
+const _Wrapper = styled.div`
+  display: flex;
+`;
 
 const _PolicyLink = styled.div`
   position: absolute;
@@ -68,11 +71,11 @@ const _ContentInner = styled.div`
   overflow: hidden;
 `;
 
-const _BackgroundImg = styled.div<{ src: string }>`
+const _BackgroundImg = styled.img`
   width: 100%;
   height: 100%;
   position: absolute;
+  z-index: -1;
   top: 0;
-  background-image: url(${({ src }) => src});
-  background-position: right;
+  object-fit: cover;
 `;
