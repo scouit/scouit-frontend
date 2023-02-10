@@ -21,7 +21,7 @@ export const SignUpPage = () => {
   return (
     <AuthWrapper onSubmit={() => signUpMutate.mutate()}>
       <Text size="heading1">Sign up</Text>
-      <RowGap gap="20px">
+      <RowGap gap="15px" margin='45px 0 40px 0'>
         <Input
           value={text.name}
           name="name"
