@@ -1,8 +1,9 @@
-import { Arrow } from '@/assets';
+import { Arrow, AuthBack } from '@/assets';
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FormEvent } from 'react';
+import { Text } from '@/components/common/text';
 
 interface PropsType {
   children: ReactNode;
@@ -17,37 +18,51 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
 
   return (
     <_Wrapper>
-      <_GoHome to="/">
-        <Arrow direction="left" />
-        홈으로 이동
-      </_GoHome>
-      <_Box onSubmit={onSubmitPreventDefault}>
-        <div>{children}</div>
-      </_Box>
+      <_AuthWhiteBox>
+        <div>
+          <_GoHome to="/">
+            <Arrow direction="left" color="#005DE8" />
+            뒤로가기
+          </_GoHome>
+
+          <Text size="heading1">Sign in</Text>
+
+          <form onSubmit={onSubmitPreventDefault}>{children}</form>
+
+          <_SetFixPolicyLink>
+            <Link to="/signup">개인정보 처리방침</Link> •
+            <Link to="/reset-password"> 회원이용약관</Link>
+          </_SetFixPolicyLink>
+        </div>
+      </_AuthWhiteBox>
     </_Wrapper>
   );
 };
 
 const _GoHome = styled(Link)`
-  position: absolute;
-  top: 79px;
-  left: 170px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  color: ${({ theme }) => theme.color.primaryDarken2};
+  margin: 50px 0;
 `;
 
 const _Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
 `;
 
-const _Box = styled.form`
-  width: 621px;
-  height: 800px;
+const _SetFixPolicyLink = styled.div`
+  position: absolute;
+  width: 524px;
+  text-align:center;
+  bottom: 10%;
+`;
+
+const _AuthWhiteBox = styled.div`
+  float: left;
+  width: 718px;
+  height: 100%;
   border-radius: 2px;
+  background-color: ${({ theme }) => theme.color.gray1};
   box-shadow: ${({ theme }) => theme.shadow.modal};
   > div {
     width: 524px;
