@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Text } from '../text';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
+import { EyeClose, EyeOpen } from '@/assets';
 
 interface PropsType {
   type?: 'number' | 'password' | 'text';
@@ -22,6 +23,8 @@ export const Input = ({
   name,
   value,
 }: PropsType) => {
+  const [isEyeOpen, setOpen] = useState<boolean>(false);
+  const isPassWord = type === 'password';
   return (
     <_Wrapper margin={margin}>
       <Text color="gray6" size="body2" margin="0 0 10px 0">
@@ -31,14 +34,20 @@ export const Input = ({
         name={name}
         value={value}
         onChange={onChange}
-        type={type}
+        type={isPassWord && (isEyeOpen ? 'text' : 'password')}
         placeholder={placeholder}
       />
+      {
+        <_EyeIcon onClick={() => setOpen(!isEyeOpen)}>
+          {isPassWord && (isEyeOpen ? <EyeOpen /> : <EyeClose />)}
+        </_EyeIcon>
+      }
     </_Wrapper>
   );
 };
 
 const _Wrapper = styled.div<{ margin: string }>`
+  position: relative;
   margin: ${({ margin }) => margin && margin};
 `;
 
@@ -47,9 +56,15 @@ const _Input = styled.input`
   height: 46px;
   padding-left: 18px;
   border-radius: 4px;
-  border: 1px solid ${({theme}) => theme.color.gray5};
+  border: 1px solid ${({ theme }) => theme.color.gray5};
   ${({ theme }) => theme.font.body1};
   ::placeholder {
     color: ${({ theme }) => theme.color.gray5};
   }
+`;
+
+const _EyeIcon = styled.div`
+  position: absolute;
+  right: 15px;
+  bottom: 12px;
 `;

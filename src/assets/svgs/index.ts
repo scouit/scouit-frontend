@@ -7,3 +7,5 @@ export * from './Close';
 export * from './BookMark';
 export * from './Share';
 export * from './Warning';
+export * from './EyeClose';
+export * from './EyeOpen';
