@@ -1,31 +1,46 @@
 import styled, { css } from 'styled-components';
 import { ReactNode } from 'react';
 
-type kindType = 'contain' | 'round' | 'text';
+type KindType = 'contain' | 'round' | 'text';
+type WidthType = 'fit-content' | '100%';
 
-interface Props {
-  kind?: kindType;
+interface PropsType {
+  width?: WidthType;
+  kind?: KindType;
   onClick?: () => void;
   margin?: string;
   children: ReactNode;
+  Icon?: JSX.Element;
 }
 
 export const Button = ({
+  width = '100%',
   kind = 'contain',
   onClick,
   margin,
   children,
-}: Props) => {
+  Icon,
+}: PropsType) => {
   return (
-    <_Wrapper onClick={onClick} kind={kind} margin={margin}>
+    <_Wrapper width={width} onClick={onClick} kind={kind} margin={margin}>
+      {Icon && Icon}
       {children}
     </_Wrapper>
   );
 };
 
-const _Wrapper = styled.button<{ kind: kindType; margin: string }>`
+const _Wrapper = styled.button<{
+  kind: KindType;
+  margin: string;
+  width: WidthType;
+}>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 16px;
   border-radius: 2px;
-  width: 100%;
+  width: ${({ width }) => width};
   height: 43px;
   cursor: pointer;
   border: none;
