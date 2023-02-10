@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { FormEvent } from 'react';
 import { Text } from '@/components/common/text';
 import { Button } from '@/components/common/button';
-import { DirectionGap } from './DirectionGap';
 import { ImgSlider } from '@/components/slider/ImgSlider';
 
 interface PropsType {
@@ -39,8 +38,8 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
           </_PolicyLink>
         </_ContentInner>
       </_Content>
-      <ImgSlider />
       <_BackgroundImg src={AuthBack} />
+      <ImgSlider />
     </_Wrapper>
   );
 };

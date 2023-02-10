@@ -1,32 +1,26 @@
 import { IMac, LabTap, IPhone } from '@/assets';
 import { useSlide } from '@/hooks/useSlide';
-import { DirectionGap } from '@/layouts/DirectionGap';
 import { keyOfColor } from '@/styles/theme/color';
 import styled from 'styled-components';
 import { Text } from '../common/text';
+import { ColumnGap } from '@/layouts/ColumnGap';
+import { RowGap } from '@/layouts/RowGap';
 
 export const ImgSlider = () => {
   const { currentImg, count, setCount } = useSlide(LabTap, IMac, IPhone);
 
   return (
-    <DirectionGap
-      margin="0 auto"
-      direction="column"
-      gap="40px"
-      width="530px"
-      align="center"
-      justify="center"
-    >
+    <_Wrapper>
       <_DescriptionImg width={500} height={460} src={currentImg} />
-      <DirectionGap direction="column" gap="16px">
+      <ColumnGap gap="16px">
         <Text size="title1" color="gray1">
           원하는 회사의 멋진 동료가
         </Text>
         <Text size="title1" color="gray1">
           될 기회를 얻을 수 있어요.
         </Text>
-      </DirectionGap>
-      <DirectionGap direction="row" gap="46px">
+      </ColumnGap>
+      <RowGap gap="46px">
         {Array(3)
           .fill(0)
           .map((_, idx) => (
@@ -36,10 +30,20 @@ export const ImgSlider = () => {
               onClick={() => setCount(idx)}
             />
           ))}
-      </DirectionGap>
-    </DirectionGap>
+      </RowGap>
+    </_Wrapper>
   );
 };
+
+const _Wrapper = styled.div`
+  width: 530px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 0 auto;
+`;
 
 const _DescriptionImg = styled.img`
   object-fit: contain;
