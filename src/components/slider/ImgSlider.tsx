@@ -5,13 +5,15 @@ import styled from 'styled-components';
 import { Text } from '../common/text';
 import { ColumnGap } from '@/layouts/ColumnGap';
 import { RowGap } from '@/layouts/RowGap';
+import { useState } from 'react';
 
 export const ImgSlider = () => {
-  const { currentImg, count, setCount } = useSlide(LabTap, IMac, IPhone);
+  const [count, setCount] = useState<number>(0);
+  const ImgArr = [LabTap, IMac, IPhone];
 
   return (
     <_Wrapper>
-      <_DescriptionImg width={500} height={460} src={currentImg} />
+      <_DescriptionImg width={500} height={460} src={ImgArr[count % 3]} />
       <ColumnGap gap="16px">
         <Text size="title1" color="gray1">
           원하는 회사의 멋진 동료가
@@ -47,6 +49,21 @@ const _Wrapper = styled.div`
 
 const _DescriptionImg = styled.img`
   object-fit: contain;
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  animation: appear 3s forwards;
 `;
 
 const _IndexBall = styled.div<{ color: keyOfColor; hover: keyOfColor }>`
