@@ -49,6 +49,9 @@ const _Wrapper = styled.div`
   align-items: center;
   gap: 40px;
   margin: 0 auto;
+  @media screen and (max-width: 1050px) {
+    display: none;
+  }
 `;
 
 const _IndexBall = styled.div<{ color: keyOfColor; hover: keyOfColor }>`

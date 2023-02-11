@@ -50,6 +50,7 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
 
 const _Wrapper = styled.div`
   display: flex;
+  justify-content: center;
 `;
 
 const _ButtonAbsolute = styled.div`
@@ -68,6 +69,9 @@ const _Content = styled.div`
   box-shadow: ${({ theme }) => theme.shadow.modal};
   position: relative;
   z-index: 1;
+  @media screen and (max-width: 1050px) {
+    box-shadow: none;
+  }
 `;
 
 const _ContentInner = styled.div`
@@ -87,4 +91,7 @@ const _BackgroundImg = styled.img`
   z-index: -1;
   top: 0;
   object-fit: cover;
+  @media screen and (max-width: 1050px) {
+    display: none;
+  }
 `;
