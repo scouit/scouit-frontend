@@ -1,3 +1,4 @@
+import { keyOfColor } from '@/styles/theme/color';
 import { Theme } from 'react-toastify';
 import { ThemeProps } from 'styled-components';
 
@@ -5,7 +6,7 @@ type directionType = 'left' | 'right' | 'top' | 'bottom';
 
 interface Props {
   direction: directionType;
-  color: string;
+  color: keyOfColor;
 }
 
 export const Arrow = ({ direction, color }: Props) => {
