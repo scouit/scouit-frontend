@@ -22,7 +22,7 @@ export const Button = ({
   margin,
   children,
   Icon,
-  color,
+  color = 'gray1',
 }: PropsType) => {
   return (
     <_Wrapper
@@ -60,7 +60,7 @@ const _Wrapper = styled.button<{
       case 'contain':
         return css`
           background-color: ${theme.color.primary};
-          color: ${theme.color[color || 'gray1']};
+          color: ${theme.color[color]};
           :hover {
             background-color: ${theme.color.primaryDarken1};
           }
@@ -72,7 +72,7 @@ const _Wrapper = styled.button<{
         return css`
           border-radius: 30px;
           background-color: ${theme.color.primary};
-          color: ${theme.color[color || 'gray1']};
+          color: ${theme.color[color]};
           :hover {
             background-color: ${theme.color.primaryDarken1};
           }
@@ -83,7 +83,7 @@ const _Wrapper = styled.button<{
       case 'text':
         return css`
           background-color: ${({ theme }) => theme.color.gray1};
-          color: ${theme.color[color || 'gray10']};
+          color: ${theme.color[color]};
           :hover {
             background-color: ${({ theme }) => theme.color.gray3};
           }
