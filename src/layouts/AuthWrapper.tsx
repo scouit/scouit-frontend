@@ -35,7 +35,7 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
 
           <form onSubmit={onSubmitPreventDefault}>
             <_AuthContent>{children}</_AuthContent>
-            <Text align="center" underLine={true}>
+            <Text align="center" underLine={true} margin="30px 0 0 0">
               <Link to="/signup">개인정보 처리방침</Link> •&nbsp;
               <Link to="/reset-password">회원이용약관</Link>
             </Text>
@@ -54,7 +54,7 @@ const _Wrapper = styled.div`
 
 const _ButtonAbsolute = styled.div`
   position: absolute;
-  top: 50px;
+  top: 30px;
 `;
 
 const _AuthContent = styled.div`

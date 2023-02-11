@@ -26,12 +26,16 @@ export const SignUpPage = () => {
           value={text.name}
           name="name"
           label="이름"
+          onChange={handleOnChange}
           placeholder="이름을 입력해주세요."
+          error={text.name.length < 1 || text.name.length > 11}
+          errorMes="이름을 2자 이상 10자 이하로 설정해 주세요"
         />
         <Input
           value={text.email}
           name="email"
           label="이메일"
+          onChange={handleOnChange}
           placeholder="이메일을 입력해주세요."
         />
         <Input
@@ -39,14 +43,24 @@ export const SignUpPage = () => {
           name="password"
           type="password"
           label="비밀번호"
+          onChange={handleOnChange}
           placeholder="비밀번호를 입력해주세요."
+          error={
+            text.password.length < 8 ||
+            !/[~!@#$%^&*{}()|[\]\\]/g.test(text.password) ||
+            !/[A-Z]/g.test(text.password)
+          }
+          errorMes="비밀번호가 너무 짧거나 특수 문자를 넣어주세요"
         />
         <Input
           value={text.passwordCheck}
           name="passwordCheck"
           type="password"
           label="비밀번호 확인"
+          onChange={handleOnChange}
           placeholder="비밀번호를 한 번 더 입력해주세요."
+          error={text.passwordCheck !== text.password}
+          errorMes="비밀번호가 틀립니다."
         />
       </ColumnGap>
       <Button>회원가입</Button>
