@@ -27,12 +27,11 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
               width="fit-content"
               kind="text"
               color="primaryDarken2"
-              Icon={<Arrow direction="left" color="#005DE8" />}
+              Icon={<Arrow direction="left" color="primary" />}
             >
               뒤로가기
             </Button>
           </_ButtonAbsolute>
-
           <form onSubmit={onSubmitPreventDefault}>
             <_AuthContent>{children}</_AuthContent>
             <Text align="center" underLine={true} margin="30px 0 0 0">
