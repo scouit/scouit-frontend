@@ -30,7 +30,6 @@ export const SignUpPage = () => {
   };
 
   const signUpMutate = useSignUp(text);
-  console.log(showError)
 
   return (
     <AuthWrapper
