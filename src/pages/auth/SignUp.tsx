@@ -1,6 +1,5 @@
 import { Button } from '@/components/common/button';
 import { Input } from '@/components/common/input';
-import { PasswordInput } from '@/components/common/input';
 import { AuthWrapper } from '@/layouts/AuthWrapper';
 import { useSignUp } from '@/hooks/useAuth';
 import { useForm } from '@/hooks/useForm';
@@ -57,47 +56,56 @@ export const SignUpPage = () => {
       }}
     >
       <Text size="heading1">Sign up</Text>
-      <ColumnCenterGap gap="15px" margin="45px 0 40px 0">
+      <ColumnCenterGap gap="16px" margin="45px 0 40px 0">
         <Input
-          value={text.name}
-          name="name"
-          label="이름"
+          type="text"
+          name="email"
+          placeholder="example@email.com"
+          label="아이디"
+          value={text.email}
           onChange={handleOnChange}
-          placeholder="이름을 입력해주세요."
-          formError={isError.name}
+        />
+        <Input
+          type="text"
+          name="name"
+          placeholder="홍길동"
+          label="이름"
+          value={text.name}
+          onChange={handleOnChange}
+          isError={isError.name}
           errorMsg="이름을 2자 이상 10자 이하로 설정해 주세요"
         />
         <Input
-          value={text.email}
-          name="email"
-          label="이메일"
-          onChange={handleOnChange}
-          placeholder="이메일을 입력해주세요."
-        />
-        <PasswordInput
-          value={text.password}
+          type="password"
           name="password"
+          placeholder="•••••••••••"
           label="비밀번호"
+          value={text.password}
           onChange={handleOnChange}
-          placeholder="비밀번호를 입력해주세요."
-          formError={isError.password}
+          isError={isError.password}
           errorMsg="비밀번호가 너무 짧거나 대문자와 특수 문자를 넣어주세요"
         />
-        <PasswordInput
-          value={text.passwordCheck}
+        <Input
+          type="password"
           name="passwordCheck"
+          placeholder="•••••••••••"
           label="비밀번호 확인"
+          value={text.passwordCheck}
           onChange={handleOnChange}
-          placeholder="비밀번호를 한 번 더 입력해주세요."
-          formError={isError.passwordCheck}
+          isError={isError.passwordCheck}
           errorMsg="비밀번호가 틀립니다."
         />
       </ColumnCenterGap>
-      <Button>회원가입</Button>
-      <Text margin="20px 0 0 0" align="center" size="body1" underLine={true}>
-        <Link to="/signin">로그인</Link> |{' '}
-        <Link to="/reset-password">비밀번호 찾기</Link>
-      </Text>
+      <Button size="heading3">회원가입</Button>
+      <Button
+        size="heading3"
+        type="button"
+        kind="text"
+        color="gray6"
+        margin="10px 0 0 0"
+      >
+        <Link to="/signin">로그인</Link>
+      </Button>
     </AuthWrapper>
   );
 };

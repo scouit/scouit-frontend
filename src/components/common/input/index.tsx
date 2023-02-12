@@ -1,108 +1,79 @@
+import { EyeClose, EyeOpen } from '@/assets';
+import { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
 import { Text } from '../text';
-import { ChangeEvent, useState } from 'react';
-import { EyeClose, EyeOpen } from '@/assets';
 
 interface PropsType {
-  type?: 'number' | 'password' | 'text';
-  label: string;
-  placeholder: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  type?: 'text' | 'password';
   name?: string;
-  value?: string;
-  formError?: boolean | null;
+  placeholder: string;
+  margin?: string;
+  label?: string;
+  isError?: boolean;
   errorMsg?: string;
+  value?: string;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-type InputType = PropsType & { margin?: string };
-
-const BaseInput = ({
+export const Input = ({
   type = 'text',
-  label,
-  placeholder,
-  onChange,
   name,
+  placeholder,
+  margin,
+  label,
+  isError = false,
+  errorMsg = 'error message',
   value,
-  formError = null,
-  errorMsg = '',
-}: InputType) => {
+  onChange,
+}: PropsType) => {
+  const [isEyeOpen, setEyeOpen] = useState<boolean>(false);
   return (
-    <>
-      <Text color="gray6" size="body2" margin="0 0 10px 0">
+    <_Wrapper margin={margin}>
+      <Text size="body2" color="gray6" margin="0 0 11px">
         {label}
       </Text>
-      <_Content>
-        <_Input
-          name={name}
-          value={value}
-          onChange={onChange}
-          type={type}
-          placeholder={placeholder}
-          formError={formError === null ? null : formError}
-        />
-        {formError && (
-          <Text color="error" size="body4" margin="2px 0 0 16px">
-            {errorMsg}
-          </Text>
-        )}
-      </_Content>
-    </>
-  );
-};
-
-export const Input = (props: InputType) => {
-  return (
-    <_Wrapper margin={props.margin}>
-      <BaseInput {...props} />
-    </_Wrapper>
-  );
-};
-
-export const PasswordInput = (props: InputType) => {
-  const [isEyeOpen, setOpen] = useState<boolean>(false);
-  return (
-    <_Wrapper margin={props.margin}>
-      <BaseInput {...props} />
-      <_Eye onClick={() => setOpen(!isEyeOpen)}>
-        {isEyeOpen ? <EyeOpen /> : <EyeClose />}
-      </_Eye>
+      <_Input
+        type={isEyeOpen ? 'text' : type}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        isError={isError}
+      />
+      <Text size="body4" color="error" margin="0 0 0 16px">
+        {isError && errorMsg}
+      </Text>
+      {type === 'password' && (
+        <_Eye onClick={() => setEyeOpen(!isEyeOpen)}>
+          {isEyeOpen ? <EyeOpen /> : <EyeClose />}
+        </_Eye>
+      )}
     </_Wrapper>
   );
 };
 
 const _Wrapper = styled.div<{ margin: string }>`
   position: relative;
-  margin: ${({ margin }) => margin && margin};
+  margin: ${({ margin }) => margin};
 `;
 
-const _Content = styled.div`
-  height: 58px;
-`;
-
-export const _Input = styled.input<{ formError: boolean | null }>`
-  width: 500px;
-  height: 46px;
-  padding-left: 18px;
-  border-radius: 4px;
-  outline: 0;
-  border: 1px solid
-    ${({ theme, formError }) =>
-      theme.color[
-        formError === null ? 'gray5' : formError ? 'error' : 'primary'
-      ]};
+const _Input = styled.input<{ isError: boolean }>`
+  border: 0;
+  outline: 1px solid
+    ${({ theme, isError }) => theme.color[isError ? 'error' : 'gray5']};
   ${({ theme }) => theme.font.body1};
-  ::placeholder {
-    color: ${({ theme }) => theme.color.gray5};
-  }
+  width: 100%;
+  height: 46px;
+  padding-left: 16px;
+  border-radius: 4px;
+  box-sizing: border-box;
   :focus {
-    border: 1px solid
-      ${({ theme, formError }) => theme.color[formError ? 'error' : 'primary']};
+    outline: 2px solid ${({ theme }) => theme.color.primary};
   }
 `;
 
 const _Eye = styled.div`
   position: absolute;
-  right: 15px;
-  bottom: 20px;
-  cursor: pointer;
+  top: 36px;
+  right: 12px;
 `;
