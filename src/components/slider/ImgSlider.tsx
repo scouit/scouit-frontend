@@ -3,8 +3,7 @@ import { useSlide } from '@/hooks/useSlide';
 import { keyOfColor } from '@/styles/theme/color';
 import styled from 'styled-components';
 import { Text } from '../common/text';
-import { ColumnGap } from '@/layouts/ColumnGap';
-import { RowGap } from '@/layouts/RowGap';
+import { ColumnGap, RowGap } from '@/layouts/DirectionGap';
 
 export const ImgSlider = () => {
   const { currentImg, count, setCount } = useSlide(LabTap, IMac, IPhone);
