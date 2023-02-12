@@ -33,7 +33,6 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
               뒤로가기
             </Button>
           </Link>
-
           <form onSubmit={onSubmitPreventDefault}>
             <_AuthContent>{children}</_AuthContent>
             <Text align="center" underLine={true} margin="30px 0 0 0">
