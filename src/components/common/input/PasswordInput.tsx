@@ -85,4 +85,5 @@ const _EyeIcon = styled.div`
   position: absolute;
   right: 15px;
   bottom: 20px;
+  cursor: pointer;
 `;
