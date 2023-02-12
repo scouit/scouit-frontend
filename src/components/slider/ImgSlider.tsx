@@ -4,17 +4,17 @@ import { keyOfColor } from '@/styles/theme/color';
 import styled from 'styled-components';
 import { Text } from '../common/text';
 import { ColumnGap, RowGap } from '@/layouts/DirectionGap';
+import { appear } from '@/animation/slider';
 
 export const ImgSlider = () => {
-  const { currentImg, count, setCount } = useSlide(LabTap, IMac, IPhone);
-  const animeArr = ['appear1', 'appear2', 'appear3'];
+  const { ref, currentImg, count, setCount } = useSlide(LabTap, IMac, IPhone);
 
   return (
     <_Wrapper>
       <_DescriptionImg
         width={500}
         height={460}
-        anime={animeArr[count % 3]}
+        ref={ref}
         src={currentImg}
       />
       <ColumnGap gap="16px">
@@ -29,7 +29,7 @@ export const ImgSlider = () => {
         {Array(3)
           .fill(0)
           .map((_, idx) => (
-            <_IndexBall
+            <_Ball
               color={idx === count % 3 ? 'primary' : 'gray1'}
               hover={idx === count % 3 ? 'primary' : 'gray4'}
               onClick={() => setCount(idx)}
@@ -53,7 +53,7 @@ const _Wrapper = styled.div`
   }
 `;
 
-const _IndexBall = styled.div<{ color: keyOfColor; hover: keyOfColor }>`
+const _Ball = styled.div<{ color: keyOfColor; hover: keyOfColor }>`
   width: 15px;
   height: 15px;
   cursor: pointer;
@@ -65,49 +65,7 @@ const _IndexBall = styled.div<{ color: keyOfColor; hover: keyOfColor }>`
   }
 `;
 
-const _DescriptionImg = styled.img<{ anime: string }>`
+const _DescriptionImg = styled.img`
   object-fit: contain;
-  animation: ${({ anime }) => anime} 3s forwards;
-  @keyframes appear1 {
-    0% {
-      opacity: 0;
-    }
-    20% {
-      opacity: 1;
-    }
-    80% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-  @keyframes appear2 {
-    0% {
-      opacity: 0;
-    }
-    20% {
-      opacity: 1;
-    }
-    80% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-  @keyframes appear3 {
-    0% {
-      opacity: 0;
-    }
-    20% {
-      opacity: 1;
-    }
-    80% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
+  animation: ${appear} 3s forwards;
 `;
