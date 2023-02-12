@@ -22,16 +22,15 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
     <_Wrapper>
       <_Content>
         <_ContentInner>
-          <_ButtonAbsolute>
-            <Button
-              width="fit-content"
-              kind="text"
-              color="primaryDarken2"
-              Icon={<Arrow direction="left" color="primary" />}
-            >
-              뒤로가기
-            </Button>
-          </_ButtonAbsolute>
+          <Button
+            width="fit-content"
+            kind="text"
+            color="primaryDarken2"
+            Icon={<Arrow direction="left" color="primary" />}
+            margin="0 0 50px 0"
+          >
+            뒤로가기
+          </Button>
           <form onSubmit={onSubmitPreventDefault}>
             <_AuthContent>{children}</_AuthContent>
             <Text align="center" underLine={true} margin="30px 0 0 0">
@@ -50,11 +49,6 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
 const _Wrapper = styled.div`
   display: flex;
   justify-content: center;
-`;
-
-const _ButtonAbsolute = styled.div`
-  position: absolute;
-  top: 30px;
 `;
 
 const _AuthContent = styled.div`
