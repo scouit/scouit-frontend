@@ -4,7 +4,6 @@ import { ChangeEvent, useState } from 'react';
 import { EyeClose, EyeOpen } from '@/assets';
 
 interface PropsType {
-  type?: 'number' | 'password' | 'text';
   label: string;
   margin?: string;
   placeholder: string;
@@ -16,8 +15,7 @@ interface PropsType {
 }
 
 /* type password 눈깔 추가 요망 */
-export const Input = ({
-  type = 'text',
+export const PasswordInput = ({
   label,
   margin,
   placeholder,
@@ -27,7 +25,9 @@ export const Input = ({
   error = null,
   errorMes,
 }: PropsType) => {
+  const [isEyeOpen, setOpen] = useState<boolean>(false);
   const [isError, setError] = useState<boolean | null>(null);
+
   return (
     <_Wrapper margin={margin}>
       <Text color="gray6" size="body2" margin="0 0 10px 0">
@@ -38,7 +38,7 @@ export const Input = ({
           name={name}
           value={value}
           onChange={onChange}
-          type={type}
+          type={isEyeOpen ? 'text' : 'password'}
           placeholder={placeholder}
           isError={error === null ? null : isError}
           onBlur={() => setError(error)}
@@ -49,6 +49,11 @@ export const Input = ({
           </Text>
         )}
       </_Content>
+      {
+        <_EyeIcon onClick={() => setOpen(!isEyeOpen)}>
+          {isEyeOpen ? <EyeOpen /> : <EyeClose />}
+        </_EyeIcon>
+      }
     </_Wrapper>
   );
 };
