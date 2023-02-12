@@ -16,7 +16,6 @@ interface PropsType {
   errorMes?: string;
 }
 
-/* type password 눈깔 추가 요망 */
 export const Input = ({
   type = 'text',
   label,
