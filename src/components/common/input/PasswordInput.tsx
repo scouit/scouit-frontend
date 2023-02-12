@@ -52,9 +52,9 @@ export const PasswordInput = ({
         )}
       </_Content>
       {
-        <_EyeIcon onClick={() => setOpen(!isEyeOpen)}>
+        <_Eye onClick={() => setOpen(!isEyeOpen)}>
           {isEyeOpen ? <EyeOpen /> : <EyeClose />}
-        </_EyeIcon>
+        </_Eye>
       }
     </_Wrapper>
   );
@@ -88,7 +88,7 @@ const _Input = styled.input<{ isError: boolean | null }>`
   }
 `;
 
-const _EyeIcon = styled.div`
+const _Eye = styled.div`
   position: absolute;
   right: 15px;
   bottom: 20px;

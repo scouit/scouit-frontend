@@ -82,9 +82,3 @@ const _Input = styled.input<{ isError: boolean | null }>`
       ${({ theme, isError }) => theme.color[isError ? 'error' : 'primary']};
   }
 `;
-
-const _EyeIcon = styled.div`
-  position: absolute;
-  right: 15px;
-  bottom: 20px;
-`;
