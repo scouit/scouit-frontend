@@ -22,15 +22,18 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
     <_Wrapper>
       <_Content>
         <_ContentInner>
-          <Button
-            width="fit-content"
-            kind="text"
-            color="primaryDarken2"
-            Icon={<Arrow direction="left" color="primary" />}
-            margin="0 0 50px 0"
-          >
-            뒤로가기
-          </Button>
+          <Link to="/">
+            <Button
+              width="fit-content"
+              kind="text"
+              color="primaryDarken2"
+              Icon={<Arrow direction="left" color="primary" />}
+              margin="0 0 50px 0"
+            >
+              뒤로가기
+            </Button>
+          </Link>
+
           <form onSubmit={onSubmitPreventDefault}>
             <_AuthContent>{children}</_AuthContent>
             <Text align="center" underLine={true} margin="30px 0 0 0">
