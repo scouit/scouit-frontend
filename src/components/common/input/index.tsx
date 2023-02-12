@@ -11,6 +11,7 @@ interface PropsType {
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   name?: string;
   value?: string;
+  showError?: boolean;
   error?: boolean;
   errorMes?: string;
 }
@@ -24,8 +25,9 @@ export const Input = ({
   onChange,
   name,
   value,
+  showError = false,
   error = null,
-  errorMes,
+  errorMes = '',
 }: PropsType) => {
   const [isError, setError] = useState<boolean | null>(null);
   return (
@@ -40,10 +42,10 @@ export const Input = ({
           onChange={onChange}
           type={type}
           placeholder={placeholder}
-          isError={error === null ? null : isError}
+          isError={error === null || !showError ? null : isError}
           onBlur={() => setError(error)}
         />
-        {isError && (
+        {showError && (
           <Text color="error" size="body4" margin="2px 0 0 16px">
             {errorMes}
           </Text>

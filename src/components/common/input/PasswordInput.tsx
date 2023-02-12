@@ -10,6 +10,7 @@ interface PropsType {
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   name?: string;
   value?: string;
+  showError?: boolean;
   error?: boolean;
   errorMes?: string;
 }
@@ -22,8 +23,9 @@ export const PasswordInput = ({
   onChange,
   name,
   value,
+  showError = false,
   error = null,
-  errorMes,
+  errorMes = '',
 }: PropsType) => {
   const [isEyeOpen, setOpen] = useState<boolean>(false);
   const [isError, setError] = useState<boolean | null>(null);
@@ -40,10 +42,10 @@ export const PasswordInput = ({
           onChange={onChange}
           type={isEyeOpen ? 'text' : 'password'}
           placeholder={placeholder}
-          isError={error === null ? null : isError}
-          onBlur={() => setError(error)}
+          isError={error === null || !showError ? null : isError}
+          onFocus={() => setError(error)}
         />
-        {isError && (
+        {showError && (
           <Text color="error" size="body4" margin="2px 0 0 16px">
             {errorMes}
           </Text>
