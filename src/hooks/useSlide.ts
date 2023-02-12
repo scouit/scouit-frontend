@@ -7,8 +7,8 @@ export const useSlide = (...arg: string[]) => {
   useEffect(() => {
     const countTime = setTimeout(() => {
       setCount(count + 1);
-      restartAnime();
     }, 3000);
+    restartAnime();
     return () => {
       clearTimeout(countTime);
     };
