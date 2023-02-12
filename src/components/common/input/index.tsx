@@ -67,12 +67,17 @@ const _Input = styled.input<{ isError: boolean | null }>`
   height: 46px;
   padding-left: 18px;
   border-radius: 4px;
+  outline: 0;
   border: 1px solid
     ${({ theme, isError }) =>
       theme.color[isError === null ? 'gray5' : isError ? 'error' : 'primary']};
   ${({ theme }) => theme.font.body1};
   ::placeholder {
     color: ${({ theme }) => theme.color.gray5};
+  }
+  :focus {
+    border: 1px solid
+      ${({ theme, isError }) => theme.color[isError ? 'error' : 'primary']};
   }
 `;
 
