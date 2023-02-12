@@ -7,20 +7,36 @@ import { useForm } from '@/hooks/useForm';
 import { Text } from '@/components/common/text';
 import { Link } from 'react-router-dom';
 import { ColumnCenterGap } from '@/layouts/DirectionGap';
+import { customToast } from '@/utils/toast';
 
 /** 프로필, 이메일 인증 추가 요망 */
 export const SignUpPage = () => {
   const { text, handleOnChange } = useForm({
-    name: '조상현',
-    email: 'lokijoji2@gmail.com',
-    password: 'iggso821',
-    passwordCheck: 'iggso821',
+    name: '',
+    email: '',
+    password: '',
+    passwordCheck: '',
   });
+
+  const errorType = {
+    name: text.name.length < 1 || text.name.length > 11,
+    password:
+      text.password.length < 8 ||
+      !/[~!@#$%^&*{}()|[\]\\]/g.test(text.password) ||
+      !/[A-Z]/g.test(text.password),
+    passwordCheck: text.passwordCheck !== text.password,
+  };
 
   const signUpMutate = useSignUp(text);
 
   return (
-    <AuthWrapper onSubmit={() => signUpMutate.mutate()}>
+    <AuthWrapper
+      onSubmit={() => {
+        const { name, password, passwordCheck } = errorType;
+        if (!name && !password && !passwordCheck) signUpMutate.mutate();
+        else customToast('입력한 값을 다시 확인해 주세요', 'error');
+      }}
+    >
       <Text size="heading1">Sign up</Text>
       <ColumnCenterGap gap="15px" margin="45px 0 40px 0">
         <Input
@@ -29,7 +45,7 @@ export const SignUpPage = () => {
           label="이름"
           onChange={handleOnChange}
           placeholder="이름을 입력해주세요."
-          error={text.name.length < 1 || text.name.length > 11}
+          error={errorType.name}
           errorMes="이름을 2자 이상 10자 이하로 설정해 주세요"
         />
         <Input
@@ -45,12 +61,8 @@ export const SignUpPage = () => {
           label="비밀번호"
           onChange={handleOnChange}
           placeholder="비밀번호를 입력해주세요."
-          error={
-            text.password.length < 8 ||
-            !/[~!@#$%^&*{}()|[\]\\]/g.test(text.password) ||
-            !/[A-Z]/g.test(text.password)
-          }
-          errorMes="비밀번호가 너무 짧거나 특수 문자를 넣어주세요"
+          error={errorType.password}
+          errorMes="비밀번호가 너무 짧거나 대문자와 특수 문자를 넣어주세요"
         />
         <PasswordInput
           value={text.passwordCheck}
@@ -58,7 +70,7 @@ export const SignUpPage = () => {
           label="비밀번호 확인"
           onChange={handleOnChange}
           placeholder="비밀번호를 한 번 더 입력해주세요."
-          error={text.passwordCheck !== text.password}
+          error={errorType.passwordCheck}
           errorMes="비밀번호가 틀립니다."
         />
       </ColumnCenterGap>
