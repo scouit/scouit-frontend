@@ -58,7 +58,6 @@ const _Wrapper = styled.div<{ margin: string }>`
 `;
 
 const _Input = styled.input<{ isError: boolean }>`
-  outline: 0;
   border: 1px solid
     ${({ theme, isError }) => theme.color[isError ? 'error' : 'gray5']};
   ${({ theme }) => theme.font.body1};

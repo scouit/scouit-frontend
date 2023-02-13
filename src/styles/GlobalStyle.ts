@@ -45,8 +45,12 @@ export const GlobalStyle = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
+  button {
+    border: 0;
+  }
   input {
     padding: 0;
+    outline: 0;
     box-sizing: border-box;
   }
   a{color:black;text-decoration:none;}

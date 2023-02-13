@@ -60,7 +60,6 @@ const _Wrapper = styled.button<{
   width: ${({ width }) => width};
   height: 50px;
   cursor: pointer;
-  border: none;
   margin: ${({ margin }) => margin && margin};
   ${({ theme, size }) => theme.font[size]};
   ${({ kind, theme, color }) => {
