@@ -13,7 +13,7 @@ export const useSignUp = (req: PostSignUpReqeustType) => {
   const navigate = useNavigate();
   return useMutation(() => postSignUp(req), {
     onSuccess: () => {
-      navigate('/');
+      navigate('/sign-in');
       customToast('성공적으로 회원가입하였습니다.', 'success');
     },
     onError: () => {

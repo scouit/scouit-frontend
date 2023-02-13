@@ -15,7 +15,7 @@ import { EditProfilePage } from '@/pages/EditProfile';
 
 const {
   home,
-  login,
+  signin,
   signup,
   resetPassword,
   makesPeople,
@@ -32,7 +32,7 @@ export const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path={home} element={<HomePage />} />
-        <Route path={login} element={<SignInPage />} />
+        <Route path={signin} element={<SignInPage />} />
         <Route path={signup} element={<SignUpPage />} />
         <Route path={resetPassword} element={<ResetPasswordPage />} />
         <Route path={makesPeople} element={<MakesPeoplePage />} />

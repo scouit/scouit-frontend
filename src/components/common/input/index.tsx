@@ -1,54 +1,77 @@
+import { EyeClose, EyeOpen } from '@/assets';
+import { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
 import { Text } from '../text';
-import { ChangeEvent } from 'react';
 
 interface PropsType {
-  type?: 'number' | 'password' | 'text';
-  label: string;
-  margin?: string;
-  placeholder: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  type?: 'text' | 'password';
   name?: string;
+  placeholder: string;
+  margin?: string;
+  label?: string;
+  isError?: boolean;
+  errorMsg?: string;
   value?: string;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-/* type password 눈깔 추가 요망 */
 export const Input = ({
   type = 'text',
-  label,
-  margin,
-  placeholder,
-  onChange,
   name,
+  placeholder,
+  margin,
+  label,
+  isError = false,
+  errorMsg = 'error message',
   value,
+  onChange,
 }: PropsType) => {
+  const [isEyeOpen, setEyeOpen] = useState<boolean>(false);
   return (
     <_Wrapper margin={margin}>
-      <Text color="gray6" size="body2" margin="0 0 10px 0">
+      <Text size="body2" color="gray6" margin="0 0 11px 5px">
         {label}
       </Text>
       <_Input
+        type={isEyeOpen ? 'text' : type}
         name={name}
+        placeholder={placeholder}
         value={value}
         onChange={onChange}
-        type={type}
-        placeholder={placeholder}
+        isError={isError}
       />
+      <Text height="12px" size="body4" color="error" margin="0 0 0 16px">
+        {isError && errorMsg}
+      </Text>
+      {type === 'password' && (
+        <_Eye onClick={() => setEyeOpen(!isEyeOpen)}>
+          {isEyeOpen ? <EyeOpen /> : <EyeClose />}
+        </_Eye>
+      )}
     </_Wrapper>
   );
 };
 
 const _Wrapper = styled.div<{ margin: string }>`
-  margin: ${({ margin }) => margin && margin};
+  position: relative;
+  margin: ${({ margin }) => margin};
 `;
 
-const _Input = styled.input`
-  width: 500px;
-  height: 46px;
-  padding-left: 18px;
-  border-radius: 4px;
+const _Input = styled.input<{ isError: boolean }>`
+  border: 1px solid
+    ${({ theme, isError }) => theme.color[isError ? 'error' : 'gray5']};
   ${({ theme }) => theme.font.body1};
-  ::placeholder {
-    color: ${({ theme }) => theme.color.gray5};
+  width: 100%;
+  height: 46px;
+  padding: 0 50px 0 16px;
+  border-radius: 4px;
+  :focus {
+    border: 2px solid ${({ theme }) => theme.color.primary};
   }
+`;
+
+const _Eye = styled.div`
+  position: absolute;
+  top: 36px;
+  right: 12px;
 `;
