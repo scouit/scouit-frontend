@@ -6,17 +6,15 @@ import { Text } from '../common/text';
 import { ColumnGap, RowGap } from '@/layouts/DirectionGap';
 import { appear } from '@/animation/slider';
 
+const activeColor = (idx: number, count: number, color: keyOfColor) =>
+  idx === count % 3 ? 'primary' : color;
+
 export const ImgSlider = () => {
   const { ref, currentImg, count, setCount } = useSlide(LabTap, IMac, IPhone);
 
   return (
     <_Wrapper>
-      <_DescriptionImg
-        width={500}
-        height={460}
-        ref={ref}
-        src={currentImg}
-      />
+      <_DescriptionImg width={500} height={460} ref={ref} src={currentImg} />
       <ColumnGap gap="16px">
         <Text size="title1" color="gray1">
           원하는 회사의 멋진 동료가
@@ -30,8 +28,8 @@ export const ImgSlider = () => {
           .fill(0)
           .map((_, idx) => (
             <_Ball
-              color={idx === count % 3 ? 'primary' : 'gray1'}
-              hover={idx === count % 3 ? 'primary' : 'gray4'}
+              color={activeColor(idx, count, 'gray1')}
+              hover={activeColor(idx, count, 'gray4')}
               onClick={() => setCount(idx)}
             />
           ))}
