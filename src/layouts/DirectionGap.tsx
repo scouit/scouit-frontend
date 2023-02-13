@@ -7,46 +7,51 @@ interface PropsType {
   margin?: string;
 }
 
-const curry = (direction: 'column' | 'row') => {
-  return (align?: 'start' | 'center' | 'end') => {
-    return (justify?: 'start' | 'center' | 'end') => {
-      return ({ children, gap, margin }: PropsType) => (
-        <_Wrapper
-          gap={gap}
-          margin={margin}
-          align={align}
-          justify={justify}
-          direction={direction}
-        >
-          {children}
-        </_Wrapper>
-      );
-    };
-  };
-};
+type DirectionType = 'column' | 'row';
+type PositionType = 'start' | 'center' | 'end';
 
-export const ColumnGap = curry('column')()();
+const curry =
+  (direction: DirectionType) =>
+  (align?: PositionType) =>
+  (justify?: PositionType) =>
+  ({ children, gap, margin }: PropsType) =>
+    (
+      <_Wrapper
+        gap={gap}
+        margin={margin}
+        align={align}
+        justify={justify}
+        direction={direction}
+      >
+        {children}
+      </_Wrapper>
+    );
 
-export const ColumnStartGap = curry('column')('start')();
+const column = curry('column');
+const row = curry('row');
 
-export const ColumnCenterGap = curry('column')('center')();
+export const ColumnGap = column()();
 
-export const ColumnEndGap = curry('column')('end')();
+export const ColumnStartGap = column('start')();
 
-export const RowGap = curry('row')()();
+export const ColumnCenterGap = column('center')();
 
-export const RowStartGap = curry('row')()('start');
+export const ColumnEndGap = column('end')();
 
-export const RowCenterGap = curry('row')()('center');
+export const RowGap = row()();
 
-export const RowEndGap = curry('row')()('center');
+export const RowStartGap = row()('start');
+
+export const RowCenterGap = row()('center');
+
+export const RowEndGap = row()('center');
 
 const _Wrapper = styled.div<{
   gap: string;
   margin?: string;
-  direction?: 'column' | 'row';
-  align?: 'start' | 'center' | 'end';
-  justify?: 'start' | 'center' | 'end';
+  direction?: DirectionType;
+  align?: PositionType;
+  justify?: PositionType;
 }>`
   display: flex;
   flex-direction: ${({ direction }) => direction};
