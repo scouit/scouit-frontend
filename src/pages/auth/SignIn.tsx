@@ -1,4 +1,3 @@
-import { LogoWithText } from '@/assets';
 import { Button } from '@/components/common/button';
 import { Input } from '@/components/common/input';
 import { Text } from '@/components/common/text';
@@ -18,8 +17,7 @@ export const SignInPage = () => {
 
   return (
     <AuthWrapper onSubmit={() => signInMutate.mutate()}>
-      <LogoWithText />
-      <Text size="heading1">로그인</Text>
+      <Text size="heading1">Sign in</Text>
       <Input
         type="text"
         value={text.email}
