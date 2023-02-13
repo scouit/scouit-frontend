@@ -3,14 +3,14 @@ import { Button } from '@/components/common/button';
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { Text } from '@/components/common/text';
-import { Columns12 } from '@/layouts/columns/12';
+import { Columns } from '@/layouts/Columns';
 import styled from 'styled-components';
 
 export const JobPostingDetailPage = () => {
   return (
     <div>
       <Header />
-      <Columns12>
+      <Columns>
         <div>
           <div>
             <Text size="heading1">FrontEnd Developer</Text>
@@ -226,7 +226,7 @@ export const JobPostingDetailPage = () => {
             <Button margin="20px 0 0 0">지원하기</Button>
           </div>
         </div>
-      </Columns12>
+      </Columns>
       <Footer />
     </div>
   );

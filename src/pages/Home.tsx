@@ -2,9 +2,8 @@ import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { ProfileCard } from '@/components/card/Profile';
 import { SimplyModal } from '@/components/modal/SimplyProfile';
-import { Columns12 } from '@/layouts/columns/12';
+import { Columns } from '@/layouts/Columns';
 import { useState } from 'react';
-import styled from 'styled-components';
 import { useDeveloper } from '@/hooks/useDeveloper';
 
 export const HomePage = () => {
@@ -14,7 +13,7 @@ export const HomePage = () => {
   return (
     <div>
       <Header />
-      <Columns12>
+      <Columns>
         <div>
           {data &&
             data.map(({ name, id, profile, tagList }, idx) => (
@@ -25,7 +24,7 @@ export const HomePage = () => {
               />
             ))}
         </div>
-      </Columns12>
+      </Columns>
       <Footer />
       {openModal && <SimplyModal closeModal={() => setOpenModal(false)} />}
     </div>

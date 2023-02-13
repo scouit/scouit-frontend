@@ -3,7 +3,7 @@ import { ModalWrapper } from '../../layouts/Modal';
 import { Back, Profile } from '@/assets';
 import { Text } from '../common/text';
 import { Button } from '../common/button';
-import { Columns5 } from '../../layouts/columns/5';
+import { Columns } from '../../layouts/Columns';
 import { CareerItem } from '../common/item/Career';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -19,7 +19,7 @@ export const SimplyModal = ({ closeModal }: PropsType) => {
         <_Backgroudn />
         <_BackgroundImg src={Back} />
         <_Profile src={Profile} />
-        <Columns5>
+        <Columns gutter={5}>
           <Text align="center" margin="60px 0 12px 0" size="title1">
             조상현
           </Text>
@@ -42,7 +42,7 @@ export const SimplyModal = ({ closeModal }: PropsType) => {
           >
             자세히 보기
           </Button>
-        </Columns5>
+        </Columns>
       </_Content>
     </ModalWrapper>
   );
