@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { useDeveloper } from '@/hooks/useDeveloper';
 
 export const HomePage = () => {
-  const [openModal, setOpenModal] = useState<boolean>(true);
+  const [openModal, setOpenModal] = useState<boolean>(false);
   const { useGetDeveloperList } = useDeveloper();
   const { data } = useGetDeveloperList();
   return (
