@@ -21,7 +21,7 @@ export const SignInPage = () => {
       <Input
         type="text"
         value={text.email}
-        margin="43px 0 52px 0"
+        margin="113px 0 11px 0"
         placeholder="example@email.coom"
         label="아이디를 입력해주세요"
       />
@@ -31,8 +31,8 @@ export const SignInPage = () => {
         placeholder="iggso821.21"
         label="비밀번호를 입력해주세요"
       />
-      <Button margin="72px 0 0 0">로그인</Button>
-      <Text margin="20px 0 0 0" align="center" size="body1">
+      <Button margin="59px 0 0 0">로그인</Button>
+      <Text margin="40px 0 0 0" align="center" size="body1">
         <UnderLineLink to="/sign-up">회원가입</UnderLineLink> |{' '}
         <UnderLineLink to="/reset-password">비밀번호 초기화</UnderLineLink>
       </Text>
