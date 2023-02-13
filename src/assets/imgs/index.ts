@@ -5,3 +5,6 @@ export { default as Company } from './company.png';
 export { default as IMac } from './iMac.png';
 export { default as IPhone } from './iPhone.png';
 export { default as LabTap } from './labTop.png';
+export { default as Error404 } from './404.png';
+export { default as Error403 } from './403.png';
+export { default as Error401 } from './401.png';

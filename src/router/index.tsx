@@ -9,7 +9,7 @@ import { ResumeDetailPage } from '@/pages/developers/resume/Detail';
 import { SignUpPage } from '@/pages/auth/SignUp';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { JobPostingDetailPage } from '@/pages/company/job-posting/Detail';
-import { routePath } from './constants';
+import { ErrorState, routePath } from './constants';
 import { MyPage } from '@/pages/MyPage';
 import { EditProfilePage } from '@/pages/EditProfile';
 
@@ -24,8 +24,12 @@ const {
   company,
   myPage,
   notFound,
+  unAuth,
+  forbid,
   profile,
 } = routePath;
+
+const { unfind404, unAuth401, forbid403 } = ErrorState;
 
 export const Router = () => {
   return (
@@ -62,7 +66,9 @@ export const Router = () => {
         <Route path={profile.index}>
           <Route path={profile.edit} element={<EditProfilePage />} />
         </Route>
-        <Route path={notFound} element={<NotFoundPage />} />
+        <Route path={notFound} element={<NotFoundPage Error={unfind404} />} />
+        <Route path={unAuth} element={<NotFoundPage Error={unAuth401} />} />
+        <Route path={forbid} element={<NotFoundPage Error={forbid403} />} />
       </Routes>
     </BrowserRouter>
   );
