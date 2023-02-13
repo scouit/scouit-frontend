@@ -7,52 +7,39 @@ interface PropsType {
   margin?: string;
 }
 
-export const ColumnGap = ({ children, gap, margin }: PropsType) => (
-  <_Wrapper gap={gap} margin={margin} align="start" direction="column">
-    {children}
-  </_Wrapper>
-);
+const curry = (direction: 'column' | 'row') => {
+  return (align?: 'start' | 'center' | 'end') => {
+    return (justify?: 'start' | 'center' | 'end') => {
+      return ({ children, gap, margin }: PropsType) => (
+        <_Wrapper
+          gap={gap}
+          margin={margin}
+          align={align}
+          justify={justify}
+          direction={direction}
+        >
+          {children}
+        </_Wrapper>
+      );
+    };
+  };
+};
 
-export const ColumnStartGap = ({ children, gap, margin }: PropsType) => (
-  <_Wrapper gap={gap} margin={margin} align="start" direction="column">
-    {children}
-  </_Wrapper>
-);
+export const ColumnGap = curry('column')()();
 
-export const ColumnCenterGap = ({ children, gap, margin }: PropsType) => (
-  <_Wrapper gap={gap} margin={margin} align="center" direction="column">
-    {children}
-  </_Wrapper>
-);
-export const ColumnEndGap = ({ children, gap, margin }: PropsType) => (
-  <_Wrapper gap={gap} margin={margin} align="end" direction="column">
-    {children}
-  </_Wrapper>
-);
+export const ColumnStartGap = curry('column')('start')();
 
-export const RowGap = ({ children, gap, margin }: PropsType) => (
-  <_Wrapper gap={gap} margin={margin} direction="row">
-    {children}
-  </_Wrapper>
-);
+export const ColumnCenterGap = curry('column')('center')();
 
-export const RowStartGap = ({ children, gap, margin }: PropsType) => (
-  <_Wrapper gap={gap} margin={margin} justify="start" direction="row">
-    {children}
-  </_Wrapper>
-);
+export const ColumnEndGap = curry('column')('end')();
 
-export const RowCenterGap = ({ children, gap, margin }: PropsType) => (
-  <_Wrapper gap={gap} margin={margin} justify="center" direction="row">
-    {children}
-  </_Wrapper>
-);
+export const RowGap = curry('row')()();
 
-export const RowEndGap = ({ children, gap, margin }: PropsType) => (
-  <_Wrapper gap={gap} margin={margin} justify="end" direction="row">
-    {children}
-  </_Wrapper>
-);
+export const RowStartGap = curry('row')()('start');
+
+export const RowCenterGap = curry('row')()('center');
+
+export const RowEndGap = curry('row')()('center');
 
 const _Wrapper = styled.div<{
   gap: string;
