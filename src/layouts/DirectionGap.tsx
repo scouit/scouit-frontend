@@ -55,6 +55,8 @@ const _Wrapper = styled.div<{
 }>`
   display: flex;
   flex-direction: ${({ direction }) => direction};
+  align-items: ${({ align }) => align};
+  justify-content: ${({ justify }) => justify};
   gap: ${({ gap }) => gap};
   margin: ${({ margin }) => margin};
 `;
