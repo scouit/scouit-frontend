@@ -51,7 +51,12 @@ export const GlobalStyle = createGlobalStyle`
   input {
     padding: 0;
     outline: 0;
-    box-sizing: border-box;
   }
   a{color:black;text-decoration:none;}
+  textarea{
+    border:none;
+  }
+  *{
+    box-sizing: border-box;
+  }
 `;

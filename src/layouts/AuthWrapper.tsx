@@ -25,10 +25,7 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
       <_Content>
         <_ContentInner>
           <Button
-            width="fit-content"
             kind="text"
-            size="heading3"
-            color="primaryDarken2"
             Icon={<Arrow direction="left" color="primaryDarken2" />}
             margin="0 0 50px 0"
             onClick={() => navigate(-1)}

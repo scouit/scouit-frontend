@@ -1,103 +1,281 @@
-import styled, { css } from 'styled-components';
 import { ReactNode } from 'react';
-import { keyOfColor } from '@/styles/theme/color';
-import { keyOfFont } from '@/styles/theme/font';
+import styled, { css } from 'styled-components';
+import {
+  primaryLighten1,
+  primaryLighten2,
+  primary,
+  primaryDarken1,
+  primaryDarken2,
+  gray1,
+  gray2,
+  gray3,
+  gray4,
+  gray5,
+  gray6,
+  gray8,
+  errorDarken1,
+  errorDarken2,
+  error,
+  errorLighten1,
+  errorLighten2,
+} from '@/styles/theme/color';
 
-type KindType = 'contain' | 'round' | 'text';
-type WidthType = 'fit-content' | '100%';
+type kindType = 'contained' | 'outline' | 'text' | 'underline' | 'round';
+type colorType = 'primary' | 'gray' | 'error';
+type sizeType = 'default' | 'medium' | 'large';
 
-interface PropsType {
-  width?: WidthType;
-  kind?: KindType;
-  type?: 'submit' | 'button';
-  onClick?: () => void;
-  margin?: string;
-  size?: keyOfFont;
-  children: ReactNode;
+interface propsType {
+  className?: string;
+  kind?: kindType;
+  size?: sizeType;
+  color?: colorType;
+  children?: ReactNode;
+  disabled?: boolean;
   Icon?: JSX.Element;
-  color?: keyOfColor;
+  onClick?: () => void;
+  clickType?: 'submit' | 'button';
+  margin?: string;
 }
 
 export const Button = ({
-  width = '100%',
-  kind = 'contain',
-  type = 'submit',
-  size = 'body2',
-  onClick,
-  margin,
+  className,
+  kind = 'contained',
+  size = 'default',
+  color = 'primary',
   children,
+  disabled = false,
+  onClick,
   Icon,
-  color = 'gray1',
-}: PropsType) => {
+  clickType = 'submit',
+  margin,
+}: propsType) => {
   return (
     <_Wrapper
-      width={width}
-      onClick={onClick}
-      kind={kind}
-      type={type}
-      margin={margin}
-      color={color}
+      className={className}
       size={size}
+      kind={kind}
+      color={color}
+      disabled={disabled}
+      onClick={!disabled && onClick}
+      type={clickType}
+      margin={margin}
     >
-      {Icon && Icon}
+      {Icon && <Icon.type size={18} colorKey={iconColorToKey(kind, color)} />}
       {children}
     </_Wrapper>
   );
 };
 
-const _Wrapper = styled.button<{
-  kind: KindType;
-  margin: string;
-  width: WidthType;
-  size: keyOfFont;
-}>`
+const _Wrapper = styled.button<propsType>`
+  height: 47px;
   display: flex;
   align-items: center;
+  gap: 6px;
   justify-content: center;
-  gap: 10px;
-  padding: 0 16px;
-  border-radius: 4px;
-  width: ${({ width }) => width};
-  height: 50px;
-  cursor: pointer;
-  margin: ${({ margin }) => margin && margin};
-  ${({ theme, size }) => theme.font[size]};
-  ${({ kind, theme, color }) => {
-    switch (kind) {
-      case 'contain':
-        return css`
-          background-color: ${theme.color.primary};
-          color: ${theme.color[color]};
-          :hover {
-            background-color: ${theme.color.primaryDarken1};
-          }
-          :active {
-            background-color: ${theme.color.primaryDarken2};
-          }
-        `;
-      case 'round':
-        return css`
-          border-radius: 30px;
-          background-color: ${theme.color.primary};
-          color: ${theme.color[color]};
-          :hover {
-            background-color: ${theme.color.primaryDarken1};
-          }
-          :active {
-            background-color: ${theme.color.primaryDarken2};
-          }
-        `;
-      case 'text':
-        return css`
-          background-color: ${({ theme }) => theme.color.gray1};
-          color: ${theme.color[color]};
-          :hover {
-            background-color: ${({ theme }) => theme.color.gray3};
-          }
-          :active {
-            background-color: ${({ theme }) => theme.color.gray4};
-          }
-        `;
+  padding: 14px 16px;
+  font-size: 14px;
+  border-radius: ${({ kind }) => (kind === 'round' ? 24 : 4)}px;
+  max-width: 1030px;
+  min-width: ${({ children }) => (children[1] ? 80 : 50)}px;
+  width: ${({ size }) => {
+    switch (size) {
+      case 'medium':
+        return '480px';
+      case 'large':
+        return '100%';
     }
-  }}
+  }};
+  ${({ margin }) => margin};
+  ${({ color, disabled, kind }) => cssGenerator(kind, color, disabled)};
 `;
+
+const iconColorToKey = (kind: kindType, color: colorType) => {
+  switch (color) {
+    case 'primary':
+      return kind === 'contained' ? 'gray1' : 'primaryDarken2';
+    case 'gray':
+      return kind === 'contained' ? 'gray8' : 'gray6';
+    case 'error':
+      return kind === 'contained' ? 'gray1' : 'error';
+  }
+};
+
+const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
+  switch (kind) {
+    case 'contained':
+      switch (color) {
+        case 'primary':
+          return css`
+            cursor: ${disabled && 'no-drop'};
+            background-color: ${primary};
+            color: ${gray1};
+            opacity: ${disabled ? 0.5 : 1};
+            :hover {
+              background-color: ${!disabled && primaryDarken1};
+            }
+            :active {
+              background-color: ${!disabled && primaryDarken2};
+            }
+          `;
+        case 'gray':
+          return css`
+            background-color: ${gray3};
+            cursor: ${disabled && 'no-drop'};
+            color: ${gray8};
+            opacity: ${disabled ? 0.5 : 1};
+            :hover {
+              background: ${!disabled && gray4};
+            }
+            :active {
+              background: ${!disabled && gray5};
+            }
+          `;
+        case 'error':
+          return css`
+            background-color: ${error};
+            cursor: ${disabled && 'no-drop'};
+            color: ${gray1};
+            opacity: ${disabled ? 0.5 : 1};
+            :hover {
+              background: ${!disabled && errorDarken1};
+            }
+            :active {
+              background: ${!disabled && errorDarken2};
+            }
+          `;
+      }
+    case 'outline':
+      switch (color) {
+        case 'primary':
+          return css`
+            background-color: ${gray1};
+            color: ${primaryDarken2};
+            opacity: ${disabled ? 0.5 : 1};
+            cursor: ${disabled && 'no-drop'};
+            border: 1px solid ${kind === 'outline' ? primary : 'transparent'};
+            :hover {
+              background-color: ${!disabled && primary};
+              color: ${!disabled && gray1};
+              border: ${!disabled && `1px solid ${primary}`};
+              > svg > path {
+                fill: ${gray1};
+              }
+            }
+            :active {
+              background-color: ${!disabled && primaryDarken1};
+              color: ${!disabled && gray1};
+              border: ${!disabled && `1px solid ${primaryDarken1}`};
+            }
+          `;
+        case 'gray':
+          return css`
+            background-color: ${gray1};
+            color: ${gray6};
+            opacity: ${disabled ? 0.5 : 1};
+            cursor: ${disabled && 'no-drop'};
+            border: 1px solid ${gray4};
+            :hover {
+              border: ${!disabled && `1px solid ${gray4}`};
+              background-color: ${!disabled && gray2};
+            }
+            :active {
+              border: ${!disabled && `1px solid ${gray4}`};
+              background-color: ${!disabled && gray3};
+            }
+          `;
+        case 'error':
+          return css`
+            background-color: ${gray1};
+            color: ${error};
+            cursor: ${disabled && 'no-drop'};
+            opacity: ${disabled ? 0.5 : 1};
+            border: 1px solid ${error};
+            :hover {
+              background-color: ${!disabled && error};
+              color: ${!disabled && gray1};
+              > svg > path {
+                fill: ${gray1};
+              }
+            }
+            :active {
+              background: ${!disabled && errorDarken1};
+              color: ${!disabled && gray1};
+            }
+          `;
+      }
+    case 'text':
+      switch (color) {
+        case 'primary':
+          return css`
+            color: ${primaryDarken2};
+            opacity: ${disabled ? 0.5 : 1};
+            cursor: ${disabled && 'no-drop'};
+            border: 1px solid ${gray2};
+            :hover {
+              background-color: ${!disabled && gray2};
+            }
+            :active {
+              background-color: ${!disabled && gray3};
+            }
+          `;
+        case 'gray':
+          return css`
+            background-color: ${gray1};
+            color: ${gray6};
+            opacity: ${disabled ? 0.5 : 1};
+            cursor: ${disabled && 'no-drop'};
+            :hover {
+              background-color: ${!disabled && gray2};
+            }
+            :active {
+              background-color: ${!disabled && gray3};
+            }
+          `;
+        case 'error':
+          return css`
+            background-color: ${gray1};
+            color: ${error};
+            cursor: ${disabled && 'no-drop'};
+            opacity: ${disabled ? 0.5 : 1};
+            :hover {
+              background-color: ${!disabled && gray2};
+            }
+            :active {
+              background: ${!disabled && gray3};
+            }
+          `;
+      }
+    case 'underline':
+      return css`
+        cursor: ${disabled && 'no-drop'};
+        color: ${color === 'primary'
+          ? primary
+          : color === 'gray'
+          ? gray6
+          : error};
+        opacity: ${disabled ? 0.5 : 1};
+        text-decoration-line: underline;
+      `;
+    case 'round':
+      switch (color) {
+        case 'primary':
+          return css`
+            background-color: ${primaryLighten2};
+            color: ${disabled ? primaryLighten1 : primaryDarken2};
+            cursor: ${disabled && 'no-drop'};
+          `;
+        case 'gray':
+          return css`
+            background-color: ${gray2};
+            color: ${disabled ? gray4 : gray6};
+            cursor: ${disabled && 'no-drop'};
+          `;
+        case 'error':
+          return css`
+            background-color: ${errorLighten2};
+            color: ${disabled ? errorLighten1 : errorDarken2};
+            cursor: ${disabled && 'no-drop'};
+          `;
+      }
+  }
+};

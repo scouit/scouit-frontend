@@ -21,4 +21,27 @@ export const color = {
   errorDarken2: '#852424',
 } as const;
 
+export const {
+  primary,
+  primaryDarken1,
+  primaryDarken2,
+  primaryLighten1,
+  primaryLighten2,
+  gray1,
+  gray10,
+  gray2,
+  gray3,
+  gray4,
+  gray5,
+  gray6,
+  gray7,
+  gray8,
+  gray9,
+  error,
+  errorDarken1,
+  errorDarken2,
+  errorLighten1,
+  errorLighten2,
+} = color;
+
 export type keyOfColor = keyof typeof color;

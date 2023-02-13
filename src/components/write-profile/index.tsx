@@ -6,7 +6,11 @@ export const WriteProfile = () => {
   return (
     <_Wrapper>
       {lio.map((item) => {
-        return <Button kind="text">{item}</Button>;
+        return (
+          <Button size="large" kind="text" color="gray">
+            {item}
+          </Button>
+        );
       })}
     </_Wrapper>
   );
