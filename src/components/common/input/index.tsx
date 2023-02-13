@@ -29,7 +29,7 @@ export const Input = ({
   const [isEyeOpen, setEyeOpen] = useState<boolean>(false);
   return (
     <_Wrapper margin={margin}>
-      <Text size="body2" color="gray6" margin="0 0 11px">
+      <Text size="body2" color="gray6" margin="0 0 11px 5px">
         {label}
       </Text>
       <_Input
@@ -40,7 +40,7 @@ export const Input = ({
         onChange={onChange}
         isError={isError}
       />
-      <Text size="body4" color="error" margin="0 0 0 16px">
+      <Text height="12px" size="body4" color="error" margin="0 0 0 16px">
         {isError && errorMsg}
       </Text>
       {type === 'password' && (
@@ -58,17 +58,17 @@ const _Wrapper = styled.div<{ margin: string }>`
 `;
 
 const _Input = styled.input<{ isError: boolean }>`
-  border: 0;
-  outline: 1px solid
+  outline: 0;
+  border: 1px solid
     ${({ theme, isError }) => theme.color[isError ? 'error' : 'gray5']};
   ${({ theme }) => theme.font.body1};
   width: 100%;
   height: 46px;
-  padding-left: 16px;
+  padding: 0 50px 0 16px;
   border-radius: 4px;
   box-sizing: border-box;
   :focus {
-    outline: 2px solid ${({ theme }) => theme.color.primary};
+    border: 2px solid ${({ theme }) => theme.color.primary};
   }
 `;
 

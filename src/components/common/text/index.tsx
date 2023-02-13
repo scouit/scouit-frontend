@@ -7,6 +7,7 @@ type alignType = 'start' | 'center' | 'end';
 
 interface Props {
   className?: string;
+  height?: string;
   align?: alignType;
   size?: keyOfFont;
   color?: keyOfColor;
@@ -18,6 +19,7 @@ interface Props {
 
 export const Text = ({
   className,
+  height = 'auto',
   align = 'start',
   size = 'body1',
   color = 'gray9',
@@ -29,6 +31,7 @@ export const Text = ({
   return (
     <_Wrapper
       className={className}
+      height={height}
       align={align}
       color={color}
       size={size}
@@ -42,6 +45,7 @@ export const Text = ({
 };
 
 const _Wrapper = styled.div<{
+  height: string;
   align: alignType;
   color: keyOfColor;
   size: keyOfFont;
@@ -49,6 +53,7 @@ const _Wrapper = styled.div<{
   padding: string;
   underLine: boolean;
 }>`
+  height: ${({ height }) => height};
   padding: ${({ padding }) => padding && padding};
   text-align: ${({ align }) => align};
   ${({ theme, size }) => theme.font[size]};

@@ -56,7 +56,7 @@ export const SignUpPage = () => {
       }}
     >
       <Text size="heading1">Sign up</Text>
-      <ColumnCenterGap gap="16px" margin="45px 0 40px 0">
+      <ColumnCenterGap gap="4px" margin="45px 0 40px 0">
         <Input
           type="text"
           name="email"
