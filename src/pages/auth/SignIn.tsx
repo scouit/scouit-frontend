@@ -35,7 +35,7 @@ export const SignInPage = () => {
       />
       <Button margin="72px 0 0 0">로그인</Button>
       <Text margin="20px 0 0 0" align="center" size="body1">
-        <Link to="/signup">회원가입</Link> |{' '}
+        <Link to="/sign-up">회원가입</Link> |{' '}
         <Link to="/reset-password">비밀번호 초기화</Link>
       </Text>
     </AuthWrapper>
