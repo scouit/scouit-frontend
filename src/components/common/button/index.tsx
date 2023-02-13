@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { ReactNode } from 'react';
 import { keyOfColor } from '@/styles/theme/color';
+import { keyOfFont } from '@/styles/theme/font';
 
 type KindType = 'contain' | 'round' | 'text';
 type WidthType = 'fit-content' | '100%';
@@ -8,8 +9,10 @@ type WidthType = 'fit-content' | '100%';
 interface PropsType {
   width?: WidthType;
   kind?: KindType;
+  type?: 'submit' | 'button';
   onClick?: () => void;
   margin?: string;
+  size?: keyOfFont;
   children: ReactNode;
   Icon?: JSX.Element;
   color?: keyOfColor;
@@ -18,6 +21,8 @@ interface PropsType {
 export const Button = ({
   width = '100%',
   kind = 'contain',
+  type = 'submit',
+  size = 'body2',
   onClick,
   margin,
   children,
@@ -29,8 +34,10 @@ export const Button = ({
       width={width}
       onClick={onClick}
       kind={kind}
+      type={type}
       margin={margin}
       color={color}
+      size={size}
     >
       {Icon && Icon}
       {children}
@@ -42,19 +49,20 @@ const _Wrapper = styled.button<{
   kind: KindType;
   margin: string;
   width: WidthType;
+  size: keyOfFont;
 }>`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   padding: 0 16px;
-  border-radius: 2px;
+  border-radius: 4px;
   width: ${({ width }) => width};
-  height: 43px;
+  height: 50px;
   cursor: pointer;
   border: none;
   margin: ${({ margin }) => margin && margin};
-  ${({ theme }) => theme.font.body2};
+  ${({ theme, size }) => theme.font[size]};
   ${({ kind, theme, color }) => {
     switch (kind) {
       case 'contain':

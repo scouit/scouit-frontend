@@ -1,6 +1,6 @@
 import { Arrow, AuthBack } from '@/assets';
 import { ReactNode } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { FormEvent } from 'react';
 import { Text } from '@/components/common/text';
@@ -13,6 +13,7 @@ interface PropsType {
 }
 
 export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
+  const navigate = useNavigate();
   const onSubmitPreventDefault = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSubmit();
@@ -22,22 +23,27 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
     <_Wrapper>
       <_Content>
         <_ContentInner>
-          <Link to="/">
-            <Button
-              width="fit-content"
-              kind="text"
-              color="primaryDarken2"
-              Icon={<Arrow direction="left" color="primary" />}
-              margin="0 0 50px 0"
-            >
-              뒤로가기
-            </Button>
-          </Link>
+          <Button
+            width="fit-content"
+            kind="text"
+            size="heading3"
+            color="primaryDarken2"
+            Icon={<Arrow direction="left" color="primaryDarken2" />}
+            margin="0 0 50px 0"
+            onClick={() => navigate(-1)}
+          >
+            뒤로가기
+          </Button>
           <form onSubmit={onSubmitPreventDefault}>
             <_AuthContent>{children}</_AuthContent>
-            <Text align="center" underLine={true} margin="30px 0 0 0">
-              <Link to="/signup">개인정보 처리방침</Link> •{' '}
-              <Link to="/reset-password">회원이용약관</Link>
+            <Text
+              color="gray10"
+              align="center"
+              underLine={true}
+              margin="30px 0 0 0"
+            >
+              <Link to="">개인정보 처리방침</Link> •{' '}
+              <Link to="">회원이용약관</Link>
             </Text>
           </form>
         </_ContentInner>
@@ -73,7 +79,6 @@ const _ContentInner = styled.div`
   width: 524px;
   height: 100%;
   margin: 0 auto;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;

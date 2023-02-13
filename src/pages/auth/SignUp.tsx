@@ -97,15 +97,17 @@ export const SignUpPage = () => {
         />
       </ColumnCenterGap>
       <Button size="heading3">회원가입</Button>
-      <Button
-        size="heading3"
-        type="button"
-        kind="text"
-        color="gray6"
-        margin="10px 0 0 0"
-      >
-        <Link to="/signin">로그인</Link>
-      </Button>
+      <Link to="/signin">
+        <Button
+          size="heading3"
+          type="button"
+          kind="text"
+          color="gray6"
+          margin="10px 0 0 0"
+        >
+          로그인
+        </Button>
+      </Link>
     </AuthWrapper>
   );
 };
