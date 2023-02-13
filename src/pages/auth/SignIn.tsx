@@ -6,7 +6,7 @@ import { AuthWrapper } from '@/layouts/AuthWrapper';
 import { useSignIn } from '@/hooks/useAuth';
 import { useForm } from '@/hooks/useForm';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { UnderLineLink } from '@/components/Link';
 
 export const SignInPage = () => {
   const { text, handleOnChange } = useForm({
@@ -35,8 +35,8 @@ export const SignInPage = () => {
       />
       <Button margin="72px 0 0 0">로그인</Button>
       <Text margin="20px 0 0 0" align="center" size="body1">
-        <Link to="/sign-up">회원가입</Link> |{' '}
-        <Link to="/reset-password">비밀번호 초기화</Link>
+        <UnderLineLink to="/sign-up">회원가입</UnderLineLink> |{' '}
+        <UnderLineLink to="/reset-password">비밀번호 초기화</UnderLineLink>
       </Text>
     </AuthWrapper>
   );

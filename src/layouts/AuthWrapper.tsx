@@ -1,11 +1,12 @@
 import { Arrow, AuthBack } from '@/assets';
 import { ReactNode } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { FormEvent } from 'react';
 import { Text } from '@/components/common/text';
 import { Button } from '@/components/common/button';
 import { ImgSlider } from '@/components/slider/ImgSlider';
+import { UnderLineLink } from '@/components/Link';
 
 interface PropsType {
   children: ReactNode;
@@ -36,14 +37,9 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
           </Button>
           <form onSubmit={onSubmitPreventDefault}>
             <_AuthContent>{children}</_AuthContent>
-            <Text
-              color="gray10"
-              align="center"
-              underLine={true}
-              margin="30px 0 0 0"
-            >
-              <Link to="">개인정보 처리방침</Link> •{' '}
-              <Link to="">회원이용약관</Link>
+            <Text color="gray10" align="center" margin="30px 0 0 0">
+              <UnderLineLink to="">개인정보 처리방침</UnderLineLink> •{' '}
+              <UnderLineLink to="">회원이용약관</UnderLineLink>
             </Text>
           </form>
         </_ContentInner>
