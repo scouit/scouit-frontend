@@ -66,7 +66,6 @@ const _Input = styled.input<{ isError: boolean }>`
   height: 46px;
   padding: 0 50px 0 16px;
   border-radius: 4px;
-  box-sizing: border-box;
   :focus {
     border: 2px solid ${({ theme }) => theme.color.primary};
   }
