@@ -97,7 +97,7 @@ export const SignUpPage = () => {
         />
       </ColumnCenterGap>
       <Button size="heading3">회원가입</Button>
-      <Link to="/signin">
+      <Link to="/sign-in">
         <Button
           size="heading3"
           type="button"
