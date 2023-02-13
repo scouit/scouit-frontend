@@ -13,7 +13,6 @@ interface Props {
   color?: keyOfColor;
   margin?: string;
   padding?: string;
-  underLine?: boolean;
   children: ReactNode;
 }
 
@@ -25,7 +24,6 @@ export const Text = ({
   color = 'gray9',
   margin,
   padding,
-  underLine,
   children,
 }: Props) => {
   return (
@@ -37,7 +35,6 @@ export const Text = ({
       size={size}
       marign={margin}
       padding={padding}
-      underLine={underLine}
     >
       {children}
     </_Wrapper>
@@ -51,7 +48,6 @@ const _Wrapper = styled.div<{
   size: keyOfFont;
   marign: string;
   padding: string;
-  underLine: boolean;
 }>`
   height: ${({ height }) => height};
   padding: ${({ padding }) => padding && padding};
@@ -59,10 +55,4 @@ const _Wrapper = styled.div<{
   ${({ theme, size }) => theme.font[size]};
   color: ${({ theme, color }) => theme.color[color]};
   margin: ${({ marign }) => marign && marign};
-  > a {
-    :hover {
-      text-decoration: ${({ underLine }) => underLine && 'underLine'};
-      white-space: pre;
-    }
-  }
 `;

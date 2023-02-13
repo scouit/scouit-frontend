@@ -2,7 +2,7 @@ import { LogoWithText } from '@/assets';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { NavigationList } from '../common/list/Navigation';
-import { Columns12 } from '../../layouts/columns/12';
+import { Columns } from '../../layouts/Columns';
 import { NavListIsLogin } from './constants';
 import { useRecoilValue } from 'recoil';
 import { profileSelectBox } from '@/store/modal';
@@ -46,7 +46,7 @@ const _Wrapper = styled.header`
   background-color: ${({ theme }) => theme.color.gray1};
 `;
 
-const _Column12 = styled(Columns12)`
+const _Column12 = styled(Columns)`
   display: flex;
   align-items: center;
   justify-content: space-between;
