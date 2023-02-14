@@ -2,7 +2,7 @@ import { Button } from '@/components/common/button';
 import { Header } from '@/components/header';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
-import { Columns } from './Columns';
+import { Columns } from '../Columns';
 
 interface PropsType {
   children: ReactNode;
