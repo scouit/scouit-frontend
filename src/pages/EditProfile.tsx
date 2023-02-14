@@ -10,23 +10,59 @@ import { ColumnGap } from '@/layouts/DirectionGap';
 import { Routes, Route } from 'react-router-dom';
 import { Introduce } from '@/components/write-profile/route/Introduce';
 import { Experience } from '@/components/write-profile/route/Experience';
-import { Project } from '@/components/write-profile/route/Project';
+import { ChangeEvent, useState } from 'react';
+import { useForm } from '@/hooks/useForm';
+import { getUserProfile, ProfileType } from '@/apis/profile/getProfile';
+import { useQuery } from 'react-query';
+import { useBasic, useProfile } from '@/hooks/useProfile';
+
+const work = 'workExperience';
+const project = 'project';
 
 export const EditProfilePage = () => {
+  const { profile, projectUpdate, workUpdate, arrayChange, addContent } =
+    useProfile();
+  const { text, handleOnChange, basicUpdate } = useBasic();
+
   return (
     <EditProfileWrapper>
       <Routes>
-        <Route path="/basic" element={<Introduce />} />
+        <Route
+          path="/basic"
+          element={
+            <Introduce
+              text={text}
+              handleOnChange={handleOnChange}
+              basicUpdate={() => basicUpdate.mutate()}
+            />
+          }
+        />
         <Route
           path="/experience"
           element={
-            <Experience name="회사 이름" placeholder="회사에서 활동한 " />
+            <Experience
+              name={work}
+              role="회사 이름"
+              placeholder="회사에서 활동한 "
+              profile={profile[work]}
+              addContent={addContent}
+              arrayChange={arrayChange}
+              projectUpdate={() => projectUpdate}
+            />
           }
         />
         <Route
           path="/project"
           element={
-            <Experience name="프로젝트 이름" placeholder="프로젝트의 " />
+            <Experience
+              name={project}
+              role="프로젝트 이름"
+              placeholder="프로젝트의 "
+              profile={profile[project]}
+              addContent={addContent}
+              arrayChange={arrayChange}
+              workUpdate={() => workUpdate}
+            />
           }
         />
       </Routes>

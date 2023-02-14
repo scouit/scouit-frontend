@@ -1,35 +1,76 @@
+import { getUserProfile, ProfileType } from '@/apis/profile/getProfile';
+import { patchUserProfile } from '@/apis/profile/PostProfile';
 import { Button } from '@/components/common/button';
 import { Input } from '@/components/common/input';
 import { ProfileWriteForm } from '@/components/profileWriteForm';
 import { TextArea } from '@/components/textarea';
+import { useForm } from '@/hooks/useForm';
+import { ArrayEditType, useProfile } from '@/hooks/useProfile';
 import { ColumnGap } from '@/layouts/DirectionGap';
-import { useState } from 'react';
+import {
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+} from 'react';
+import { useMutation, useQuery } from 'react-query';
 import styled from 'styled-components';
+import { ContentType } from '../../../apis/profile/getProfile';
 
 interface PropsType {
-  name: string;
+  name: 'project' | 'workExperience';
+  role: string;
   placeholder: string;
+  profile: ContentType[];
+  addContent: (type: ArrayEditType) => void;
+  arrayChange: (
+    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
+    type: ArrayEditType,
+    index: number
+  ) => void;
+  projectUpdate?: () => void;
+  workUpdate?: () => void;
 }
 
-export const Experience = ({ name, placeholder }: PropsType) => {
+export const Experience = ({
+  name,
+  role,
+  placeholder,
+  profile,
+  addContent,
+  arrayChange,
+  projectUpdate,
+  workUpdate,
+}: PropsType) => {
+
   return (
     <ProfileWriteForm title="업무 경험">
       <_ButtonWrapper>
-        <Button kind="contained">추가하기</Button>
+        <Button kind="contained" onClick={() => addContent(name)}>
+          추가하기
+        </Button>
       </_ButtonWrapper>
       <_Content>
-        {Array(10)
-          .fill(0)
-          .map((e) => (
-            <_InputContent>
-              <Input label={name} placeholder={name + '이름을 작성해 주세요'} />
-              <TextArea
-                label="내용"
-                placeholder={placeholder + '내용을 작성해 주세요'}
-              />
-              <_Line />
-            </_InputContent>
-          ))}
+        {profile.map((item, idx) => (
+          <_InputContent>
+            <Input
+              name="name"
+              value={item.name}
+              onChange={(e) => arrayChange(e, name, idx)}
+              label={role}
+              placeholder={role + '이름을 작성해 주세요'}
+            />
+            <TextArea
+              name="content"
+              value={item.content}
+              onChange={(e) => arrayChange(e, name, idx)}
+              label="내용"
+              placeholder={placeholder + '내용을 작성해 주세요'}
+            />
+            {profile.length - 1 !== idx && <_Line />}
+          </_InputContent>
+        ))}
       </_Content>
     </ProfileWriteForm>
   );
