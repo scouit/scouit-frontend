@@ -1,7 +1,7 @@
 import { Button } from '@/components/common/button';
 import { Input } from '@/components/common/input';
 import { Text } from '@/components/common/text';
-import { AuthWrapper } from '@/layouts/AuthWrapper';
+import { AuthWrapper } from '@/layouts/Wrapper/Auth';
 import { useSignIn } from '@/hooks/useAuth';
 import { useForm } from '@/hooks/useForm';
 import { Link } from 'react-router-dom';

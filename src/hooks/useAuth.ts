@@ -1,4 +1,4 @@
-import { postLogout, postSignUp } from '@/apis/auth';
+import { postSignUp } from '@/apis/auth';
 import { MutationOptions, useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -34,15 +34,6 @@ export const useSignIn = (req: PostSignInReqeustType) => {
     },
     onError: () => {
       customToast('로그인에 실패했습니다.', 'error');
-    },
-  });
-};
-
-export const useLogout = () => {
-  return useMutation(() => postLogout(), {
-    onSuccess: () => {
-      localStorgeRemoveItem('access_token');
-      localStorgeRemoveItem('refresh_token');
     },
   });
 };

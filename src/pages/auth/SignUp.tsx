@@ -1,6 +1,6 @@
 import { Button } from '@/components/common/button';
 import { Input } from '@/components/common/input';
-import { AuthWrapper } from '@/layouts/AuthWrapper';
+import { AuthWrapper } from '@/layouts/Wrapper/Auth';
 import { useSignUp } from '@/hooks/useAuth';
 import { useForm } from '@/hooks/useForm';
 import { Text } from '@/components/common/text';

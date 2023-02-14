@@ -3,7 +3,7 @@ import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { Tapbar } from '@/components/write-profile';
 import { TextArea } from '@/components/textarea';
-import { EditProfileWrapper } from '@/layouts/EditProfileWrapper';
+import { EditProfileWrapper } from '@/layouts/Wrapper/EditProfile';
 import { ProfileWriteForm } from '@/components/profileWriteForm';
 import { Input } from '@/components/common/input';
 import { ColumnGap } from '@/layouts/DirectionGap';
