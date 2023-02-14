@@ -22,7 +22,7 @@ export const routePath = {
     },
   },
   profile: {
-    edit: 'edit',
+    edit: 'edit*',
     index: '/profile',
   },
   myPage: '/my-page',
