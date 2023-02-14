@@ -80,7 +80,7 @@ const _Wrapper = styled.button<propsType>`
   width: ${({ size }) => {
     switch (size) {
       case 'medium':
-        return '480px';
+        return '300px';
       case 'large':
         return '100%';
     }

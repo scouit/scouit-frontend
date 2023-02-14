@@ -18,6 +18,12 @@ export const ProfileWriteForm = ({ title, children }: PropsType) => {
 
 const _Wrapper = styled.div`
   width: 760px;
+  height: 764px;
+  box-shadow: ${({ theme }) => theme.shadow.modal};
   background-color: ${({ theme }) => theme.color.gray1};
-  padding: 50px;
+  overflow-y: scroll;
+  padding: 78px 50px 87px 50px;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
