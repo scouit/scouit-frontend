@@ -17,8 +17,18 @@ export const EditProfilePage = () => {
     <EditProfileWrapper>
       <Routes>
         <Route path="/basic" element={<Introduce />} />
-        <Route path="/experience" element={<Experience />} />
-        <Route path="/project" element={<Project />} />
+        <Route
+          path="/experience"
+          element={
+            <Experience name="회사 이름" placeholder="회사에서 활동한 " />
+          }
+        />
+        <Route
+          path="/project"
+          element={
+            <Experience name="프로젝트 이름" placeholder="프로젝트의 " />
+          }
+        />
       </Routes>
       <Tapbar />
     </EditProfileWrapper>

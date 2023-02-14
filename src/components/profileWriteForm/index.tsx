@@ -19,6 +19,7 @@ export const ProfileWriteForm = ({ title, children }: PropsType) => {
 const _Wrapper = styled.div`
   width: 760px;
   height: 764px;
+  position: relative;
   box-shadow: ${({ theme }) => theme.shadow.modal};
   background-color: ${({ theme }) => theme.color.gray1};
   overflow-y: scroll;

@@ -27,7 +27,7 @@ const _Wrapper = styled.div`
 const _TextArea = styled.textarea`
   width: 100%;
   resize: none;
-  height: 158px;
+  height: 194px;
   border-radius: 8px;
   padding: 18px;
   background-color: ${({ theme }) => theme.color.gray2};
