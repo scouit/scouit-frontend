@@ -18,7 +18,6 @@ const memberNavList = [
   },
   {
     name: <ProfileHeader />,
-    link: '',
   },
 ];
 
