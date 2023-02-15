@@ -26,7 +26,9 @@ export const Tapbar = () => {
 
 const _Wrapper = styled.div`
   width: 300px;
-  height: 764px;
+  position: sticky;
+  top: 115px;
+  height: 400px;
   box-shadow: ${({ theme }) => theme.shadow.modal};
   background-color: ${({ theme }) => theme.color.gray1};
 `;

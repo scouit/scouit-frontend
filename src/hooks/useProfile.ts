@@ -1,45 +1,24 @@
 import {
   ContentType,
+  EditType,
   getUserProfile,
   IntroType,
+  ProfileType,
 } from '@/apis/profile/getProfile';
 import { patchUserProfile } from '@/apis/profile/PostProfile';
+import { atomProfile } from '@/store/write';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
+import { RecoilState, useRecoilState, useRecoilValue } from 'recoil';
 import { useForm } from './useForm';
-
-export interface ProfileType {
-  project: ContentType[];
-  workExperience: ContentType[];
-}
 
 export type ArrayEditType = 'project' | 'workExperience';
 
-export const useProfile = () => {
-  const [profile, setProfile] = useState<ProfileType>({
-    project: [{ name: '', content: '' }],
-    workExperience: [{ name: '', content: '' }],
-  });
-  useQuery(['getProject'], () => getUserProfile<ContentType[]>('project'), {
-    onSuccess: (data) => {
-      data.length && setProfile({ ...profile, project: data });
-    },
-  });
-  useQuery(['getWork'], () => getUserProfile<ContentType[]>('workExperience'), {
-    onSuccess: (data) => {
-      data.length && setProfile({ ...profile, workExperience: data });
-    },
-  });
-
-  const mutate = (type: ArrayEditType) =>
-    useMutation(() => patchUserProfile<ContentType[]>(type, profile[type]));
-
-  const projectUpdate = mutate('project');
-  const workUpdate = mutate('workExperience');
+export const useProfile = (type: ArrayEditType) => {
+  const [profile, setProfile] = useRecoilState<ProfileType>(atomProfile);
 
   const arrayChange = (
     e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
-    type: ArrayEditType,
     index: number
   ) => {
     const { name, value } = e.target;
@@ -49,34 +28,45 @@ export const useProfile = () => {
     setProfile({ ...profile, [type]: temp });
   };
 
-  const addContent = (type: ArrayEditType) =>
-    setProfile({
+  const addContent = () => {
+    setProfile(() => ({
       ...profile,
       [type]: [...profile[type], { name: '', content: '' }],
-    });
+    }));
+  };
 
   return {
     profile,
-    projectUpdate,
-    workUpdate,
+    setProfile,
     arrayChange,
     addContent,
   };
 };
 
+export const useProfileUpdate = () => {
+  const profile = useRecoilValue<ProfileType>(atomProfile);
+  const mutate = (type: EditType) =>
+    useMutation(() =>
+      patchUserProfile<ContentType[] | IntroType>(type, profile[type])
+    );
+
+  const projectUpdate = mutate('project');
+  const workUpdate = mutate('workExperience');
+  const basicUpdate = mutate('basic');
+  return { projectUpdate, workUpdate, basicUpdate };
+};
+
 export const useBasic = () => {
-  const { text, setText, handleOnChange } = useForm<IntroType>({
-    aboutMe: '',
-    oneLineIntroduction: '',
-  });
-  useQuery(['getbasic'], () => getUserProfile<IntroType>('basic'), {
-    onSuccess: (data) => setText(data),
-    onError: (error) => {
-      console.log(error);
-    },
-  });
-  const basicUpdate = useMutation(() =>
-    patchUserProfile<IntroType>('basic', text)
-  );
-  return { text, handleOnChange, basicUpdate };
+  const [profile, setProfile] = useRecoilState<ProfileType>(atomProfile);
+  const handleOnChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { value, name } = e.target;
+    setProfile({
+      ...profile,
+      basic: { ...profile.basic, [name]: value },
+    });
+  };
+
+  return { profile, handleOnChange };
 };

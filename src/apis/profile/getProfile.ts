@@ -32,13 +32,13 @@ const workUrl = 'work-experience';
 
 export const url = (type: EditType) => (type === isWork ? workUrl : type);
 
-export const getUserProfile = async <T>(type: EditType) => {
-  const { data } = await typeAxios<T>(type);
+export const getUserProfile = async <T>() => {
+  const { data } = await typeAxios<T>();
   return data;
 };
 
-const typeAxios = async <T>(type: EditType) =>
-  await instance.get<T>('/profile/write?type=' + url(type), {
+const typeAxios = async <T>() =>
+  await instance.get<T>('/profile/write', {
     headers: {
       authorization: `Bearer ${localStorage.getItem('access_token')}`,
     },

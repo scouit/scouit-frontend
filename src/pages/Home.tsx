@@ -5,6 +5,7 @@ import { SimplyModal } from '@/components/modal/SimplyProfile';
 import { Columns } from '@/layouts/Columns';
 import { useState } from 'react';
 import { useDeveloper } from '@/hooks/useDeveloper';
+import { Profile } from '@/assets';
 
 export const HomePage = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -21,6 +22,7 @@ export const HomePage = () => {
                 key={idx}
                 onClick={() => setOpenModal(true)}
                 name={name}
+                url={Profile}
               />
             ))}
         </div>

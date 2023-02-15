@@ -20,7 +20,7 @@ export const ProfileSelectBox = () => {
               <_Profile>
                 <img width={85} height={85} src={Profile} />
                 <Text size="title2">조상현</Text>
-                <Link to="/profile/edit">
+                <Link to="/profile/write/basic">
                   <Button kind="round">프로필 수정</Button>
                 </Link>
               </_Profile>
