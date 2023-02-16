@@ -7,7 +7,7 @@ const nonMemberNavList = [
   },
   {
     name: '로그인/회원가입',
-    link: '/login',
+    link: '/sign-in',
   },
 ];
 
@@ -18,7 +18,6 @@ const memberNavList = [
   },
   {
     name: <ProfileHeader />,
-    link: '',
   },
 ];
 

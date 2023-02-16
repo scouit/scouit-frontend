@@ -11,7 +11,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { JobPostingDetailPage } from '@/pages/company/job-posting/Detail';
 import { ErrorState, routePath } from './constants';
 import { MyPage } from '@/pages/MyPage';
-import { EditProfilePage } from '@/pages/EditProfile';
+import { BasicPage } from '@/pages/write/Basic';
+import { ProjectPage } from '@/pages/write/Project';
+import { ExperiencePage } from '@/pages/write/Experiment';
+import { EditProfileWrapper } from '@/layouts/Wrapper/EditProfile';
 
 const {
   home,
@@ -64,7 +67,24 @@ export const Router = () => {
         </Route>
         <Route path={myPage} element={<MyPage />} />
         <Route path={profile.index}>
-          <Route path={profile.edit} element={<EditProfilePage />} />
+          <Route
+            path={profile.write.index}
+            element={
+              <EditProfileWrapper>
+                <Routes>
+                  <Route path={profile.write.basic} element={<BasicPage />} />
+                  <Route
+                    path={profile.write.project}
+                    element={<ProjectPage />}
+                  />
+                  <Route
+                    path={profile.write.work}
+                    element={<ExperiencePage />}
+                  />
+                </Routes>
+              </EditProfileWrapper>
+            }
+          ></Route>
         </Route>
         <Route path={notFound} element={<NotFoundPage Error={unfind404} />} />
         <Route path={unAuth} element={<NotFoundPage Error={unAuth401} />} />

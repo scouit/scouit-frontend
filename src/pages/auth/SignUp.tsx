@@ -1,6 +1,6 @@
 import { Button } from '@/components/common/button';
 import { Input } from '@/components/common/input';
-import { AuthWrapper } from '@/layouts/AuthWrapper';
+import { AuthWrapper } from '@/layouts/Wrapper/Auth';
 import { useSignUp } from '@/hooks/useAuth';
 import { useForm } from '@/hooks/useForm';
 import { Text } from '@/components/common/text';
@@ -96,15 +96,9 @@ export const SignUpPage = () => {
           errorMsg="비밀번호가 틀립니다."
         />
       </ColumnCenterGap>
-      <Button size="heading3">회원가입</Button>
+      <Button>회원가입</Button>
       <Link to="/sign-in">
-        <Button
-          size="heading3"
-          type="button"
-          kind="text"
-          color="gray6"
-          margin="10px 0 0 0"
-        >
+        <Button kind="text" color="gray" margin="10px 0 0 0">
           로그인
         </Button>
       </Link>

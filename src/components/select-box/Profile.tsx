@@ -3,14 +3,13 @@ import styled from 'styled-components';
 import { useRecoilState } from 'recoil';
 import { profileSelectBox } from '@/store/modal';
 import { Link } from 'react-router-dom';
-import { useLogout } from '@/hooks/useAuth';
 import { Profile } from '@/assets';
 import { Button } from '../common/button';
 import { Text } from '../common/text';
 
 export const ProfileSelectBox = () => {
   const [profile, setProfile] = useRecoilState(profileSelectBox);
-  const logoutMutate = useLogout();
+  // const logoutMutate = useLogout();
   return (
     <div>
       <ReactOutsideClickHandler onOutsideClick={() => setProfile(false)}>
@@ -21,7 +20,7 @@ export const ProfileSelectBox = () => {
               <_Profile>
                 <img width={85} height={85} src={Profile} />
                 <Text size="title2">조상현</Text>
-                <Link to="/profile/edit">
+                <Link to="/profile/write/basic">
                   <Button kind="round">프로필 수정</Button>
                 </Link>
               </_Profile>
@@ -30,7 +29,7 @@ export const ProfileSelectBox = () => {
               <Link to="/my-page">마이페이지</Link>
             </_Item>
             <_Item>
-              <button onClick={() => logoutMutate.mutate()}>로그아웃</button>
+              {/* <button onClick={() => logoutMutate.mutate()}>로그아웃</button> */}
             </_Item>
           </ul>
         </_Content>

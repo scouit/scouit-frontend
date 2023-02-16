@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 type ListType = {
   name?: string | JSX.Element;
-  link: string;
+  link?: string;
   target?: '_blank';
 };
 

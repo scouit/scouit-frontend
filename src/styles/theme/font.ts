@@ -1,5 +1,6 @@
 const fontToCss = (sz: number, wt: number) =>
   `
+  font-family: "Pretendard";
   font-weight: ${wt};
   font-size: ${sz}px;
 `;

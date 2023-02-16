@@ -55,6 +55,7 @@ export const Input = ({
 const _Wrapper = styled.div<{ margin: string }>`
   position: relative;
   margin: ${({ margin }) => margin};
+  width: 100%;
 `;
 
 const _Input = styled.input<{ isError: boolean }>`
