@@ -40,9 +40,11 @@ export const Input = ({
         onChange={onChange}
         isError={isError}
       />
-      <Text height="12px" size="body4" color="error" margin="0 0 0 16px">
-        {isError && errorMsg}
-      </Text>
+      <_ErroWrapper>
+        <Text height="12px" size="body4" color="error" margin="0 0 0 16px">
+          {isError && errorMsg}
+        </Text>
+      </_ErroWrapper>
       {type === 'password' && (
         <_Eye onClick={() => setEyeOpen(!isEyeOpen)}>
           {isEyeOpen ? <EyeOpen /> : <EyeClose />}
@@ -71,7 +73,12 @@ const _Input = styled.input<{ isError: boolean }>`
   }
 `;
 
+const _ErroWrapper = styled.div`
+  position: absolute;
+`;
+
 const _Eye = styled.div`
+  cursor: pointer;
   position: absolute;
   top: 36px;
   right: 12px;

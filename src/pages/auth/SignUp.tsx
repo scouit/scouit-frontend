@@ -4,10 +4,11 @@ import { AuthWrapper } from '@/layouts/Wrapper/Auth';
 import { useSignUp } from '@/hooks/useAuth';
 import { useForm } from '@/hooks/useForm';
 import { Text } from '@/components/common/text';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ColumnCenterGap } from '@/layouts/DirectionGap';
 import { customToast } from '@/utils/toast';
 import { useState } from 'react';
+import { Arrow } from '@/assets';
 
 interface ErrorType {
   name: boolean | null;
@@ -17,6 +18,7 @@ interface ErrorType {
 
 /** 프로필, 이메일 인증 추가 요망 */
 export const SignUpPage = () => {
+  const navigate = useNavigate();
   const { text, handleOnChange } = useForm({
     name: '',
     email: '',
@@ -55,8 +57,17 @@ export const SignUpPage = () => {
         }
       }}
     >
-      <Text size="heading1">Sign up</Text>
-      <ColumnCenterGap gap="4px" margin="45px 0 40px 0">
+      <Button
+        clickType="button"
+        kind="text"
+        Icon={<Arrow direction="left" color="primaryDarken2" />}
+        margin="0 0 4.0625rem 0"
+        onClick={() => navigate(-1)}
+      >
+        뒤로가기
+      </Button>
+      <Text size="heading1">회원가입</Text>
+      <ColumnCenterGap gap="1.875rem" margin="3.125rem 0 3.4375rem 0">
         <Input
           type="text"
           name="email"
@@ -96,9 +107,16 @@ export const SignUpPage = () => {
           errorMsg="비밀번호가 틀립니다."
         />
       </ColumnCenterGap>
-      <Button>회원가입</Button>
+      <Button size="large" margin="0 0 0.625rem">
+        회원가입
+      </Button>
       <Link to="/sign-in">
-        <Button kind="text" color="gray" margin="10px 0 0 0">
+        <Button
+          kind="text"
+          size="large"
+          color="primary"
+          margin="0.625rem 0 0 0"
+        >
           로그인
         </Button>
       </Link>
