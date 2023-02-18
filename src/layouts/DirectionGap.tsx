@@ -5,6 +5,7 @@ interface PropsType {
   children: ReactNode;
   gap: string;
   margin?: string;
+  padding?: string;
 }
 
 type DirectionType = 'column' | 'row';
@@ -14,11 +15,12 @@ const curry =
   (direction: DirectionType) =>
   (align?: PositionType) =>
   (justify?: PositionType) =>
-  ({ children, gap, margin }: PropsType) =>
+  ({ children, gap, margin, padding }: PropsType) =>
     (
       <_Wrapper
         gap={gap}
         margin={margin}
+        padding={padding}
         align={align}
         justify={justify}
         direction={direction}
@@ -44,11 +46,12 @@ export const RowStartGap = row()('start');
 
 export const RowCenterGap = row()('center');
 
-export const RowEndGap = row()('center');
+export const RowEndGap = row()('end');
 
 const _Wrapper = styled.div<{
   gap: string;
   margin?: string;
+  padding?: string;
   direction?: DirectionType;
   align?: PositionType;
   justify?: PositionType;
@@ -59,4 +62,5 @@ const _Wrapper = styled.div<{
   justify-content: ${({ justify }) => justify};
   gap: ${({ gap }) => gap};
   margin: ${({ margin }) => margin};
+  padding: ${({ padding }) => padding};
 `;

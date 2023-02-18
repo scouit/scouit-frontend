@@ -1,26 +1,72 @@
+import { NextJs, Profile, React, Typescript } from '@/assets';
+import { ColumnCenterGap, RowCenterGap } from '@/layouts/DirectionGap';
+import { media } from '@/media';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { Button } from '../common/button';
+import { Text } from '../common/text';
+import { ProfileData } from './ProfileData';
+import { Tag } from './Tag';
 
 interface PropsType {
   name: string;
   url?: string;
-  onClick: () => void;
 }
 
-/* 탭 키로 이동안되는 이슈 !! */
-export const ProfileCard = ({ name, url, onClick }: PropsType) => {
+const dummy = {
+  name: '조상현',
+  profile: Profile,
+  role: 'UI/UX 엔지니어',
+  descript:
+    '항상 더 좋은 프로덕트에 대해 고민하고결정해요. 단순한 의사결정이아닌 여러 답을 도출하고 그 중에 가장 올바른 결정을 합니다.',
+  tag: ['사이드 프로젝트 모집 중', '커피챗 가능'],
+};
+
+export const ProfileCard = ({ name, url }: PropsType) => {
+  const navigate = useNavigate();
   return (
-    <_Wrapper onClick={onClick}>
-      <img src={url} />
-      <div>{name}</div>
+    <_Wrapper>
+      <ColumnCenterGap gap="2.25rem" padding="0 1.5rem">
+        <ProfileData
+          url={dummy.profile}
+          name={dummy.name}
+          role={dummy.role}
+          descript={dummy.descript}
+        />
+        <_TagContent>
+          {dummy.tag.map((content) => (
+            <Tag padding="0.5625rem 1.125rem">{content}</Tag>
+          ))}
+        </_TagContent>
+      </ColumnCenterGap>
+      <Button
+        onClick={() => navigate('/developer/')}
+        kind="contained"
+        size="large"
+        radius="0 0 0.5rem 0.5rem"
+      >
+        view profile
+      </Button>
     </_Wrapper>
   );
 };
 
 const _Wrapper = styled.article`
-  cursor: pointer;
-  width: 340px;
-  height: 388px;
-  border: 2px solid ${({ theme }) => theme.color.gray4};
-  border-radius: 2px;
+  height: 21.25rem;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   box-shadow: ${({ theme }) => theme.shadow.surface};
+  border-radius: 0.5rem;
+  max-width: 23rem;
+  ${media.media1512`min-width: 19.3rem;`}
+  ${media.media1024`min-width: 20.25rem;`}
+`;
+
+const _TagContent = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 `;

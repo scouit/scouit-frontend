@@ -1,3 +1,4 @@
+import { media } from '@/media';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -28,5 +29,6 @@ export const NavigationList = ({ list }: PropsType) => {
 const _Wrapper = styled.ul`
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 50px;
+  ${media.media720`display:none;`}
 `;

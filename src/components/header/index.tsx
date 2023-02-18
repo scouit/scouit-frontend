@@ -1,4 +1,4 @@
-import { LogoWithText } from '@/assets';
+import { Hamburger, LogoWithText } from '@/assets';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { NavigationList } from '../common/list/Navigation';
@@ -8,34 +8,31 @@ import { useRecoilValue } from 'recoil';
 import { profileSelectBox } from '@/store/modal';
 import { ProfileSelectBox } from '../select-box/Profile';
 import { localStorgeGetItem } from '@/utils/storge';
+import { media } from '@/media';
 
 export const Header = () => {
   const profile = useRecoilValue(profileSelectBox);
   return (
-    <>
-      <_Wrapper>
-        <_Column12>
-          <Link to={'/'}>
-            <LogoWithText />
-          </Link>
-          <nav>
-            <NavigationList
-              list={NavListIsLogin(
-                localStorgeGetItem('access_token') ? true : false
-              )}
-            />
-          </nav>
-        </_Column12>
-        {profile && <ProfileSelectBox />}
-      </_Wrapper>
-      <_A />
-    </>
+    <_Wrapper>
+      <_Column12>
+        <Link to={'/'}>
+          <LogoWithText />
+        </Link>
+        <nav>
+          <NavigationList
+            list={NavListIsLogin(
+              localStorgeGetItem('access_token') ? true : false
+            )}
+          />
+          <_Hamburger>
+            <Hamburger />
+          </_Hamburger>
+        </nav>
+      </_Column12>
+      {profile && <ProfileSelectBox />}
+    </_Wrapper>
   );
 };
-
-const _A = styled.div`
-  padding-top: 70px;
-`;
 
 const _Wrapper = styled.header`
   position: fixed;
@@ -47,8 +44,18 @@ const _Wrapper = styled.header`
 `;
 
 const _Column12 = styled(Columns)`
+  width: 100%;
+  max-width: 1152px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 70px;
+  padding: 0 1.5rem;
+  ${media.media720`padding: 0 1rem;`};
+`;
+
+const _Hamburger = styled.div`
+  cursor: pointer;
+  display: none;
+  ${media.media720`display: block;`}
 `;
