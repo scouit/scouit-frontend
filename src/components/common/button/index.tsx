@@ -35,6 +35,7 @@ interface propsType {
   onClick?: () => void;
   clickType?: 'submit' | 'button';
   margin?: string;
+  radius?: string;
 }
 
 export const Button = ({
@@ -48,6 +49,7 @@ export const Button = ({
   Icon,
   clickType = 'submit',
   margin,
+  radius,
 }: propsType) => {
   return (
     <_Wrapper
@@ -59,15 +61,17 @@ export const Button = ({
       onClick={!disabled && onClick}
       type={clickType}
       margin={margin}
+      radius={radius}
     >
-      {Icon && <Icon.type size={18} colorKey={iconColorToKey(kind, color)} />}
+      {Icon && Icon}
       {children}
     </_Wrapper>
   );
 };
 
 const _Wrapper = styled.button<propsType>`
-  height: 47px;
+  cursor: pointer;
+  height: 45px;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -75,6 +79,7 @@ const _Wrapper = styled.button<propsType>`
   padding: 14px 16px;
   font-size: 14px;
   border-radius: ${({ kind }) => (kind === 'round' ? 24 : 4)}px;
+  border-radius: ${({ radius }) => radius};
   max-width: 1030px;
   min-width: ${({ children }) => (children[1] ? 80 : 50)}px;
   width: ${({ size }) => {
@@ -83,22 +88,13 @@ const _Wrapper = styled.button<propsType>`
         return '300px';
       case 'large':
         return '100%';
+      default:
+        return 'fit-content';
     }
   }};
-  ${({ margin }) => margin};
+  margin: ${({ margin }) => margin};
   ${({ color, disabled, kind }) => cssGenerator(kind, color, disabled)};
 `;
-
-const iconColorToKey = (kind: kindType, color: colorType) => {
-  switch (color) {
-    case 'primary':
-      return kind === 'contained' ? 'gray1' : 'primaryDarken2';
-    case 'gray':
-      return kind === 'contained' ? 'gray8' : 'gray6';
-    case 'error':
-      return kind === 'contained' ? 'gray1' : 'error';
-  }
-};
 
 const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
   switch (kind) {
@@ -211,6 +207,7 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             opacity: ${disabled ? 0.5 : 1};
             cursor: ${disabled && 'no-drop'};
             border: 1px solid ${gray2};
+            background-color: ${gray1};
             :hover {
               background-color: ${!disabled && gray2};
             }

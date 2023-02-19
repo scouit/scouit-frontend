@@ -7,6 +7,7 @@ import { Text } from '@/components/common/text';
 import { Button } from '@/components/common/button';
 import { ImgSlider } from '@/components/slider/ImgSlider';
 import { UnderLineLink } from '@/components/Link';
+import { media } from '@/media';
 
 interface PropsType {
   children: ReactNode;
@@ -23,23 +24,7 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
   return (
     <_Wrapper>
       <_Content>
-        <_ContentInner>
-          <Button
-            kind="text"
-            Icon={<Arrow direction="left" color="primaryDarken2" />}
-            margin="0 0 50px 0"
-            onClick={() => navigate(-1)}
-          >
-            뒤로가기
-          </Button>
-          <form onSubmit={onSubmitPreventDefault}>
-            <_AuthContent>{children}</_AuthContent>
-            <Text color="gray10" align="center" margin="30px 0 0 0">
-              <UnderLineLink to="">개인정보 처리방침</UnderLineLink> •{' '}
-              <UnderLineLink to="">회원이용약관</UnderLineLink>
-            </Text>
-          </form>
-        </_ContentInner>
+        <form onSubmit={onSubmitPreventDefault}>{children}</form>
       </_Content>
       <_BackgroundImg src={AuthBack} />
       <ImgSlider />
@@ -48,33 +33,25 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
 };
 
 const _Wrapper = styled.div`
+  height: 100vh;
   display: flex;
   justify-content: center;
-`;
-
-const _AuthContent = styled.div`
-  height: 550px;
 `;
 
 const _Content = styled.div`
-  width: 718px;
-  height: 100vh;
+  width: 32rem;
+  padding: 0 2.5rem;
   background-color: ${({ theme }) => theme.color.gray1};
-  box-shadow: ${({ theme }) => theme.shadow.modal};
   position: relative;
-  z-index: 1;
-  @media screen and (max-width: 1050px) {
-    box-shadow: none;
-  }
-`;
-
-const _ContentInner = styled.div`
-  width: 524px;
-  height: 100%;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index: 1;
+  ${media.media1024`
+    max-width: 31.125rem;
+    padding: 0 1.5rem
+  `};
+  ${media.media360`padding: 0 1rem`};
 `;
 
 const _BackgroundImg = styled.img`
@@ -84,7 +61,5 @@ const _BackgroundImg = styled.img`
   z-index: -1;
   top: 0;
   object-fit: cover;
-  @media screen and (max-width: 1050px) {
-    display: none;
-  }
+  ${media.media1024`display:none`};
 `;

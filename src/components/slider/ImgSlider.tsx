@@ -1,62 +1,80 @@
 import { IMac, LabTap, IPhone } from '@/assets';
 import { useSlide } from '@/hooks/useSlide';
 import { keyOfColor } from '@/styles/theme/color';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Text } from '../common/text';
-import { ColumnGap, RowGap } from '@/layouts/DirectionGap';
+import { ColumnCenterGap, RowGap } from '@/layouts/DirectionGap';
 import { appear } from '@/animation/slider';
+import { media } from '@/media';
 
-const activeColor = (idx: number, count: number, color: keyOfColor) =>
-  idx === count % 3 ? 'primary' : color;
+const activeColor = (idx: number, count: number) =>
+  idx === count % 3 ? true : false;
 
 export const ImgSlider = () => {
   const { ref, currentImg, count, setCount } = useSlide(LabTap, IMac, IPhone);
 
   return (
     <_Wrapper>
-      <_DescriptionImg width={500} height={460} ref={ref} src={currentImg} />
-      <ColumnGap gap="16px">
+      <_DescriptionImg width={400} height={400} ref={ref} src={currentImg} />
+      <ColumnCenterGap gap="16px" margin="12px 0 0">
         <Text size="title1" color="gray1">
-          원하는 회사의 멋진 동료가
+          연합 동아리를 모아보세요.
         </Text>
-        <Text size="title1" color="gray1">
-          될 기회를 얻을 수 있어요.
-        </Text>
-      </ColumnGap>
-      <RowGap gap="46px">
+        <ColumnCenterGap gap="0">
+          <Text color="gray1">
+            scouit에서는 연합 동아리를 찾아줘서 개발자들이 취업하기 쉽게
+          </Text>
+          <Text color="gray1">기회를 만들워줘요. 지금 시작하세요.</Text>
+        </ColumnCenterGap>
+      </ColumnCenterGap>
+      <_BallWrapper>
         {Array(3)
           .fill(0)
           .map((_, idx) => (
             <_Ball
-              color={activeColor(idx, count, 'gray1')}
-              hover={activeColor(idx, count, 'gray4')}
+              size={activeColor(idx, count) ? '12px' : '8px'}
+              color={activeColor(idx, count) ? 'primary' : 'gray1'}
+              hover={activeColor(idx, count) ? 'primary' : 'gray4'}
               onClick={() => setCount(idx)}
             />
           ))}
-      </RowGap>
+      </_BallWrapper>
     </_Wrapper>
   );
 };
 
 const _Wrapper = styled.div`
-  width: 530px;
+  width: 33.125rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+
   margin: 0 auto;
-  @media screen and (max-width: 1050px) {
-    display: none;
-  }
+  ${media.media1024`display:none;`}
 `;
 
-const _Ball = styled.div<{ color: keyOfColor; hover: keyOfColor }>`
-  width: 15px;
-  height: 15px;
+const _BallWrapper = styled.div`
+  height: 0.9375rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5625rem;
+  margin-top: 2.5rem;
+`;
+
+const _Ball = styled.div<{
+  size: string;
+  color: keyOfColor;
+  hover: keyOfColor;
+}>`
+  ${({ size }) =>
+    css`
+      width: ${size};
+      height: ${size};
+    `};
   cursor: pointer;
   transition: 0.25s;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   background-color: ${({ theme, color }) => theme.color[color]};
   :hover {
     background-color: ${({ theme, hover }) => theme.color[hover]};
