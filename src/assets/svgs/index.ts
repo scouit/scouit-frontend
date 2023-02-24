@@ -15,3 +15,7 @@ export * from './Typescript';
 export * from './CheckboxClicked';
 export * from './CheckBoxUnSelected';
 export * from './Hamburger';
+export * from './Img';
+export * from './Search';
+export * from './SelectTrue';
+export * from './SelectFalse';
