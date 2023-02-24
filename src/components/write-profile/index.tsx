@@ -1,39 +1,89 @@
 import { Button } from '@/components/common/button';
 import { ColumnCenterGap } from '@/layouts/DirectionGap';
-import { Link } from 'react-router-dom';
+import { media } from '@/styles/media';
+import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { Progress } from '../progress';
-import { lio } from './constants';
+import { lio, URI } from './constants';
 
-export const Tapbar = () => {
+interface PropsType {
+  currentPage: string;
+}
+
+export const Tapbar = ({ currentPage }: PropsType) => {
   return (
     <_Wrapper>
-      <ColumnCenterGap gap="24px" margin="58px 0">
-        <Progress name="프로필 완성도" percent={0} />
+      <ColumnCenterGap gap="24px">
         <_ActiveContent>
-          {lio.map((item) => (
-            <Link to={item.url}>
-              <Button size="large" kind="text" color="gray">
-                {item.title}
-              </Button>
+          {lio.map((e) => (
+            <Link to={e.url}>
+              <_TabButton selected={e.title === currentPage}>
+                {e.title}
+              </_TabButton>
             </Link>
           ))}
         </_ActiveContent>
       </ColumnCenterGap>
+      <_ButtonWrapper>
+        <Button
+          size="large"
+          kind="contained"
+          onClick={() => {
+            // basicUpdate.mutate();
+            // projectUpdate.mutate();
+            // workUpdate.mutate();
+          }}
+        >
+          프로필 저장
+        </Button>
+      </_ButtonWrapper>
     </_Wrapper>
   );
 };
 
 const _Wrapper = styled.div`
-  width: 300px;
-  position: sticky;
+  width: 270px;
+  height: 500px;
+  border-radius: 0.5rem;
   top: 115px;
-  height: 400px;
-  box-shadow: ${({ theme }) => theme.shadow.modal};
+  padding: 60px 16px 30px 16px;
+  display: flex;
+  justify-content: space-between;
   background-color: ${({ theme }) => theme.color.gray1};
+  position: sticky;
+  flex-direction: column;
+  ${media._1024(`
+    padding: 0;
+    width: 0;
+    height: 0;
+  `)}
 `;
 
 const _ActiveContent = styled.div`
   width: 100%;
   padding: 0 10px;
+  justify-content: center;
+  background-color: #ffffff;
+  ${media._1024(`
+    display:none;
+  `)}
+`;
+
+const _ButtonWrapper = styled.div`
+  ${media._1024(`
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+`)}
+`;
+
+const _TabButton = styled.div<{ selected: boolean }>`
+  width: 100%;
+  border-radius: 0.5rem;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ selected }) => (selected ? 'blue' : 'black')};
+  ${({ theme }) => theme.font.heading3};
 `;
