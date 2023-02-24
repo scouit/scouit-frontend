@@ -7,7 +7,7 @@ import { Text } from '@/components/common/text';
 import { Button } from '@/components/common/button';
 import { ImgSlider } from '@/components/slider/ImgSlider';
 import { UnderLineLink } from '@/components/Link';
-import { media } from '@/media';
+import { media } from '@/styles/media';
 
 interface PropsType {
   children: ReactNode;
@@ -47,11 +47,11 @@ const _Content = styled.div`
   flex-direction: column;
   justify-content: center;
   z-index: 1;
-  ${media.media1024`
+  ${media._1024(`
     max-width: 31.125rem;
     padding: 0 1.5rem
-  `};
-  ${media.media360`padding: 0 1rem`};
+  `)};
+  ${media._360(`padding: 0 1rem`)};
 `;
 
 const _BackgroundImg = styled.img`
@@ -61,5 +61,5 @@ const _BackgroundImg = styled.img`
   z-index: -1;
   top: 0;
   object-fit: cover;
-  ${media.media1024`display:none`};
+  ${media._1024(`display:none`)};
 `;
