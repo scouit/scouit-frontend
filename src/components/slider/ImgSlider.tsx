@@ -4,8 +4,8 @@ import { keyOfColor } from '@/styles/theme/color';
 import styled, { css } from 'styled-components';
 import { Text } from '../common/text';
 import { ColumnCenterGap, RowGap } from '@/layouts/DirectionGap';
-import { appear } from '@/animation/slider';
-import { media } from '@/media';
+import { appear } from '@/styles/animation/slider';
+import { media } from '@/styles/media';
 
 const activeColor = (idx: number, count: number) =>
   idx === count % 3 ? true : false;
@@ -51,7 +51,7 @@ const _Wrapper = styled.div`
   align-items: center;
 
   margin: 0 auto;
-  ${media.media1024`display:none;`}
+  ${media._1024(`display:none;`)}
 `;
 
 const _BallWrapper = styled.div`
