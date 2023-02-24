@@ -1,6 +1,10 @@
 import { NextJs, React, Typescript } from '@/assets';
-import { ColumnCenterGap, RowCenterGap } from '@/layouts/DirectionGap';
-import { media } from '@/media';
+import {
+  ColumnCenterGap,
+  RowCenterGap,
+  RowEndGap,
+} from '@/layouts/DirectionGap';
+import { media } from '@/styles/media';
 import styled from 'styled-components';
 import { Text } from '../common/text';
 
@@ -23,11 +27,11 @@ export const ProfileData = ({ url, name, role, descript }: PropsType) => {
               {role}
             </Text>
           </_NameWrapper>
-          <RowCenterGap gap="0.5rem">
+          <RowEndGap width="fit-content" gap="0.5rem">
             <Typescript />
             <NextJs />
             <React />
-          </RowCenterGap>
+          </RowEndGap>
         </_RoleWrapper>
         <Text size="body4">{descript}</Text>
       </ColumnCenterGap>
@@ -46,18 +50,18 @@ const _RoleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: start;
-  ${media.media720`
+  ${media._720(`
     flex-direction: column;
     gap: 0.375rem;
-  `};
+  `)};
 `;
 
 const _NameWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.4375rem;
-  ${media.media720`
+  ${media._720(`
     flex-direction: row;
     align-items:center
-  `};
+  `)};
 `;

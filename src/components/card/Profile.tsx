@@ -1,6 +1,6 @@
 import { NextJs, Profile, React, Typescript } from '@/assets';
 import { ColumnCenterGap, RowCenterGap } from '@/layouts/DirectionGap';
-import { media } from '@/media';
+import { media } from '@/styles/media';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from '../common/button';
@@ -11,9 +11,11 @@ import { Tag } from './Tag';
 interface PropsType {
   name: string;
   url?: string;
+  isProfile: boolean;
+  children: React.ReactNode;
 }
 
-const dummy = {
+export const dummy = {
   name: '조상현',
   profile: Profile,
   role: 'UI/UX 엔지니어',
@@ -22,30 +24,18 @@ const dummy = {
   tag: ['사이드 프로젝트 모집 중', '커피챗 가능'],
 };
 
-export const ProfileCard = ({ name, url }: PropsType) => {
+export const ProfileCard = ({ name, url, isProfile, children }: PropsType) => {
   const navigate = useNavigate();
   return (
     <_Wrapper>
-      <ColumnCenterGap gap="2.25rem" padding="0 1.5rem">
-        <ProfileData
-          url={dummy.profile}
-          name={dummy.name}
-          role={dummy.role}
-          descript={dummy.descript}
-        />
-        <_TagContent>
-          {dummy.tag.map((content) => (
-            <Tag padding="0.5625rem 1.125rem">{content}</Tag>
-          ))}
-        </_TagContent>
-      </ColumnCenterGap>
+      {children}
       <Button
-        onClick={() => navigate('/developer/')}
+        onClick={() => navigate('/developers/resume/a')}
         kind="contained"
         size="large"
         radius="0 0 0.5rem 0.5rem"
       >
-        view profile
+        view {isProfile ? 'profile' : 'post'}
       </Button>
     </_Wrapper>
   );
@@ -59,9 +49,10 @@ const _Wrapper = styled.article`
   justify-content: space-between;
   box-shadow: ${({ theme }) => theme.shadow.surface};
   border-radius: 0.5rem;
+  width: 100%;
   max-width: 23rem;
-  ${media.media1512`min-width: 19.3rem;`}
-  ${media.media1024`min-width: 20.25rem;`}
+  ${media._1512(`min-width: 19.3rem;`)}
+  ${media._1024(`min-width: 20.25rem;`)}
 `;
 
 const _TagContent = styled.div`
