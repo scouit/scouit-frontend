@@ -1,62 +1,94 @@
 import {
-  ContentType,
+  EachItemType,
   EditType,
-  getUserProfile,
   IntroType,
   ProfileType,
-} from '@/apis/profile/getProfile';
+  TimeType,
+} from '@/apis/profile/type';
 import { patchUserProfile } from '@/apis/profile/PostProfile';
 import { atomProfile } from '@/store/write';
-import { ChangeEvent, useEffect, useState } from 'react';
-import { useMutation, useQuery } from 'react-query';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import { useMutation } from 'react-query';
 import { RecoilState, useRecoilState, useRecoilValue } from 'recoil';
-import { useForm } from './useForm';
 
-export type ArrayEditType = 'project' | 'workExperience';
+export type ArrayEditType = 'project' | 'experience' | 'active' | 'educate';
+export type ContentEditType = 'basic' | 'intro' | 'skill';
 
-export const useProfile = (type: ArrayEditType) => {
+const arryaAddState = {
+  project: {
+    name: '',
+    intro: '',
+    time: { start: '', end: '' },
+    url: '',
+    skill: ['af'],
+    img: [],
+    works: [],
+  },
+  experience: { name: '', time: { start: '', end: '' }, role: '', works: [] },
+  active: { name: '', content: '', time: { start: '', end: '' } },
+  educate: { name: '', time: { start: '', end: '' } },
+};
+
+const addValidation = (data: {}, ...arg: string[]) => {
+  //@ts-ignore
+  return arg.every((e) => data[e].length || data[e].start || data[e].end);
+};
+export const useProfileArray = (type: ArrayEditType) => {
   const [profile, setProfile] = useRecoilState<ProfileType>(atomProfile);
 
-  const arrayChange = (
-    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
-    index: number
-  ) => {
-    const { name, value } = e.target;
-    const temp = profile[type].map((e, idx) =>
-      index === idx ? { ...e, [name]: value } : e
-    );
-    setProfile({ ...profile, [type]: temp });
-  };
+  const listChange =
+    (index: number) =>
+    (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+      const { name, value } = e.target;
+      const temp = profile[type].map((e, idx) =>
+        index === idx ? { ...e, [name]: value } : e
+      );
+      setProfile({ ...profile, [type]: temp });
+    };
 
-  const addContent = () => {
+  const addContent = () =>
+    addValidation(profile[type][profile[type].length - 1], 'name', 'time') &&
     setProfile(() => ({
       ...profile,
-      [type]: [...profile[type], { name: '', content: '' }],
+      [type]: [...profile[type], arryaAddState[type]],
     }));
-  };
-
   return {
     profile,
     setProfile,
-    arrayChange,
+    listChange,
     addContent,
   };
 };
 
-export const useProfileUpdate = () => {
-  const profile = useRecoilValue<ProfileType>(atomProfile);
-  const mutate = (type: EditType) =>
-    useMutation(() =>
-      patchUserProfile<ContentType[] | IntroType>(type, profile[type])
-    );
+export const useProfileList = (type: ArrayEditType) => {
+  const [profile, setProfile] = useRecoilState<ProfileType>(atomProfile);
+  const addListArray =
+    (index: number) => (name: string, value: string | File) => {
+      if (!value) return;
+      const temp = profile[type].map((e, idx) =>
+        index === idx ? { ...e, [name]: e[name].concat(value) } : e
+      );
+      setProfile({ ...profile, [type]: temp });
+    };
 
-  const projectUpdate = mutate('project');
-  const workUpdate = mutate('workExperience');
-  const basicUpdate = mutate('basic');
-  return { projectUpdate, workUpdate, basicUpdate };
+  const removeArrayList =
+    (index: number) => (name: string, listIndex: number) => {
+      const temp = profile[type].map((e, idx) =>
+        index === idx
+          ? {
+              ...e,
+              [name]: e[name].filter(
+                (_, clickedIdx) => listIndex !== clickedIdx
+              ),
+            }
+          : e
+      );
+      setProfile({ ...profile, [type]: temp });
+    };
+  return { addListArray, removeArrayList };
 };
 
-export const useBasic = () => {
+export const useProfileContent = (type: ContentEditType) => {
   const [profile, setProfile] = useRecoilState<ProfileType>(atomProfile);
   const handleOnChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -64,9 +96,22 @@ export const useBasic = () => {
     const { value, name } = e.target;
     setProfile({
       ...profile,
-      basic: { ...profile.basic, [name]: value },
+      [type]: { ...profile[type], [name]: value },
     });
   };
+  return {
+    profile,
+    handleOnChange,
+  };
+};
 
-  return { profile, handleOnChange };
+export const useProfileUpdate = () => {
+  const profile = useRecoilValue<ProfileType>(atomProfile);
+  const mutate = (type: EditType) =>
+    useMutation(() => patchUserProfile<any>(type, profile[type]));
+
+  const projectUpdate = mutate('project');
+  const workUpdate = mutate('experience');
+  const basicUpdate = mutate('basic');
+  return { projectUpdate, workUpdate, basicUpdate };
 };

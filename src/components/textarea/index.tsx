@@ -19,7 +19,7 @@ export const TextArea = ({
 }: PropsType) => {
   return (
     <_Wrapper>
-      <Text margin="0 0 24px 0" color="gray6" size="body2">
+      <Text margin="0 0 0.5rem 0.3125rem" color="gray6" size="body2">
         {label}
       </Text>
       <_TextArea
@@ -28,7 +28,7 @@ export const TextArea = ({
         onChange={onChange}
         placeholder={placeholder}
       />
-      <Text align="end" margin="4px 0 0 0" size="body4">
+      <Text align="end" margin="8px 0 0 0" size="body4">
         (0 / 2000)
       </Text>
     </_Wrapper>

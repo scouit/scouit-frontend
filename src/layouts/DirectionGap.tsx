@@ -4,8 +4,10 @@ import styled from 'styled-components';
 interface PropsType {
   children: ReactNode;
   gap: string;
+  width?: 'fit-content' | '100%';
   margin?: string;
   padding?: string;
+  wrap?: boolean;
 }
 
 type DirectionType = 'column' | 'row';
@@ -15,15 +17,17 @@ const curry =
   (direction: DirectionType) =>
   (align?: PositionType) =>
   (justify?: PositionType) =>
-  ({ children, gap, margin, padding }: PropsType) =>
+  ({ children, gap, margin, padding, width = '100%', wrap }: PropsType) =>
     (
       <_Wrapper
         gap={gap}
+        width={width}
         margin={margin}
         padding={padding}
         align={align}
         justify={justify}
         direction={direction}
+        wrap={wrap}
       >
         {children}
       </_Wrapper>
@@ -55,7 +59,10 @@ const _Wrapper = styled.div<{
   direction?: DirectionType;
   align?: PositionType;
   justify?: PositionType;
+  width?: 'fit-content' | '100%';
+  wrap?: boolean;
 }>`
+  width: ${({ width }) => width};
   display: flex;
   flex-direction: ${({ direction }) => direction};
   align-items: ${({ align }) => align};
@@ -63,4 +70,5 @@ const _Wrapper = styled.div<{
   gap: ${({ gap }) => gap};
   margin: ${({ margin }) => margin};
   padding: ${({ padding }) => padding};
+  flex-wrap: ${({ wrap }) => wrap && 'wrap'};
 `;

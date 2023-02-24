@@ -1,8 +1,9 @@
-const fontToCss = (sz: number, wt: number) =>
+const fontToCss = (sz: number, wt: number, lh?: number) =>
   `
   font-family: "Pretendard";
   font-weight: ${wt};
   font-size: ${sz}px;
+  ${lh ? `line-height: ${lh}%;` : ''}
 `;
 
 export const font = {
@@ -14,7 +15,7 @@ export const font = {
   title2: fontToCss(19, 600),
   title3: fontToCss(16, 500),
   title4: fontToCss(15, 500),
-  body1: fontToCss(16, 400),
+  body1: fontToCss(16, 400, 140),
   body2: fontToCss(14, 400),
   body3: fontToCss(13, 400),
   body4: fontToCss(12, 400),

@@ -36,7 +36,7 @@ export const SignInPage = () => {
           name="email"
           value={text.email}
           onChange={handleOnChange}
-          placeholder="example@email.coom"
+          placeholder="example@email.com"
           label="아이디"
         />
         <Input
