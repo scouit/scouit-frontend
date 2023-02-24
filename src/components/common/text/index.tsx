@@ -7,6 +7,7 @@ type alignType = 'start' | 'center' | 'end';
 
 interface Props {
   className?: string;
+  as?: 'div' | 'li';
   lineHeight?: string;
   height?: string;
   align?: alignType;
@@ -19,6 +20,7 @@ interface Props {
 
 export const Text = ({
   className,
+  as = 'div',
   lineHeight,
   height = 'auto',
   align = 'start',
@@ -30,6 +32,7 @@ export const Text = ({
 }: Props) => {
   return (
     <_Wrapper
+      as={as}
       className={className}
       lineHeight={lineHeight}
       height={height}

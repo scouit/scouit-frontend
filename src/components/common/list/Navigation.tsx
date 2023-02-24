@@ -1,4 +1,4 @@
-import { media } from '@/media';
+import { media } from '@/styles/media';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -30,5 +30,5 @@ const _Wrapper = styled.ul`
   display: flex;
   align-items: center;
   gap: 50px;
-  ${media.media720`display:none;`}
+  ${media._720(`display:none;`)}
 `;

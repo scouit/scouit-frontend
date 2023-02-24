@@ -78,6 +78,7 @@ const _Wrapper = styled.button<propsType>`
   justify-content: center;
   padding: 14px 16px;
   font-size: 14px;
+  font-weight: bold;
   border-radius: ${({ kind }) => (kind === 'round' ? 24 : 4)}px;
   border-radius: ${({ radius }) => radius};
   max-width: 1030px;
@@ -88,7 +89,7 @@ const _Wrapper = styled.button<propsType>`
         return '300px';
       case 'large':
         return '100%';
-      default:
+      case 'default':
         return 'fit-content';
     }
   }};
