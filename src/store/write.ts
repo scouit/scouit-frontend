@@ -1,14 +1,27 @@
-import { ProfileType } from '@/apis/profile/getProfile';
+import { ProfileType } from '@/apis/profile/type';
 import { atom } from 'recoil';
 
 export const atomProfile = atom<ProfileType>({
   key: 'profile',
   default: {
     basic: {
-      aboutMe: '',
-      oneLineIntroduction: '',
+      role: '',
     },
-    project: [{ name: '', content: '' }],
-    workExperience: [{ name: '', content: '' }],
+    intro: { aboutMe: '', oneLineIntroduction: '' },
+    project: [
+      {
+        name: '',
+        intro: '',
+        time: { start: '', end: '' },
+        url: '',
+        skill: ['af'],
+        img: [],
+        works: [],
+      },
+    ],
+    experience: [{ name: '', time: { start: '', end: '' }, role: '', works: [] }],
+    skill: { mainSkill: [], subSkill: [] },
+    active: [{ name: '', content: '', time: { start: '', end: '' } }],
+    educate: [{ name: '', time: { start: '', end: '' } }],
   },
 });
