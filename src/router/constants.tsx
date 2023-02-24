@@ -1,7 +1,20 @@
 import { Error401, Error403, Error404 } from '@/assets';
 
 export const routePath = {
-  home: '/',
+  home: {
+    index: '/',
+    club: 'club',
+    side: 'side-project',
+  },
+  admin: {
+    index: '/admin',
+    club: '/admin/club',
+  },
+  lounge: {
+    index: '/lounge',
+    write: '/lounge/recruitment',
+    detail: 'lounge/:id',
+  },
   signin: '/sign-in',
   signup: '/sign-up',
   resetPassword: '/reset-password',
@@ -10,7 +23,7 @@ export const routePath = {
   developers: {
     index: '/developers',
     resume: {
-      index: 'resume',
+      index: 'resume/*',
       dynamic: ':id',
     },
   },
@@ -25,21 +38,24 @@ export const routePath = {
     write: {
       index: 'write/*',
       basic: 'basic',
+      intro: 'introduce',
       work: 'work-experience',
       project: 'project',
+      tech: 'technology',
+      active: 'activity',
+      educate: 'education',
     },
     index: '/profile',
   },
   myPage: '/my-page',
   notFound: '/*',
-  unAuth: '/401',
   forbid: '/403',
 } as const;
 
 export const ErrorState = {
   unfind404: {
     name: 'Not Found',
-    content: `Sorry, you are not authorized\n to access this page.`,
+    content: `이런, 페이지를 찾을 수 없습니다.`,
     image: Error404,
     number: 404,
   },
@@ -51,7 +67,7 @@ export const ErrorState = {
   },
   forbid403: {
     name: 'Forbidden',
-    content: '이런, 페이지를 찾을 수 없습니다.',
+    content: '이 페이지에 대한 접근권한이 존재하지 않습니다.',
     image: Error403,
     number: 403,
   },
