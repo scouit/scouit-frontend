@@ -34,9 +34,9 @@ export const SignUpPage = () => {
   const errorType = {
     name: text.name.length < 1 || text.name.length > 11,
     password:
-      text.password.length < 8
-      || !/[~!@#$%^&*{}()|[\]\\]/g.test(text.password)
-      || !/[A-Z]/g.test(text.password),
+      text.password.length < 8 ||
+      !/[~!@#$%^&*{}()|[\]\\]/g.test(text.password) ||
+      !/[A-Z]/g.test(text.password),
     passwordCheck: text.passwordCheck !== text.password,
   };
 
@@ -60,7 +60,7 @@ export const SignUpPage = () => {
       <Button
         clickType="button"
         kind="text"
-        Icon={<Arrow direction="left" color="primaryDarken2" />}
+        Icon={<Arrow color="primaryDarken2" />}
         margin="0 0 4.0625rem 0"
         onClick={() => navigate(-1)}
       >

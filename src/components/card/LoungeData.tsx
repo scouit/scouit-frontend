@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Back } from '@/assets';
-import { ColumnGap } from '@/layouts/DirectionGap';
 import { Text } from '../common/text';
 
 interface PropsType {

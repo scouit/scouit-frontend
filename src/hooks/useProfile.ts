@@ -1,20 +1,23 @@
-import {
-  ChangeEvent, FormEvent, useEffect, useState,
-} from 'react';
+import { ChangeEvent } from 'react';
 import { useMutation } from 'react-query';
-import { RecoilState, useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import {
-  EachItemType,
-  EditType,
+  ActiveType,
+  BasicType,
+  EducateType,
+  ExpType,
   IntroType,
   ProfileType,
-  TimeType,
+  ProjectType,
+  SkillType,
 } from '@/apis/profile/type';
 import { patchUserProfile } from '@/apis/profile/PostProfile';
 import { atomProfile } from '@/store/write';
 
 export type ArrayEditType = 'project' | 'experience' | 'active' | 'educate';
+export type ArrayProfileType = ProjectType | ExpType | ActiveType | EducateType;
 export type ContentEditType = 'basic' | 'intro' | 'skill';
+export type ContentProfileType = BasicType | IntroType | SkillType;
 
 const arryaAddState = {
   project: {
@@ -27,26 +30,34 @@ const arryaAddState = {
     works: [],
   },
   experience: {
-    name: '', time: { start: '', end: '' }, role: '', works: [],
+    name: '',
+    time: { start: '', end: '' },
+    role: '',
+    works: [],
   },
   active: { name: '', content: '', time: { start: '', end: '' } },
   educate: { name: '', time: { start: '', end: '' } },
 };
 
-const addValidation = (data: {}, ...arg: string[]) =>
-  // @ts-ignore
+const addValidation = (data: ArrayProfileType, ...arg: string[]) =>
   arg.every((e) => data[e].length || data[e].start || data[e].end);
+
 export const useProfileArray = (type: ArrayEditType) => {
   const [profile, setProfile] = useRecoilState<ProfileType>(atomProfile);
 
-  const listChange = (index: number) => (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-    const { name, value } = e.target;
-    const temp = profile[type].map((e, idx) => (index === idx ? { ...e, [name]: value } : e));
-    setProfile({ ...profile, [type]: temp });
-  };
+  const listChange =
+    (index: number) =>
+    (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+      const { name, value } = event.target;
+      const temp = profile[type].map((e: ArrayProfileType, idx) =>
+        index === idx ? { ...e, [name]: value } : e,
+      );
+      setProfile({ ...profile, [type]: temp });
+    };
 
-  const addContent = () => addValidation(profile[type][profile[type].length - 1], 'name', 'time')
-    && setProfile(() => ({
+  const addContent = () =>
+    addValidation(profile[type][profile[type].length - 1], 'name', 'time') &&
+    setProfile(() => ({
       ...profile,
       [type]: [...profile[type], arryaAddState[type]],
     }));
@@ -60,23 +71,29 @@ export const useProfileArray = (type: ArrayEditType) => {
 
 export const useProfileList = (type: ArrayEditType) => {
   const [profile, setProfile] = useRecoilState<ProfileType>(atomProfile);
-  const addListArray = (index: number) => (name: string, value: string | File) => {
-    if (!value) return;
-    const temp = profile[type].map((e, idx) => (index === idx ? { ...e, [name]: e[name].concat(value) } : e));
-    setProfile({ ...profile, [type]: temp });
-  };
+  const addListArray =
+    (index: number) => (name: string, value: string | File) => {
+      if (!value) return;
+      const temp = profile[type].map((e, idx) =>
+        index === idx ? { ...e, [name]: e[name].concat(value) } : e,
+      );
+      setProfile({ ...profile, [type]: temp });
+    };
 
-  const removeArrayList = (index: number) => (name: string, listIndex: number) => {
-    const temp = profile[type].map((e, idx) => (index === idx
-      ? {
-        ...e,
-        [name]: e[name].filter(
-          (_, clickedIdx) => listIndex !== clickedIdx,
-        ),
-      }
-      : e));
-    setProfile({ ...profile, [type]: temp });
-  };
+  const removeArrayList =
+    (index: number) => (name: string, listIndex: number) => {
+      const temp = profile[type].map((e, idx) =>
+        index === idx
+          ? {
+              ...e,
+              [name]: e[name].filter(
+                (_, clickedIdx) => listIndex !== clickedIdx,
+              ),
+            }
+          : e,
+      );
+      setProfile({ ...profile, [type]: temp });
+    };
   return { addListArray, removeArrayList };
 };
 
@@ -99,10 +116,15 @@ export const useProfileContent = (type: ContentEditType) => {
 
 export const useProfileUpdate = () => {
   const profile = useRecoilValue<ProfileType>(atomProfile);
-  const mutate = (type: EditType) => useMutation(() => patchUserProfile<any>(type, profile[type]));
 
-  const projectUpdate = mutate('project');
-  const workUpdate = mutate('experience');
-  const basicUpdate = mutate('basic');
+  const projectUpdate = useMutation(() =>
+    patchUserProfile<ProjectType[]>('project', profile.project),
+  );
+  const workUpdate = useMutation(() =>
+    patchUserProfile<ExpType[]>('experience', profile.experience),
+  );
+  const basicUpdate = useMutation(() =>
+    patchUserProfile<BasicType>('basic', profile.basic),
+  );
   return { projectUpdate, workUpdate, basicUpdate };
 };

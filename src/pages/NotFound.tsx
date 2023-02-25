@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Warning } from '@/assets';
 import { Button } from '@/components/common/button';
 import { Text } from '@/components/common/text';
-import { ColumnCenterGap, ColumnGap } from '@/layouts/DirectionGap';
+import { ColumnGap } from '@/layouts/DirectionGap';
 import { ErrorLayout } from '@/layouts/ErrorLayout';
 
 interface PropsType {

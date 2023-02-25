@@ -1,9 +1,9 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from '@/components/common/button';
 import { ColumnCenterGap } from '@/layouts/DirectionGap';
 import { media } from '@/styles/media';
-import { lio, URI } from './constants';
+import { lio } from './constants';
 
 interface PropsType {
   currentPage: string;

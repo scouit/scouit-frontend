@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { useRecoilValue } from 'recoil';
 import { Hamburger, LogoWithText } from '@/assets';
@@ -9,20 +9,15 @@ import { profileSelectBox } from '@/store/modal';
 import { ProfileSelectBox } from '../select-box/Profile';
 import { localStorgeGetItem } from '@/utils/storge';
 import { media } from '@/styles/media';
-import { BottomListNav } from './bottom/ListNav';
+import { BottomListNav, BottomHeaderType } from './bottom/ListNav';
 import { useHeaderScroll } from '@/hooks/useHeaderScroll';
 
-export interface BottomHeaderType {
-  textList?: {
-    title: string;
-    url: string;
-  }[];
-  currentPage?: string;
-  gap?: string;
-  isMedia?: boolean;
-}
-
-export const Header = (bottomProps: BottomHeaderType) => {
+export const Header = ({
+  textList,
+  currentPage,
+  gap,
+  isMedia,
+}: BottomHeaderType) => {
   const profile = useRecoilValue(profileSelectBox);
   const display = useHeaderScroll();
   return (
@@ -33,9 +28,7 @@ export const Header = (bottomProps: BottomHeaderType) => {
         </Link>
         <nav>
           <NavigationList
-            list={NavListIsLogin(
-              !!localStorgeGetItem('access_token'),
-            )}
+            list={NavListIsLogin(!!localStorgeGetItem('access_token'))}
           />
           <_Hamburger>
             <Hamburger />
@@ -43,7 +36,14 @@ export const Header = (bottomProps: BottomHeaderType) => {
         </nav>
       </_Column12>
       {profile && <ProfileSelectBox />}
-      {bottomProps.textList && <BottomListNav {...bottomProps} />}
+      {textList && (
+        <BottomListNav
+          textList={textList}
+          currentPage={currentPage}
+          gap={gap}
+          isMedia={isMedia}
+        />
+      )}
     </_Wrapper>
   );
 };
@@ -68,8 +68,9 @@ const _Column12 = styled(Columns)<{ display: boolean }>`
   justify-content: space-between;
   height: 70px;
   padding: 0 1.5rem;
-  ${({ display }) => !display
-    && css`
+  ${({ display }) =>
+    !display &&
+    css`
       visibility: hidden;
       height: 0;
     `}

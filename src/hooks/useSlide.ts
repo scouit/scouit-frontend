@@ -25,6 +25,9 @@ export const useSlide = (...arg: string[]) => {
   };
 
   return {
-    ref, currentImg, count, setCount,
+    ref,
+    currentImg,
+    count,
+    setCount,
   };
 };

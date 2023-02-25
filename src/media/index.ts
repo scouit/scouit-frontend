@@ -1,4 +1,4 @@
-import { css, DefaultTheme, ThemedCssFunction } from 'styled-components';
+import { DefaultTheme, ThemedCssFunction } from 'styled-components';
 
 type MediaQueryProps = {
   media360: number;
@@ -15,7 +15,6 @@ const sizes: MediaQueryProps = {
 };
 
 export const media = Object.keys(sizes).reduce((acc, label) => {
-  acc[label] = (style: String) =>
-    `@media (max-width: ${sizes[label] / 16}rem) { ${style} }`;
+  acc[label] = (style: string) => `@media (max-width: ${sizes[label] / 16}rem) { ${style} }`;
   return acc;
 }, {} as { [index in keyof MediaQueryProps]: ThemedCssFunction<DefaultTheme> });

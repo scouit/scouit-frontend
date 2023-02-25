@@ -1,4 +1,3 @@
-import { GetCompanyProfileListResponseType } from '@scouit/api-types';
 import { instance } from '..';
 import { url } from './getProfile';
 import { EditType } from './type';

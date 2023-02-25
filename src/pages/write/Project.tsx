@@ -8,11 +8,9 @@ import { Tapbar } from '@/components/write-profile';
 import { ImgLeader } from '@/components/common/input/FileLeader';
 import {
   useProfileArray,
-  useProfileContent,
   useProfileList,
   useProfileUpdate,
 } from '@/hooks/useProfile';
-import { EditProfileWrapper } from '@/layouts/Wrapper/EditProfile';
 import { SkillInput } from '@/components/common/input/Skill';
 import { Line } from '@/components/common/line';
 import { Header } from '@/components/header';
@@ -24,7 +22,7 @@ export const ProjectPage = () => {
   const { profile, listChange } = useProfileArray(project);
   const { addListArray, removeArrayList } = useProfileList(project);
   const { projectUpdate } = useProfileUpdate();
-  useEffect(() => () => projectUpdate.mutate(), []);
+  useEffect(() => () => projectUpdate.mutate(), [projectUpdate]);
   return (
     <>
       <Header textList={lio} currentPage="프로젝트" gap="17px" isMedia />
@@ -59,7 +57,7 @@ export const ProjectPage = () => {
               label="기술 스택"
               placeholder="사용한 기술을 작성해 주세요"
             />
-            <ImgLeader value={[]} listArrayChange={() => {}} name="img" />
+            <ImgLeader listArrayChange={() => {}} name="img" />
           </>
         ))}
       </ProfileWriteBox>

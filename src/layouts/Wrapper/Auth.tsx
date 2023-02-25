@@ -1,11 +1,7 @@
 import { ReactNode, FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { Arrow, AuthBack } from '@/assets';
-import { Text } from '@/components/common/text';
-import { Button } from '@/components/common/button';
+import { AuthBack } from '@/assets';
 import { ImgSlider } from '@/components/slider/ImgSlider';
-import { UnderLineLink } from '@/components/Link';
 import { media } from '@/styles/media';
 
 interface PropsType {
@@ -13,8 +9,10 @@ interface PropsType {
   onSubmit?: () => void;
 }
 
-export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
-  const navigate = useNavigate();
+export const AuthWrapper = ({
+  children,
+  onSubmit,
+}:PropsType) => {
   const onSubmitPreventDefault = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSubmit();

@@ -14,8 +14,8 @@ interface PropsType {
 
 export const NavigationList = ({ list }: PropsType) => (
   <_Wrapper>
-    {list.map(({ link, name, target }, idx) => (
-      <li key={idx}>
+    {list.map(({ link, name, target }) => (
+      <li>
         <Link target={target} to={link}>
           {name}
         </Link>

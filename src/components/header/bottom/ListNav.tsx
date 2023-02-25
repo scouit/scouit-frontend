@@ -1,7 +1,16 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { media } from '@/styles/media';
-import { BottomHeaderType } from '..';
+
+export interface BottomHeaderType {
+  textList?: {
+    title: string;
+    url: string;
+  }[];
+  currentPage?: string;
+  gap?: string;
+  isMedia?: boolean;
+}
 
 export const BottomListNav = ({
   textList,

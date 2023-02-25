@@ -1,4 +1,3 @@
-import { GetUserProfileListResponseType } from '@scouit/api-types';
 import { instance } from '@/apis';
 import { EditType } from './type';
 

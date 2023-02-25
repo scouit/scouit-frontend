@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { MakesPeoplePage } from '@/pages/MakesPeople';
 import { ResetPasswordPage } from '@/pages/auth/ResetPassword';
 import { FrequentlyAskedQuestionsPage } from '@/pages/FrequentlyAskedQuestions';
-import { homeLinkList, HomePage } from '@/pages/home/Home';
+import { HomePage } from '@/pages/home/Home';
 import { JobPostingPage } from '@/pages/company/job-posting';
 import { SignInPage } from '@/pages/auth/SignIn';
 import { NotFoundPage } from '@/pages/NotFound';
@@ -44,7 +44,7 @@ const {
   lounge,
 } = routePath;
 
-const { unfind404, unAuth401, forbid403 } = ErrorState;
+const { unfind404, forbid403 } = ErrorState;
 
 export const Router = () => (
   <BrowserRouter>
@@ -91,27 +91,15 @@ export const Router = () => (
             <EditProfileWrapper>
               <Routes>
                 <Route path={profile.write.basic} element={<BasicPage />} />
-                <Route
-                  path={profile.write.intro}
-                  element={<IntroducePage />}
-                />
-                <Route
-                  path={profile.write.project}
-                  element={<ProjectPage />}
-                />
-                <Route
-                  path={profile.write.work}
-                  element={<ExperiencePage />}
-                />
+                <Route path={profile.write.intro} element={<IntroducePage />} />
+                <Route path={profile.write.project} element={<ProjectPage />} />
+                <Route path={profile.write.work} element={<ExperiencePage />} />
                 <Route path={profile.write.tech} element={<TechPage />} />
                 <Route path={profile.write.active} element={<ActivePage />} />
-                <Route
-                  path={profile.write.educate}
-                  element={<EducatePage />}
-                />
+                <Route path={profile.write.educate} element={<EducatePage />} />
               </Routes>
             </EditProfileWrapper>
-            )}
+          )}
         />
       </Route>
       <Route path={notFound} element={<NotFoundPage Error={unfind404} />} />

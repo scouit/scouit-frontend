@@ -6,10 +6,9 @@ import { Text } from '../common/text';
 interface PropsType {
   color: keyOfColor;
   name: string;
-  url?: string;
 }
 
-export const SkillCard = ({ color, name, url }: PropsType) => (
+export const SkillCard = ({ color, name }: PropsType) => (
   <_SkillWrapper backColor={color}>
     <React />
     <Text size="body1" color="gray1">

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Text } from '@/components/common/text';
-import { ColumnGap, RowGap } from '@/layouts/DirectionGap';
+import { ColumnGap } from '@/layouts/DirectionGap';
 import { media } from '@/styles/media';
 import { SkillCard } from '../Skill';
 
@@ -59,7 +59,7 @@ export const ContentCard = ({
         {content}
       </Text>
       <_SkillWrapper>
-        {skills.map((e) => (
+        {skills.map(() => (
           <SkillCard name="React" color="gray10" />
         ))}
       </_SkillWrapper>
@@ -97,7 +97,8 @@ const _TitleWrapper = styled.div<{ direction: 'row' | 'column'; gap?: string }>`
   width: ${({ direction }) => (isColumn(direction) ? 'auto' : '134px')};
   display: flex;
   align-items: start;
-  flex-direction: ${({ direction }) => (isColumn(direction) ? 'row' : 'column')};
+  flex-direction: ${({ direction }) =>
+    isColumn(direction) ? 'row' : 'column'};
   gap: ${({ gap }) => gap};
   ${({ direction }) => !isColumn(direction) && media._1024('gap: 20px;')}
 `;

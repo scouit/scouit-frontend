@@ -1,15 +1,12 @@
 import styled from 'styled-components';
 
 interface PropsType {
-  to?: string;
   padding?: string;
   margin?: string;
   children: React.ReactNode;
 }
 
-export const Tag = ({
-  to, padding, margin, children,
-}: PropsType) => (
+export const Tag = ({ padding, margin, children }: PropsType) => (
   <_Wrapper margin={margin} padding={padding}>
     {children}
   </_Wrapper>

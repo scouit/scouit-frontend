@@ -1,18 +1,15 @@
 import { ChangeEvent } from 'react';
 import styled from 'styled-components';
-import {
-  Back, Close, FileLeader, Profile,
-} from '@/assets';
+import { Back, Close, FileLeader } from '@/assets';
 import { Text } from '@/components/common/text';
 import { ColumnStartGap } from '@/layouts/DirectionGap';
 
 interface PropsType {
   name: string;
-  value: string[];
   listArrayChange: (name: string, value: string | File) => void;
 }
 
-export const ImgLeader = ({ name, value, listArrayChange }: PropsType) => {
+export const ImgLeader = ({ name, listArrayChange }: PropsType) => {
   const FileImgChange = (e: ChangeEvent<HTMLInputElement>): void => {
     if (!e.target.files) return;
 
@@ -34,7 +31,7 @@ export const ImgLeader = ({ name, value, listArrayChange }: PropsType) => {
         </_ImgLeader>
         {Array(1)
           .fill(1)
-          .map((e, idx) => (
+          .map(() => (
             <_ListWrapper>
               <_CloseWrapper>
                 <Close />

@@ -1,9 +1,5 @@
 import { useState } from 'react';
-import { Button } from '@/components/common/button';
-import { Input } from '@/components/common/input';
-import { TextListInput } from '@/components/common/input/TextList';
 import { SelectBox } from '@/components/select/SelectBox';
-import { TextArea } from '@/components/textarea';
 import { RowGap } from '@/layouts/DirectionGap';
 import { LoungeLayout } from '@/layouts/lounge/Write';
 import { WriteProject } from './write/Project';

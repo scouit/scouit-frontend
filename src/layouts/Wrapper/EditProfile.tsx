@@ -1,26 +1,20 @@
-import { ReactNode, useEffect } from 'react';
+import { ReactNode } from 'react';
 import { useQuery } from 'react-query';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import { ProfileType } from '@/apis/profile/type';
 import { getUserProfile } from '@/apis/profile/getProfile';
-import { useProfileUpdate } from '@/hooks/useProfile';
 import { atomProfile } from '@/store/write';
-import { Columns } from '../Columns';
 import { media } from '@/styles/media';
-import { lio } from '@/components/write-profile/constants';
-import { Tapbar } from '@/components/write-profile';
-import { Header } from '@/components/header';
 
 interface PropsType {
   children: ReactNode;
 }
 
 export const EditProfileWrapper = ({ children }: PropsType) => {
-  const [profile, setProfile] = useRecoilState<ProfileType>(atomProfile);
-  const { basicUpdate, projectUpdate, workUpdate } = useProfileUpdate();
+  const [profile] = useRecoilState<ProfileType>(atomProfile);
   useQuery(['profile', profile], () => getUserProfile<ProfileType>(), {
-    onSuccess: (data) => {},
+    onSuccess: () => {},
   });
   return (
     <_Wrapper>

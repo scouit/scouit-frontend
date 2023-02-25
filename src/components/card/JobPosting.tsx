@@ -11,7 +11,7 @@ interface PropsType {
 export const JobPostingCard = ({ data }: PropsType) => (
   <Link to={`/company/job-posting/${data._id}`}>
     <_Wrapper>
-      <img src={Company} />
+      <img src={Company} alt="채용공고 이미지" />
       <Text size="title1">{data.workingPosition}</Text>
       <Text size="body1" color="gray5">
         비바리퍼블리카 (토스)

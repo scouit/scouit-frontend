@@ -87,7 +87,7 @@ const _Wrapper = styled.button<propsType>`
         return '300px';
       case 'large':
         return '100%';
-      case 'default':
+      default:
         return 'fit-content';
     }
   }};
@@ -138,6 +138,8 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
               background: ${!disabled && errorDarken2};
             }
           `;
+        default:
+          return '';
       }
     case 'outline':
       switch (color) {
@@ -197,6 +199,8 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
               color: ${!disabled && gray1};
             }
           `;
+        default:
+          return '';
       }
     case 'text':
       switch (color) {
@@ -240,15 +244,17 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
               background: ${!disabled && gray3};
             }
           `;
+        default:
+          return '';
       }
     case 'underline':
       return css`
         cursor: ${disabled && 'no-drop'};
-        color: ${color === 'primary'
-    ? primary
-    : color === 'gray'
-      ? gray6
-      : error};
+        color: ${(() => {
+          if (color === 'primary') return 'primary';
+          if (color === 'gray') return 'gray6';
+          return 'error';
+        })()};
         opacity: ${disabled ? 0.5 : 1};
         text-decoration-line: underline;
       `;
@@ -272,6 +278,10 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             color: ${disabled ? errorLighten1 : errorDarken2};
             cursor: ${disabled && 'no-drop'};
           `;
+        default:
+          return '';
       }
+    default:
+      return '';
   }
 };

@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { useQuery } from 'react-query';
 import { Header } from '@/components/header';
 import { ProfileWriteBox } from '@/components/profileWriteForm';
 import { TextArea } from '@/components/textarea';
@@ -7,7 +6,6 @@ import { Tapbar } from '@/components/write-profile';
 import { lio } from '@/components/write-profile/constants';
 import { useProfileContent, useProfileUpdate } from '@/hooks/useProfile';
 import { ColumnGap } from '@/layouts/DirectionGap';
-import { EditProfileWrapper } from '@/layouts/Wrapper/EditProfile';
 
 export const IntroducePage = () => {
   const {
@@ -16,7 +14,7 @@ export const IntroducePage = () => {
   } = useProfileContent('intro');
 
   const { basicUpdate } = useProfileUpdate();
-  useEffect(() => () => basicUpdate.mutate(), []);
+  useEffect(() => () => basicUpdate.mutate(), [basicUpdate]);
 
   return (
     <>

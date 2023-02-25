@@ -1,7 +1,6 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { useState } from 'react';
 import styled, { css } from 'styled-components';
-import { EyeClose, EyeOpen } from '@/assets';
-import { ColumnGap, RowGap } from '@/layouts/DirectionGap';
+import { ColumnGap } from '@/layouts/DirectionGap';
 import { Button } from '../button';
 import { Text } from '../text';
 
@@ -90,11 +89,11 @@ const _ListText = styled.li`
   }
   :hover {
     ${({ theme }) => css`
+      color: ${theme.color.error};
+      ::marker {
         color: ${theme.color.error};
-        ::marker {
-          color: ${theme.color.error};
-        }
-      `}
+      }
+    `}
   }
 `;
 

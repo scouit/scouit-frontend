@@ -15,7 +15,7 @@ export const JobPostingPage = () => {
       <_Columns>
         <Text size="title1">채용 공고</Text>
         <_JobPostingWrapper>
-          {data && data.map((data) => <JobPostingCard data={data} />)}
+          {data && data.map((componyData) => <JobPostingCard data={componyData} />)}
         </_JobPostingWrapper>
       </_Columns>
       <Footer />

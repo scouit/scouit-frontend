@@ -1,12 +1,8 @@
 import ReactOutsizeClick from 'react-outside-click-handler';
 import { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
-import {
-  EyeClose, EyeOpen, React, Search,
-} from '@/assets';
-import { ColumnGap, RowGap } from '@/layouts/DirectionGap';
-import { keyOfColor } from '@/styles/theme/color';
-import { Button } from '../button';
+import { React, Search } from '@/assets';
+import { ColumnGap } from '@/layouts/DirectionGap';
 import { Text } from '../text';
 import { SkillCard } from '@/components/card/Skill';
 

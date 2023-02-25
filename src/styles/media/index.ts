@@ -1,5 +1,3 @@
-import { css, DefaultTheme, ThemedCssFunction } from 'styled-components';
-
 type MediaQueryProps = {
   _360: number;
   _720: number;

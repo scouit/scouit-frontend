@@ -1,4 +1,4 @@
-import { FormEvent, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 import { ColumnStartGap } from '@/layouts/DirectionGap';
 import { Button } from '../common/button';
@@ -15,9 +15,9 @@ export const ProfileWriteBox = ({ title, onClick, children }: PropsType) => (
     <TitleWrapper>
       <Text size="heading1">{title}</Text>
       {onClick && (
-      <Button kind="contained" onClick={onClick}>
-        추가하기
-      </Button>
+        <Button kind="contained" onClick={onClick}>
+          추가하기
+        </Button>
       )}
     </TitleWrapper>
     <ColumnStartGap gap="65px" padding="0 0 65px">

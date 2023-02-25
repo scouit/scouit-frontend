@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Text } from '.';
-import { Line } from '../line';
 
 interface PropsType {
   label: string;

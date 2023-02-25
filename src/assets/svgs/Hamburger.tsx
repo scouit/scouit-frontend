@@ -1,5 +1,3 @@
-import styled from 'styled-components';
-
 export const Hamburger = () => (
   <svg
     width="28"

@@ -3,16 +3,14 @@ import { IMac, LabTap, IPhone } from '@/assets';
 import { useSlide } from '@/hooks/useSlide';
 import { keyOfColor } from '@/styles/theme/color';
 import { Text } from '../common/text';
-import { ColumnCenterGap, RowGap } from '@/layouts/DirectionGap';
+import { ColumnCenterGap } from '@/layouts/DirectionGap';
 import { appear } from '@/styles/animation/slider';
 import { media } from '@/styles/media';
 
-const activeColor = (idx: number, count: number) => (idx === count % 3);
+const activeColor = (idx: number, count: number) => idx === count % 3;
 
 export const ImgSlider = () => {
-  const {
-    ref, currentImg, count, setCount,
-  } = useSlide(LabTap, IMac, IPhone);
+  const { ref, currentImg, count, setCount } = useSlide(LabTap, IMac, IPhone);
 
   return (
     <_Wrapper>
@@ -69,9 +67,9 @@ const _Ball = styled.div<{
   hover: keyOfColor;
 }>`
   ${({ size }) => css`
-      width: ${size};
-      height: ${size};
-    `};
+    width: ${size};
+    height: ${size};
+  `};
   cursor: pointer;
   transition: 0.25s;
   border-radius: 0.625rem;

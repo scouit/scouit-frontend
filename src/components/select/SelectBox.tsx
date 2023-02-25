@@ -1,4 +1,3 @@
-import { Icons } from 'react-toastify';
 import styled from 'styled-components';
 import { SelectFalse, SelectTrue } from '@/assets';
 import { Text } from '../common/text';

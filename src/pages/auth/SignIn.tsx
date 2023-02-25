@@ -23,7 +23,7 @@ export const SignInPage = () => {
       <Button
         clickType="button"
         kind="text"
-        Icon={<Arrow direction="left" color="primaryDarken2" />}
+        Icon={<Arrow color="primaryDarken2" />}
         margin="0 0 7.3125rem 0"
         onClick={() => navigate(-1)}
       >

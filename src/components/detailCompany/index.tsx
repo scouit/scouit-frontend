@@ -6,7 +6,7 @@ import { Text } from '../common/text';
 export const DetailCompany = () => (
   <_Wrapper>
     <div>
-      <img src={Company} />
+      <img src={Company} alt="채용공고 이미지" />
       <div>
         <Text size="title1">토스 (비바리퍼블리카)</Text>
         <div>
