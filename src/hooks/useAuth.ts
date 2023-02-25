@@ -1,12 +1,11 @@
-import { postSignUp } from '@/apis/auth';
 import { MutationOptions, useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import {
   PostSignUpReqeustType,
   PostSignInReqeustType,
 } from '@scouit/api-types';
+import { postSignUp, postSignIn } from '@/apis/auth';
 import { customToast } from '@/utils/toast';
-import { postSignIn } from '@/apis/auth';
 import { localStorgeSetItem, localStorgeRemoveItem } from '@/utils/storge';
 
 export const useSignUp = (req: PostSignUpReqeustType) => {

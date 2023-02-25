@@ -1,17 +1,15 @@
-import { media } from '@/styles/media';
 import styled from 'styled-components';
+import { media } from '@/styles/media';
 
 interface PropsType {
   children: React.ReactNode;
 }
 
-export const ProfileLayout = ({ children }: PropsType) => {
-  return (
-    <_Wrapper>
-      <_Content>{children}</_Content>
-    </_Wrapper>
-  );
-};
+export const ProfileLayout = ({ children }: PropsType) => (
+  <_Wrapper>
+    <_Content>{children}</_Content>
+  </_Wrapper>
+);
 
 const _Wrapper = styled.div`
   width: 100%;

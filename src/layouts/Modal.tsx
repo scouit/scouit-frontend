@@ -7,15 +7,13 @@ interface PropsType {
   closeModal: () => void;
 }
 
-export const ModalWrapper = ({ children, closeModal }: PropsType) => {
-  return (
-    <_Background>
-      <ReactOutsideClickHandler onOutsideClick={closeModal}>
-        {children}
-      </ReactOutsideClickHandler>
-    </_Background>
-  );
-};
+export const ModalWrapper = ({ children, closeModal }: PropsType) => (
+  <_Background>
+    <ReactOutsideClickHandler onOutsideClick={closeModal}>
+      {children}
+    </ReactOutsideClickHandler>
+  </_Background>
+);
 
 export const _Background = styled.div`
   height: 100vh;

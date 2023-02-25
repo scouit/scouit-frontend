@@ -15,7 +15,7 @@ export const EducatePage = () => {
   } = useProfileArray('educate');
   return (
     <>
-      <Header textList={lio} currentPage="학력" gap="17px" isMedia={true} />
+      <Header textList={lio} currentPage="학력" gap="17px" isMedia />
       <ProfileWriteBox title="학력" onClick={addContent}>
         {educate.map((e, idx) => (
           <>

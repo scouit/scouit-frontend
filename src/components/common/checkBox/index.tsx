@@ -1,7 +1,7 @@
-import { CheckBoxUnSelected } from '@/assets';
-import { CheckBoxClicked } from '@/assets/svgs/CheckboxClicked';
 import { useState } from 'react';
 import styled from 'styled-components';
+import { CheckBoxUnSelected } from '@/assets';
+import { CheckBoxClicked } from '@/assets/svgs/CheckboxClicked';
 import { Text } from '../text';
 
 interface PropsType {

@@ -1,11 +1,11 @@
-import { ProfileType } from '@/apis/profile/type';
-import { getUserProfile } from '@/apis/profile/getProfile';
-import { useProfileUpdate } from '@/hooks/useProfile';
-import { atomProfile } from '@/store/write';
 import { ReactNode, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
+import { ProfileType } from '@/apis/profile/type';
+import { getUserProfile } from '@/apis/profile/getProfile';
+import { useProfileUpdate } from '@/hooks/useProfile';
+import { atomProfile } from '@/store/write';
 import { Columns } from '../Columns';
 import { media } from '@/styles/media';
 import { lio } from '@/components/write-profile/constants';

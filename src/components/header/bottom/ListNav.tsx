@@ -1,7 +1,6 @@
-import { media } from '@/styles/media';
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { media } from '@/styles/media';
 import { BottomHeaderType } from '..';
 
 export const BottomListNav = ({
@@ -9,17 +8,15 @@ export const BottomListNav = ({
   gap,
   currentPage,
   isMedia,
-}: BottomHeaderType) => {
-  return (
-    <_TapWrapper gap={gap} isMedia={isMedia}>
-      {textList?.map((e) => (
-        <Link to={e.url}>
-          <_TabText selected={e.title === currentPage}>{e.title}</_TabText>
-        </Link>
-      ))}
-    </_TapWrapper>
-  );
-};
+}: BottomHeaderType) => (
+  <_TapWrapper gap={gap} isMedia={isMedia}>
+    {textList?.map((e) => (
+      <Link to={e.url}>
+        <_TabText selected={e.title === currentPage}>{e.title}</_TabText>
+      </Link>
+    ))}
+  </_TapWrapper>
+);
 
 const _TapWrapper = styled.div<{ gap: string; isMedia: boolean }>`
   width: 100%;
@@ -31,7 +28,7 @@ const _TapWrapper = styled.div<{ gap: string; isMedia: boolean }>`
   border-top: 1px solid ${({ theme }) => theme.color.gray4};
   background-color: ${({ theme }) => theme.color.gray1};
   color: ${({ theme }) => theme.color.primary};
-  ${({ isMedia }) => isMedia && `display:none; ${media._1024(`display:flex`)}`}
+  ${({ isMedia }) => isMedia && `display:none; ${media._1024('display:flex')}`}
 `;
 
 const _TabText = styled.div<{ selected: boolean }>`

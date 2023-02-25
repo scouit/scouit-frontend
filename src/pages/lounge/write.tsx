@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Button } from '@/components/common/button';
 import { Input } from '@/components/common/input';
 import { TextListInput } from '@/components/common/input/TextList';
@@ -5,7 +6,6 @@ import { SelectBox } from '@/components/select/SelectBox';
 import { TextArea } from '@/components/textarea';
 import { RowGap } from '@/layouts/DirectionGap';
 import { LoungeLayout } from '@/layouts/lounge/Write';
-import { useState } from 'react';
 import { WriteProject } from './write/Project';
 import { WriteStudy } from './write/Study';
 
@@ -24,9 +24,9 @@ export const LoungeWrite = () => {
       </RowGap>
       {
         {
-          '모각코': <WriteStudy />,
+          모각코: <WriteStudy />,
           '사이드 프로젝트': <WriteProject />,
-          '스터디': <WriteStudy />,
+          스터디: <WriteStudy />,
         }[kind]
       }
     </LoungeLayout>

@@ -1,8 +1,8 @@
 import ReactOutsideClickHandler from 'react-outside-click-handler';
 import styled from 'styled-components';
 import { useRecoilState } from 'recoil';
-import { profileSelectBox } from '@/store/modal';
 import { Link } from 'react-router-dom';
+import { profileSelectBox } from '@/store/modal';
 import { Profile } from '@/assets';
 import { Button } from '../common/button';
 import { Text } from '../common/text';

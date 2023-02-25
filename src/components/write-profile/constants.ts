@@ -1,13 +1,13 @@
 const writeUrl = '/profile/write/';
 
 export const URI = [
-  writeUrl + 'basic',
-  writeUrl + 'introduce',
-  writeUrl + 'work-experience',
-  writeUrl + 'project',
-  writeUrl + 'technology',
-  writeUrl + 'activity',
-  writeUrl + 'education',
+  `${writeUrl}basic`,
+  `${writeUrl}introduce`,
+  `${writeUrl}work-experience`,
+  `${writeUrl}project`,
+  `${writeUrl}technology`,
+  `${writeUrl}activity`,
+  `${writeUrl}education`,
 ];
 
 export const lio = [

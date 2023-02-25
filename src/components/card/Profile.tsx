@@ -1,8 +1,10 @@
-import { NextJs, Profile, React, Typescript } from '@/assets';
-import { ColumnCenterGap, RowCenterGap } from '@/layouts/DirectionGap';
-import { media } from '@/styles/media';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import {
+  NextJs, Profile, React, Typescript,
+} from '@/assets';
+import { ColumnCenterGap, RowCenterGap } from '@/layouts/DirectionGap';
+import { media } from '@/styles/media';
 import { Button } from '../common/button';
 import { Text } from '../common/text';
 import { ProfileData } from './ProfileData';
@@ -24,7 +26,9 @@ export const dummy = {
   tag: ['사이드 프로젝트 모집 중', '커피챗 가능'],
 };
 
-export const ProfileCard = ({ name, url, isProfile, children }: PropsType) => {
+export const ProfileCard = ({
+  name, url, isProfile, children,
+}: PropsType) => {
   const navigate = useNavigate();
   return (
     <_Wrapper>
@@ -35,7 +39,9 @@ export const ProfileCard = ({ name, url, isProfile, children }: PropsType) => {
         size="large"
         radius="0 0 0.5rem 0.5rem"
       >
-        view {isProfile ? 'profile' : 'post'}
+        view
+        {' '}
+        {isProfile ? 'profile' : 'post'}
       </Button>
     </_Wrapper>
   );
@@ -51,8 +57,8 @@ const _Wrapper = styled.article`
   border-radius: 0.5rem;
   width: 100%;
   max-width: 23rem;
-  ${media._1512(`min-width: 19.3rem;`)}
-  ${media._1024(`min-width: 20.25rem;`)}
+  ${media._1512('min-width: 19.3rem;')}
+  ${media._1024('min-width: 20.25rem;')}
 `;
 
 const _TagContent = styled.div`

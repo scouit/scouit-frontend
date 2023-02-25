@@ -1,12 +1,12 @@
+import { useState } from 'react';
+import styled from 'styled-components';
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { dummy, ProfileCard } from '@/components/card/Profile';
 import { SimplyModal } from '@/components/modal/SimplyProfile';
 import { Columns } from '@/layouts/Columns';
-import { useState } from 'react';
 import { useDeveloper } from '@/hooks/useDeveloper';
 import { Profile } from '@/assets';
-import styled from 'styled-components';
 import { ProfileLayout } from '@/layouts/ProfileLayout';
 import { homeLinkList } from './Home';
 import { ColumnCenterGap, RowGap } from '@/layouts/DirectionGap';
@@ -27,7 +27,7 @@ export const SideProjectPage = () => {
         {Array(10)
           .fill(0)
           .map((cardData, idx) => (
-            <ProfileCard key={idx} name={'name'} url={Profile} isProfile={true}>
+            <ProfileCard key={idx} name="name" url={Profile} isProfile>
               <ColumnCenterGap gap="2.25rem" padding="0 1.5rem">
                 <ProfileData
                   url={dummy.profile}

@@ -1,5 +1,5 @@
-import { Profile } from '@/assets';
 import { useRecoilState } from 'recoil';
+import { Profile } from '@/assets';
 import { profileSelectBox } from '@/store/modal';
 
 export const ProfileHeader = () => {

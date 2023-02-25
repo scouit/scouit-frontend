@@ -14,7 +14,7 @@ export const ActivePage = () => {
   } = useProfileArray('active');
   return (
     <>
-      <Header textList={lio} currentPage={'활동'} gap="17px" isMedia={true} />
+      <Header textList={lio} currentPage="활동" gap="17px" isMedia />
       <ProfileWriteBox title="활동" onClick={() => {}}>
         {active.map((e, idx) => (
           <>

@@ -13,25 +13,22 @@ interface PropsType {
 type DirectionType = 'column' | 'row';
 type PositionType = 'start' | 'center' | 'end';
 
-const curry =
-  (direction: DirectionType) =>
-  (align?: PositionType) =>
-  (justify?: PositionType) =>
-  ({ children, gap, margin, padding, width = '100%', wrap }: PropsType) =>
-    (
-      <_Wrapper
-        gap={gap}
-        width={width}
-        margin={margin}
-        padding={padding}
-        align={align}
-        justify={justify}
-        direction={direction}
-        wrap={wrap}
-      >
-        {children}
-      </_Wrapper>
-    );
+const curry = (direction: DirectionType) => (align?: PositionType) => (justify?: PositionType) => ({
+  children, gap, margin, padding, width = '100%', wrap,
+}: PropsType) => (
+  <_Wrapper
+    gap={gap}
+    width={width}
+    margin={margin}
+    padding={padding}
+    align={align}
+    justify={justify}
+    direction={direction}
+    wrap={wrap}
+  >
+    {children}
+  </_Wrapper>
+);
 
 const column = curry('column');
 const row = curry('row');

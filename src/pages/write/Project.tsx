@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Input } from '@/components/common/input';
 import { DateInput } from '@/components/common/input/Date';
 import { TextListInput } from '@/components/common/input/TextList';
@@ -12,7 +13,6 @@ import {
   useProfileUpdate,
 } from '@/hooks/useProfile';
 import { EditProfileWrapper } from '@/layouts/Wrapper/EditProfile';
-import { useEffect } from 'react';
 import { SkillInput } from '@/components/common/input/Skill';
 import { Line } from '@/components/common/line';
 import { Header } from '@/components/header';
@@ -24,12 +24,10 @@ export const ProjectPage = () => {
   const { profile, listChange } = useProfileArray(project);
   const { addListArray, removeArrayList } = useProfileList(project);
   const { projectUpdate } = useProfileUpdate();
-  useEffect(() => {
-    return () => projectUpdate.mutate();
-  }, []);
+  useEffect(() => () => projectUpdate.mutate(), []);
   return (
     <>
-      <Header textList={lio} currentPage="프로젝트" gap="17px" isMedia={true} />
+      <Header textList={lio} currentPage="프로젝트" gap="17px" isMedia />
       <ProfileWriteBox title="프로젝트" onClick={() => {}}>
         {profile[project].map((e, idx) => (
           <>

@@ -1,10 +1,10 @@
-import { Hamburger, LogoWithText } from '@/assets';
 import { Link, useParams } from 'react-router-dom';
 import styled, { css } from 'styled-components';
+import { useRecoilValue } from 'recoil';
+import { Hamburger, LogoWithText } from '@/assets';
 import { NavigationList } from '../common/list/Navigation';
 import { Columns } from '../../layouts/Columns';
 import { NavListIsLogin } from './constants';
-import { useRecoilValue } from 'recoil';
 import { profileSelectBox } from '@/store/modal';
 import { ProfileSelectBox } from '../select-box/Profile';
 import { localStorgeGetItem } from '@/utils/storge';
@@ -28,13 +28,13 @@ export const Header = (bottomProps: BottomHeaderType) => {
   return (
     <_Wrapper>
       <_Column12 display={display}>
-        <Link to={'/'}>
+        <Link to="/">
           <LogoWithText />
         </Link>
         <nav>
           <NavigationList
             list={NavListIsLogin(
-              localStorgeGetItem('access_token') ? true : false
+              !!localStorgeGetItem('access_token'),
             )}
           />
           <_Hamburger>
@@ -68,17 +68,16 @@ const _Column12 = styled(Columns)<{ display: boolean }>`
   justify-content: space-between;
   height: 70px;
   padding: 0 1.5rem;
-  ${({ display }) =>
-    !display &&
-    css`
+  ${({ display }) => !display
+    && css`
       visibility: hidden;
       height: 0;
     `}
-  ${media._720(`padding: 0 1rem;`)};
+  ${media._720('padding: 0 1rem;')};
 `;
 
 const _Hamburger = styled.div`
   cursor: pointer;
   display: none;
-  ${media._720(`display: block;`)}
+  ${media._720('display: block;')}
 `;

@@ -1,8 +1,7 @@
-import { Arrow, AuthBack } from '@/assets';
-import { ReactNode } from 'react';
+import { ReactNode, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { FormEvent } from 'react';
+import { Arrow, AuthBack } from '@/assets';
 import { Text } from '@/components/common/text';
 import { Button } from '@/components/common/button';
 import { ImgSlider } from '@/components/slider/ImgSlider';
@@ -51,7 +50,7 @@ const _Content = styled.div`
     max-width: 31.125rem;
     padding: 0 1.5rem
   `)};
-  ${media._360(`padding: 0 1rem`)};
+  ${media._360('padding: 0 1rem')};
 `;
 
 const _BackgroundImg = styled.img`
@@ -61,5 +60,5 @@ const _BackgroundImg = styled.img`
   z-index: -1;
   top: 0;
   object-fit: cover;
-  ${media._1024(`display:none`)};
+  ${media._1024('display:none')};
 `;

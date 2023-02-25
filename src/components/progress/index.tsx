@@ -1,5 +1,5 @@
-import { RowEndGap } from '@/layouts/DirectionGap';
 import styled from 'styled-components';
+import { RowEndGap } from '@/layouts/DirectionGap';
 import { Text } from '../common/text';
 
 interface PropsType {
@@ -7,21 +7,20 @@ interface PropsType {
   percent: number;
 }
 
-export const Progress = ({ name, percent }: PropsType) => {
-  return (
-    <_Wrapper>
-      <RowEndGap gap="65px" margin="0 0 8px">
-        <Text size="body1" color="gray10">
-          {name}
-        </Text>
-        <Text size="body2" color="gray10">
-          {percent}%
-        </Text>
-      </RowEndGap>
-      <_Bar />
-    </_Wrapper>
-  );
-};
+export const Progress = ({ name, percent }: PropsType) => (
+  <_Wrapper>
+    <RowEndGap gap="65px" margin="0 0 8px">
+      <Text size="body1" color="gray10">
+        {name}
+      </Text>
+      <Text size="body2" color="gray10">
+        {percent}
+        %
+      </Text>
+    </RowEndGap>
+    <_Bar />
+  </_Wrapper>
+);
 
 const _Wrapper = styled.div``;
 

@@ -1,44 +1,42 @@
+import { Link, useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import { Button } from '@/components/common/button';
 import { ColumnCenterGap } from '@/layouts/DirectionGap';
 import { media } from '@/styles/media';
-import { Link, useParams } from 'react-router-dom';
-import styled from 'styled-components';
 import { lio, URI } from './constants';
 
 interface PropsType {
   currentPage: string;
 }
 
-export const Tapbar = ({ currentPage }: PropsType) => {
-  return (
-    <_Wrapper>
-      <ColumnCenterGap gap="24px">
-        <_ActiveContent>
-          {lio.map((e) => (
-            <Link to={e.url}>
-              <_TabButton selected={e.title === currentPage}>
-                {e.title}
-              </_TabButton>
-            </Link>
-          ))}
-        </_ActiveContent>
-      </ColumnCenterGap>
-      <_ButtonWrapper>
-        <Button
-          size="large"
-          kind="contained"
-          onClick={() => {
-            // basicUpdate.mutate();
-            // projectUpdate.mutate();
-            // workUpdate.mutate();
-          }}
-        >
-          프로필 저장
-        </Button>
-      </_ButtonWrapper>
-    </_Wrapper>
-  );
-};
+export const Tapbar = ({ currentPage }: PropsType) => (
+  <_Wrapper>
+    <ColumnCenterGap gap="24px">
+      <_ActiveContent>
+        {lio.map((e) => (
+          <Link to={e.url}>
+            <_TabButton selected={e.title === currentPage}>
+              {e.title}
+            </_TabButton>
+          </Link>
+        ))}
+      </_ActiveContent>
+    </ColumnCenterGap>
+    <_ButtonWrapper>
+      <Button
+        size="large"
+        kind="contained"
+        onClick={() => {
+          // basicUpdate.mutate();
+          // projectUpdate.mutate();
+          // workUpdate.mutate();
+        }}
+      >
+        프로필 저장
+      </Button>
+    </_ButtonWrapper>
+  </_Wrapper>
+);
 
 const _Wrapper = styled.div`
   width: 270px;

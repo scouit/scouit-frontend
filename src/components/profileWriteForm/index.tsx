@@ -1,6 +1,6 @@
-import { ColumnStartGap } from '@/layouts/DirectionGap';
 import { FormEvent, ReactNode } from 'react';
 import styled from 'styled-components';
+import { ColumnStartGap } from '@/layouts/DirectionGap';
 import { Button } from '../common/button';
 import { Text } from '../common/text';
 
@@ -10,23 +10,21 @@ interface PropsType {
   onClick?: () => void;
 }
 
-export const ProfileWriteBox = ({ title, onClick, children }: PropsType) => {
-  return (
-    <_Wrapper>
-      <TitleWrapper>
-        <Text size="heading1">{title}</Text>
-        {onClick && (
-          <Button kind="contained" onClick={onClick}>
-            추가하기
-          </Button>
-        )}
-      </TitleWrapper>
-      <ColumnStartGap gap="65px" padding="0 0 65px">
-        {children}
-      </ColumnStartGap>
-    </_Wrapper>
-  );
-};
+export const ProfileWriteBox = ({ title, onClick, children }: PropsType) => (
+  <_Wrapper>
+    <TitleWrapper>
+      <Text size="heading1">{title}</Text>
+      {onClick && (
+      <Button kind="contained" onClick={onClick}>
+        추가하기
+      </Button>
+      )}
+    </TitleWrapper>
+    <ColumnStartGap gap="65px" padding="0 0 65px">
+      {children}
+    </ColumnStartGap>
+  </_Wrapper>
+);
 
 const _Wrapper = styled.div`
   max-width: 856px;

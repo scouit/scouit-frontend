@@ -1,20 +1,18 @@
+import styled from 'styled-components';
 import { Header } from '@/components/header';
 import { adminLinkList } from '@/pages/admin/Home';
-import styled from 'styled-components';
 
 interface PropsType {
   width: string;
   children: React.ReactNode;
 }
 
-export const LoungeLayout = ({ width, children }: PropsType) => {
-  return (
-    <_Wrapper>
-      <Header textList={adminLinkList} currentPage="홈" gap="78px" />
-      <_Content width={width}>{children}</_Content>
-    </_Wrapper>
-  );
-};
+export const LoungeLayout = ({ width, children }: PropsType) => (
+  <_Wrapper>
+    <Header textList={adminLinkList} currentPage="홈" gap="78px" />
+    <_Content width={width}>{children}</_Content>
+  </_Wrapper>
+);
 
 const _Wrapper = styled.div`
   padding: 127px 24px;

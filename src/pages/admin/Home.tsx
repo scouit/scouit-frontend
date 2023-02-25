@@ -22,7 +22,7 @@ export const AdminHomePage = () => {
         {Array(10)
           .fill(0)
           .map((cardData, idx) => (
-            <ProfileCard key={idx} name={'name'} url={Profile} isProfile={true}>
+            <ProfileCard key={idx} name="name" url={Profile} isProfile>
               <ColumnCenterGap gap="2.25rem" padding="0 1.5rem">
                 <ProfileData
                   url={dummy.profile}

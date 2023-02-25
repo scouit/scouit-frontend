@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useQuery } from 'react-query';
 import { Header } from '@/components/header';
 import { ProfileWriteBox } from '@/components/profileWriteForm';
 import { TextArea } from '@/components/textarea';
@@ -6,8 +8,6 @@ import { lio } from '@/components/write-profile/constants';
 import { useProfileContent, useProfileUpdate } from '@/hooks/useProfile';
 import { ColumnGap } from '@/layouts/DirectionGap';
 import { EditProfileWrapper } from '@/layouts/Wrapper/EditProfile';
-import { useEffect } from 'react';
-import { useQuery } from 'react-query';
 
 export const IntroducePage = () => {
   const {
@@ -16,13 +16,11 @@ export const IntroducePage = () => {
   } = useProfileContent('intro');
 
   const { basicUpdate } = useProfileUpdate();
-  useEffect(() => {
-    return () => basicUpdate.mutate();
-  }, []);
+  useEffect(() => () => basicUpdate.mutate(), []);
 
   return (
     <>
-      <Header textList={lio} currentPage="소개" gap="17px" isMedia={true} />
+      <Header textList={lio} currentPage="소개" gap="17px" isMedia />
       <ProfileWriteBox title="소개">
         <ColumnGap gap="20px" margin="47px 0 0">
           <TextArea

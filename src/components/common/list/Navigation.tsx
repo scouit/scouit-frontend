@@ -1,6 +1,6 @@
-import { media } from '@/styles/media';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { media } from '@/styles/media';
 
 type ListType = {
   name?: string | JSX.Element;
@@ -12,23 +12,21 @@ interface PropsType {
   list: ListType[];
 }
 
-export const NavigationList = ({ list }: PropsType) => {
-  return (
-    <_Wrapper>
-      {list.map(({ link, name, target }, idx) => (
-        <li key={idx}>
-          <Link target={target} to={link}>
-            {name}
-          </Link>
-        </li>
-      ))}
-    </_Wrapper>
-  );
-};
+export const NavigationList = ({ list }: PropsType) => (
+  <_Wrapper>
+    {list.map(({ link, name, target }, idx) => (
+      <li key={idx}>
+        <Link target={target} to={link}>
+          {name}
+        </Link>
+      </li>
+    ))}
+  </_Wrapper>
+);
 
 const _Wrapper = styled.ul`
   display: flex;
   align-items: center;
   gap: 50px;
-  ${media._720(`display:none;`)}
+  ${media._720('display:none;')}
 `;

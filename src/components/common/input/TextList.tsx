@@ -1,7 +1,7 @@
-import { EyeClose, EyeOpen } from '@/assets';
-import { ColumnGap, RowGap } from '@/layouts/DirectionGap';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import styled, { css } from 'styled-components';
+import { EyeClose, EyeOpen } from '@/assets';
+import { ColumnGap, RowGap } from '@/layouts/DirectionGap';
 import { Button } from '../button';
 import { Text } from '../text';
 
@@ -33,7 +33,7 @@ export const TextListInput = ({
       <_Form
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(onSubmit)
+          console.log(onSubmit);
           onSubmit(name, list);
           setList('');
         }}
@@ -89,8 +89,7 @@ const _ListText = styled.li`
     color: ${({ theme }) => theme.color.gray4};
   }
   :hover {
-    ${({ theme }) =>
-      css`
+    ${({ theme }) => css`
         color: ${theme.color.error};
         ::marker {
           color: ${theme.color.error};

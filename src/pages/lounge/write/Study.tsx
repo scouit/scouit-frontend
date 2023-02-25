@@ -17,18 +17,19 @@ interface StudyType {
 }
 
 export const WriteStudy = () => {
-  const { text, handleOnChange, addTextList, removeTextList } =
-    useForm<StudyType>({
-      title: '',
-      kind: '',
-      location: '',
-      schedule: '',
-      person: '',
-      condition: [],
-      explanation: '',
-      communication: '',
-      link: [],
-    });
+  const {
+    text, handleOnChange, addTextList, removeTextList,
+  } = useForm<StudyType>({
+    title: '',
+    kind: '',
+    location: '',
+    schedule: '',
+    person: '',
+    condition: [],
+    explanation: '',
+    communication: '',
+    link: [],
+  });
   return (
     <>
       <Input

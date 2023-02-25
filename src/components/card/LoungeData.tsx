@@ -1,6 +1,6 @@
+import styled from 'styled-components';
 import { Back } from '@/assets';
 import { ColumnGap } from '@/layouts/DirectionGap';
-import styled from 'styled-components';
 import { Text } from '../common/text';
 
 interface PropsType {
@@ -10,31 +10,31 @@ interface PropsType {
   peoples: string;
 }
 
-export const LoungeData = ({ title, kinda, content, peoples }: PropsType) => {
-  return (
-    <>
-      <_Img src={Back} />
-      <_Content>
-        <Text size="title3" color="gray10">
-          {title}
-        </Text>
-        {kinda && (
-          <Text size="body2" color="gray10">
-            {kinda}
-          </Text>
-        )}
-        {content && (
-          <Text size="body2" color="gray10">
-            {content}
-          </Text>
-        )}
-        <Text size="body2" color="gray10">
-          {peoples}
-        </Text>
-      </_Content>
-    </>
-  );
-};
+export const LoungeData = ({
+  title, kinda, content, peoples,
+}: PropsType) => (
+  <>
+    <_Img src={Back} />
+    <_Content>
+      <Text size="title3" color="gray10">
+        {title}
+      </Text>
+      {kinda && (
+      <Text size="body2" color="gray10">
+        {kinda}
+      </Text>
+      )}
+      {content && (
+      <Text size="body2" color="gray10">
+        {content}
+      </Text>
+      )}
+      <Text size="body2" color="gray10">
+        {peoples}
+      </Text>
+    </_Content>
+  </>
+);
 
 const _Img = styled.img`
   width: 100%;

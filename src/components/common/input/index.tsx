@@ -1,6 +1,6 @@
-import { EyeClose, EyeOpen } from '@/assets';
 import { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
+import { EyeClose, EyeOpen } from '@/assets';
 import { Text } from '../text';
 
 interface PropsType {

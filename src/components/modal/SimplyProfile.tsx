@@ -1,11 +1,11 @@
 import styled from 'styled-components';
+import { Link, useNavigate } from 'react-router-dom';
 import { ModalWrapper } from '../../layouts/Modal';
 import { Back, Profile } from '@/assets';
 import { Text } from '../common/text';
 import { Button } from '../common/button';
 import { Columns } from '../../layouts/Columns';
 import { CareerItem } from '../common/item/Career';
-import { Link, useNavigate } from 'react-router-dom';
 
 interface PropsType {
   closeModal: () => void;
@@ -33,11 +33,9 @@ export const SimplyModal = ({ closeModal }: PropsType) => {
             <Text size="title2">technology</Text>
           </div>
           <Button
-            onClick={() =>
-              navigate(
-                '/developers/resume/ec561255-9600-4524-f657-bfc66c73f4b3'
-              )
-            }
+            onClick={() => navigate(
+              '/developers/resume/ec561255-9600-4524-f657-bfc66c73f4b3',
+            )}
             kind="round"
           >
             자세히 보기

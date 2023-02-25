@@ -1,8 +1,10 @@
-import { Back, Close, FileLeader, Profile } from '@/assets';
-import { Text } from '@/components/common/text';
-import { ColumnStartGap } from '@/layouts/DirectionGap';
 import { ChangeEvent } from 'react';
 import styled from 'styled-components';
+import {
+  Back, Close, FileLeader, Profile,
+} from '@/assets';
+import { Text } from '@/components/common/text';
+import { ColumnStartGap } from '@/layouts/DirectionGap';
 
 interface PropsType {
   name: string;
@@ -23,7 +25,7 @@ export const ImgLeader = ({ name, value, listArrayChange }: PropsType) => {
   return (
     <ColumnStartGap gap="8px">
       <Text size="body2" color="gray6">
-        {'이미지 (최대 10개)'}
+        이미지 (최대 10개)
       </Text>
       <_ImgWrapper>
         <_LeaderInput type="file" id="LeadToInput" onChange={FileImgChange} />

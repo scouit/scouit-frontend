@@ -50,24 +50,22 @@ export const Button = ({
   clickType = 'submit',
   margin,
   radius,
-}: propsType) => {
-  return (
-    <_Wrapper
-      className={className}
-      size={size}
-      kind={kind}
-      color={color}
-      disabled={disabled}
-      onClick={!disabled && onClick}
-      type={clickType}
-      margin={margin}
-      radius={radius}
-    >
-      {Icon && Icon}
-      {children}
-    </_Wrapper>
-  );
-};
+}: propsType) => (
+  <_Wrapper
+    className={className}
+    size={size}
+    kind={kind}
+    color={color}
+    disabled={disabled}
+    onClick={!disabled && onClick}
+    type={clickType}
+    margin={margin}
+    radius={radius}
+  >
+    {Icon && Icon}
+    {children}
+  </_Wrapper>
+);
 
 const _Wrapper = styled.button<propsType>`
   cursor: pointer;
@@ -247,10 +245,10 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
       return css`
         cursor: ${disabled && 'no-drop'};
         color: ${color === 'primary'
-          ? primary
-          : color === 'gray'
-          ? gray6
-          : error};
+    ? primary
+    : color === 'gray'
+      ? gray6
+      : error};
         opacity: ${disabled ? 0.5 : 1};
         text-decoration-line: underline;
       `;

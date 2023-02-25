@@ -3,18 +3,16 @@ import { NavigationList } from '../common/list/Navigation';
 import { Columns } from '../../layouts/Columns';
 import { navList, socialList } from './constants';
 
-export const Footer = () => {
-  return (
-    <_Wrapper>
-      <_Columns12>
-        <_Navigation>
-          <NavigationList list={navList} />
-          <NavigationList list={socialList} />
-        </_Navigation>
-      </_Columns12>
-    </_Wrapper>
-  );
-};
+export const Footer = () => (
+  <_Wrapper>
+    <_Columns12>
+      <_Navigation>
+        <NavigationList list={navList} />
+        <NavigationList list={socialList} />
+      </_Navigation>
+    </_Columns12>
+  </_Wrapper>
+);
 
 const _Wrapper = styled.footer`
   height: 285px;

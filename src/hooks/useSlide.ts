@@ -24,5 +24,7 @@ export const useSlide = (...arg: string[]) => {
     current.classList.add(...className);
   };
 
-  return { ref, currentImg, count, setCount };
+  return {
+    ref, currentImg, count, setCount,
+  };
 };

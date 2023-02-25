@@ -1,9 +1,9 @@
+import styled from 'styled-components';
 import { JobPostingCard } from '@/components/card/JobPosting';
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { Text } from '@/components/common/text';
 import { Columns } from '@/layouts/Columns';
-import styled from 'styled-components';
 import { useCompany } from '@/hooks/useCompany';
 
 export const JobPostingPage = () => {

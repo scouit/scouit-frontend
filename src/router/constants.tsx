@@ -55,7 +55,7 @@ export const routePath = {
 export const ErrorState = {
   unfind404: {
     name: 'Not Found',
-    content: `이런, 페이지를 찾을 수 없습니다.`,
+    content: '이런, 페이지를 찾을 수 없습니다.',
     image: Error404,
     number: 404,
   },

@@ -1,13 +1,13 @@
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { Button } from '@/components/common/button';
 import { Input } from '@/components/common/input';
 import { AuthWrapper } from '@/layouts/Wrapper/Auth';
 import { useSignUp } from '@/hooks/useAuth';
 import { useForm } from '@/hooks/useForm';
 import { Text } from '@/components/common/text';
-import { Link, useNavigate } from 'react-router-dom';
 import { ColumnCenterGap } from '@/layouts/DirectionGap';
 import { customToast } from '@/utils/toast';
-import { useState } from 'react';
 import { Arrow } from '@/assets';
 
 interface ErrorType {
@@ -34,9 +34,9 @@ export const SignUpPage = () => {
   const errorType = {
     name: text.name.length < 1 || text.name.length > 11,
     password:
-      text.password.length < 8 ||
-      !/[~!@#$%^&*{}()|[\]\\]/g.test(text.password) ||
-      !/[A-Z]/g.test(text.password),
+      text.password.length < 8
+      || !/[~!@#$%^&*{}()|[\]\\]/g.test(text.password)
+      || !/[A-Z]/g.test(text.password),
     passwordCheck: text.passwordCheck !== text.password,
   };
 

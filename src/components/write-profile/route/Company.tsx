@@ -1,13 +1,3 @@
-import { getUserProfile, ProfileType } from '@/apis/profile/getProfile';
-import { patchUserProfile } from '@/apis/profile/PostProfile';
-import { Button } from '@/components/common/button';
-import { Input } from '@/components/common/input';
-import { ProfileWriteForm } from '@/components/profileWriteForm';
-import { TextArea } from '@/components/textarea';
-import { useForm } from '@/hooks/useForm';
-import { ArrayEditType, useProfile } from '@/hooks/useProfile';
-import { ColumnGap } from '@/layouts/DirectionGap';
-import { atomProfile } from '@/store/write';
 import {
   ChangeEvent,
   Dispatch,
@@ -18,6 +8,16 @@ import {
 import { useMutation, useQuery } from 'react-query';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
+import { getUserProfile, ProfileType } from '@/apis/profile/getProfile';
+import { patchUserProfile } from '@/apis/profile/PostProfile';
+import { Button } from '@/components/common/button';
+import { Input } from '@/components/common/input';
+import { ProfileWriteForm } from '@/components/profileWriteForm';
+import { TextArea } from '@/components/textarea';
+import { useForm } from '@/hooks/useForm';
+import { ArrayEditType, useProfile } from '@/hooks/useProfile';
+import { ColumnGap } from '@/layouts/DirectionGap';
+import { atomProfile } from '@/store/write';
 import { ContentType } from '../../../apis/profile/getProfile';
 
 interface PropsType {
@@ -27,9 +27,11 @@ interface PropsType {
   placeholder: string;
 }
 
-export const Company = ({ title, name, role, placeholder }: PropsType) => {
+export const Company = ({
+  title, name, role, placeholder,
+}: PropsType) => {
   const { profile, arrayChange, addContent } = useProfile(name);
-  console.log(profile)
+  console.log(profile);
   return (
     <ProfileWriteForm title={title}>
       <_ButtonWrapper>
@@ -45,14 +47,14 @@ export const Company = ({ title, name, role, placeholder }: PropsType) => {
               value={item.name}
               onChange={(e) => arrayChange(e, idx)}
               label={role}
-              placeholder={role + '이름을 작성해 주세요'}
+              placeholder={`${role}이름을 작성해 주세요`}
             />
             <TextArea
               name="content"
               value={item.content}
               onChange={(e) => arrayChange(e, idx)}
               label="내용"
-              placeholder={placeholder + '내용을 작성해 주세요'}
+              placeholder={`${placeholder}내용을 작성해 주세요`}
             />
             {profile[name].length - 1 !== idx && <_Line />}
           </_InputContent>

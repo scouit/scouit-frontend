@@ -31,7 +31,7 @@ export const LoungeHomePage = () => {
         {Array(10)
           .fill(0)
           .map((cardData, idx) => (
-            <ProfileCard key={idx} name={'name'} isProfile={false}>
+            <ProfileCard key={idx} name="name" isProfile={false}>
               <LoungeData
                 title={card.title}
                 content={card.content}

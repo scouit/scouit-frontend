@@ -1,7 +1,7 @@
+import styled from 'styled-components';
 import { Line } from '@/components/common/line';
 import { Text } from '@/components/common/text';
 import { media } from '@/styles/media';
-import styled from 'styled-components';
 import { ColumnGap } from './DirectionGap';
 
 interface PropsType {
@@ -11,23 +11,23 @@ interface PropsType {
   children: React.ReactNode;
 }
 
-export const ErrorLayout = ({ title, number, image, children }: PropsType) => {
-  return (
-    <_Wrapper>
-      <_Content>
-        <ColumnGap gap="1.4375rem">
-          <Text size="title2" color="gray6">
-            {title}
-          </Text>
-          <_ErrorNumber>{number}</_ErrorNumber>
-          <Line color="gray10" width="208px" height="4px" />
-          {children}
-        </ColumnGap>
-      </_Content>
-      <_BackGroundImg src={image} />
-    </_Wrapper>
-  );
-};
+export const ErrorLayout = ({
+  title, number, image, children,
+}: PropsType) => (
+  <_Wrapper>
+    <_Content>
+      <ColumnGap gap="1.4375rem">
+        <Text size="title2" color="gray6">
+          {title}
+        </Text>
+        <_ErrorNumber>{number}</_ErrorNumber>
+        <Line color="gray10" width="208px" height="4px" />
+        {children}
+      </ColumnGap>
+    </_Content>
+    <_BackGroundImg src={image} />
+  </_Wrapper>
+);
 
 const _Wrapper = styled.div`
   width: 100%;
@@ -52,5 +52,5 @@ const _BackGroundImg = styled.img`
   width: 50%;
   height: 100%;
   object-fit: cover;
-  ${media._1024(`display:none;`)}
+  ${media._1024('display:none;')}
 `;

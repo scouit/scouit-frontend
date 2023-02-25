@@ -1,17 +1,18 @@
+import styled, { css } from 'styled-components';
 import { IMac, LabTap, IPhone } from '@/assets';
 import { useSlide } from '@/hooks/useSlide';
 import { keyOfColor } from '@/styles/theme/color';
-import styled, { css } from 'styled-components';
 import { Text } from '../common/text';
 import { ColumnCenterGap, RowGap } from '@/layouts/DirectionGap';
 import { appear } from '@/styles/animation/slider';
 import { media } from '@/styles/media';
 
-const activeColor = (idx: number, count: number) =>
-  idx === count % 3 ? true : false;
+const activeColor = (idx: number, count: number) => (idx === count % 3);
 
 export const ImgSlider = () => {
-  const { ref, currentImg, count, setCount } = useSlide(LabTap, IMac, IPhone);
+  const {
+    ref, currentImg, count, setCount,
+  } = useSlide(LabTap, IMac, IPhone);
 
   return (
     <_Wrapper>
@@ -51,7 +52,7 @@ const _Wrapper = styled.div`
   align-items: center;
 
   margin: 0 auto;
-  ${media._1024(`display:none;`)}
+  ${media._1024('display:none;')}
 `;
 
 const _BallWrapper = styled.div`
@@ -67,8 +68,7 @@ const _Ball = styled.div<{
   color: keyOfColor;
   hover: keyOfColor;
 }>`
-  ${({ size }) =>
-    css`
+  ${({ size }) => css`
       width: ${size};
       height: ${size};
     `};

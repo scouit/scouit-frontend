@@ -26,51 +26,49 @@ const detail = {
   link: ['https:/github', 'https:/github', 'https:/github'],
 };
 
-export const LoungeDetail = () => {
-  return (
-    <LoungeLayout width="59.75rem">
-      <ColumnGap gap="30px">
-        <Text size="title1">{detail.title}</Text>
-        <Text size="heading2">{detail.kind}</Text>
-        <Text size="body1">{detail.date}</Text>
-        <Img width="100%" objectFit="cover" src={Back} />
-        <Text size="body1" margin="0 0 70px">
-          {detail.content}
-        </Text>
-        <LabelText label="장소">
-          <Text size="body1">{detail.location}</Text>
-        </LabelText>
-        <LabelText label="일정">
-          <Text size="body1">{detail.schedule}</Text>
-        </LabelText>
-        <LabelText label="인원">
-          <Text size="body1">{detail.person}</Text>
-        </LabelText>
-        <LabelText label="조건">
-          <ColumnGap gap="20px">
-            {detail.condition.map((e) => (
-              <Text as="li" size="body1">
-                {e}
-              </Text>
-            ))}
-          </ColumnGap>
-        </LabelText>
-        <LabelText label="설명">
-          <Text size="body1">{detail.explanation}</Text>
-        </LabelText>
-        <LabelText label="연락">
-          <Text size="body1">{detail.communication}</Text>
-        </LabelText>
-        <LabelText label="링크">
-          <ColumnGap gap="20px">
-            {detail.link.map((e) => (
-              <Text as="li" size="body1">
-                {e}
-              </Text>
-            ))}
-          </ColumnGap>
-        </LabelText>
-      </ColumnGap>
-    </LoungeLayout>
-  );
-};
+export const LoungeDetail = () => (
+  <LoungeLayout width="59.75rem">
+    <ColumnGap gap="30px">
+      <Text size="title1">{detail.title}</Text>
+      <Text size="heading2">{detail.kind}</Text>
+      <Text size="body1">{detail.date}</Text>
+      <Img width="100%" objectFit="cover" src={Back} />
+      <Text size="body1" margin="0 0 70px">
+        {detail.content}
+      </Text>
+      <LabelText label="장소">
+        <Text size="body1">{detail.location}</Text>
+      </LabelText>
+      <LabelText label="일정">
+        <Text size="body1">{detail.schedule}</Text>
+      </LabelText>
+      <LabelText label="인원">
+        <Text size="body1">{detail.person}</Text>
+      </LabelText>
+      <LabelText label="조건">
+        <ColumnGap gap="20px">
+          {detail.condition.map((e) => (
+            <Text as="li" size="body1">
+              {e}
+            </Text>
+          ))}
+        </ColumnGap>
+      </LabelText>
+      <LabelText label="설명">
+        <Text size="body1">{detail.explanation}</Text>
+      </LabelText>
+      <LabelText label="연락">
+        <Text size="body1">{detail.communication}</Text>
+      </LabelText>
+      <LabelText label="링크">
+        <ColumnGap gap="20px">
+          {detail.link.map((e) => (
+            <Text as="li" size="body1">
+              {e}
+            </Text>
+          ))}
+        </ColumnGap>
+      </LabelText>
+    </ColumnGap>
+  </LoungeLayout>
+);

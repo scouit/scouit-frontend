@@ -1,5 +1,5 @@
-import { instance } from '@/apis';
 import { GetUserProfileListResponseType } from '@scouit/api-types';
+import { instance } from '@/apis';
 import { EditType } from './type';
 
 const isWork = 'experience';
@@ -12,9 +12,8 @@ export const getUserProfile = async <T>() => {
   return data;
 };
 
-const typeAxios = async <T>() =>
-  await instance.get<T>('/profile/write', {
-    headers: {
-      authorization: `Bearer ${localStorage.getItem('access_token')}`,
-    },
-  });
+const typeAxios = async <T>() => instance.get<T>('/profile/write', {
+  headers: {
+    authorization: `Bearer ${localStorage.getItem('access_token')}`,
+  },
+});

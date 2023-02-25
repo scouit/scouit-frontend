@@ -23,39 +23,37 @@ const toss = {
   url: ['https://velog.io/@lokijoji2', 'https://github.com/akoxx'],
 };
 
-export const ResumeDetailPage = () => {
-  return (
-    <DetailLayout>
-      <DetailContent title="업무 경험">
-        <ContentCard
-          title={toss.title}
-          role={toss.role}
-          date={toss.date}
-          works={toss.works}
-        />
-      </DetailContent>
-      <DetailContent title='프로젝트'>
-        <ContentCard
-          title={toss.title}
-          direction="column"
-          date={toss.date}
-          works={toss.works}
-          image={toss.image}
-          url={toss.url}
-          content={toss.content}
-          skills={toss.skills}
-        />
-        <ContentCard
-          title={toss.title}
-          direction="column"
-          date={toss.date}
-          works={toss.works}
-          image={toss.image}
-          url={toss.url}
-          content={toss.content}
-          skills={toss.skills}
-        />
-      </DetailContent>
-    </DetailLayout>
-  );
-};
+export const ResumeDetailPage = () => (
+  <DetailLayout>
+    <DetailContent title="업무 경험">
+      <ContentCard
+        title={toss.title}
+        role={toss.role}
+        date={toss.date}
+        works={toss.works}
+      />
+    </DetailContent>
+    <DetailContent title="프로젝트">
+      <ContentCard
+        title={toss.title}
+        direction="column"
+        date={toss.date}
+        works={toss.works}
+        image={toss.image}
+        url={toss.url}
+        content={toss.content}
+        skills={toss.skills}
+      />
+      <ContentCard
+        title={toss.title}
+        direction="column"
+        date={toss.date}
+        works={toss.works}
+        image={toss.image}
+        url={toss.url}
+        content={toss.content}
+        skills={toss.skills}
+      />
+    </DetailContent>
+  </DetailLayout>
+);

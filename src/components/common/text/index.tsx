@@ -1,7 +1,7 @@
-import { keyOfColor } from '@/styles/theme/color';
-import { keyOfFont } from '@/styles/theme/font';
 import styled from 'styled-components';
 import { ReactNode } from 'react';
+import { keyOfColor } from '@/styles/theme/color';
+import { keyOfFont } from '@/styles/theme/font';
 
 type alignType = 'start' | 'center' | 'end';
 
@@ -29,23 +29,21 @@ export const Text = ({
   margin,
   padding,
   children,
-}: Props) => {
-  return (
-    <_Wrapper
-      as={as}
-      className={className}
-      lineHeight={lineHeight}
-      height={height}
-      align={align}
-      color={color}
-      size={size}
-      marign={margin}
-      padding={padding}
-    >
-      {children}
-    </_Wrapper>
-  );
-};
+}: Props) => (
+  <_Wrapper
+    as={as}
+    className={className}
+    lineHeight={lineHeight}
+    height={height}
+    align={align}
+    color={color}
+    size={size}
+    marign={margin}
+    padding={padding}
+  >
+    {children}
+  </_Wrapper>
+);
 
 const _Wrapper = styled.div<{
   lineHeight: string;

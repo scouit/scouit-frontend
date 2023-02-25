@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useQuery } from 'react-query';
 import { Input } from '@/components/common/input';
 import { DateInput } from '@/components/common/input/Date';
 import { TextListInput } from '@/components/common/input/TextList';
@@ -12,8 +14,6 @@ import {
   useProfileUpdate,
 } from '@/hooks/useProfile';
 import { EditProfileWrapper } from '@/layouts/Wrapper/EditProfile';
-import { useEffect } from 'react';
-import { useQuery } from 'react-query';
 
 const experience = 'experience';
 
@@ -21,16 +21,14 @@ export const ExperiencePage = () => {
   const { profile, listChange } = useProfileArray(experience);
   const { addListArray, removeArrayList } = useProfileList(experience);
   const { workUpdate } = useProfileUpdate();
-  useEffect(() => {
-    return () => workUpdate.mutate();
-  }, []);
+  useEffect(() => () => workUpdate.mutate(), []);
   return (
     <>
       <Header
         textList={lio}
         currentPage="업무 경험"
         gap="17px"
-        isMedia={true}
+        isMedia
       />
       <ProfileWriteBox title="업무 경험" onClick={() => {}}>
         {profile[experience].map((e, idx) => (

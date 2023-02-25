@@ -7,13 +7,13 @@ interface PropsType {
   children: React.ReactNode;
 }
 
-export const Tag = ({ to, padding, margin, children }: PropsType) => {
-  return (
-    <_Wrapper margin={margin} padding={padding}>
-      {children}
-    </_Wrapper>
-  );
-};
+export const Tag = ({
+  to, padding, margin, children,
+}: PropsType) => (
+  <_Wrapper margin={margin} padding={padding}>
+    {children}
+  </_Wrapper>
+);
 
 const _Wrapper = styled.div<{ margin?: string; padding?: string }>`
   margin: ${({ margin }) => margin};
