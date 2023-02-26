@@ -23,9 +23,9 @@ import { ClubPage } from '@/pages/home/Club';
 import { SideProjectPage } from '@/pages/home/Side';
 import { AdminHomePage } from '@/pages/admin/Home';
 import { AdminClubPage } from '@/pages/admin/Club';
-import { LoungeHomePage } from '@/pages/lounge/home';
-import { LoungeWrite } from '@/pages/lounge/write';
-import { LoungeDetail } from '@/pages/lounge/detail';
+import { LoungeHomePage } from '@/pages/lounge/Home';
+import { LoungeWrite } from '@/pages/lounge/Write';
+import { LoungeDetail } from '@/pages/lounge/Detail';
 
 const { forbidden, notFound } = ErrorState;
 
