@@ -6,7 +6,7 @@ import { NavigationList } from '../common/list/Navigation';
 import { Columns } from '../../layouts/Columns';
 import { NavListIsLogin } from './constants';
 import { profileSelectBox } from '@/store/modal';
-import { ProfileSelectBox } from '../select-box/Profile';
+import { ProfileSelectBox } from '../selectBox/Profile';
 import { localStorgeGetItem } from '@/utils/storge';
 import { media } from '@/styles/media';
 import { BottomListNav, BottomHeaderType } from './bottom/ListNav';

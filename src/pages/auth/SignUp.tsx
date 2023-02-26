@@ -2,8 +2,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Button } from '@/components/common/button';
 import { Input } from '@/components/common/input';
-import { AuthWrapper } from '@/layouts/Wrapper/Auth';
-import { useSignUp } from '@/hooks/useAuth';
+import { AuthWrapper } from '@/layouts/wrapper/Auth';
+import { useSignUpQuery } from '@/hooks/Query';
 import { useForm } from '@/hooks/useForm';
 import { Text } from '@/components/common/text';
 import { ColumnCenterGap } from '@/layouts/DirectionGap';
@@ -40,7 +40,7 @@ export const SignUpPage = () => {
     passwordCheck: text.passwordCheck !== text.password,
   };
 
-  const signUpMutate = useSignUp(text);
+  const signUpMutate = useSignUpQuery(text);
 
   return (
     <AuthWrapper

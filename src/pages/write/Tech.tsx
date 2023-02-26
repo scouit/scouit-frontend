@@ -1,8 +1,8 @@
 import { SkillInput } from '@/components/common/input/Skill';
 import { Header } from '@/components/header';
 import { ProfileWriteBox } from '@/components/profileWriteForm';
-import { Tapbar } from '@/components/write-profile';
-import { lio } from '@/components/write-profile/constants';
+import { Tapbar } from '@/components/writeProfile';
+import { lio } from '@/components/writeProfile/constants';
 
 export const TechPage = () => (
   <>

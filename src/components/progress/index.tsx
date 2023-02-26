@@ -8,21 +8,18 @@ interface PropsType {
 }
 
 export const Progress = ({ name, percent }: PropsType) => (
-  <_Wrapper>
+  <div>
     <RowEndGap gap="65px" margin="0 0 8px">
       <Text size="body1" color="gray10">
         {name}
       </Text>
       <Text size="body2" color="gray10">
-        {percent}
-        %
+        {percent}%
       </Text>
     </RowEndGap>
     <_Bar />
-  </_Wrapper>
+  </div>
 );
-
-const _Wrapper = styled.div``;
 
 const _Bar = styled.div`
   width: 100%;

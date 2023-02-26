@@ -6,8 +6,8 @@ export const useHeaderScroll = () => {
     let lastScroll = document.documentElement.scrollTop;
     document.addEventListener('scroll', () => {
       const currentScroll = document.documentElement.scrollTop;
-      if (currentScroll > lastScroll) setDisplay(true);
-      else setDisplay(false);
+      if (currentScroll > lastScroll) setDisplay(false);
+      else setDisplay(true);
 
       lastScroll = currentScroll;
     });

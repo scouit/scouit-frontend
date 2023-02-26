@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import { Tapbar } from '@/components/write-profile';
+import { Tapbar } from '@/components/writeProfile';
 import { ProfileWriteBox } from '@/components/profileWriteForm';
 import { useProfileUpdate } from '@/hooks/useProfile';
 import { Input } from '@/components/common/input';
 import { Header } from '@/components/header';
-import { lio } from '@/components/write-profile/constants';
+import { lio } from '@/components/writeProfile/constants';
 
 export const BasicPage = () => {
   const { basicUpdate } = useProfileUpdate();

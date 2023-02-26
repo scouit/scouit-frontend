@@ -1,38 +1,28 @@
-import { dummy, ProfileCard } from '@/components/card/Profile';
+import { ProfileCard } from '@/components/card/Profile';
 import { ProfileData } from '@/components/card/ProfileData';
 import { Tag } from '@/components/card/Tag';
-import { Header } from '@/components/header';
 import { ColumnCenterGap, RowGap } from '@/layouts/DirectionGap';
-import { ProfileLayout } from '@/layouts/ProfileLayout';
-
-export const adminLinkList = [
-  { title: '홈', url: '/admin' },
-  { title: '연합 동아리', url: '/admin/club' },
-];
+import { HeaderWrapper } from '@/layouts/wrapper/Header';
+import { dummy } from '@/_dummy/Profile';
 
 export const AdminHomePage = () => (
-  <>
-    <Header textList={adminLinkList} currentPage="홈" gap="78px" />
-    <ProfileLayout>
-      {Array(10)
-        .fill(0)
-        .map(() => (
-          <ProfileCard isProfile>
-            <ColumnCenterGap gap="2.25rem" padding="0 1.5rem">
-              <ProfileData
-                url={dummy.profile}
-                name={dummy.name}
-                role={dummy.role}
-                descript={dummy.descript}
-              />
-              <RowGap gap="0.5rem">
-                {dummy.tag.map((content) => (
-                  <Tag padding="0.5625rem 1.125rem">{content}</Tag>
-                ))}
-              </RowGap>
-            </ColumnCenterGap>
-          </ProfileCard>
-        ))}
-    </ProfileLayout>
-  </>
+  <HeaderWrapper currentPage="홈" type="어드민">
+    {dummy.map(({ profile, name, role, description, tag }) => (
+      <ProfileCard isProfile>
+        <ColumnCenterGap gap="2.25rem" padding="0 1.5rem">
+          <ProfileData
+            url={profile}
+            name={name}
+            role={role}
+            descript={description}
+          />
+          <RowGap gap="0.5rem">
+            {tag.map((content) => (
+              <Tag padding="0.5625rem 1.125rem">{content}</Tag>
+            ))}
+          </RowGap>
+        </ColumnCenterGap>
+      </ProfileCard>
+    ))}
+  </HeaderWrapper>
 );

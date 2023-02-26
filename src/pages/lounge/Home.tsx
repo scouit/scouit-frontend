@@ -1,7 +1,6 @@
 import { LoungeData } from '@/components/card/LoungeData';
 import { ProfileCard } from '@/components/card/Profile';
 import { Header } from '@/components/header';
-import { ProfileLayout } from '@/layouts/ProfileLayout';
 
 export const adminLinkList = [
   { title: '홈', url: '/admin' },
@@ -19,19 +18,17 @@ const card = {
 export const LoungeHomePage = () => (
   <>
     <Header textList={adminLinkList} currentPage="홈" gap="78px" />
-    <ProfileLayout>
-      {Array(10)
-        .fill(0)
-        .map(() => (
-          <ProfileCard isProfile={false}>
-            <LoungeData
-              title={card.title}
-              content={card.content}
-              peoples={card.peoples}
-              kinda={card.kinda}
-            />
-          </ProfileCard>
-        ))}
-    </ProfileLayout>
+    {Array(10)
+      .fill(0)
+      .map(() => (
+        <ProfileCard isProfile={false}>
+          <LoungeData
+            title={card.title}
+            content={card.content}
+            peoples={card.peoples}
+            kinda={card.kinda}
+          />
+        </ProfileCard>
+      ))}
   </>
 );

@@ -1,5 +1,5 @@
 import { Input } from '@/components/common/input';
-import { AuthWrapper } from '@/layouts/Wrapper/Auth';
+import { AuthWrapper } from '@/layouts/wrapper/Auth';
 
 export const ResetPasswordPage = () => (
   <AuthWrapper>

@@ -7,8 +7,11 @@ import {
 import { postSignUp, postSignIn } from '@/apis/auth';
 import { customToast } from '@/utils/toast';
 import { localStorgeSetItem } from '@/utils/storge';
+import { useQuery } from 'react-query';
+import { getCompanyGetById, getCompanyList } from '@/apis/company';
+import { getDeveloperList } from '@/apis/user/getList';
 
-export const useSignUp = (req: PostSignUpReqeustType) => {
+export const useSignUpQuery = (req: PostSignUpReqeustType) => {
   const navigate = useNavigate();
   return useMutation(() => postSignUp(req), {
     onSuccess: () => {
@@ -21,7 +24,7 @@ export const useSignUp = (req: PostSignUpReqeustType) => {
   });
 };
 
-export const useSignIn = (req: PostSignInReqeustType) => {
+export const useSignInQuery = (req: PostSignInReqeustType) => {
   const navigate = useNavigate();
   return useMutation(() => postSignIn(req), {
     onSuccess: (res) => {
@@ -36,3 +39,12 @@ export const useSignIn = (req: PostSignInReqeustType) => {
     },
   });
 };
+
+export const useGetCompanyList = () =>
+  useQuery(['developer'], () => getCompanyList());
+
+export const useGetCompanyByIdList = (id: string) =>
+  useQuery(['developer'], () => getCompanyGetById(id));
+
+export const useGetDeveloperList = () =>
+  useQuery(['developer'], () => getDeveloperList());

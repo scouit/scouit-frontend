@@ -3,8 +3,8 @@ import { DateInput } from '@/components/common/input/Date';
 import { Header } from '@/components/header';
 import { ProfileWriteBox } from '@/components/profileWriteForm';
 import { TextArea } from '@/components/textarea';
-import { Tapbar } from '@/components/write-profile';
-import { lio } from '@/components/write-profile/constants';
+import { Tapbar } from '@/components/writeProfile';
+import { lio } from '@/components/writeProfile/constants';
 import { useProfileArray } from '@/hooks/useProfile';
 
 export const ActivePage = () => {

@@ -2,8 +2,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/common/button';
 import { Input } from '@/components/common/input';
 import { Text } from '@/components/common/text';
-import { AuthWrapper } from '@/layouts/Wrapper/Auth';
-import { useSignIn } from '@/hooks/useAuth';
+import { AuthWrapper } from '@/layouts/wrapper/Auth';
+import { useSignInQuery } from '@/hooks/Query';
 import { useForm } from '@/hooks/useForm';
 import { ColumnCenterGap } from '@/layouts/DirectionGap';
 import { CheckBox } from '@/components/common/checkBox';
@@ -16,7 +16,7 @@ export const SignInPage = () => {
     password: '',
   });
 
-  const signInMutate = useSignIn(text);
+  const signInMutate = useSignInQuery(text);
 
   return (
     <AuthWrapper onSubmit={() => signInMutate.mutate()}>

@@ -4,7 +4,7 @@ import { DateInput } from '@/components/common/input/Date';
 import { TextListInput } from '@/components/common/input/TextList';
 import { ProfileWriteBox } from '@/components/profileWriteForm';
 import { TextArea } from '@/components/textarea';
-import { Tapbar } from '@/components/write-profile';
+import { Tapbar } from '@/components/writeProfile';
 import { ImgLeader } from '@/components/common/input/FileLeader';
 import {
   useProfileArray,
@@ -14,7 +14,7 @@ import {
 import { SkillInput } from '@/components/common/input/Skill';
 import { Line } from '@/components/common/line';
 import { Header } from '@/components/header';
-import { lio } from '@/components/write-profile/constants';
+import { lio } from '@/components/writeProfile/constants';
 
 const project = 'project';
 

@@ -1,7 +1,7 @@
 import { Back } from '@/assets';
 import { ContentCard } from '@/components/card/detail/Content';
-import { DetailContent } from '@/layouts/Detail/Content';
-import { DetailLayout } from '@/layouts/Detail/DetailLayout';
+import { DetailContent } from '@/layouts/detail/Content';
+import { DetailLayout } from '@/layouts/detail/DetailLayout';
 
 const toss = {
   title: 'Toss',

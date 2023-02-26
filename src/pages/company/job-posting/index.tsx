@@ -4,10 +4,9 @@ import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { Text } from '@/components/common/text';
 import { Columns } from '@/layouts/Columns';
-import { useCompany } from '@/hooks/useCompany';
+import { useGetCompanyList } from '@/hooks/Query';
 
 export const JobPostingPage = () => {
-  const { useGetCompanyList } = useCompany();
   const { data } = useGetCompanyList();
   return (
     <div>
@@ -15,7 +14,8 @@ export const JobPostingPage = () => {
       <_Columns>
         <Text size="title1">채용 공고</Text>
         <_JobPostingWrapper>
-          {data && data.map((componyData) => <JobPostingCard data={componyData} />)}
+          {data &&
+            data.map((componyData) => <JobPostingCard data={componyData} />)}
         </_JobPostingWrapper>
       </_Columns>
       <Footer />

@@ -9,10 +9,7 @@ interface PropsType {
   onSubmit?: () => void;
 }
 
-export const AuthWrapper = ({
-  children,
-  onSubmit,
-}:PropsType) => {
+export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
   const onSubmitPreventDefault = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSubmit();

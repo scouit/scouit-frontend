@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NavigationList } from '../common/list/Navigation';
-import { Columns } from '../../layouts/Columns';
+import { _Columns } from '../../layouts/Columns';
 import { navList, socialList } from './constants';
 
 export const Footer = () => (
@@ -19,7 +19,7 @@ const _Wrapper = styled.footer`
   border-top: 1px solid ${({ theme }) => theme.color.gray4};
 `;
 
-const _Columns12 = styled(Columns)`
+const _Columns12 = styled(_Columns)`
   padding: 70px 0 96px 0;
 `;
 
