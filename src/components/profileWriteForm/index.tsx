@@ -12,14 +12,14 @@ interface PropsType {
 
 export const ProfileWriteBox = ({ title, onClick, children }: PropsType) => (
   <_Wrapper>
-    <TitleWrapper>
+    <_TitleWrapper>
       <Text size="heading1">{title}</Text>
       {onClick && (
         <Button kind="contained" onClick={onClick}>
           추가하기
         </Button>
       )}
-    </TitleWrapper>
+    </_TitleWrapper>
     <ColumnStartGap gap="65px" padding="0 0 65px">
       {children}
     </ColumnStartGap>
@@ -36,7 +36,7 @@ const _Wrapper = styled.div`
   margin: 0 auto;
 `;
 
-const TitleWrapper = styled.div`
+const _TitleWrapper = styled.div`
   height: 45px;
   display: flex;
   justify-content: space-between;

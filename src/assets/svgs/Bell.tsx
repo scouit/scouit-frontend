@@ -1,8 +1,8 @@
-interface Props {
+interface PropsType {
   variant?: boolean;
 }
 
-export const Bell = ({ variant }: Props) => (
+export const Bell = ({ variant }: PropsType) => (
   <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
     {variant ? (
       <>

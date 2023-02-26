@@ -1,8 +1,8 @@
-interface Props {
+interface PropsType {
   className?: string;
 }
 
-export const LogoWithText = ({ className }: Props) => (
+export const LogoWithText = ({ className }: PropsType) => (
   <svg
     className={className}
     width="120"

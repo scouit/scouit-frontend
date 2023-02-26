@@ -30,7 +30,7 @@ export const ContentCard = ({
   skills = [],
 }: PropsType) => (
   <_Wrapper direction={direction}>
-    <Content gap={isColumn(direction) ? '28px' : '0'}>
+    <_Content gap={isColumn(direction) ? '28px' : '0'}>
       <_Img src={image} />
       <_TitleWrapper direction={direction} gap="0.5rem">
         <Text size="title1" color="gray10">
@@ -46,7 +46,7 @@ export const ContentCard = ({
           {role}
         </Text>
       </_TitleWrapper>
-    </Content>
+    </_Content>
     <ColumnGap gap={isColumn(direction) ? '28px' : '0'}>
       <ColumnGap gap="12px">
         {url.map((e) => (
@@ -82,7 +82,7 @@ const _Wrapper = styled.div<{ direction: 'row' | 'column' }>`
   ${media._1024('padding: 0;flex-direction: column')}
 `;
 
-const Content = styled.div<{ gap: string }>`
+const _Content = styled.div<{ gap: string }>`
   display: flex;
   flex-direction: column;
   gap: ${({ gap }) => gap};

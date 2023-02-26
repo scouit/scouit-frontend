@@ -5,7 +5,7 @@ import { keyOfFont } from '@/styles/theme/font';
 
 type alignType = 'start' | 'center' | 'end';
 
-interface Props {
+interface PropsType {
   className?: string;
   as?: 'div' | 'li';
   lineHeight?: string;
@@ -29,7 +29,7 @@ export const Text = ({
   margin,
   padding,
   children,
-}: Props) => (
+}: PropsType) => (
   <_Wrapper
     as={as}
     className={className}

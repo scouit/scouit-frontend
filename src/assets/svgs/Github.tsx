@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { keyOfColor } from '@/styles/theme/color';
 
-interface Props {
+interface PropsType {
   hover?: keyOfColor;
 }
 
-export const Github = ({ hover }: Props) => (
+export const Github = ({ hover }: PropsType) => (
   <_Svg hover={hover} width="24" height="24" viewBox="0 0 24 24" fill="none">
     <g clipPath="url(#clip0_51_297)">
       <mask

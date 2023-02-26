@@ -24,7 +24,7 @@ type kindType = 'contained' | 'outline' | 'text' | 'underline' | 'round';
 type colorType = 'primary' | 'gray' | 'error';
 type sizeType = 'default' | 'medium' | 'large';
 
-interface propsType {
+interface PropsType {
   className?: string;
   kind?: kindType;
   size?: sizeType;
@@ -50,7 +50,7 @@ export const Button = ({
   clickType = 'submit',
   margin,
   radius,
-}: propsType) => (
+}: PropsType) => (
   <_Wrapper
     className={className}
     size={size}
@@ -67,7 +67,7 @@ export const Button = ({
   </_Wrapper>
 );
 
-const _Wrapper = styled.button<propsType>`
+const _Wrapper = styled.button<PropsType>`
   cursor: pointer;
   height: 45px;
   display: flex;
