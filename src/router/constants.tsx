@@ -65,7 +65,7 @@ export const ErrorState = {
     image: Error401,
     number: 401,
   },
-  forbid403: {
+  forbidden: {
     name: 'Forbidden',
     content: '이 페이지에 대한 접근권한이 존재하지 않습니다.',
     image: Error403,

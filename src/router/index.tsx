@@ -27,36 +27,19 @@ import { LoungeHomePage } from '@/pages/lounge/home';
 import { LoungeWrite } from '@/pages/lounge/write';
 import { LoungeDetail } from '@/pages/lounge/detail';
 
-const {
-  home,
-  admin,
-  signin,
-  signup,
-  resetPassword,
-  makesPeople,
-  frequentlyAskedQuestions,
-  developers,
-  company,
-  myPage,
-  notFound,
-  forbid,
-  profile,
-  lounge,
-} = routePath;
-
-const { unfind404, forbid403 } = ErrorState;
-
 export const Router = () => (
   <BrowserRouter>
     <Routes>
-      <Route path={home.index} element={<HomePage />} />
-      <Route path={home.club} element={<ClubPage />} />
-      <Route path={home.side} element={<SideProjectPage />} />
-      <Route path={admin.index} element={<AdminHomePage />} />
-      <Route path={admin.club} element={<AdminClubPage />} />
-      <Route path={lounge.index} element={<LoungeHomePage />} />
-      <Route path={lounge.detail} element={<LoungeDetail />} />
-      <Route path={lounge.write} element={<LoungeWrite />} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/club" element={<ClubPage />} />
+      <Route path="/side-project" element={<SideProjectPage />} />
+      <Route path="/admin" element={<AdminHomePage />} />
+      <Route path="/admin/club" element={<AdminClubPage />} />
+      <Route path="/lounge">
+        <Route index element={<LoungeHomePage />} />
+        <Route path=":id" element={<LoungeDetail />} />
+        <Route path="recruitment" element={<LoungeWrite />} />
+      </Route>
       <Route path={signin} element={<SignInPage />} />
       <Route path={signup} element={<SignUpPage />} />
       <Route path={resetPassword} element={<ResetPasswordPage />} />
@@ -87,7 +70,7 @@ export const Router = () => (
       <Route path={profile.index}>
         <Route
           path={profile.write.index}
-          element={(
+          element={
             <EditProfileWrapper>
               <Routes>
                 <Route path={profile.write.basic} element={<BasicPage />} />
@@ -99,11 +82,11 @@ export const Router = () => (
                 <Route path={profile.write.educate} element={<EducatePage />} />
               </Routes>
             </EditProfileWrapper>
-          )}
+          }
         />
       </Route>
       <Route path={notFound} element={<NotFoundPage Error={unfind404} />} />
-      <Route path={forbid} element={<NotFoundPage Error={forbid403} />} />
+      <Route path="/403" element={<NotFoundPage Error={forbidden} />} />
     </Routes>
   </BrowserRouter>
 );
