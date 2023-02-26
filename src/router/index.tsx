@@ -9,7 +9,7 @@ import { NotFoundPage } from '@/pages/NotFound';
 import { ResumeDetailPage } from '@/pages/developers/resume/Detail';
 import { SignUpPage } from '@/pages/auth/SignUp';
 import { JobPostingDetailPage } from '@/pages/company/job-posting/Detail';
-import { ErrorState, routePath } from './constants';
+import { ErrorState } from './constants';
 import { MyPage } from '@/pages/MyPage';
 import { BasicPage } from '@/pages/write/Basic';
 import { ProjectPage } from '@/pages/write/Project';
@@ -27,6 +27,8 @@ import { LoungeHomePage } from '@/pages/lounge/home';
 import { LoungeWrite } from '@/pages/lounge/write';
 import { LoungeDetail } from '@/pages/lounge/detail';
 
+const { forbidden, notFound } = ErrorState;
+
 export const Router = () => (
   <BrowserRouter>
     <Routes>
@@ -40,52 +42,46 @@ export const Router = () => (
         <Route path=":id" element={<LoungeDetail />} />
         <Route path="recruitment" element={<LoungeWrite />} />
       </Route>
-      <Route path={signin} element={<SignInPage />} />
-      <Route path={signup} element={<SignUpPage />} />
-      <Route path={resetPassword} element={<ResetPasswordPage />} />
-      <Route path={makesPeople} element={<MakesPeoplePage />} />
+      <Route path="/sign-in" element={<SignInPage />} />
+      <Route path="/sign-up" element={<SignUpPage />} />
+      <Route path="/reset-password" element={<ResetPasswordPage />} />
+      <Route path="/makes-people" element={<MakesPeoplePage />} />
       <Route
-        path={frequentlyAskedQuestions}
+        path="/frequently-asked-questions"
         element={<FrequentlyAskedQuestionsPage />}
       />
-      <Route path={developers.index}>
+      <Route path="/developers">
         {/* <Route index element={<DevelopersPage />} /> */}
-        <Route path={developers.resume.index}>
-          <Route
-            path={developers.resume.dynamic}
-            element={<ResumeDetailPage />}
-          />
+        <Route path="resume/*">
+          <Route path=":id" element={<ResumeDetailPage />} />
         </Route>
       </Route>
-      <Route path={company.index}>
-        <Route path={company.jobPosting.index}>
+      <Route path="/company">
+        <Route path="job-posting">
           <Route index element={<JobPostingPage />} />
-          <Route
-            path={company.jobPosting.dynamic}
-            element={<JobPostingDetailPage />}
-          />
+          <Route path=":id" element={<JobPostingDetailPage />} />
         </Route>
       </Route>
-      <Route path={myPage} element={<MyPage />} />
-      <Route path={profile.index}>
+      <Route path="/my-page" element={<MyPage />} />
+      <Route path="/profile">
         <Route
-          path={profile.write.index}
+          path="write/*"
           element={
             <EditProfileWrapper>
               <Routes>
-                <Route path={profile.write.basic} element={<BasicPage />} />
-                <Route path={profile.write.intro} element={<IntroducePage />} />
-                <Route path={profile.write.project} element={<ProjectPage />} />
-                <Route path={profile.write.work} element={<ExperiencePage />} />
-                <Route path={profile.write.tech} element={<TechPage />} />
-                <Route path={profile.write.active} element={<ActivePage />} />
-                <Route path={profile.write.educate} element={<EducatePage />} />
+                <Route path="basic" element={<BasicPage />} />
+                <Route path="introduce" element={<IntroducePage />} />
+                <Route path="project" element={<ProjectPage />} />
+                <Route path="work-experience" element={<ExperiencePage />} />
+                <Route path="technology" element={<TechPage />} />
+                <Route path="activity" element={<ActivePage />} />
+                <Route path="education" element={<EducatePage />} />
               </Routes>
             </EditProfileWrapper>
           }
         />
       </Route>
-      <Route path={notFound} element={<NotFoundPage Error={unfind404} />} />
+      <Route path="/*" element={<NotFoundPage Error={notFound} />} />
       <Route path="/403" element={<NotFoundPage Error={forbidden} />} />
     </Routes>
   </BrowserRouter>
