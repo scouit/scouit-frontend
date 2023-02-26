@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent } from 'react';
 import styled from 'styled-components';
 import { EyeClose, EyeOpen } from '@/assets';
 import { Text } from '../text';

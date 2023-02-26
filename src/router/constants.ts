@@ -1,4 +1,4 @@
-import { Error401, Error403, Error404 } from '@/assets';
+import { Error403, Error404 } from '@/assets';
 
 export const ErrorState = {
   notFound: {

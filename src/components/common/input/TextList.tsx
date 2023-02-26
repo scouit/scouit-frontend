@@ -32,7 +32,6 @@ export const TextListInput = ({
       <_Form
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(onSubmit);
           onSubmit(name, list);
           setList('');
         }}

@@ -15,7 +15,7 @@ export function customToast(msg: string, type: 'success' | 'error') {
       });
       break;
     default:
-      alert('개발자오류');
+      toast('개발자오류');
       break;
   }
 }

@@ -66,7 +66,7 @@ export const Router = () => (
       <Route path="/profile">
         <Route
           path="write/*"
-          element={
+          element={(
             <EditProfileWrapper>
               <Routes>
                 <Route path="basic" element={<BasicPage />} />
@@ -78,7 +78,7 @@ export const Router = () => (
                 <Route path="education" element={<EducatePage />} />
               </Routes>
             </EditProfileWrapper>
-          }
+          )}
         />
       </Route>
       <Route path="/*" element={<NotFoundPage Error={notFound} />} />

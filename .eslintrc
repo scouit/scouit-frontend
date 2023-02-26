@@ -19,7 +19,6 @@
     "no-underscore-dangle": "off",
     "react/jsx-pascal-case": 0,
     "react/require-default-props": 0,
-
     "implicit-arrow-linebreak": 0,
     "operator-linebreak": 0,
     "no-confusing-arrow": 0,
@@ -29,9 +28,12 @@
     "react/jsx-one-expression-per-line": 0,
     "react/jsx-curly-newline": 0,
 
+    // 이미지 슬라이더 로직으로 임시변경 추후 로직 재수정
+    "no-void": "warn",
+
     "react/prop-types": 0,
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": "warn",
+    "@typescript-eslint/no-use-before-define": "off",
     "import/extensions": ["error", "never", {}]
   }
 }
