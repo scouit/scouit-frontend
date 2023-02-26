@@ -28,9 +28,6 @@
     "react/jsx-one-expression-per-line": 0,
     "react/jsx-curly-newline": 0,
 
-    // 이미지 슬라이더 로직으로 임시변경 추후 로직 재수정
-    "no-void": "warn",
-
     "react/prop-types": 0,
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": "off",

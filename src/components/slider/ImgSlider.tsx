@@ -4,17 +4,21 @@ import { useSlide } from '@/hooks/useSlide';
 import { keyOfColor } from '@/styles/theme/color';
 import { Text } from '../common/text';
 import { ColumnCenterGap } from '@/layouts/DirectionGap';
-import { appear } from '@/styles/animation/slider';
+import { appearArray } from '@/styles/animation/slider';
 import { media } from '@/styles/media';
 
 const activeColor = (idx: number, count: number) => idx === count % 3;
 
 export const ImgSlider = () => {
-  const { ref, currentImg, count, setCount } = useSlide(LabTap, IMac, IPhone);
-
+  const { currentImg, count, setCount } = useSlide(LabTap, IMac, IPhone);
   return (
     <_Wrapper>
-      <_DescriptionImg width={400} height={400} ref={ref} src={currentImg} />
+      <_DescriptionImg
+        width={400}
+        height={400}
+        src={currentImg}
+        count={count}
+      />
       <ColumnCenterGap gap="16px" margin="12px 0 0">
         <Text size="title1" color="gray1">
           연합 동아리를 모아보세요.
@@ -79,7 +83,7 @@ const _Ball = styled.div<{
   }
 `;
 
-const _DescriptionImg = styled.img`
+const _DescriptionImg = styled.img<{ count: number }>`
   object-fit: contain;
-  animation: ${appear} 3s forwards;
+  animation: ${({ count }) => appearArray[count % 3]} 3s forwards;
 `;
