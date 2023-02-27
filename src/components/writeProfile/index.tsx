@@ -15,9 +15,13 @@ export const Tapbar = ({ currentPage }: PropsType) => (
       <_ActiveContent>
         {lio.map((e) => (
           <Link to={e.url}>
-            <_TabButton selected={e.title === currentPage}>
+            <Button
+              kind="text"
+              size="large"
+              color={e.title === currentPage ? 'primary' : 'gray'}
+            >
               {e.title}
-            </_TabButton>
+            </Button>
           </Link>
         ))}
       </_ActiveContent>
@@ -73,15 +77,4 @@ const _ButtonWrapper = styled.div`
   bottom: 0;
   left: 0;
 `)}
-`;
-
-const _TabButton = styled.div<{ selected: boolean }>`
-  width: 100%;
-  border-radius: 0.5rem;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: ${({ selected }) => (selected ? 'blue' : 'black')};
-  ${({ theme }) => theme.font.heading3};
 `;
