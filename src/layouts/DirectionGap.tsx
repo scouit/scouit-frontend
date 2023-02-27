@@ -64,11 +64,10 @@ const _Wrapper = styled.div<{
 }>`
   width: ${({ width }) => width};
   display: flex;
-  flex-direction: ${({ direction }) => direction};
+  flex-flow: ${({ direction }) => direction} ${({ wrap }) => wrap && 'wrap'};
   align-items: ${({ align }) => align};
   justify-content: ${({ justify }) => justify};
   gap: ${({ gap }) => gap};
   margin: ${({ margin }) => margin};
   padding: ${({ padding }) => padding};
-  flex-wrap: ${({ wrap }) => wrap && 'wrap'};
 `;

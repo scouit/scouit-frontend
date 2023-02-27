@@ -59,6 +59,7 @@ const _Wrapper = styled.div<{
   padding: ${({ padding }) => padding && padding};
   text-align: ${({ align }) => align};
   ${({ theme, size }) => theme.font[size]};
+
   color: ${({ theme, color }) => theme.color[color]};
   margin: ${({ marign }) => marign && marign};
 `;

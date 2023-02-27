@@ -13,7 +13,7 @@ export const LabelText = ({ label, children }: PropsType) => (
 );
 
 const _Wrapper = styled.div`
-  display: Flex;
+  display: flex;
 `;
 
 const _Text = styled(Text)`

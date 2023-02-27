@@ -10,7 +10,7 @@ import { Header } from '@/components/header';
 export const LoungeDetail = () => (
   <>
     <Header />
-    <_Columns padding="127px 0">
+    <_Columns padding="127px 16px">
       <_ColumnContent width="59.75rem" gap="35px">
         <Text size="title1">{detailDummy.title}</Text>
         <Text size="heading2">{detailDummy.kind}</Text>

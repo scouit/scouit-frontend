@@ -52,7 +52,6 @@ const _Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   margin: 0 auto;
   ${media._1024('display:none;')}
 `;
@@ -74,10 +73,12 @@ const _Ball = styled.div<{
     width: ${size};
     height: ${size};
   `};
+
   cursor: pointer;
   transition: 0.25s;
   border-radius: 0.625rem;
   background-color: ${({ theme, color }) => theme.color[color]};
+
   :hover {
     background-color: ${({ theme, hover }) => theme.color[hover]};
   }

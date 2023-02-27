@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from '@/components/common/button';
-import { ColumnCenterGap } from '@/layouts/DirectionGap';
 import { media } from '@/styles/media';
 import { lio } from './constants';
 
@@ -11,21 +10,19 @@ interface PropsType {
 
 export const Tapbar = ({ currentPage }: PropsType) => (
   <_Wrapper>
-    <ColumnCenterGap gap="24px">
-      <_ActiveContent>
-        {lio.map((e) => (
-          <Link to={e.url}>
-            <Button
-              kind="text"
-              size="large"
-              color={e.title === currentPage ? 'primary' : 'gray'}
-            >
-              {e.title}
-            </Button>
-          </Link>
-        ))}
-      </_ActiveContent>
-    </ColumnCenterGap>
+    <_ActiveContent>
+      {lio.map((e) => (
+        <Link to={e.url}>
+          <Button
+            kind="text"
+            size="large"
+            color={e.title === currentPage ? 'primary' : 'gray'}
+          >
+            {e.title}
+          </Button>
+        </Link>
+      ))}
+    </_ActiveContent>
     <_ButtonWrapper>
       <Button
         size="large"
@@ -47,12 +44,12 @@ const _Wrapper = styled.div`
   height: 500px;
   border-radius: 0.5rem;
   top: 115px;
-  padding: 60px 16px 30px 16px;
+  padding: 60px 16px 30px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.color.gray1};
   position: sticky;
-  flex-direction: column;
   ${media._1024(`
     padding: 0;
     width: 0;
@@ -61,10 +58,6 @@ const _Wrapper = styled.div`
 `;
 
 const _ActiveContent = styled.div`
-  width: 100%;
-  padding: 0 10px;
-  justify-content: center;
-  background-color: #ffffff;
   ${media._1024(`
     display:none;
   `)}

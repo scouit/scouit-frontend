@@ -17,7 +17,7 @@ export const ModalWrapper = ({ children, closeModal }: PropsType) => (
 
 export const _Background = styled.div`
   height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgb(0 0 0 / 40%);
   display: flex;
   align-items: center;
   justify-content: center;

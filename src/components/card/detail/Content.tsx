@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { Text } from '@/components/common/text';
 import { ColumnGap } from '@/layouts/DirectionGap';
 import { media } from '@/styles/media';
-import { SkillCard } from '../Skill';
+import { Tag } from '@/components/common/tag';
+import { React } from '@/assets';
 
 interface PropsType {
   title: string;
@@ -60,7 +61,10 @@ export const ContentCard = ({
       </Text>
       <_SkillWrapper>
         {skills.map(() => (
-          <SkillCard name="React" color="gray10" />
+          <Tag padding="7px" color="gray10">
+            <React />
+            <Text color="gray1">React</Text>
+          </Tag>
         ))}
       </_SkillWrapper>
       <ColumnGap gap="12px">
@@ -107,4 +111,5 @@ const _SkillWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   column-gap: 1rem;
+  gap: 7px;
 `;

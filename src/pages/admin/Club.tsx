@@ -1,6 +1,6 @@
 import { ProfileCard } from '@/components/card/Profile';
 import { ProfileData } from '@/components/card/ProfileData';
-import { Tag } from '@/components/card/Tag';
+import { Tag } from '@/components/common/tag';
 import { ColumnCenterGap, RowGap } from '@/layouts/DirectionGap';
 import { HeaderWrapper } from '@/layouts/wrapper/Header';
 import { cardDummy } from '@/_dummy/profile';

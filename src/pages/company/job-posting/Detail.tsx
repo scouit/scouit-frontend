@@ -18,13 +18,11 @@ export const JobPostingDetailPage = () => {
             <div>
               <Text size="heading1">FrontEnd Developer</Text>
               <div>{data.career}</div>
-              <div />
             </div>
           )}
           <DetailCompany />
         </_ColumnContent>
       </_Columns>
-
       <Footer />
     </>
   );

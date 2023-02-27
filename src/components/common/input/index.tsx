@@ -65,10 +65,12 @@ const _Input = styled.input<{ isError: boolean }>`
   border: 1px solid
     ${({ theme, isError }) => theme.color[isError ? 'error' : 'gray5']};
   ${({ theme }) => theme.font.body1};
+
   width: 100%;
   height: 46px;
   padding: 0 50px 0 16px;
   border-radius: 4px;
+
   :focus {
     border: 2px solid ${({ theme }) => theme.color.primary};
   }

@@ -105,9 +105,11 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             background-color: ${primary};
             color: ${gray1};
             opacity: ${disabled ? 0.5 : 1};
+
             :hover {
               background-color: ${!disabled && primaryDarken1};
             }
+
             :active {
               background-color: ${!disabled && primaryDarken2};
             }
@@ -118,9 +120,11 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             cursor: ${disabled && 'no-drop'};
             color: ${gray8};
             opacity: ${disabled ? 0.5 : 1};
+
             :hover {
               background: ${!disabled && gray4};
             }
+
             :active {
               background: ${!disabled && gray5};
             }
@@ -131,9 +135,11 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             cursor: ${disabled && 'no-drop'};
             color: ${gray1};
             opacity: ${disabled ? 0.5 : 1};
+
             :hover {
               background: ${!disabled && errorDarken1};
             }
+
             :active {
               background: ${!disabled && errorDarken2};
             }
@@ -150,14 +156,17 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             opacity: ${disabled ? 0.5 : 1};
             cursor: ${disabled && 'no-drop'};
             border: 1px solid ${kind === 'outline' ? primary : 'transparent'};
+
             :hover {
               background-color: ${!disabled && primary};
               color: ${!disabled && gray1};
               border: ${!disabled && `1px solid ${primary}`};
+
               > svg > path {
                 fill: ${gray1};
               }
             }
+
             :active {
               background-color: ${!disabled && primaryDarken1};
               color: ${!disabled && gray1};
@@ -171,10 +180,12 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             opacity: ${disabled ? 0.5 : 1};
             cursor: ${disabled && 'no-drop'};
             border: 1px solid ${gray4};
+
             :hover {
               border: ${!disabled && `1px solid ${gray4}`};
               background-color: ${!disabled && gray2};
             }
+
             :active {
               border: ${!disabled && `1px solid ${gray4}`};
               background-color: ${!disabled && gray3};
@@ -187,13 +198,16 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             cursor: ${disabled && 'no-drop'};
             opacity: ${disabled ? 0.5 : 1};
             border: 1px solid ${error};
+
             :hover {
               background-color: ${!disabled && error};
               color: ${!disabled && gray1};
+
               > svg > path {
                 fill: ${gray1};
               }
             }
+
             :active {
               background: ${!disabled && errorDarken1};
               color: ${!disabled && gray1};
@@ -211,9 +225,11 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             cursor: ${disabled && 'no-drop'};
             border: 1px solid ${gray2};
             background-color: ${gray1};
+
             :hover {
               background-color: ${!disabled && gray2};
             }
+
             :active {
               background-color: ${!disabled && gray3};
             }
@@ -224,9 +240,11 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             color: ${gray6};
             opacity: ${disabled ? 0.5 : 1};
             cursor: ${disabled && 'no-drop'};
+
             :hover {
               background-color: ${!disabled && gray2};
             }
+
             :active {
               background-color: ${!disabled && gray3};
             }
@@ -237,9 +255,11 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             color: ${error};
             cursor: ${disabled && 'no-drop'};
             opacity: ${disabled ? 0.5 : 1};
+
             :hover {
               background-color: ${!disabled && gray2};
             }
+
             :active {
               background: ${!disabled && gray3};
             }

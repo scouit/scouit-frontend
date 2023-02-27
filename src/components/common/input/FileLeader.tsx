@@ -84,6 +84,7 @@ const _CloseWrapper = styled.div`
   justify-content: center;
   transition: 0.25s;
   opacity: 0;
+
   :hover {
     opacity: 1;
   }
@@ -96,6 +97,6 @@ const _CloseBackground = styled.div`
   height: 100%;
   background-color: 100%;
   background-color: ${({ theme }) => theme.color.gray10};
-  opacity: 60%;
+  opacity: 0.6;
   border-radius: 0.5rem;
 `;

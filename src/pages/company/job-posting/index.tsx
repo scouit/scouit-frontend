@@ -8,7 +8,7 @@ import { _Columns, _ColumnContent } from '@/layouts/Columns';
 export const JobPostingPage = () => {
   const { data } = useGetCompanyList();
   return (
-    <div>
+    <>
       <Header />
       <_Columns padding="0 94px">
         <Text size="title1">채용 공고</Text>
@@ -18,6 +18,6 @@ export const JobPostingPage = () => {
         </_ColumnContent>
       </_Columns>
       <Footer />
-    </div>
+    </>
   );
 };

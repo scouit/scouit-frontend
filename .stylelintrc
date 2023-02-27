@@ -7,6 +7,7 @@
     }
   ],
   "rules": {
-    "function-no-unknown": [true, { "ignoreFunctions": ["/\\${/"] }]
+    "function-no-unknown": [true, { "ignoreFunctions": ["/\\${/"] }],
+    "no-duplicate-selectors": null
   }
 }

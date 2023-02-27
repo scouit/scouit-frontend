@@ -68,6 +68,7 @@ const _Item = styled.li`
   justify-content: center;
   align-items: center;
   ${({ theme }) => theme.font.title2};
+
   border-top: 1px solid ${({ theme }) => theme.color.gray4};
   min-height: 63px;
 `;
