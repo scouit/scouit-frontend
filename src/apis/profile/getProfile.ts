@@ -11,8 +11,9 @@ export const getUserProfile = async <T>() => {
   return data;
 };
 
-const typeAxios = async <T>() => instance.get<T>('/profile/write', {
-  headers: {
-    authorization: `Bearer ${localStorage.getItem('access_token')}`,
-  },
-});
+const typeAxios = async <T>() =>
+  instance.get<T>('/profile/write', {
+    headers: {
+      authorization: `Bearer ${localStorage.getItem('access_token')}`,
+    },
+  });

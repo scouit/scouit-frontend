@@ -21,4 +21,5 @@ const memberNavList = [
   },
 ];
 
-export const NavListIsLogin = (isLogin: boolean) => (isLogin ? memberNavList : nonMemberNavList);
+export const NavListIsLogin = (isLogin: boolean) =>
+  isLogin ? memberNavList : nonMemberNavList;

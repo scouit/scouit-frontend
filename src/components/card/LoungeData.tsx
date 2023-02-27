@@ -9,9 +9,7 @@ interface PropsType {
   peoples: string;
 }
 
-export const LoungeData = ({
-  title, kinda, content, peoples,
-}: PropsType) => (
+export const LoungeData = ({ title, kinda, content, peoples }: PropsType) => (
   <>
     <_Img src={Back} />
     <_Content>
@@ -19,14 +17,14 @@ export const LoungeData = ({
         {title}
       </Text>
       {kinda && (
-      <Text size="body2" color="gray10">
-        {kinda}
-      </Text>
+        <Text size="body2" color="gray10">
+          {kinda}
+        </Text>
       )}
       {content && (
-      <Text size="body2" color="gray10">
-        {content}
-      </Text>
+        <Text size="body2" color="gray10">
+          {content}
+        </Text>
       )}
       <Text size="body2" color="gray10">
         {peoples}

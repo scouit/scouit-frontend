@@ -11,9 +11,7 @@ interface PropsType {
   children: React.ReactNode;
 }
 
-export const ErrorLayout = ({
-  title, number, image, children,
-}: PropsType) => (
+export const ErrorLayout = ({ title, number, image, children }: PropsType) => (
   <_Wrapper>
     <_Content>
       <ColumnGap gap="1.4375rem">

@@ -5,7 +5,8 @@ export const localStorgeSetItem = (key: LocalStorgeKeyType, value: string) => {
   localStorage.setItem(key, value);
 };
 
-export const localStorgeGetItem = (key: LocalStorgeKeyType) => localStorage.getItem(key);
+export const localStorgeGetItem = (key: LocalStorgeKeyType) =>
+  localStorage.getItem(key);
 
 export const localStorgeRemoveItem = (key: LocalStorgeKeyType) => {
   localStorage.removeItem(key);
@@ -22,4 +23,5 @@ export const sessionStorageSetItem = (
   sessionStorage.setItem(key, value);
 };
 
-export const sessionStorageGetItem = (key: SessionStorgeKeyType) => sessionStorage.getItem(key);
+export const sessionStorageGetItem = (key: SessionStorgeKeyType) =>
+  sessionStorage.getItem(key);

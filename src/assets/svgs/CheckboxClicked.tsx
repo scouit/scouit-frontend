@@ -16,6 +16,7 @@ export const CheckBoxClicked = ({ disable }: CheckBoxType) => (
 
 const _Svg = styled.svg<CheckBoxType>`
   > rect {
-    fill: ${({ disable, theme }) => disableColor(theme, disable, 'primaryLighten1', 'primary')};
+    fill: ${({ disable, theme }) =>
+      disableColor(theme, disable, 'primaryLighten1', 'primary')};
   }
 `;

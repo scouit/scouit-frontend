@@ -1,4 +1,3 @@
-import { Back } from '@/assets';
 import { ContentCard } from '@/components/card/detail/Content';
 import { DetailContent } from '@/layouts/detail/Content';
 import { DetailLayout } from '@/layouts/detail/DetailLayout';

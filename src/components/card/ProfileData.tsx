@@ -15,9 +15,7 @@ interface PropsType {
   descript: string;
 }
 
-export const ProfileData = ({
-  url, name, role, descript,
-}: PropsType) => (
+export const ProfileData = ({ url, name, role, descript }: PropsType) => (
   <RowCenterGap gap="0.875rem" margin="2.5rem 0 0">
     <_ProfileImg src={url} />
     <ColumnCenterGap gap="0.4375rem">

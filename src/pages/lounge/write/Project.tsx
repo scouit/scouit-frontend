@@ -19,19 +19,18 @@ interface ProjectType {
 }
 
 export const WriteProject = () => {
-  const {
-    text, handleOnChange, addTextList, removeTextList,
-  } = useForm<ProjectType>({
-    title: '',
-    content: '',
-    image: '',
-    date: { start: '', end: '' },
-    person: '',
-    condition: [],
-    explanation: '',
-    communication: '',
-    link: [],
-  });
+  const { text, handleOnChange, addTextList, removeTextList } =
+    useForm<ProjectType>({
+      title: '',
+      content: '',
+      image: '',
+      date: { start: '', end: '' },
+      person: '',
+      condition: [],
+      explanation: '',
+      communication: '',
+      link: [],
+    });
   return (
     <>
       <Input

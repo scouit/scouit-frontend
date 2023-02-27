@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { JobPostingCard } from '@/components/card/JobPosting';
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';

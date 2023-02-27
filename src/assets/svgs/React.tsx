@@ -1,10 +1,5 @@
 export const React = () => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 18 18"
-    fill="none"
-  >
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
     <rect width="18" height="18" rx="4" fill="#242938" />
     <g clipPath="url(#clip0_715_5585)">
       <path

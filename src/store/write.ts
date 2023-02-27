@@ -19,9 +19,14 @@ export const atomProfile = atom<ProfileType>({
         works: [],
       },
     ],
-    experience: [{
-      name: '', time: { start: '', end: '' }, role: '', works: [],
-    }],
+    experience: [
+      {
+        name: '',
+        time: { start: '', end: '' },
+        role: '',
+        works: [],
+      },
+    ],
     skill: { mainSkill: [], subSkill: [] },
     active: [{ name: '', content: '', time: { start: '', end: '' } }],
     educate: [{ name: '', time: { start: '', end: '' } }],

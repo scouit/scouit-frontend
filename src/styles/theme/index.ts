@@ -4,5 +4,8 @@ import { shadow } from './shadow';
 import { borderRadius } from './borderRadius';
 
 export const theme = {
-  color, font, shadow, borderRadius,
+  color,
+  font,
+  shadow,
+  borderRadius,
 };
