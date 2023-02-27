@@ -1,6 +1,6 @@
 import { Profile } from '@/assets';
 
-export const dummy = [
+export const cardDummy = [
   {
     name: '조상현',
     profile: Profile,

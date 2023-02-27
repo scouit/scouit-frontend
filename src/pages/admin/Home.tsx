@@ -3,11 +3,11 @@ import { ProfileData } from '@/components/card/ProfileData';
 import { Tag } from '@/components/card/Tag';
 import { ColumnCenterGap, RowGap } from '@/layouts/DirectionGap';
 import { HeaderWrapper } from '@/layouts/wrapper/Header';
-import { dummy } from '@/_dummy/Profile';
+import { cardDummy } from '@/_dummy/profile';
 
 export const AdminHomePage = () => (
   <HeaderWrapper currentPage="홈" type="어드민">
-    {dummy.map(({ profile, name, role, description, tag }) => (
+    {cardDummy.map(({ profile, name, role, description, tag }) => (
       <ProfileCard isProfile>
         <ColumnCenterGap gap="2.25rem" padding="0 1.5rem">
           <ProfileData

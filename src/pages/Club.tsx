@@ -3,11 +3,11 @@ import { ColumnCenterGap, RowGap } from '@/layouts/DirectionGap';
 import { ProfileData } from '@/components/card/ProfileData';
 import { Tag } from '@/components/card/Tag';
 import { HeaderWrapper } from '@/layouts/wrapper/Header';
-import { dummy } from '@/_dummy/Profile';
+import { cardDummy } from '@/_dummy/profile';
 
 export const ClubPage = () => (
   <HeaderWrapper currentPage="연합 동아리">
-    {dummy.map(({ profile, name, role, description, tag }) => (
+    {cardDummy.map(({ profile, name, role, description, tag }) => (
       <ProfileCard isProfile>
         <ColumnCenterGap gap="2.25rem" padding="0 1.5rem">
           <ProfileData
