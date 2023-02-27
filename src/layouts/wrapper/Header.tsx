@@ -31,7 +31,7 @@ export const HeaderWrapper = ({
         currentPage={currentPage}
         gap="78px"
       />
-      <_Columns>
+      <_Columns padding="123px 0">
         <_ColumnContent justify="center" direction="row" wrap>
           {children}
         </_ColumnContent>

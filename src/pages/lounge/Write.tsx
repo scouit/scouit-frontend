@@ -13,7 +13,7 @@ export const LoungeWrite = () => {
   return (
     <>
       <Header />
-      <_Columns padding="80px 0">
+      <_Columns padding="140px 0">
         <_ColumnContent width="35.25rem" gap="35px">
           <RowGap width="fit-content" gap="33px" margin="0 0 50px">
             <SelectBox
