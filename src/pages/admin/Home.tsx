@@ -1,21 +1,20 @@
 import { ProfileCard } from '@/components/card/Profile';
-import { ProfileData } from '@/components/card/ProfileData';
+import { CardTextData } from '@/components/card/CardTextData';
+import { Img } from '@/components/common/img';
 import { Tag } from '@/components/common/tag';
-import { ColumnCenterGap, RowGap } from '@/layouts/DirectionGap';
+import { ColumnCenterGap, RowCenterGap, RowGap } from '@/layouts/DirectionGap';
 import { HeaderWrapper } from '@/layouts/wrapper/Header';
 import { cardDummy } from '@/_dummy/profile';
 
 export const AdminHomePage = () => (
   <HeaderWrapper currentPage="홈" type="어드민">
-    {cardDummy.map(({ profile, name, role, description, tag }) => (
+    {cardDummy.map(({ url, name, role, description, tag }) => (
       <ProfileCard isProfile>
         <ColumnCenterGap gap="2.25rem" padding="0 1.5rem">
-          <ProfileData
-            url={profile}
-            name={name}
-            role={role}
-            descript={description}
-          />
+          <RowCenterGap gap="0.875rem" margin="2.5rem 0 0">
+            <Img src={url} width="6.25rem" height="6.25rem" radius="100px" />
+            <CardTextData name={name} role={role} description={description} />
+          </RowCenterGap>
           <RowGap gap="0.5rem">
             {tag.map((content) => (
               <Tag padding="0.5625rem 1.125rem">{content}</Tag>

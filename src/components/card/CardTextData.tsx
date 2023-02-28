@@ -1,24 +1,30 @@
 import styled from 'styled-components';
 import { NextJs, React, Typescript } from '@/assets';
-import {
-  ColumnCenterGap,
-  RowCenterGap,
-  RowEndGap,
-} from '@/layouts/DirectionGap';
+import { ColumnGap, RowEndGap } from '@/layouts/DirectionGap';
 import { media } from '@/styles/media';
 import { Text } from '../common/text';
 
 interface PropsType {
-  url: string;
-  name: string;
-  role: string;
-  descript: string;
+  name?: string;
+  role?: string;
+  description?: string;
+  title?: string;
+  kinda?: string;
+  content?: string;
+  peoples?: string;
 }
 
-export const ProfileData = ({ url, name, role, descript }: PropsType) => (
-  <RowCenterGap gap="0.875rem" margin="2.5rem 0 0">
-    <_ProfileImg src={url} />
-    <ColumnCenterGap gap="0.4375rem">
+export const CardTextData = ({
+  name,
+  role,
+  description,
+  title,
+  kinda,
+  content,
+  peoples,
+}: PropsType) => (
+  <ColumnGap gap="0.4375rem">
+    {role && (
       <_RoleWrapper>
         <_NameWrapper>
           <Text size="title2">{name}</Text>
@@ -32,16 +38,22 @@ export const ProfileData = ({ url, name, role, descript }: PropsType) => (
           <React />
         </RowEndGap>
       </_RoleWrapper>
-      <Text size="body4">{descript}</Text>
-    </ColumnCenterGap>
-  </RowCenterGap>
+    )}
+    <Text size="body4">{description}</Text>
+    <Text size="title3" color="gray10">
+      {title}
+    </Text>
+    <Text size="body2" color="gray10">
+      {kinda}
+    </Text>
+    <Text size="body2" color="gray10">
+      {content}
+    </Text>
+    <Text size="body2" color="gray10">
+      {peoples}
+    </Text>
+  </ColumnGap>
 );
-
-const _ProfileImg = styled.img`
-  width: 6.25rem;
-  height: 6.25rem;
-  object-fit: cover;
-`;
 
 const _RoleWrapper = styled.div`
   width: 100%;

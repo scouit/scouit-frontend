@@ -13,7 +13,7 @@ export const ProfileCard = ({ isProfile, children }: PropsType) => {
   const navigate = useNavigate();
   return (
     <_Wrapper>
-      {children}
+      <div>{children}</div>
       <Button
         onClick={() => navigate('/developers/resume/a')}
         kind="contained"
