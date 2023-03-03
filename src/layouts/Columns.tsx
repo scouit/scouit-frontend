@@ -16,7 +16,8 @@ export const _ColumnContent = styled.div<{
   max-width: ${({ width }) => width || '72rem'};
   margin: 0 auto;
   display: ${({ justify, wrap, gap }) => (justify || wrap || gap) && 'flex'};
-  flex-flow: ${({ direction }) => direction || 'column'} ${({ wrap }) => wrap && 'wrap'};
+  flex-direction: ${({ direction }) => direction || 'column'};
+  flex-wrap: ${({ wrap }) => wrap && 'wrap'};
   gap: ${({ gap }) => gap || '1.5rem'};
   align-items: ${({ align }) => align};
   justify-content: ${({ justify }) => justify};
