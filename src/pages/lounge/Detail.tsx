@@ -7,6 +7,21 @@ import { _Columns, _ColumnContent } from '@/layouts/Columns';
 import { detailDummy } from '@/_dummy/lounge';
 import { Header } from '@/components/header';
 
+interface DetailDataType {
+  title: string;
+  name: keyof typeof detailDummy;
+}
+
+const detailData: DetailDataType[] = [
+  { title: '장소', name: 'location' },
+  { title: '일정', name: 'schedule' },
+  { title: '인원', name: 'person' },
+  { title: '조건', name: 'condition' },
+  { title: '설명', name: 'explanation' },
+  { title: '연락', name: 'communication' },
+  { title: '링크', name: 'link' },
+];
+
 export const LoungeDetail = () => (
   <>
     <Header />
@@ -19,39 +34,24 @@ export const LoungeDetail = () => (
         <Text size="body1" margin="0 0 70px">
           {detailDummy.content}
         </Text>
-        <LabelText label="장소">
-          <Text size="body1">{detailDummy.location}</Text>
-        </LabelText>
-        <LabelText label="일정">
-          <Text size="body1">{detailDummy.schedule}</Text>
-        </LabelText>
-        <LabelText label="인원">
-          <Text size="body1">{detailDummy.person}</Text>
-        </LabelText>
-        <LabelText label="조건">
-          <ColumnGap gap="20px">
-            {detailDummy.condition.map((e) => (
-              <Text as="li" size="body1">
-                {e}
-              </Text>
-            ))}
-          </ColumnGap>
-        </LabelText>
-        <LabelText label="설명">
-          <Text size="body1">{detailDummy.explanation}</Text>
-        </LabelText>
-        <LabelText label="연락">
-          <Text size="body1">{detailDummy.communication}</Text>
-        </LabelText>
-        <LabelText label="링크">
-          <ColumnGap gap="20px">
-            {detailDummy.link.map((e) => (
-              <Text as="li" size="body1">
-                {e}
-              </Text>
-            ))}
-          </ColumnGap>
-        </LabelText>
+        {detailData.map(({ title, name }) => {
+          const data = detailDummy[name];
+          return (
+            <LabelText label={title}>
+              {Array.isArray(data) ? (
+                <ColumnGap gap="20px">
+                  {data.map((e) => (
+                    <Text as="li" size="body1">
+                      {e}
+                    </Text>
+                  ))}
+                </ColumnGap>
+              ) : (
+                <Text size="body1">{data}</Text>
+              )}
+            </LabelText>
+          );
+        })}
       </_ColumnContent>
     </_Columns>
   </>
