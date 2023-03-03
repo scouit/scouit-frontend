@@ -12,11 +12,14 @@ const sizes: MediaQueryProps = {
   _1512: 1512,
 };
 
-export const media = Object.keys(sizes).reduce((acc, label) => {
-  acc[label] = (style: string) => `
+export const media = Object.keys(sizes).reduce(
+  (acc, label: keyof MediaQueryProps) => {
+    acc[label] = (style: string) => `
       @media (max-width: ${sizes[label] / 16}rem) {
         ${style}
       }
     `;
-  return acc;
-}, {} as { [index in keyof MediaQueryProps]: (style: string) => string });
+    return acc;
+  },
+  {} as { [index in keyof MediaQueryProps]: (style: string) => string },
+);

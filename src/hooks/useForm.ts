@@ -24,7 +24,7 @@ export const useForm = <T>(initalState: T) => {
   const removeTextList = (name: keyof typeof text, removeIndex: number) => {
     setText((prev) => ({
       ...prev,
-      [name]: (prev[name] as unknown[]).filter((e, idx) => removeIndex !== idx),
+      [name]: (prev[name] as unknown[]).filter((_, idx) => removeIndex !== idx),
     }));
   };
 

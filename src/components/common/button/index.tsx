@@ -80,7 +80,7 @@ const _Wrapper = styled.button<PropsType>`
   border-radius: ${({ kind }) => (kind === 'round' ? 24 : 4)}px;
   border-radius: ${({ radius }) => radius};
   max-width: 1030px;
-  min-width: ${({ children }) => (children[1] ? 80 : 50)}px;
+  min-width: ${({ children }) => (children ? 80 : 50)}px;
   width: ${({ size }) => {
     switch (size) {
       case 'medium':
