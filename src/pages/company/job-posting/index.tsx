@@ -3,20 +3,20 @@ import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { Text } from '@/components/common/text';
 import { useGetCompanyList } from '@/hooks/Query';
-import { _Columns, _ColumnContent } from '@/layouts/Columns';
+import { Columns, ColumnContent } from '@/layouts/Columns';
 
 export const JobPostingPage = () => {
   const { data } = useGetCompanyList();
   return (
     <>
       <Header />
-      <_Columns padding="0 94px">
+      <Columns padding="0 94px">
         <Text size="title1">채용 공고</Text>
-        <_ColumnContent direction="row" justify="space-between" wrap>
+        <ColumnContent direction="row" justify="space-between" wrap>
           {data &&
             data.map((componyData) => <JobPostingCard data={componyData} />)}
-        </_ColumnContent>
-      </_Columns>
+        </ColumnContent>
+      </Columns>
       <Footer />
     </>
   );

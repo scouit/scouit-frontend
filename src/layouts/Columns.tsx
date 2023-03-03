@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const _Columns = styled.div<{ padding?: string }>`
+export const Columns = styled.div<{ padding?: string }>`
   width: 100%;
   padding: ${({ padding }) => padding || '0 1rem'};
 `;
 
-export const _ColumnContent = styled.div<{
+export const ColumnContent = styled.div<{
   width?: string;
   align?: 'start' | 'center' | 'end';
   justify?: 'start' | 'center' | 'end' | 'space-between';

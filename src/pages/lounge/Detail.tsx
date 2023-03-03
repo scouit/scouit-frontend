@@ -3,7 +3,7 @@ import { Img } from '@/components/common/img';
 import { Text } from '@/components/common/text';
 import { LabelText } from '@/components/common/text/LabelText';
 import { ColumnGap } from '@/layouts/DirectionGap';
-import { _Columns, _ColumnContent } from '@/layouts/Columns';
+import { Columns, ColumnContent } from '@/layouts/Columns';
 import { detailDummy } from '@/_dummy/lounge';
 import { Header } from '@/components/header';
 
@@ -25,8 +25,8 @@ const detailData: DetailDataType[] = [
 export const LoungeDetail = () => (
   <>
     <Header />
-    <_Columns padding="127px 16px">
-      <_ColumnContent width="59.75rem" gap="35px">
+    <Columns padding="127px 16px">
+      <ColumnContent width="59.75rem" gap="35px">
         <Text size="title1">{detailDummy.title}</Text>
         <Text size="heading2">{detailDummy.kind}</Text>
         <Text size="body1">{detailDummy.date}</Text>
@@ -52,7 +52,7 @@ export const LoungeDetail = () => (
             </LabelText>
           );
         })}
-      </_ColumnContent>
-    </_Columns>
+      </ColumnContent>
+    </Columns>
   </>
 );

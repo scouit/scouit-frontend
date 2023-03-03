@@ -10,7 +10,7 @@ import { localStorgeGetItem } from '@/utils/storge';
 import { media } from '@/styles/media';
 import { BottomListNav, BottomHeaderType } from './bottom/ListNav';
 import { useHeaderScroll } from '@/hooks/useHeaderScroll';
-import { _ColumnContent, _Columns } from '@/layouts/Columns';
+import { ColumnContent, Columns } from '@/layouts/Columns';
 
 export const Header = ({
   textList,
@@ -53,7 +53,7 @@ export const Header = ({
   );
 };
 
-const _Wrapper = styled(_Columns)`
+const _Wrapper = styled(Columns)`
   position: fixed;
   top: 0;
   left: 0;
@@ -64,7 +64,7 @@ const _Wrapper = styled(_Columns)`
   ${media._720('padding: 0 1rem;')};
 `;
 
-const _Column12 = styled(_ColumnContent)<{ display: boolean }>`
+const _Column12 = styled(ColumnContent)<{ display: boolean }>`
   transition: height 0.25s;
   height: 70px;
   ${({ display }) =>

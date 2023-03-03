@@ -6,7 +6,7 @@ import { ProfileType } from '@/apis/profile/type';
 import { getUserProfile } from '@/apis/profile/getProfile';
 import { atomProfile } from '@/store/write';
 import { media } from '@/styles/media';
-import { _Columns, _ColumnContent } from '../Columns';
+import { Columns, ColumnContent } from '../Columns';
 
 interface PropsType {
   children: ReactNode;
@@ -26,13 +26,13 @@ export const EditProfileWrapper = ({ children }: PropsType) => {
   );
 };
 
-const _Wrapper = styled(_Columns)`
+const _Wrapper = styled(Columns)`
   height: 100%;
   background-color: ${({ theme }) => theme.color.gray2};
   position: relative;
 `;
 
-const _Content = styled(_ColumnContent)`
+const _Content = styled(ColumnContent)`
   ${media._1024(`
     flex-direction: column-reverse;
   `)}

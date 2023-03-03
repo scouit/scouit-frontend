@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { DetailProfile } from '@/components/card/detail/Profile';
 import { Header } from '@/components/header';
 import { media } from '@/styles/media';
-import { _Columns, _ColumnContent } from '../Columns';
+import { Columns, ColumnContent } from '../Columns';
 import { detailDummy } from '@/_dummy/profile';
 
 interface PropsType {
@@ -12,7 +12,7 @@ interface PropsType {
 export const DetailLayout = ({ children }: PropsType) => (
   <>
     <Header />
-    <_Columns padding="200px 1rem 50px">
+    <Columns padding="200px 1rem 50px">
       <_Content direction="row" gap="1.5rem">
         <DetailProfile
           image={detailDummy.image}
@@ -22,11 +22,11 @@ export const DetailLayout = ({ children }: PropsType) => (
         />
         <_ContentInner>{children}</_ContentInner>
       </_Content>
-    </_Columns>
+    </Columns>
   </>
 );
 
-const _Content = styled(_ColumnContent)`
+const _Content = styled(ColumnContent)`
   ${media._1024('flex-direction: column')}
 `;
 

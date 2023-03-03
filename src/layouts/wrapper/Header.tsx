@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { Header } from '@/components/header';
-import { _Columns, _ColumnContent } from '../Columns';
+import { Columns, ColumnContent } from '../Columns';
 
 const homeLinkList = [
   { title: '홈', url: '/' },
@@ -31,11 +31,11 @@ export const HeaderWrapper = ({
         currentPage={currentPage}
         gap="78px"
       />
-      <_Columns padding="123px 0">
-        <_ColumnContent justify="center" direction="row" wrap>
+      <Columns padding="123px 0">
+        <ColumnContent justify="center" direction="row" wrap>
           {children}
-        </_ColumnContent>
-      </_Columns>
+        </ColumnContent>
+      </Columns>
     </>
   );
 };
