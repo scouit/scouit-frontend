@@ -18,8 +18,8 @@ const project = 'project';
 export const ProjectPage = () => {
   const { profile, listChange } = useProfileArray(project);
   const { addListArray, removeArrayList } = useProfileList(project);
-  const { projectUpdate } = useProfileUpdate();
-  useEffect(() => () => projectUpdate.mutate(), [projectUpdate]);
+  const projectUpdate = useProfileUpdate('project');
+  useEffect(() => () => projectUpdate(), [projectUpdate]);
   return (
     <ProfileTapbarLayout title="프로젝트" onClick={() => {}}>
       {profile[project].map((e, idx) => (

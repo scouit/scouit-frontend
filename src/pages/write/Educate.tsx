@@ -1,8 +1,9 @@
+import { useEffect } from 'react';
 import { Input } from '@/components/common/input';
 import { DateInput } from '@/components/common/input/Date';
 import { Line } from '@/components/common/line';
 import { ProfileTapbarLayout } from '@/layouts/ProfileTapbar';
-import { useProfileArray } from '@/hooks/useProfile';
+import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
 
 export const EducatePage = () => {
   const {
@@ -10,6 +11,8 @@ export const EducatePage = () => {
     listChange,
     addContent,
   } = useProfileArray('educate');
+  const edcuateUpdate = useProfileUpdate('educate');
+  useEffect(() => () => edcuateUpdate(), [edcuateUpdate]);
   return (
     <ProfileTapbarLayout title="학력" onClick={addContent}>
       {educate.map((e, idx) => (

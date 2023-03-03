@@ -10,8 +10,8 @@ export const IntroducePage = () => {
     handleOnChange,
   } = useProfileContent('intro');
 
-  const { basicUpdate } = useProfileUpdate();
-  useEffect(() => () => basicUpdate.mutate(), [basicUpdate]);
+  const introUpdate = useProfileUpdate('intro');
+  useEffect(() => () => introUpdate(), [introUpdate]);
 
   return (
     <ProfileTapbarLayout title="소개">

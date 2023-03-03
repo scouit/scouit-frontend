@@ -1,14 +1,17 @@
+import { useEffect } from 'react';
 import { Input } from '@/components/common/input';
 import { DateInput } from '@/components/common/input/Date';
 import { ProfileTapbarLayout } from '@/layouts/ProfileTapbar';
 import { TextArea } from '@/components/textarea';
-import { useProfileArray } from '@/hooks/useProfile';
+import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
 
 export const ActivePage = () => {
   const {
     profile: { active },
     listChange,
   } = useProfileArray('active');
+  const activeUpdate = useProfileUpdate('active');
+  useEffect(() => () => activeUpdate(), [activeUpdate]);
   return (
     <ProfileTapbarLayout title="활동" onClick={() => {}}>
       {active.map((e, idx) => (
