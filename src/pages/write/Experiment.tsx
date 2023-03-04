@@ -15,11 +15,11 @@ const experience = 'experience';
 export const ExperiencePage = () => {
   const { profile, listChange } = useProfileArray(experience);
   const { addListArray, removeArrayList } = useProfileList(experience);
-  const workUpdate = useProfileUpdate('experience');
+  const workUpdate = useProfileUpdate(experience);
   useEffect(() => () => workUpdate(), [workUpdate]);
   return (
     <ProfileTapbarLayout title="업무 경험" onClick={() => {}}>
-      {profile[experience].map((e, idx) => (
+      {profile.experience.map((e, idx) => (
         <>
           <Line height="3px" color="gray4" />
           <Input

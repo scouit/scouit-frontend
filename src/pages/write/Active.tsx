@@ -5,16 +5,15 @@ import { ProfileTapbarLayout } from '@/layouts/ProfileTapbar';
 import { TextArea } from '@/components/textarea';
 import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
 
+const active = 'active';
+
 export const ActivePage = () => {
-  const {
-    profile: { active },
-    listChange,
-  } = useProfileArray('active');
-  const activeUpdate = useProfileUpdate('active');
+  const { profile, listChange } = useProfileArray(active);
+  const activeUpdate = useProfileUpdate(active);
   useEffect(() => () => activeUpdate(), [activeUpdate]);
   return (
     <ProfileTapbarLayout title="활동" onClick={() => {}}>
-      {active.map((e, idx) => (
+      {profile.active.map((e, idx) => (
         <>
           <Input
             name={e.content}
