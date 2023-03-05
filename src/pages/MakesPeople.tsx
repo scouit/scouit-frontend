@@ -31,18 +31,14 @@ const developersList = [
   },
 ];
 
-export const MakesPeoplePage = () => {
-  return (
-    <div>
-      <Header />
-      {developersList.map((developer) => {
-        return (
-          <div>
-            <div>{developer.field}</div>
-            <div>{developer.name}</div>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
+export const MakesPeoplePage = () => (
+  <div>
+    <Header />
+    {developersList.map((developer) => (
+      <div>
+        <div>{developer.field}</div>
+        <div>{developer.name}</div>
+      </div>
+    ))}
+  </div>
+);

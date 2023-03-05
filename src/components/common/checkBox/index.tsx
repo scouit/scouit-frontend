@@ -1,8 +1,8 @@
+import styled from 'styled-components';
 import { CheckBoxUnSelected } from '@/assets';
 import { CheckBoxClicked } from '@/assets/svgs/CheckboxClicked';
-import { useState } from 'react';
-import styled from 'styled-components';
 import { Text } from '../text';
+import { useInversion } from '@/hooks/useInversion';
 
 interface PropsType {
   disable?: boolean;
@@ -19,14 +19,9 @@ export const CheckBox = ({
   gap,
   children,
 }: PropsType) => {
-  const [check, setCheck] = useState<boolean>(false);
+  const { state: check, invertState } = useInversion();
   return (
-    <_Wrapper
-      onClick={() => setCheck(!check)}
-      margin={margin}
-      padding={padding}
-      gap={gap}
-    >
+    <_Wrapper onClick={invertState} margin={margin} padding={padding} gap={gap}>
       {check ? (
         <CheckBoxClicked disable={disable} />
       ) : (

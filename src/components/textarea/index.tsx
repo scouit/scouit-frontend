@@ -16,24 +16,22 @@ export const TextArea = ({
   onChange,
   label,
   placeholder,
-}: PropsType) => {
-  return (
-    <_Wrapper>
-      <Text margin="0 0 0.5rem 0.3125rem" color="gray6" size="body2">
-        {label}
-      </Text>
-      <_TextArea
-        name={name}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-      />
-      <Text align="end" margin="8px 0 0 0" size="body4">
-        (0 / 2000)
-      </Text>
-    </_Wrapper>
-  );
-};
+}: PropsType) => (
+  <_Wrapper>
+    <Text margin="0 0 0.5rem 0.3125rem" color="gray6" size="body2">
+      {label}
+    </Text>
+    <_TextArea
+      name={name}
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+    />
+    <Text align="end" margin="8px 0 0 0" size="body4">
+      (0 / 2000)
+    </Text>
+  </_Wrapper>
+);
 
 const _Wrapper = styled.div`
   width: 100%;

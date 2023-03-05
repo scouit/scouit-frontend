@@ -1,22 +1,19 @@
 import styled from 'styled-components';
 import { Text } from '.';
-import { Line } from '../line';
 
 interface PropsType {
   label: string;
   children: React.ReactNode;
 }
-export const LabelText = ({ label, children }: PropsType) => {
-  return (
-    <_Wrapper>
-      <_Text size="title2">{label}</_Text>
-      <_Content>{children}</_Content>
-    </_Wrapper>
-  );
-};
+export const LabelText = ({ label, children }: PropsType) => (
+  <_Wrapper>
+    <_Text size="title2">{label}</_Text>
+    <_Content>{children}</_Content>
+  </_Wrapper>
+);
 
 const _Wrapper = styled.div`
-  display: Flex;
+  display: flex;
 `;
 
 const _Text = styled(Text)`

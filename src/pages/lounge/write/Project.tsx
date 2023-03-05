@@ -46,7 +46,7 @@ export const WriteProject = () => {
         value={text.content}
         onChange={handleOnChange}
       />
-      <ImgLeader name="imgs" value={['']} listArrayChange={() => {}} />
+      <ImgLeader name="imgs" listArrayChange={() => {}} />
       <DateInput value={{ start: '', end: '' }} />
       <Input label="인원" placeholder="모집할 인원을 정해주세요" />
       <TextListInput

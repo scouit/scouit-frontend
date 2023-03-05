@@ -1,12 +1,10 @@
-import { EyeClose, EyeOpen, React, Search } from '@/assets';
 import ReactOutsizeClick from 'react-outside-click-handler';
-import { ColumnGap, RowGap } from '@/layouts/DirectionGap';
-import { keyOfColor } from '@/styles/theme/color';
 import { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
-import { Button } from '../button';
+import { React, Search } from '@/assets';
+import { ColumnGap } from '@/layouts/DirectionGap';
 import { Text } from '../text';
-import { SkillCard } from '@/components/card/Skill';
+import { Tag } from '../tag';
 
 interface PropsType {
   name?: string;
@@ -32,10 +30,13 @@ export const SkillInput = ({
         {label}
       </Text>
       <_Content>
-        {Array(3)
+        {Array(10)
           .fill(0)
           .map(() => (
-            <SkillCard name="React" color="gray10" />
+            <Tag margin="4.25px 0" padding="7px" color="gray10">
+              <React />
+              <Text color="gray1">React</Text>
+            </Tag>
           ))}
         <_InputWrapper>
           <Search />
@@ -85,6 +86,7 @@ const _Content = styled.div`
 
 const _Input = styled.input`
   ${({ theme }) => theme.font.body1};
+
   background-color: transparent;
   height: 46px;
   border: 0;
@@ -114,8 +116,10 @@ const _Button = styled.button`
   padding: 6px 16px;
   text-align: start;
   ${({ theme }) => theme.font.body1};
+
   border-radius: 8px;
   background-color: ${({ theme }) => theme.color.gray1};
+
   :hover {
     background-color: ${({ theme }) => theme.color.gray4};
   }

@@ -1,24 +1,24 @@
-import { ReactNode } from 'react';
 import styled from 'styled-components';
 
-interface PropsType {
-  gutter?: 5 | 12;
-  className?: string;
-  children: ReactNode;
-}
+export const Columns = styled.div<{ padding?: string }>`
+  width: 100%;
+  padding: ${({ padding }) => padding || '0 1rem'};
+`;
 
-const gutterObject = {
-  5: 380,
-  12: 1112,
-} as const;
-
-export const Columns = ({ gutter = 12, children, className }: PropsType) => (
-  <_Wrapper width={gutterObject[gutter]} className={className}>
-    {children}
-  </_Wrapper>
-);
-
-const _Wrapper = styled.div<{ width: 380 | 1112 }>`
-  width: ${({ width }) => width}px;
+export const ColumnContent = styled.div<{
+  width?: string;
+  align?: 'start' | 'center' | 'end';
+  justify?: 'start' | 'center' | 'end' | 'space-between';
+  direction?: 'row' | 'column';
+  wrap?: boolean;
+  gap?: string;
+}>`
+  max-width: ${({ width }) => width || '72rem'};
   margin: 0 auto;
+  display: ${({ justify, wrap, gap }) => (justify || wrap || gap) && 'flex'};
+  flex-direction: ${({ direction }) => direction || 'column'};
+  flex-wrap: ${({ wrap }) => wrap && 'wrap'};
+  gap: ${({ gap }) => gap || '1.5rem'};
+  align-items: ${({ align }) => align};
+  justify-content: ${({ justify }) => justify};
 `;

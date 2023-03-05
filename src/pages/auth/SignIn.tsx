@@ -1,10 +1,10 @@
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/common/button';
 import { Input } from '@/components/common/input';
 import { Text } from '@/components/common/text';
-import { AuthWrapper } from '@/layouts/Wrapper/Auth';
-import { useSignIn } from '@/hooks/useAuth';
+import { AuthWrapper } from '@/layouts/wrapper/Auth';
+import { useSignInQuery } from '@/hooks/Query';
 import { useForm } from '@/hooks/useForm';
-import { Link, useNavigate } from 'react-router-dom';
 import { ColumnCenterGap } from '@/layouts/DirectionGap';
 import { CheckBox } from '@/components/common/checkBox';
 import { Arrow } from '@/assets';
@@ -16,14 +16,14 @@ export const SignInPage = () => {
     password: '',
   });
 
-  const signInMutate = useSignIn(text);
+  const signInMutate = useSignInQuery(text);
 
   return (
     <AuthWrapper onSubmit={() => signInMutate.mutate()}>
       <Button
         clickType="button"
         kind="text"
-        Icon={<Arrow direction="left" color="primaryDarken2" />}
+        Icon={<Arrow color="primaryDarken2" />}
         margin="0 0 7.3125rem 0"
         onClick={() => navigate(-1)}
       >

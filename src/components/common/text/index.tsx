@@ -1,11 +1,11 @@
-import { keyOfColor } from '@/styles/theme/color';
-import { keyOfFont } from '@/styles/theme/font';
 import styled from 'styled-components';
 import { ReactNode } from 'react';
+import { keyOfColor } from '@/styles/theme/color';
+import { keyOfFont } from '@/styles/theme/font';
 
 type alignType = 'start' | 'center' | 'end';
 
-interface Props {
+interface PropsType {
   className?: string;
   as?: 'div' | 'li';
   lineHeight?: string;
@@ -29,23 +29,21 @@ export const Text = ({
   margin,
   padding,
   children,
-}: Props) => {
-  return (
-    <_Wrapper
-      as={as}
-      className={className}
-      lineHeight={lineHeight}
-      height={height}
-      align={align}
-      color={color}
-      size={size}
-      marign={margin}
-      padding={padding}
-    >
-      {children}
-    </_Wrapper>
-  );
-};
+}: PropsType) => (
+  <_Wrapper
+    as={as}
+    className={className}
+    lineHeight={lineHeight}
+    height={height}
+    align={align}
+    color={color}
+    size={size}
+    marign={margin}
+    padding={padding}
+  >
+    {children}
+  </_Wrapper>
+);
 
 const _Wrapper = styled.div<{
   lineHeight: string;
@@ -61,6 +59,7 @@ const _Wrapper = styled.div<{
   padding: ${({ padding }) => padding && padding};
   text-align: ${({ align }) => align};
   ${({ theme, size }) => theme.font[size]};
+
   color: ${({ theme, color }) => theme.color[color]};
   margin: ${({ marign }) => marign && marign};
 `;

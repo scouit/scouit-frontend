@@ -1,47 +1,35 @@
-import { Header } from '@/components/header';
-import { ProfileWriteBox } from '@/components/profileWriteForm';
+import { useEffect } from 'react';
+import { ProfileTapbarLayout } from '@/layouts/ProfileTapbar';
 import { TextArea } from '@/components/textarea';
-import { Tapbar } from '@/components/write-profile';
-import { lio } from '@/components/write-profile/constants';
 import { useProfileContent, useProfileUpdate } from '@/hooks/useProfile';
 import { ColumnGap } from '@/layouts/DirectionGap';
-import { EditProfileWrapper } from '@/layouts/Wrapper/EditProfile';
-import { useEffect } from 'react';
-import { useQuery } from 'react-query';
+
+const intro = 'intro';
 
 export const IntroducePage = () => {
-  const {
-    profile: { intro },
-    handleOnChange,
-  } = useProfileContent('intro');
+  const { profile, handleOnChange } = useProfileContent(intro);
 
-  const { basicUpdate } = useProfileUpdate();
-  useEffect(() => {
-    return () => basicUpdate.mutate();
-  }, []);
+  const introUpdate = useProfileUpdate(intro);
+  useEffect(() => () => introUpdate(), [introUpdate]);
 
   return (
-    <>
-      <Header textList={lio} currentPage="소개" gap="17px" isMedia={true} />
-      <ProfileWriteBox title="소개">
-        <ColumnGap gap="20px" margin="47px 0 0">
-          <TextArea
-            name="oneLineIntroduction"
-            value={intro.oneLineIntroduction}
-            onChange={handleOnChange}
-            label="한 줄 소개"
-            placeholder="한 줄소개를 입력해주세요"
-          />
-          <TextArea
-            name="aboutMe"
-            value={intro.aboutMe}
-            onChange={handleOnChange}
-            label="자기소개"
-            placeholder="자기소개를 입력해주세요"
-          />
-        </ColumnGap>
-      </ProfileWriteBox>
-      <Tapbar currentPage="소개" />
-    </>
+    <ProfileTapbarLayout title="소개">
+      <ColumnGap gap="20px" margin="47px 0 0">
+        <TextArea
+          name="oneLineIntroduction"
+          value={profile.intro.oneLineIntroduction}
+          onChange={handleOnChange}
+          label="한 줄 소개"
+          placeholder="한 줄소개를 입력해주세요"
+        />
+        <TextArea
+          name="aboutMe"
+          value={profile.intro.aboutMe}
+          onChange={handleOnChange}
+          label="자기소개"
+          placeholder="자기소개를 입력해주세요"
+        />
+      </ColumnGap>
+    </ProfileTapbarLayout>
   );
 };

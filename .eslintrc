@@ -1,0 +1,44 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "import/prefer-default-export": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/function-component-definition": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/naming-convention": "off",
+    "no-underscore-dangle": "off",
+    "react/jsx-pascal-case": 0,
+    "react/require-default-props": 0,
+    "implicit-arrow-linebreak": 0,
+    "operator-linebreak": 0,
+    "no-confusing-arrow": 0,
+    "function-paren-newline": 0,
+    "@typescript-eslint/indent": "off",
+    "object-curly-newline": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-curly-newline": 0,
+
+    "react/prop-types": 0,
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "import/extensions": ["error", "never", {}],
+
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  }
+}

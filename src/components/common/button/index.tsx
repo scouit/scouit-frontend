@@ -24,7 +24,7 @@ type kindType = 'contained' | 'outline' | 'text' | 'underline' | 'round';
 type colorType = 'primary' | 'gray' | 'error';
 type sizeType = 'default' | 'medium' | 'large';
 
-interface propsType {
+interface PropsType {
   className?: string;
   kind?: kindType;
   size?: sizeType;
@@ -50,26 +50,24 @@ export const Button = ({
   clickType = 'submit',
   margin,
   radius,
-}: propsType) => {
-  return (
-    <_Wrapper
-      className={className}
-      size={size}
-      kind={kind}
-      color={color}
-      disabled={disabled}
-      onClick={!disabled && onClick}
-      type={clickType}
-      margin={margin}
-      radius={radius}
-    >
-      {Icon && Icon}
-      {children}
-    </_Wrapper>
-  );
-};
+}: PropsType) => (
+  <_Wrapper
+    className={className}
+    size={size}
+    kind={kind}
+    color={color}
+    disabled={disabled}
+    onClick={!disabled && onClick}
+    type={clickType}
+    margin={margin}
+    radius={radius}
+  >
+    {Icon && Icon}
+    {children}
+  </_Wrapper>
+);
 
-const _Wrapper = styled.button<propsType>`
+const _Wrapper = styled.button<PropsType>`
   cursor: pointer;
   height: 45px;
   display: flex;
@@ -82,14 +80,14 @@ const _Wrapper = styled.button<propsType>`
   border-radius: ${({ kind }) => (kind === 'round' ? 24 : 4)}px;
   border-radius: ${({ radius }) => radius};
   max-width: 1030px;
-  min-width: ${({ children }) => (children[1] ? 80 : 50)}px;
+  min-width: ${({ children }) => (children ? 80 : 50)}px;
   width: ${({ size }) => {
     switch (size) {
       case 'medium':
         return '300px';
       case 'large':
         return '100%';
-      case 'default':
+      default:
         return 'fit-content';
     }
   }};
@@ -107,9 +105,11 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             background-color: ${primary};
             color: ${gray1};
             opacity: ${disabled ? 0.5 : 1};
+
             :hover {
               background-color: ${!disabled && primaryDarken1};
             }
+
             :active {
               background-color: ${!disabled && primaryDarken2};
             }
@@ -120,9 +120,11 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             cursor: ${disabled && 'no-drop'};
             color: ${gray8};
             opacity: ${disabled ? 0.5 : 1};
+
             :hover {
               background: ${!disabled && gray4};
             }
+
             :active {
               background: ${!disabled && gray5};
             }
@@ -133,13 +135,17 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             cursor: ${disabled && 'no-drop'};
             color: ${gray1};
             opacity: ${disabled ? 0.5 : 1};
+
             :hover {
               background: ${!disabled && errorDarken1};
             }
+
             :active {
               background: ${!disabled && errorDarken2};
             }
           `;
+        default:
+          return '';
       }
     case 'outline':
       switch (color) {
@@ -150,14 +156,17 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             opacity: ${disabled ? 0.5 : 1};
             cursor: ${disabled && 'no-drop'};
             border: 1px solid ${kind === 'outline' ? primary : 'transparent'};
+
             :hover {
               background-color: ${!disabled && primary};
               color: ${!disabled && gray1};
               border: ${!disabled && `1px solid ${primary}`};
+
               > svg > path {
                 fill: ${gray1};
               }
             }
+
             :active {
               background-color: ${!disabled && primaryDarken1};
               color: ${!disabled && gray1};
@@ -171,10 +180,12 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             opacity: ${disabled ? 0.5 : 1};
             cursor: ${disabled && 'no-drop'};
             border: 1px solid ${gray4};
+
             :hover {
               border: ${!disabled && `1px solid ${gray4}`};
               background-color: ${!disabled && gray2};
             }
+
             :active {
               border: ${!disabled && `1px solid ${gray4}`};
               background-color: ${!disabled && gray3};
@@ -187,18 +198,23 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             cursor: ${disabled && 'no-drop'};
             opacity: ${disabled ? 0.5 : 1};
             border: 1px solid ${error};
+
             :hover {
               background-color: ${!disabled && error};
               color: ${!disabled && gray1};
+
               > svg > path {
                 fill: ${gray1};
               }
             }
+
             :active {
               background: ${!disabled && errorDarken1};
               color: ${!disabled && gray1};
             }
           `;
+        default:
+          return '';
       }
     case 'text':
       switch (color) {
@@ -209,9 +225,11 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             cursor: ${disabled && 'no-drop'};
             border: 1px solid ${gray2};
             background-color: ${gray1};
+
             :hover {
               background-color: ${!disabled && gray2};
             }
+
             :active {
               background-color: ${!disabled && gray3};
             }
@@ -222,9 +240,11 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             color: ${gray6};
             opacity: ${disabled ? 0.5 : 1};
             cursor: ${disabled && 'no-drop'};
+
             :hover {
               background-color: ${!disabled && gray2};
             }
+
             :active {
               background-color: ${!disabled && gray3};
             }
@@ -235,22 +255,26 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             color: ${error};
             cursor: ${disabled && 'no-drop'};
             opacity: ${disabled ? 0.5 : 1};
+
             :hover {
               background-color: ${!disabled && gray2};
             }
+
             :active {
               background: ${!disabled && gray3};
             }
           `;
+        default:
+          return '';
       }
     case 'underline':
       return css`
         cursor: ${disabled && 'no-drop'};
-        color: ${color === 'primary'
-          ? primary
-          : color === 'gray'
-          ? gray6
-          : error};
+        color: ${(() => {
+          if (color === 'primary') return 'primary';
+          if (color === 'gray') return 'gray6';
+          return 'error';
+        })()};
         opacity: ${disabled ? 0.5 : 1};
         text-decoration-line: underline;
       `;
@@ -274,6 +298,10 @@ const cssGenerator = (kind: kindType, color: colorType, disabled: boolean) => {
             color: ${disabled ? errorLighten1 : errorDarken2};
             cursor: ${disabled && 'no-drop'};
           `;
+        default:
+          return '';
       }
+    default:
+      return '';
   }
 };

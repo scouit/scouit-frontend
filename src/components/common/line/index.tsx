@@ -1,5 +1,5 @@
-import { keyOfColor } from '@/styles/theme/color';
 import styled from 'styled-components';
+import { keyOfColor } from '@/styles/theme/color';
 
 interface PropsType {
   width?: string;

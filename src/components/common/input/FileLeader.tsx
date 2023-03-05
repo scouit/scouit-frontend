@@ -1,16 +1,15 @@
-import { Back, Close, FileLeader, Profile } from '@/assets';
-import { Text } from '@/components/common/text';
-import { ColumnStartGap } from '@/layouts/DirectionGap';
 import { ChangeEvent } from 'react';
 import styled from 'styled-components';
+import { Back, Close, FileLeader } from '@/assets';
+import { Text } from '@/components/common/text';
+import { ColumnStartGap } from '@/layouts/DirectionGap';
 
 interface PropsType {
   name: string;
-  value: string[];
   listArrayChange: (name: string, value: string | File) => void;
 }
 
-export const ImgLeader = ({ name, value, listArrayChange }: PropsType) => {
+export const ImgLeader = ({ name, listArrayChange }: PropsType) => {
   const FileImgChange = (e: ChangeEvent<HTMLInputElement>): void => {
     if (!e.target.files) return;
 
@@ -23,7 +22,7 @@ export const ImgLeader = ({ name, value, listArrayChange }: PropsType) => {
   return (
     <ColumnStartGap gap="8px">
       <Text size="body2" color="gray6">
-        {'이미지 (최대 10개)'}
+        이미지 (최대 10개)
       </Text>
       <_ImgWrapper>
         <_LeaderInput type="file" id="LeadToInput" onChange={FileImgChange} />
@@ -32,7 +31,7 @@ export const ImgLeader = ({ name, value, listArrayChange }: PropsType) => {
         </_ImgLeader>
         {Array(1)
           .fill(1)
-          .map((e, idx) => (
+          .map(() => (
             <_ListWrapper>
               <_CloseWrapper>
                 <Close />
@@ -85,6 +84,7 @@ const _CloseWrapper = styled.div`
   justify-content: center;
   transition: 0.25s;
   opacity: 0;
+
   :hover {
     opacity: 1;
   }
@@ -97,6 +97,6 @@ const _CloseBackground = styled.div`
   height: 100%;
   background-color: 100%;
   background-color: ${({ theme }) => theme.color.gray10};
-  opacity: 60%;
+  opacity: 0.6;
   border-radius: 0.5rem;
 `;

@@ -6,6 +6,6 @@ export const SelectFalse = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle cx="10" cy="10" r="9" stroke="#DDDDDD" stroke-width="2" />
+    <circle cx="10" cy="10" r="9" stroke="#DDDDDD" strokeWidth="2" />
   </svg>
 );

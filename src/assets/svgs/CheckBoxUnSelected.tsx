@@ -1,5 +1,5 @@
-import { keyOfColor } from '@/styles/theme/color';
 import styled, { DefaultTheme } from 'styled-components';
+import { keyOfColor } from '@/styles/theme/color';
 
 export interface CheckBoxType {
   disable: boolean;
@@ -9,7 +9,7 @@ export const disableColor = (
   theme: DefaultTheme,
   disable: boolean,
   firstColor: keyOfColor,
-  secondColor: keyOfColor
+  secondColor: keyOfColor,
 ) => theme.color[disable ? firstColor : secondColor];
 
 export const CheckBoxUnSelected = ({ disable }: CheckBoxType) => (
@@ -27,7 +27,7 @@ export const CheckBoxUnSelected = ({ disable }: CheckBoxType) => (
       height="22"
       rx="1"
       stroke="#999999"
-      stroke-width="2"
+      strokeWidth="2"
     />
   </_Svg>
 );
@@ -35,6 +35,7 @@ export const CheckBoxUnSelected = ({ disable }: CheckBoxType) => (
 const _Svg = styled.svg<CheckBoxType>`
   background-color: ${({ disable, theme }) =>
     disableColor(theme, disable, 'gray1', 'gray2')};
+
   > rect {
     stroke: ${({ disable, theme }) =>
       disableColor(theme, disable, 'gray3', 'gray5')};

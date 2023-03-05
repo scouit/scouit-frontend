@@ -1,7 +1,6 @@
-import { EyeClose, EyeOpen } from '@/assets';
-import { ColumnGap, RowGap } from '@/layouts/DirectionGap';
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { useState } from 'react';
 import styled, { css } from 'styled-components';
+import { ColumnGap } from '@/layouts/DirectionGap';
 import { Button } from '../button';
 import { Text } from '../text';
 
@@ -30,27 +29,25 @@ export const TextListInput = ({
       <Text size="body2" color="gray6" margin="0 0 11px 5px">
         {label}
       </Text>
-      <_Form
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log(onSubmit)
-          onSubmit(name, list);
-          setList('');
-        }}
-      >
+      <_InputWrapper>
         <_Input
           name={name}
           placeholder={placeholder}
           value={list}
           onChange={(e) => setList(e.target.value)}
         />
-        <Button>추가</Button>
-      </_Form>
+        <Button
+          onClick={() => {
+            onSubmit(name, list);
+            setList('');
+          }}
+        >
+          추가
+        </Button>
+      </_InputWrapper>
       <ColumnGap gap="20px" margin="26px 0 0 20px">
         {value.map((ele, idx) => (
-          <_ListWrapper onClick={() => onListClick(name, idx)}>
-            <_ListText>{ele}</_ListText>
-          </_ListWrapper>
+          <_ListText onClick={() => onListClick(name, idx)}>{ele}</_ListText>
         ))}
       </ColumnGap>
     </_Wrapper>
@@ -63,7 +60,7 @@ const _Wrapper = styled.div<{ margin: string }>`
   width: 100%;
 `;
 
-const _Form = styled.form`
+const _InputWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 20px;
@@ -72,10 +69,12 @@ const _Form = styled.form`
 const _Input = styled.input`
   border: 1px solid ${({ theme }) => theme.color.gray5};
   ${({ theme }) => theme.font.body1};
+
   width: 100%;
   height: 46px;
   padding: 0 50px 0 16px;
   border-radius: 4px;
+
   :focus {
     border: 2px solid ${({ theme }) => theme.color.primary};
   }
@@ -83,25 +82,18 @@ const _Input = styled.input`
 
 const _ListText = styled.li`
   cursor: pointer;
+
   ::marker {
-    width: 7px;
-    height: 7px;
     color: ${({ theme }) => theme.color.gray4};
   }
-  :hover {
-    ${({ theme }) =>
-      css`
-        color: ${theme.color.error};
-        ::marker {
-          color: ${theme.color.error};
-        }
-      `}
-  }
-`;
 
-const _ListWrapper = styled.ul`
-  list-style-type: disc;
-  align-items: center;
-  padding-left: 18px;
-  gap: 15px;
+  :hover {
+    ${({ theme }) => css`
+      color: ${theme.color.error};
+
+      ::marker {
+        color: ${theme.color.error};
+      }
+    `}
+  }
 `;

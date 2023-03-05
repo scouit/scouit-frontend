@@ -1,9 +1,8 @@
-const fontToCss = (sz: number, wt: number, lh?: number) =>
-  `
+const fontToCss = (sz: number, wt: number, lh?: number) => `
   font-family: "Pretendard";
   font-weight: ${wt};
   font-size: ${sz}px;
-  ${lh ? `line-height: ${lh}%;` : ''}
+  ${lh && `line-height: ${lh}%;`}
 `;
 
 export const font = {

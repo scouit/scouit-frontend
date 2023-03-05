@@ -1,28 +1,22 @@
 import styled from 'styled-components';
 import { NavigationList } from '../common/list/Navigation';
-import { Columns } from '../../layouts/Columns';
+import { Columns, ColumnContent } from '../../layouts/Columns';
 import { navList, socialList } from './constants';
 
-export const Footer = () => {
-  return (
-    <_Wrapper>
-      <_Columns12>
-        <_Navigation>
-          <NavigationList list={navList} />
-          <NavigationList list={socialList} />
-        </_Navigation>
-      </_Columns12>
-    </_Wrapper>
-  );
-};
+export const Footer = () => (
+  <_Wrapper as="footer" padding="70px 0 96px 0">
+    <ColumnContent>
+      <_Navigation>
+        <NavigationList list={navList} />
+        <NavigationList list={socialList} />
+      </_Navigation>
+    </ColumnContent>
+  </_Wrapper>
+);
 
-const _Wrapper = styled.footer`
+const _Wrapper = styled(Columns)`
   height: 285px;
   border-top: 1px solid ${({ theme }) => theme.color.gray4};
-`;
-
-const _Columns12 = styled(Columns)`
-  padding: 70px 0 96px 0;
 `;
 
 const _Navigation = styled.nav`

@@ -1,13 +1,13 @@
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { Button } from '@/components/common/button';
 import { Input } from '@/components/common/input';
-import { AuthWrapper } from '@/layouts/Wrapper/Auth';
-import { useSignUp } from '@/hooks/useAuth';
+import { AuthWrapper } from '@/layouts/wrapper/Auth';
+import { useSignUpQuery } from '@/hooks/Query';
 import { useForm } from '@/hooks/useForm';
 import { Text } from '@/components/common/text';
-import { Link, useNavigate } from 'react-router-dom';
 import { ColumnCenterGap } from '@/layouts/DirectionGap';
 import { customToast } from '@/utils/toast';
-import { useState } from 'react';
 import { Arrow } from '@/assets';
 
 interface ErrorType {
@@ -40,7 +40,7 @@ export const SignUpPage = () => {
     passwordCheck: text.passwordCheck !== text.password,
   };
 
-  const signUpMutate = useSignUp(text);
+  const signUpMutate = useSignUpQuery(text);
 
   return (
     <AuthWrapper
@@ -60,7 +60,7 @@ export const SignUpPage = () => {
       <Button
         clickType="button"
         kind="text"
-        Icon={<Arrow direction="left" color="primaryDarken2" />}
+        Icon={<Arrow color="primaryDarken2" />}
         margin="0 0 4.0625rem 0"
         onClick={() => navigate(-1)}
       >
