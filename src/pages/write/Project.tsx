@@ -36,10 +36,10 @@ export const ProjectPage = () => {
             name="intro"
             label="소개"
             placeholder="프로젝트를 설명해 주세요"
-            value={e.intro}
+            value={e.introduce}
             onChange={listChange(idx)}
           />
-          <DateInput value={e.time} />
+          <DateInput value={e.period} />
           <TextListInput
             name="works"
             value={e.works}

@@ -4,12 +4,12 @@ import { TextArea } from '@/components/textarea';
 import { useProfileContent, useProfileUpdate } from '@/hooks/useProfile';
 import { ColumnGap } from '@/layouts/DirectionGap';
 
-const intro = 'intro';
+const introduce = 'introduce';
 
 export const IntroducePage = () => {
-  const { profile, handleOnChange } = useProfileContent(intro);
+  const { profile, handleOnChange } = useProfileContent(introduce);
 
-  const introUpdate = useProfileUpdate(intro);
+  const introUpdate = useProfileUpdate(introduce);
   useEffect(() => () => introUpdate(), [introUpdate]);
 
   return (
@@ -17,14 +17,14 @@ export const IntroducePage = () => {
       <ColumnGap gap="20px" margin="47px 0 0">
         <TextArea
           name="oneLineIntroduction"
-          value={profile.intro.oneLineIntroduction}
+          value={profile.introduce.simple}
           onChange={handleOnChange}
           label="한 줄 소개"
           placeholder="한 줄소개를 입력해주세요"
         />
         <TextArea
           name="aboutMe"
-          value={profile.intro.aboutMe}
+          value={profile.introduce.complex}
           onChange={handleOnChange}
           label="자기소개"
           placeholder="자기소개를 입력해주세요"

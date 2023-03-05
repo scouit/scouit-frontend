@@ -12,6 +12,16 @@ interface PropsType {
   children: ReactNode;
 }
 
+// const initState = {
+//   basic: {},
+//   intro: {},
+//   project: {},
+//   experience: {},
+//   skill: {},
+//   active: {},
+//   educate: {},
+// };
+
 export const EditProfileWrapper = ({ children }: PropsType) => {
   const [profile] = useRecoilState<ProfileType>(atomProfile);
   useQuery(['profile', profile], () => getUserProfile<ProfileType>(), {

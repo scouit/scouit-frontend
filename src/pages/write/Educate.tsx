@@ -5,15 +5,15 @@ import { Line } from '@/components/common/line';
 import { ProfileTapbarLayout } from '@/layouts/ProfileTapbar';
 import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
 
-const educate = 'educate';
+const education = 'education';
 
 export const EducatePage = () => {
-  const { profile, listChange, addContent } = useProfileArray(educate);
-  const edcuateUpdate = useProfileUpdate(educate);
+  const { profile, listChange, addContent } = useProfileArray(education);
+  const edcuateUpdate = useProfileUpdate(education);
   useEffect(() => () => edcuateUpdate(), [edcuateUpdate]);
   return (
     <ProfileTapbarLayout title="학력" onClick={addContent}>
-      {profile.educate.map((e, idx) => (
+      {profile.education.map((e, idx) => (
         <>
           <Line height="3px" color="gray4" />
           <Input
@@ -23,7 +23,7 @@ export const EducatePage = () => {
             value={e.name}
             onChange={listChange(idx)}
           />
-          <DateInput value={e.time} />
+          <DateInput value={e.period} />
         </>
       ))}
     </ProfileTapbarLayout>

@@ -29,7 +29,7 @@ export const ExperiencePage = () => {
             label="회사 이름"
             placeholder="회사 이름을 작성해 주세요"
           />
-          <DateInput value={e.time} />
+          <DateInput value={e.period} />
           <Input
             name="role"
             value={e.role}
