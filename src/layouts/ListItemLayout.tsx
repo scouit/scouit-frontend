@@ -2,10 +2,10 @@ import { ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { media } from '@/styles/media';
-import { Button } from '../common/button';
+import { Button } from '../components/common/button';
 
 interface PropsType {
-  isProfile: boolean;
+  isProfile?: boolean;
   children: ReactNode;
 }
 
