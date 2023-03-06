@@ -26,3 +26,5 @@ export const PAGE_LIST = [
   'admin/club',
   'admin',
 ] as const;
+
+export type PageListType = (typeof PAGE_LIST)[number];
