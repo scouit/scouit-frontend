@@ -23,20 +23,22 @@ const SideProjectPage = () => (
           <ColumnGap gap="0.4375rem">
             <RowCenterGap gap="0.875rem" margin="2.5rem 0 0">
               <Img src={url} width="6.25rem" height="6.25rem" radius="100px" />
-              <_RoleWrapper>
-                <_NameWrapper>
-                  <Text size="title2">{name}</Text>
-                  <Text size="body4" color="gray500">
-                    {role}
-                  </Text>
-                </_NameWrapper>
-                <RowEndGap width="fit-content" gap="0.5rem">
-                  <Typescript />
-                  <NextJs />
-                  <React />
-                </RowEndGap>
-              </_RoleWrapper>
-              <Text size="body4">{description}</Text>
+              <ColumnGap gap="0.4375rem" padding="0 0 40px">
+                <_RoleWrapper>
+                  <_NameWrapper>
+                    <Text size="title2">{name}</Text>
+                    <Text size="body4" color="gray500">
+                      {role}
+                    </Text>
+                  </_NameWrapper>
+                  <RowEndGap width="fit-content" gap="0.5rem">
+                    <Typescript />
+                    <NextJs />
+                    <React />
+                  </RowEndGap>
+                </_RoleWrapper>
+                <Text size="body4">{description}</Text>
+              </ColumnGap>
             </RowCenterGap>
             <RowGap gap="0.5rem">
               {tag.map((content) => (
