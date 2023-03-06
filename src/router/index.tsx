@@ -15,7 +15,14 @@ export const Router = () => (
             };
             importModule();
           }, [path]);
-          return Component && <Route path={path} element={<Component />} />;
+          return (
+            Component && (
+              <Route
+                path={path.replace(/(\[)((\D)+)(\])/g, ':$2')}
+                element={<Component />}
+              />
+            )
+          );
         })}
       </Routes>
     </Suspense>
