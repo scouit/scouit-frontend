@@ -6,3 +6,5 @@ export const PAGE_LIST = [
   'MakesPeople',
   'write/Active',
 ] as const;
+
+export type PageListType = (typeof PAGE_LIST)[number];
