@@ -9,7 +9,7 @@ import { ColumnCenterGap } from '@/layouts/DirectionGap';
 import { CheckBox } from '@/components/common/checkBox';
 import { Arrow } from '@/assets';
 
-export const SignInPage = () => {
+const SignInPage = () => {
   const navigate = useNavigate();
   const { text, handleOnChange } = useForm({
     email: '',
@@ -65,3 +65,5 @@ export const SignInPage = () => {
     </AuthWrapper>
   );
 };
+
+export default SignInPage;

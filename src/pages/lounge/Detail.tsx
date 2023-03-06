@@ -22,7 +22,7 @@ const detailData: DetailDataType[] = [
   { title: '링크', name: 'link' },
 ];
 
-export const LoungeDetail = () => (
+const LoungeDetail = () => (
   <>
     <Header />
     <Columns padding="127px 16px">
@@ -56,3 +56,5 @@ export const LoungeDetail = () => (
     </Columns>
   </>
 );
+
+export default LoungeDetail;

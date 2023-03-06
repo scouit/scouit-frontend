@@ -16,7 +16,7 @@ interface StudyType {
   link: string[];
 }
 
-export const WriteStudy = () => {
+const WriteStudy = () => {
   const { text, handleOnChange, addTextList, removeTextList } =
     useForm<StudyType>({
       title: '',
@@ -102,3 +102,5 @@ export const WriteStudy = () => {
     </>
   );
 };
+
+export default WriteStudy;

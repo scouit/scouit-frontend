@@ -5,7 +5,7 @@ import { useProfileUpdate } from '@/hooks/useProfile';
 
 const basic = 'basic';
 
-export const BasicPage = () => {
+const BasicPage = () => {
   const basicUpdate = useProfileUpdate(basic);
   useEffect(() => () => basicUpdate(), [basicUpdate]);
   return (
@@ -14,3 +14,5 @@ export const BasicPage = () => {
     </ProfileTapbarLayout>
   );
 };
+
+export default BasicPage;

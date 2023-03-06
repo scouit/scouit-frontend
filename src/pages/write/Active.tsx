@@ -7,7 +7,7 @@ import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
 
 const activity = 'activity';
 
-export const ActivePage = () => {
+const ActivePage = () => {
   const { profile, listChange } = useProfileArray(activity);
   const activeUpdate = useProfileUpdate(activity);
   useEffect(() => () => activeUpdate(), [activeUpdate]);
@@ -34,3 +34,5 @@ export const ActivePage = () => {
     </ProfileTapbarLayout>
   );
 };
+
+export default ActivePage;

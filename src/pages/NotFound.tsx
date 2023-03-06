@@ -24,7 +24,7 @@ interface PropsType {
   type: 'notFound' | 'forbidden';
 }
 
-export const NotFoundPage = ({ type }: PropsType) => {
+const NotFoundPage = ({ type }: PropsType) => {
   const { name, content, image, number } = ErrorState[type];
   return (
     <ErrorLayout title={name} number={number} image={image}>
@@ -40,3 +40,5 @@ export const NotFoundPage = ({ type }: PropsType) => {
     </ErrorLayout>
   );
 };
+
+export default NotFoundPage;

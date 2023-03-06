@@ -18,7 +18,7 @@ interface ProjectType {
   link: string[];
 }
 
-export const WriteProject = () => {
+const WriteProject = () => {
   const { text, handleOnChange, addTextList, removeTextList } =
     useForm<ProjectType>({
       title: '',
@@ -85,3 +85,5 @@ export const WriteProject = () => {
     </>
   );
 };
+
+export default WriteProject;

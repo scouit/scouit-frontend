@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { SelectBox } from '@/components/select/SelectBox';
 import { RowGap } from '@/layouts/DirectionGap';
-import { WriteProject } from './write/Project';
-import { WriteStudy } from './write/Study';
+import WriteProject from './write/Project';
+import WriteStudy from './write/Study';
 import { Columns, ColumnContent } from '@/layouts/Columns';
 import { Header } from '@/components/header';
 
 const kinda = ['모각코', '사이드 프로젝트', '스터디'];
 
-export const LoungeWrite = () => {
+const LoungeWrite = () => {
   const [kind, setKind] = useState<string>('모각코');
   return (
     <>
@@ -34,3 +34,5 @@ export const LoungeWrite = () => {
     </>
   );
 };
+
+export default LoungeWrite;

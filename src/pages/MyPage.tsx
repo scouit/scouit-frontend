@@ -1,1 +1,3 @@
-export const MyPage = () => <div />;
+const MyPage = () => <div />;
+
+export default MyPage;

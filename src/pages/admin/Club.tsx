@@ -6,7 +6,7 @@ import { ColumnCenterGap, RowCenterGap, RowGap } from '@/layouts/DirectionGap';
 import { HeaderWrapper } from '@/layouts/wrapper/Header';
 import { cardDummy } from '@/_dummy/profile';
 
-export const AdminClubPage = () => (
+const AdminClubPage = () => (
   <HeaderWrapper currentPage="연합 동아리" type="어드민">
     {cardDummy.map(({ url, name, role, description, tag }) => (
       <ProfileCard isProfile>
@@ -25,3 +25,5 @@ export const AdminClubPage = () => (
     ))}
   </HeaderWrapper>
 );
+
+export default AdminClubPage;

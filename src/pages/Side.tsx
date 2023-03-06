@@ -6,7 +6,7 @@ import { HeaderWrapper } from '@/layouts/wrapper/Header';
 import { cardDummy } from '@/_dummy/profile';
 import { Img } from '@/components/common/img';
 
-export const SideProjectPage = () => (
+const SideProjectPage = () => (
   <HeaderWrapper currentPage="사이드 프로젝트">
     {cardDummy.map(({ url, name, role, description, tag }) => (
       <ProfileCard isProfile>
@@ -25,3 +25,5 @@ export const SideProjectPage = () => (
     ))}
   </HeaderWrapper>
 );
+
+export default SideProjectPage;

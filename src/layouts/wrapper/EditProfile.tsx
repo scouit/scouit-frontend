@@ -12,20 +12,42 @@ interface PropsType {
   children: ReactNode;
 }
 
-// const initState = {
-//   basic: {},
-//   intro: {},
-//   project: {},
-//   experience: {},
-//   skill: {},
-//   active: {},
-//   educate: {},
-// };
+const initState: ProfileType = {
+  basic: {
+    role: '',
+  },
+  introduce: {
+    simple: '',
+    complex: '',
+  },
+  project: [
+    {
+      name: '',
+      introduce: '',
+      period: { start: '', end: '' },
+      url: '',
+      works: [],
+      skills: [],
+      img: [],
+    },
+  ],
+  experience: [
+    { name: '', period: { start: '', end: '' }, role: '', works: [] },
+  ],
+  technology: { main: [], sub: [] },
+  activity: [{ name: '', content: '', period: { start: '', end: '' } }],
+  education: [{ name: '', period: { start: '', end: '' } }],
+};
 
 export const EditProfileWrapper = ({ children }: PropsType) => {
-  const [profile] = useRecoilState<ProfileType>(atomProfile);
+  const [profile, setProfile] = useRecoilState<ProfileType>(atomProfile);
   useQuery(['profile', profile], () => getUserProfile<ProfileType>(), {
-    onSuccess: () => {},
+    onSuccess: (data) => {
+      const temp = {};
+      // for (const [key, value] of Object.entries(data)) {
+      //   data[key] = value || initState[key];
+      // }
+    },
   });
   return (
     <_Wrapper padding="184px 1.5rem 132px 1.5rem">

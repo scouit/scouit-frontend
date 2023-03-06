@@ -6,7 +6,7 @@ import { Columns, ColumnContent } from '@/layouts/Columns';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 
-export const JobPostingDetailPage = () => {
+const JobPostingDetailPage = () => {
   const { id } = useParams();
   const { data } = useGetCompanyByIdList(id);
   return (
@@ -27,3 +27,5 @@ export const JobPostingDetailPage = () => {
     </>
   );
 };
+
+export default JobPostingDetailPage;

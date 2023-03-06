@@ -5,7 +5,7 @@ import { Text } from '@/components/common/text';
 import { useGetCompanyList } from '@/hooks/Query';
 import { Columns, ColumnContent } from '@/layouts/Columns';
 
-export const JobPostingPage = () => {
+const JobPostingPage = () => {
   const { data } = useGetCompanyList();
   return (
     <>
@@ -21,3 +21,5 @@ export const JobPostingPage = () => {
     </>
   );
 };
+
+export default JobPostingPage;

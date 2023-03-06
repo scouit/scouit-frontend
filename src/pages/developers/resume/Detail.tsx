@@ -3,7 +3,7 @@ import { DetailContent } from '@/layouts/detail/Content';
 import { DetailLayout } from '@/layouts/detail/DetailLayout';
 import { developersDummy } from '@/_dummy/developers';
 
-export const ResumeDetailPage = () => {
+const ResumeDetailPage = () => {
   const { title, role, date, works, image, url, content, skills } =
     developersDummy;
   return (
@@ -36,3 +36,5 @@ export const ResumeDetailPage = () => {
     </DetailLayout>
   );
 };
+
+export default ResumeDetailPage;

@@ -6,7 +6,7 @@ import { ColumnGap } from '@/layouts/DirectionGap';
 
 const introduce = 'introduce';
 
-export const IntroducePage = () => {
+const IntroducePage = () => {
   const { profile, handleOnChange } = useProfileContent(introduce);
 
   const introUpdate = useProfileUpdate(introduce);
@@ -33,3 +33,5 @@ export const IntroducePage = () => {
     </ProfileTapbarLayout>
   );
 };
+
+export default IntroducePage;

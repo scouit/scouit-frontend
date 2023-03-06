@@ -15,7 +15,7 @@ import { Line } from '@/components/common/line';
 
 const project = 'project';
 
-export const ProjectPage = () => {
+const ProjectPage = () => {
   const { profile, listChange } = useProfileArray(project);
   const { addListArray, removeArrayList } = useProfileList(project);
   const projectUpdate = useProfileUpdate(project);
@@ -58,3 +58,5 @@ export const ProjectPage = () => {
     </ProfileTapbarLayout>
   );
 };
+
+export default ProjectPage;

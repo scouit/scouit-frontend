@@ -6,7 +6,7 @@ import { HeaderWrapper } from '@/layouts/wrapper/Header';
 import { cardDummy } from '@/_dummy/profile';
 import { Img } from '@/components/common/img';
 
-export const ClubPage = () => (
+const ClubPage = () => (
   <HeaderWrapper currentPage="연합 동아리">
     {cardDummy.map(({ url, name, role, description, tag }) => (
       <ProfileCard isProfile>
@@ -25,3 +25,5 @@ export const ClubPage = () => (
     ))}
   </HeaderWrapper>
 );
+
+export default ClubPage;

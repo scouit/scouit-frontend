@@ -7,7 +7,7 @@ import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
 
 const education = 'education';
 
-export const EducatePage = () => {
+const EducatePage = () => {
   const { profile, listChange, addContent } = useProfileArray(education);
   const edcuateUpdate = useProfileUpdate(education);
   useEffect(() => () => edcuateUpdate(), [edcuateUpdate]);
@@ -29,3 +29,5 @@ export const EducatePage = () => {
     </ProfileTapbarLayout>
   );
 };
+
+export default EducatePage;

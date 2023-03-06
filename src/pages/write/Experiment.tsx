@@ -12,7 +12,7 @@ import {
 
 const experience = 'experience';
 
-export const ExperiencePage = () => {
+const ExperiencePage = () => {
   const { profile, listChange } = useProfileArray(experience);
   const { addListArray, removeArrayList } = useProfileList(experience);
   const workUpdate = useProfileUpdate(experience);
@@ -50,3 +50,5 @@ export const ExperiencePage = () => {
     </ProfileTapbarLayout>
   );
 };
+
+export default ExperiencePage;

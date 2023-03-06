@@ -17,7 +17,7 @@ interface ErrorType {
 }
 
 /** 프로필, 이메일 인증 추가 요망 */
-export const SignUpPage = () => {
+const SignUpPage = () => {
   const navigate = useNavigate();
   const { text, handleOnChange } = useForm({
     name: '',
@@ -123,3 +123,5 @@ export const SignUpPage = () => {
     </AuthWrapper>
   );
 };
+
+export default SignUpPage;

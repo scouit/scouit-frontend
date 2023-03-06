@@ -31,7 +31,7 @@ const developersList = [
   },
 ];
 
-export const MakesPeoplePage = () => (
+const MakesPeoplePage = () => (
   <div>
     <Header />
     {developersList.map((developer) => (
@@ -42,3 +42,5 @@ export const MakesPeoplePage = () => (
     ))}
   </div>
 );
+
+export default MakesPeoplePage;

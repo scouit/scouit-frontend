@@ -5,7 +5,7 @@ import { ColumnGap } from '@/layouts/DirectionGap';
 import { HeaderWrapper } from '@/layouts/wrapper/Header';
 import { cardDummy } from '@/_dummy/lounge';
 
-export const LoungeHomePage = () => (
+const LoungeHomePage = () => (
   <HeaderWrapper type="어드민" currentPage="홈">
     {cardDummy.map(({ title, content, peoples, kinda, url }) => (
       <ProfileCard isProfile={false}>
@@ -22,3 +22,5 @@ export const LoungeHomePage = () => (
     ))}
   </HeaderWrapper>
 );
+
+export default LoungeHomePage;
