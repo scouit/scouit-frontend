@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import { Button } from '@/components/common/button';
 import { Text } from '@/components/common/text';
 import { ColumnGap } from '@/layouts/DirectionGap';
-import { ErrorLayout } from '@/layouts/ErrorLayout';
 import { Error403, Error404 } from '@/assets';
+import { media } from '@/styles/media';
+import { Line } from '@/components/common/line';
 
 const ErrorState = {
   notFound: {
@@ -27,18 +29,54 @@ interface PropsType {
 const NotFoundPage = ({ type }: PropsType) => {
   const { name, content, image, number } = ErrorState[type];
   return (
-    <ErrorLayout title={name} number={number} image={image}>
-      <Text size="title1">
-        <ColumnGap gap="16px">
-          <div>{content}</div>
-          <div>아래 버튼을 누르면 홈으로 돌아갈 수 있습니다.</div>
+    <_Wrapper>
+      <_Content>
+        <ColumnGap gap="1.4375rem">
+          <Text size="title2" color="gray600">
+            {name}
+          </Text>
+          <_ErrorNumber>{number}</_ErrorNumber>
+          <Line color="gray900" width="208px" height="4px" />
+          <Text size="title1">
+            <ColumnGap gap="16px">
+              <div>{content}</div>
+              <div>아래 버튼을 누르면 홈으로 돌아갈 수 있습니다.</div>
+            </ColumnGap>
+          </Text>
+          <Link to="/">
+            <Button size="large">Home</Button>
+          </Link>
         </ColumnGap>
-      </Text>
-      <Link to="/">
-        <Button size="large">Home</Button>
-      </Link>
-    </ErrorLayout>
+      </_Content>
+      <_BackGroundImg src={image} />
+    </_Wrapper>
   );
 };
+
+const _Wrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const _Content = styled.div`
+  padding: 0 1rem;
+  margin: auto;
+`;
+
+const _ErrorNumber = styled.div`
+  font-size: 120px;
+  font-weight: 900;
+  margin-bottom: 30px;
+`;
+
+const _BackGroundImg = styled.img`
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  ${media._1024('display:none;')}
+`;
 
 export default NotFoundPage;
