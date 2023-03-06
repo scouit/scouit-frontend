@@ -1,8 +1,8 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { MakesPeoplePage } from '@/pages/MakesPeople';
+import { BrowserRouter, Route, Routes, matchPath } from 'react-router-dom';
+import MakesPeoplePage from '@/pages/MakesPeople';
 import { ResetPasswordPage } from '@/pages/auth/ResetPassword';
 import { FrequentlyAskedQuestionsPage } from '@/pages/FrequentlyAskedQuestions';
-import { HomePage } from '@/pages/Home';
+import HomePage from '@/pages/Home';
 import { JobPostingPage } from '@/pages/company/job-posting';
 import { SignInPage } from '@/pages/auth/SignIn';
 import { NotFoundPage } from '@/pages/NotFound';
@@ -16,19 +16,28 @@ import { ExperiencePage } from '@/pages/write/Experiment';
 import { EditProfileWrapper } from '@/layouts/wrapper/EditProfile';
 import { IntroducePage } from '@/pages/write/introduce';
 import { TechPage } from '@/pages/write/Tech';
-import { ActivePage } from '@/pages/write/Active';
+import ActivePage from '@/pages/write/Active';
 import { EducatePage } from '@/pages/write/Educate';
-import { ClubPage } from '@/pages/Club';
+import ClubPage from '@/pages/Club';
 import { SideProjectPage } from '@/pages/Side';
 import { AdminHomePage } from '@/pages/admin/Home';
 import { AdminClubPage } from '@/pages/admin/Club';
 import { LoungeHomePage } from '@/pages/lounge/Home';
 import { LoungeWrite } from '@/pages/lounge/Write';
 import { LoungeDetail } from '@/pages/lounge/Detail';
+import { Link } from 'react-router-dom';
+import { useRouteComponent } from '@/hooks/useRouteComponent';
+import { createElement, useEffect, useState, lazy, Suspense } from 'react';
+
+// 파일경로랑 === path
+// export default
+const PAGE_LIST = ['Home', 'Club', 'MakesPeople', 'write/Active'];
 
 export const Router = () => (
   <BrowserRouter>
-    <Routes>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        {/* <Link to="wqd" />
       <Route path="/" element={<HomePage />} />
       <Route path="/club" element={<ClubPage />} />
       <Route path="/side-project" element={<SideProjectPage />} />
@@ -48,7 +57,6 @@ export const Router = () => (
         element={<FrequentlyAskedQuestionsPage />}
       />
       <Route path="/developers">
-        {/* <Route index element={<DevelopersPage />} /> */}
         <Route path="resume/*">
           <Route path=":id" element={<ResumeDetailPage />} />
         </Route>
@@ -79,7 +87,19 @@ export const Router = () => (
         />
       </Route>
       <Route path="/*" element={<NotFoundPage type="notFound" />} />
-      <Route path="/403" element={<NotFoundPage type="forbidden" />} />
-    </Routes>
+      <Route path="/403" element={<NotFoundPage type="forbidden" />} /> */}
+        {PAGE_LIST.map((path) => {
+          const [Component, setComponent] = useState(null);
+          useEffect(() => {
+            const importModule = async () => {
+              const component = lazy(() => import(`../pages/${path}`));
+              setComponent(component);
+            };
+            importModule();
+          }, [path]);
+          return Component && <Route path={path} element={<Component />} />;
+        })}
+      </Routes>
+    </Suspense>
   </BrowserRouter>
 );
