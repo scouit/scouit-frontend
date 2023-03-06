@@ -15,11 +15,11 @@ export const ErrorLayout = ({ title, number, image, children }: PropsType) => (
   <_Wrapper>
     <_Content>
       <ColumnGap gap="1.4375rem">
-        <Text size="title2" color="gray6">
+        <Text size="title2" color="gray600">
           {title}
         </Text>
         <_ErrorNumber>{number}</_ErrorNumber>
-        <Line color="gray10" width="208px" height="4px" />
+        <Line color="gray900" width="208px" height="4px" />
         {children}
       </ColumnGap>
     </_Content>

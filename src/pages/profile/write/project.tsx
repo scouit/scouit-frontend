@@ -24,7 +24,7 @@ const ProjectPage = () => {
     <ProfileTapbarLayout title="프로젝트" onClick={() => {}}>
       {profile.project.map((e, idx) => (
         <>
-          <Line height="3px" color="gray4" />
+          <Line height="3px" color="gray400" />
           <Input
             name="name"
             value={e.name}

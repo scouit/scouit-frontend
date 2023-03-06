@@ -24,7 +24,7 @@ export const BottomListNav = ({
       <Link to={e.url}>
         <Text
           size="heading3"
-          color={e.title === currentPage ? 'primary' : 'gray10'}
+          color={e.title === currentPage ? 'primary500' : 'gray900'}
         >
           {e.title}
         </Text>
@@ -40,8 +40,8 @@ const _TapWrapper = styled.div<{ gap: string; isMedia: boolean }>`
   justify-content: center;
   height: 57px;
   gap: ${({ gap }) => gap};
-  border-top: 1px solid ${({ theme }) => theme.color.gray4};
-  background-color: ${({ theme }) => theme.color.gray1};
-  color: ${({ theme }) => theme.color.primary};
+  border-top: 1px solid ${({ theme }) => theme.color.gray400};
+  background-color: ${({ theme }) => theme.color.gray100};
+  color: ${({ theme }) => theme.color.primary500};
   ${({ isMedia }) => isMedia && `display:none; ${media._1024('display:flex')}`}
 `;

@@ -7,7 +7,7 @@ export const navList = [
 ];
 
 export const socialList = [
-  { name: <Github hover="gray8" />, link: 'https://github.com/KOVELO2005' },
+  { name: <Github hover="gray800" />, link: 'https://github.com/KOVELO2005' },
   {
     name: <Instargram />,
     link: '',

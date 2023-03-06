@@ -22,9 +22,7 @@ const SignInPage = () => {
     <AuthWrapper onSubmit={() => signInMutate.mutate()}>
       <Button
         clickType="button"
-        kind="text"
-        Icon={<Arrow color="primaryDarken2" />}
-        margin="0 0 7.3125rem 0"
+        icon={{ isLeft: true, Element: <Arrow color="primary700" /> }}
         onClick={() => navigate(-1)}
       >
         뒤로가기
@@ -53,12 +51,7 @@ const SignInPage = () => {
       </CheckBox>
       <Button size="large">로그인</Button>
       <Link to="/sign-up">
-        <Button
-          kind="text"
-          size="large"
-          color="primary"
-          margin="0.625rem 0 0 0"
-        >
+        <Button size="large" color="primary">
           회원가입
         </Button>
       </Link>

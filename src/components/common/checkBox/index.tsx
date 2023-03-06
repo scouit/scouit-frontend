@@ -27,7 +27,7 @@ export const CheckBox = ({
       ) : (
         <CheckBoxUnSelected disable={disable} />
       )}
-      <Text size="body1" color="gray10">
+      <Text size="body1" color="gray900">
         {children}
       </Text>
     </_Wrapper>

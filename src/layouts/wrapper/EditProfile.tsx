@@ -60,7 +60,7 @@ export const EditProfileWrapper = ({ children }: PropsType) => {
 
 const _Wrapper = styled(Columns)`
   height: 100%;
-  background-color: ${({ theme }) => theme.color.gray2};
+  background-color: ${({ theme }) => theme.color.gray200};
   position: relative;
 `;
 

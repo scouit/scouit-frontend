@@ -21,7 +21,7 @@ export const ImgLeader = ({ name, listArrayChange }: PropsType) => {
   };
   return (
     <ColumnStartGap gap="8px">
-      <Text size="body2" color="gray6">
+      <Text size="body2" color="gray600">
         이미지 (최대 10개)
       </Text>
       <_ImgWrapper>
@@ -96,7 +96,7 @@ const _CloseBackground = styled.div`
   width: 100%;
   height: 100%;
   background-color: 100%;
-  background-color: ${({ theme }) => theme.color.gray10};
+  background-color: ${({ theme }) => theme.color.gray900};
   opacity: 0.6;
   border-radius: 0.5rem;
 `;

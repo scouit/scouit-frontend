@@ -34,16 +34,16 @@ export const ContentCard = ({
     <_Content gap={isColumn(direction) ? '28px' : '0'}>
       <_Img src={image} />
       <_TitleWrapper direction={direction} gap="0.5rem">
-        <Text size="title1" color="gray10">
+        <Text size="title1" color="gray900">
           {title}
         </Text>
         <Text
           size={isColumn(direction) ? 'title1' : 'body2'}
-          color={isColumn(direction) ? 'gray5' : 'gray10'}
+          color={isColumn(direction) ? 'gray500' : 'gray900'}
         >
           {date}
         </Text>
-        <Text size="body1" color="gray10">
+        <Text size="body1" color="gray900">
           {role}
         </Text>
       </_TitleWrapper>
@@ -56,14 +56,14 @@ export const ContentCard = ({
           </Text>
         ))}
       </ColumnGap>
-      <Text size="body1" color="gray10">
+      <Text size="body1" color="gray900">
         {content}
       </Text>
       <_SkillWrapper>
         {skills.map(() => (
-          <Tag padding="7px" color="gray10">
+          <Tag padding="7px" color="gray900">
             <React />
-            <Text color="gray1">React</Text>
+            <Text color="gray100">React</Text>
           </Tag>
         ))}
       </_SkillWrapper>

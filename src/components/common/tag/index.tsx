@@ -32,7 +32,7 @@ const _Wrapper = styled.div<{
           border-radius: 8px;
         `
       : css`
-          border: 0.0625rem solid ${theme.color.gray3};
+          border: 0.0625rem solid ${theme.color.gray300};
           border-radius: 6.25rem;
         `};
 `;

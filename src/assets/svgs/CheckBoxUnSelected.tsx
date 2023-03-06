@@ -34,10 +34,10 @@ export const CheckBoxUnSelected = ({ disable }: CheckBoxType) => (
 
 const _Svg = styled.svg<CheckBoxType>`
   background-color: ${({ disable, theme }) =>
-    disableColor(theme, disable, 'gray1', 'gray2')};
+    disableColor(theme, disable, 'gray100', 'gray200')};
 
   > rect {
     stroke: ${({ disable, theme }) =>
-      disableColor(theme, disable, 'gray3', 'gray5')};
+      disableColor(theme, disable, 'gray300', 'gray500')};
   }
 `;

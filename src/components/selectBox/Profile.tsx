@@ -26,7 +26,7 @@ export const ProfileSelectBox = () => {
                 />
                 <Text size="title2">조상현</Text>
                 <Link to="/profile/write/basic">
-                  <Button kind="round">프로필 수정</Button>
+                  <Button>프로필 수정</Button>
                 </Link>
               </_Profile>
             </_Item>
@@ -59,8 +59,8 @@ const _Content = styled.div`
   right: 200px;
   width: 330px;
   border-radius: 8px;
-  box-shadow: ${({ theme }) => theme.shadow.modal};
-  background-color: ${({ theme }) => theme.color.gray1};
+  box-shadow: ${({ theme }) => theme.shadow.xs};
+  background-color: ${({ theme }) => theme.color.gray100};
 `;
 
 const _Item = styled.li`
@@ -69,6 +69,6 @@ const _Item = styled.li`
   align-items: center;
   ${({ theme }) => theme.font.title2};
 
-  border-top: 1px solid ${({ theme }) => theme.color.gray4};
+  border-top: 1px solid ${({ theme }) => theme.color.gray400};
   min-height: 63px;
 `;

@@ -14,11 +14,11 @@ export const DetailProfile = ({ image, name, intro, url }: PropsType) => (
   <_Wrapper>
     <_ImgWrapper>
       <_Img src={image} />
-      <Text size="title1" color="gray10">
+      <Text size="title1" color="gray900">
         {name}
       </Text>
     </_ImgWrapper>
-    <Text size="body4" color="gray10" lineHeight="160%">
+    <Text size="body4" color="gray900" lineHeight="160%">
       {intro}
     </Text>
     <ColumnStartGap gap="12px" margin="17px 0 0">

@@ -20,14 +20,14 @@ export const ImgSlider = () => {
         count={count}
       />
       <ColumnCenterGap gap="16px" margin="12px 0 0">
-        <Text size="title1" color="gray1">
+        <Text size="title1" color="gray100">
           연합 동아리를 모아보세요.
         </Text>
         <ColumnCenterGap gap="0">
-          <Text color="gray1">
+          <Text color="gray100">
             scouit에서는 연합 동아리를 찾아줘서 개발자들이 취업하기 쉽게
           </Text>
-          <Text color="gray1">기회를 만들워줘요. 지금 시작하세요.</Text>
+          <Text color="gray100">기회를 만들워줘요. 지금 시작하세요.</Text>
         </ColumnCenterGap>
       </ColumnCenterGap>
       <_BallWrapper>
@@ -36,8 +36,8 @@ export const ImgSlider = () => {
           .map((_, idx) => (
             <_Ball
               size={activeColor(idx, count) ? '12px' : '8px'}
-              color={activeColor(idx, count) ? 'primary' : 'gray1'}
-              hover={activeColor(idx, count) ? 'primary' : 'gray4'}
+              color={activeColor(idx, count) ? 'primary500' : 'gray100'}
+              hover={activeColor(idx, count) ? 'primary500' : 'gray400'}
               onClick={() => setCount(idx)}
             />
           ))}

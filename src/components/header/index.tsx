@@ -58,9 +58,9 @@ const _Wrapper = styled(Columns)`
   top: 0;
   left: 0;
   z-index: 2;
-  border-bottom: 1px solid ${({ theme }) => theme.color.gray4};
-  background-color: ${({ theme }) => theme.color.gray1};
-  box-shadow: ${({ theme }) => theme.shadow.modal};
+  border-bottom: 1px solid ${({ theme }) => theme.color.gray400};
+  background-color: ${({ theme }) => theme.color.gray100};
+  box-shadow: ${({ theme }) => theme.shadow.xs};
   ${media._720('padding: 0 1rem;')};
 `;
 

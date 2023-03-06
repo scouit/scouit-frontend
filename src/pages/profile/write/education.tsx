@@ -15,7 +15,7 @@ const EducatePage = () => {
     <ProfileTapbarLayout title="학력" onClick={addContent}>
       {profile.education.map((e, idx) => (
         <>
-          <Line height="3px" color="gray4" />
+          <Line height="3px" color="gray400" />
           <Input
             name="name"
             label="학교 이름"

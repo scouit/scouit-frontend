@@ -8,7 +8,7 @@ interface PropsType {
 
 export const DetailContent = ({ title, children }: PropsType) => (
   <_Wrapper>
-    <Text size="heading1" color="gray10">
+    <Text size="heading1" color="gray900">
       {title}
     </Text>
     <_Content>{children}</_Content>
@@ -21,7 +21,7 @@ const _Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 71px;
-  border-top: 3px solid ${({ theme }) => theme.color.gray4};
+  border-top: 3px solid ${({ theme }) => theme.color.gray400};
 `;
 
 const _Content = styled.div`

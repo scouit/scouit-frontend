@@ -23,11 +23,7 @@ export const ProfileTapbarLayout = ({
     <_Wrapper>
       <_TitleWrapper>
         <Text size="heading1">{title}</Text>
-        {onClick && (
-          <Button kind="contained" onClick={onClick}>
-            추가하기
-          </Button>
-        )}
+        {onClick && <Button onClick={onClick}>추가하기</Button>}
       </_TitleWrapper>
       <ColumnStartGap gap="65px" padding="0 0 65px">
         {children}
@@ -41,7 +37,7 @@ const _Wrapper = styled.div`
   width: 100%;
   position: relative;
   border-radius: 0.5rem;
-  background-color: ${({ theme }) => theme.color.gray1};
+  background-color: ${({ theme }) => theme.color.gray100};
   padding: 0 60px;
 `;
 

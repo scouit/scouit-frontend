@@ -21,7 +21,7 @@ const _Text = styled(Text)`
 `;
 
 const _Content = styled.div`
-  border-left: 2px solid ${({ theme }) => theme.color.gray10};
+  border-left: 2px solid ${({ theme }) => theme.color.gray900};
   padding-left: 25px;
   margin-left: 40px;
 `;

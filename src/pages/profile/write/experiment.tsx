@@ -21,7 +21,7 @@ const ExperiencePage = () => {
     <ProfileTapbarLayout title="업무 경험" onClick={() => {}}>
       {profile.experience.map((e, idx) => (
         <>
-          <Line height="3px" color="gray4" />
+          <Line height="3px" color="gray400" />
           <Input
             name="name"
             value={e.name}

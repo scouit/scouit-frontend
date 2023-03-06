@@ -59,9 +59,7 @@ const SignUpPage = () => {
     >
       <Button
         clickType="button"
-        kind="text"
-        Icon={<Arrow color="primaryDarken2" />}
-        margin="0 0 4.0625rem 0"
+        icon={{ isLeft: true, Element: <Arrow color="primary700" /> }}
         onClick={() => navigate(-1)}
       >
         뒤로가기
@@ -107,16 +105,9 @@ const SignUpPage = () => {
           errorMsg="비밀번호가 틀립니다."
         />
       </ColumnCenterGap>
-      <Button size="large" margin="0 0 0.625rem">
-        회원가입
-      </Button>
+      <Button size="large">회원가입</Button>
       <Link to="/sign-in">
-        <Button
-          kind="text"
-          size="large"
-          color="primary"
-          margin="0.625rem 0 0 0"
-        >
+        <Button size="large" color="primary">
           로그인
         </Button>
       </Link>

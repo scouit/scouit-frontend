@@ -16,7 +16,7 @@ export const Footer = () => (
 
 const _Wrapper = styled(Columns)`
   height: 285px;
-  border-top: 1px solid ${({ theme }) => theme.color.gray4};
+  border-top: 1px solid ${({ theme }) => theme.color.gray400};
 `;
 
 const _Navigation = styled.nav`

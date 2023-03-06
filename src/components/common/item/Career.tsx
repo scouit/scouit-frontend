@@ -10,7 +10,7 @@ export const CareerItem = () => (
     <Text margin="8px 0" size="body3">
       FrontEnd Developer
     </Text>
-    <_Explain size="body4" color="gray5">
+    <_Explain size="body4" color="gray500">
       금융관리 회사 핀테크의 Toss 배구공을 토스하듯이 토스합니다. 아주 재미있죠.
     </_Explain>
   </div>

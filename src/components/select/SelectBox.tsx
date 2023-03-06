@@ -13,7 +13,7 @@ export const SelectBox = ({ lists, value, onClick }: PropsType) => (
     {lists.map((e, idx) => (
       <_Wrapper onClick={() => onClick(e)}>
         {lists[idx] === value ? <SelectTrue /> : <SelectFalse />}
-        <Text size="body1" color="gray7">
+        <Text size="body1" color="gray700">
           {e}
         </Text>
       </_Wrapper>

@@ -14,9 +14,8 @@ export const Tapbar = ({ currentPage }: PropsType) => (
       {lio.map((e) => (
         <Link to={e.url}>
           <Button
-            kind="text"
             size="large"
-            color={e.title === currentPage ? 'primary' : 'gray'}
+            color={e.title === currentPage ? 'primary' : 'affirmative'}
           >
             {e.title}
           </Button>
@@ -26,7 +25,6 @@ export const Tapbar = ({ currentPage }: PropsType) => (
     <_ButtonWrapper>
       <Button
         size="large"
-        kind="contained"
         onClick={() => {
           // basicUpdate.mutate();
           // projectUpdate.mutate();
@@ -48,7 +46,7 @@ const _Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.color.gray1};
+  background-color: ${({ theme }) => theme.color.gray100};
   position: sticky;
   ${media._1024(`
     padding: 0;

@@ -14,12 +14,7 @@ export const ProfileCard = ({ isProfile, children }: PropsType) => {
   return (
     <_Wrapper>
       <div>{children}</div>
-      <Button
-        onClick={() => navigate('/developers/resume/a')}
-        kind="contained"
-        size="large"
-        radius="0 0 0.5rem 0.5rem"
-      >
+      <Button onClick={() => navigate('/developers/resume/a')} size="large">
         view {isProfile ? 'profile' : 'post'}
       </Button>
     </_Wrapper>
@@ -32,7 +27,7 @@ const _Wrapper = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: ${({ theme }) => theme.shadow.surface};
+  box-shadow: ${({ theme }) => theme.shadow.lg};
   border-radius: 0.5rem;
   width: 100%;
   max-width: 23rem;

@@ -79,9 +79,7 @@ const WriteProject = () => {
         label="추가 링크"
         placeholder="추가 링크를 정해 주세요"
       />
-      <Button size="large" kind="contained">
-        작성하기
-      </Button>
+      <Button size="large">작성하기</Button>
     </>
   );
 };

@@ -39,7 +39,7 @@ export const DetailCompany = () => (
       <div>지원 마감</div>
       <div>상시 채용</div>
     </div>
-    <Button margin="20px 0 0 0">지원하기</Button>
+    <Button>지원하기</Button>
   </_Wrapper>
 );
 

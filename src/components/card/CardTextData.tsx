@@ -28,7 +28,7 @@ export const CardTextData = ({
       <_RoleWrapper>
         <_NameWrapper>
           <Text size="title2">{name}</Text>
-          <Text size="body4" color="gray5">
+          <Text size="body4" color="gray500">
             {role}
           </Text>
         </_NameWrapper>
@@ -40,16 +40,16 @@ export const CardTextData = ({
       </_RoleWrapper>
     )}
     <Text size="body4">{description}</Text>
-    <Text size="title3" color="gray10">
+    <Text size="title3" color="gray900">
       {title}
     </Text>
-    <Text size="body2" color="gray10">
+    <Text size="body2" color="gray900">
       {kinda}
     </Text>
-    <Text size="body2" color="gray10">
+    <Text size="body2" color="gray900">
       {content}
     </Text>
-    <Text size="body2" color="gray10">
+    <Text size="body2" color="gray900">
       {peoples}
     </Text>
   </ColumnGap>

@@ -26,7 +26,7 @@ export const TextListInput = ({
   const [list, setList] = useState<string>('');
   return (
     <_Wrapper margin={margin}>
-      <Text size="body2" color="gray6" margin="0 0 11px 5px">
+      <Text size="body2" color="gray600" margin="0 0 11px 5px">
         {label}
       </Text>
       <_InputWrapper>
@@ -67,7 +67,7 @@ const _InputWrapper = styled.div`
 `;
 
 const _Input = styled.input`
-  border: 1px solid ${({ theme }) => theme.color.gray5};
+  border: 1px solid ${({ theme }) => theme.color.gray500};
   ${({ theme }) => theme.font.body1};
 
   width: 100%;
@@ -76,7 +76,7 @@ const _Input = styled.input`
   border-radius: 4px;
 
   :focus {
-    border: 2px solid ${({ theme }) => theme.color.primary};
+    border: 2px solid ${({ theme }) => theme.color.primary500};
   }
 `;
 
@@ -84,15 +84,15 @@ const _ListText = styled.li`
   cursor: pointer;
 
   ::marker {
-    color: ${({ theme }) => theme.color.gray4};
+    color: ${({ theme }) => theme.color.gray400};
   }
 
   :hover {
     ${({ theme }) => css`
-      color: ${theme.color.error};
+      color: ${theme.color.error500};
 
       ::marker {
-        color: ${theme.color.error};
+        color: ${theme.color.error500};
       }
     `}
   }

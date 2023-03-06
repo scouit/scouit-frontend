@@ -35,7 +35,7 @@ const _Wrapper = styled.div`
 const _Content = styled.div`
   width: 32rem;
   padding: 0 2.5rem;
-  background-color: ${({ theme }) => theme.color.gray1};
+  background-color: ${({ theme }) => theme.color.gray100};
   position: relative;
   display: flex;
   flex-direction: column;
