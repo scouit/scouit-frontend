@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { SelectBox } from '@/components/select/SelectBox';
 import { RowGap } from '@/layouts/DirectionGap';
-import WriteProject from './write/Project';
-import WriteStudy from './write/Study';
+import WriteProject from './project';
+import WriteStudy from './study';
 import { Columns, ColumnContent } from '@/layouts/Columns';
 import { Header } from '@/components/header';
 
