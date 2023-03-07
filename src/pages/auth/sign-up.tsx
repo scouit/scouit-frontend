@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Button } from '@/components/common/button';
 import { Input } from '@/components/common/input';
@@ -8,7 +8,6 @@ import { useForm } from '@/hooks/useForm';
 import { Text } from '@/components/common/text';
 import { ColumnCenterGap } from '@/layouts/DirectionGap';
 import { customToast } from '@/utils/toast';
-import { Arrow } from '@/assets';
 
 interface ErrorType {
   name: boolean | null;
@@ -18,7 +17,6 @@ interface ErrorType {
 
 /** 프로필, 이메일 인증 추가 요망 */
 const SignUpPage = () => {
-  const navigate = useNavigate();
   const { text, handleOnChange } = useForm({
     name: '',
     email: '',
@@ -57,13 +55,6 @@ const SignUpPage = () => {
         }
       }}
     >
-      <Button
-        clickType="button"
-        icon={{ isLeft: true, Element: <Arrow color="primary700" /> }}
-        onClick={() => navigate(-1)}
-      >
-        뒤로가기
-      </Button>
       <Text size="heading1">회원가입</Text>
       <ColumnCenterGap gap="1.875rem" margin="3.125rem 0 3.4375rem 0">
         <Input

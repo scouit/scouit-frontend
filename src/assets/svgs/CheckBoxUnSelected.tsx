@@ -2,7 +2,7 @@ import styled, { DefaultTheme } from 'styled-components';
 import { keyOfColor } from '@/styles/theme/color';
 
 export interface CheckBoxType {
-  disable: boolean;
+  disable?: boolean;
 }
 
 export const disableColor = (
