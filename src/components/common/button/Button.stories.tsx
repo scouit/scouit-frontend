@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Button } from '.';
 import { IconButton } from './Icon';
 import { Velog } from '@/assets/svgs';
 
