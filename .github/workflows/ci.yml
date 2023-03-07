@@ -40,7 +40,7 @@ jobs:
           echo "your_key=$your_key" >> .env
 
       - name: Install Dependencies
-        run: yarn
+        run: yarn --immutable --immutable-cache --check-cache
 
       - name: Build Packages
         run: yarn build
@@ -73,6 +73,6 @@ jobs:
 
   #     - name: Install Dependencies
   #       run: yarn --immutable --immutable-cache --check-cache
-
+        
   #     - name: Unit Test
   #       run: yarn test
