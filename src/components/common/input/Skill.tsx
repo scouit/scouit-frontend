@@ -26,16 +26,16 @@ export const SkillInput = ({
   const [modal, setModal] = useState<boolean>(false);
   return (
     <_Wrapper margin={margin}>
-      <Text size="body2" color="gray6" margin="0 0 11px 5px">
+      <Text size="body2" color="gray600" margin="0 0 11px 5px">
         {label}
       </Text>
       <_Content>
         {Array(10)
           .fill(0)
           .map(() => (
-            <Tag margin="4.25px 0" padding="7px" color="gray10">
+            <Tag color="gray900">
               <React />
-              <Text color="gray1">React</Text>
+              <Text color="gray100">React</Text>
             </Tag>
           ))}
         <_InputWrapper>
@@ -80,7 +80,7 @@ const _Content = styled.div`
   padding: 0 14px;
   column-gap: 14px;
   box-sizing: border-box;
-  border: 1px solid ${({ theme }) => theme.color.gray5};
+  border: 1px solid ${({ theme }) => theme.color.gray500};
   border-radius: 4px;
 `;
 
@@ -107,8 +107,8 @@ const _Modal = styled.div`
   height: 130px;
   padding: 14px 13px;
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.color.gray1};
-  box-shadow: ${({ theme }) => theme.shadow.modal};
+  background-color: ${({ theme }) => theme.color.gray100};
+  box-shadow: ${({ theme }) => theme.shadow.xs};
 `;
 
 const _Button = styled.button`
@@ -118,9 +118,9 @@ const _Button = styled.button`
   ${({ theme }) => theme.font.body1};
 
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.color.gray1};
+  background-color: ${({ theme }) => theme.color.gray100};
 
   :hover {
-    background-color: ${({ theme }) => theme.color.gray4};
+    background-color: ${({ theme }) => theme.color.gray400};
   }
 `;

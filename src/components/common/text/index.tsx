@@ -25,7 +25,7 @@ export const Text = ({
   height = 'auto',
   align = 'start',
   size = 'body1',
-  color = 'gray9',
+  color = 'gray900',
   margin,
   padding,
   children,

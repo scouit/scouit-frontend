@@ -1,51 +1,51 @@
 export interface ProfileType {
   basic: BasicType;
-  intro: IntroType;
+  introduce: IntroType;
   project: ProjectType[];
   experience: ExpType[];
-  skill: SkillType;
-  active: ActiveType[];
-  educate: EducateType[];
+  technology: SkillType;
+  activity: ActiveType[];
+  education: EducateType[];
 }
 
 export type BasicType = { role: string };
 
 export type IntroType = {
-  aboutMe: string;
-  oneLineIntroduction: string;
+  complex: string;
+  simple: string;
 };
 
 export type ProjectType = {
   name: string;
-  intro: string;
-  time: TimeType;
+  introduce: string;
+  period: TimeType;
   url: string;
   works: string[];
-  skill: string[];
+  skills: string[];
   img: string[];
 };
 
 export type ExpType = {
   name: string;
-  time: TimeType;
+  period: TimeType;
   role: string;
   works: string[];
 };
 
 export type SkillType = {
-  mainSkill: string[];
-  subSkill: string[];
+  main: string[];
+  sub: string[];
 };
 
 export type ActiveType = {
   name: string;
   content: string;
-  time: TimeType;
+  period: TimeType;
 };
 
 export interface EducateType {
   name: string;
-  time: TimeType;
+  period: TimeType;
 }
 
 export type TimeType = {

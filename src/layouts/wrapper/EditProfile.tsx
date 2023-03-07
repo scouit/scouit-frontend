@@ -12,10 +12,39 @@ interface PropsType {
   children: ReactNode;
 }
 
+const initState: ProfileType = {
+  basic: {
+    role: '',
+  },
+  introduce: {
+    simple: '',
+    complex: '',
+  },
+  project: [
+    {
+      name: '',
+      introduce: '',
+      period: { start: '', end: '' },
+      url: '',
+      works: [],
+      skills: [],
+      img: [],
+    },
+  ],
+  experience: [
+    { name: '', period: { start: '', end: '' }, role: '', works: [] },
+  ],
+  technology: { main: [], sub: [] },
+  activity: [{ name: '', content: '', period: { start: '', end: '' } }],
+  education: [{ name: '', period: { start: '', end: '' } }],
+};
+
 export const EditProfileWrapper = ({ children }: PropsType) => {
-  const [profile] = useRecoilState<ProfileType>(atomProfile);
+  const [profile, setProfile] = useRecoilState<ProfileType>(atomProfile);
   useQuery(['profile', profile], () => getUserProfile<ProfileType>(), {
-    onSuccess: () => {},
+    onSuccess: () => {
+      setProfile(initState);
+    },
   });
   return (
     <_Wrapper padding="184px 1.5rem 132px 1.5rem">
@@ -28,7 +57,7 @@ export const EditProfileWrapper = ({ children }: PropsType) => {
 
 const _Wrapper = styled(Columns)`
   height: 100%;
-  background-color: ${({ theme }) => theme.color.gray2};
+  background-color: ${({ theme }) => theme.color.gray200};
   position: relative;
 `;
 

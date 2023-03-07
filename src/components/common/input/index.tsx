@@ -30,7 +30,7 @@ export const Input = ({
   const { state: isEyeOpen, invertState } = useInversion();
   return (
     <_Wrapper margin={margin}>
-      <Text size="body2" color="gray6" margin="0 0 11px 5px">
+      <Text size="body2" color="gray600" margin="0 0 11px 5px">
         {label}
       </Text>
       <_Input
@@ -42,7 +42,7 @@ export const Input = ({
         isError={isError}
       />
       <_ErroWrapper>
-        <Text height="12px" size="body4" color="error" margin="0 0 0 16px">
+        <Text height="12px" size="body4" color="error500" margin="0 0 0 16px">
           {isError && errorMsg}
         </Text>
       </_ErroWrapper>
@@ -63,7 +63,7 @@ const _Wrapper = styled.div<{ margin: string }>`
 
 const _Input = styled.input<{ isError: boolean }>`
   border: 1px solid
-    ${({ theme, isError }) => theme.color[isError ? 'error' : 'gray5']};
+    ${({ theme, isError }) => theme.color[isError ? 'error500' : 'gray500']};
   ${({ theme }) => theme.font.body1};
 
   width: 100%;
@@ -72,7 +72,7 @@ const _Input = styled.input<{ isError: boolean }>`
   border-radius: 4px;
 
   :focus {
-    border: 2px solid ${({ theme }) => theme.color.primary};
+    border: 2px solid ${({ theme }) => theme.color.primary500};
   }
 `;
 

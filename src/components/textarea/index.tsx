@@ -18,7 +18,7 @@ export const TextArea = ({
   placeholder,
 }: PropsType) => (
   <_Wrapper>
-    <Text margin="0 0 0.5rem 0.3125rem" color="gray6" size="body2">
+    <Text margin="0 0 0.5rem 0.3125rem" color="gray600" size="body2">
       {label}
     </Text>
     <_TextArea
@@ -43,6 +43,6 @@ const _TextArea = styled.textarea`
   height: 194px;
   border-radius: 8px;
   padding: 18px;
-  background-color: ${({ theme }) => theme.color.gray2};
+  background-color: ${({ theme }) => theme.color.gray200};
   font-size: 13px;
 `;

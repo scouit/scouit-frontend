@@ -7,14 +7,14 @@ export const atomProfile = atom<ProfileType>({
     basic: {
       role: '',
     },
-    intro: { aboutMe: '', oneLineIntroduction: '' },
+    introduce: { simple: '', complex: '' },
     project: [
       {
         name: '',
-        intro: '',
-        time: { start: '', end: '' },
+        introduce: '',
+        period: { start: '', end: '' },
         url: '',
-        skill: ['af'],
+        skills: ['af'],
         img: [],
         works: [],
       },
@@ -22,13 +22,13 @@ export const atomProfile = atom<ProfileType>({
     experience: [
       {
         name: '',
-        time: { start: '', end: '' },
+        period: { start: '', end: '' },
         role: '',
         works: [],
       },
     ],
-    skill: { mainSkill: [], subSkill: [] },
-    active: [{ name: '', content: '', time: { start: '', end: '' } }],
-    educate: [{ name: '', time: { start: '', end: '' } }],
+    technology: { main: [], sub: [] },
+    activity: [{ name: '', content: '', period: { start: '', end: '' } }],
+    education: [{ name: '', period: { start: '', end: '' } }],
   },
 });

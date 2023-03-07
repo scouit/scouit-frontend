@@ -15,35 +15,35 @@ import {
 import { patchUserProfile } from '@/apis/profile/PostProfile';
 import { atomProfile } from '@/store/write';
 
-export type ArrayEditType = 'project' | 'experience' | 'active' | 'educate';
+export type ArrayEditType = 'project' | 'experience' | 'activity' | 'education';
 export type ArrayProfileType = ProjectType | ExpType | ActiveType | EducateType;
-export type ContentEditType = 'basic' | 'intro' | 'skill';
+export type ContentEditType = 'basic' | 'introduce' | 'technology';
 export type ContentProfileType = BasicType | IntroType | SkillType;
 
 const arryaAddState = {
   project: {
     name: '',
-    intro: '',
-    time: { start: '', end: '' },
+    introduce: '',
+    period: { start: '', end: '' },
     url: '',
-    skill: ['af'],
+    skills: ['af'],
     img: [''],
     works: [''],
   },
   experience: {
     name: '',
-    time: { start: '', end: '' },
+    period: { start: '', end: '' },
     role: '',
     works: [''],
   },
-  active: { name: '', content: '', time: { start: '', end: '' } },
-  educate: { name: '', time: { start: '', end: '' } },
+  activity: { name: '', content: '', period: { start: '', end: '' } },
+  education: { name: '', period: { start: '', end: '' } },
 };
 
-const addValidation = (data: ArrayProfileType, ...arg: ('name' | 'time')[]) =>
+const addValidation = (data: ArrayProfileType, ...arg: ('name' | 'period')[]) =>
   arg.every((e) => {
     if (e === 'name') return data[e].length;
-    if (e === 'time') return data[e].start || data[e].end;
+    if (e === 'period') return data[e].start || data[e].end;
     return false;
   });
 
@@ -61,7 +61,7 @@ export const useProfileArray = (type: ArrayEditType) => {
     };
 
   const addContent = () =>
-    addValidation(profile[type][profile[type].length - 1], 'name', 'time') &&
+    addValidation(profile[type][profile[type].length - 1], 'name', 'period') &&
     setProfile(() => ({
       ...profile,
       [type]: [...profile[type], arryaAddState[type]],
@@ -78,7 +78,7 @@ export const useProfileList = (type: ArrayEditType) => {
   const [profile, setProfile] = useRecoilState<ProfileType>(atomProfile);
   const addListArray =
     (index: number) =>
-    (name: 'works' | 'img' | 'skill', value: string | File) => {
+    (name: 'works' | 'img' | 'skills', value: string | File) => {
       if (!value) return;
       const temp = profile[type].map((e, idx) =>
         index === idx
@@ -92,7 +92,8 @@ export const useProfileList = (type: ArrayEditType) => {
     };
 
   const removeArrayList =
-    (index: number) => (name: 'works' | 'skill' | 'img', listIndex: number) => {
+    (index: number) =>
+    (name: 'works' | 'skills' | 'img', listIndex: number) => {
       const temp = profile[type].map((e, idx) =>
         index === idx
           ? {
