@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Input } from '@/components/common/input';
 import { DateInput } from '@/components/common/input/Date';
 import { TextListInput } from '@/components/common/input/TextList';
-import { Line } from '@/components/common/line';
+import { _Line } from './education';
 import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
 import {
   useProfileArray,
@@ -21,7 +21,7 @@ const ExperiencePage = () => {
     <ProfileTapbarLayout title="업무 경험" onClick={() => {}}>
       {profile.experience.map((e, idx) => (
         <>
-          <Line height="3px" color="gray400" />
+          <_Line />
           <Input
             name="name"
             value={e.name}

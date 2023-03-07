@@ -11,7 +11,7 @@ import {
   useProfileUpdate,
 } from '@/hooks/useProfile';
 import { SkillInput } from '@/components/common/input/Skill';
-import { Line } from '@/components/common/line';
+import { _Line } from './education';
 
 const project = 'project';
 
@@ -24,7 +24,7 @@ const ProjectPage = () => {
     <ProfileTapbarLayout title="프로젝트" onClick={() => {}}>
       {profile.project.map((e, idx) => (
         <>
-          <Line height="3px" color="gray400" />
+          <_Line />
           <Input
             name="name"
             value={e.name}
