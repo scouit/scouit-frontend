@@ -32,7 +32,7 @@
     "@storybook/testing-library": "^0.0.13",
     "@stylelint/postcss-css-in-js": "^0.38.0",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/react": "^14.0.0",
     "@types/axios": "^0.14.0",
     "@types/jest": "^29.2.2",
     "@types/react": "^18.0.10",
