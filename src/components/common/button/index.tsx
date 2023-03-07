@@ -1,4 +1,3 @@
-import { keyOfColor } from '@/styles/theme/color';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 

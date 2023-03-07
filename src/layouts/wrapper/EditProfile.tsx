@@ -42,11 +42,8 @@ const initState: ProfileType = {
 export const EditProfileWrapper = ({ children }: PropsType) => {
   const [profile, setProfile] = useRecoilState<ProfileType>(atomProfile);
   useQuery(['profile', profile], () => getUserProfile<ProfileType>(), {
-    onSuccess: (data) => {
-      const temp = {};
-      // for (const [key, value] of Object.entries(data)) {
-      //   data[key] = value || initState[key];
-      // }
+    onSuccess: () => {
+      setProfile(initState);
     },
   });
   return (
