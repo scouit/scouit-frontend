@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ProfileTapbarLayout } from '@/layouts/ProfileTapbar';
+import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
 import { Input } from '@/components/common/input';
 import { useProfileUpdate } from '@/hooks/useProfile';
 

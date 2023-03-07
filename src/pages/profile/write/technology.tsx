@@ -1,5 +1,5 @@
 import { SkillInput } from '@/components/common/input/Skill';
-import { ProfileTapbarLayout } from '@/layouts/ProfileTapbar';
+import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
 
 const TechPage = () => (
   <ProfileTapbarLayout title="기술스택">

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ProfileTapbarLayout } from '@/layouts/ProfileTapbar';
+import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
 import { TextArea } from '@/components/textarea';
 import { useProfileContent, useProfileUpdate } from '@/hooks/useProfile';
 import { ColumnGap } from '@/layouts/DirectionGap';

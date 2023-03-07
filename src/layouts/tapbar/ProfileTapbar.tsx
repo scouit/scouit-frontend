@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ColumnStartGap } from '@/layouts/DirectionGap';
 import { Button } from '@/components/common/button';
 import { Text } from '@/components/common/text';
-import { lio } from '@/components/writeProfile/constants';
+import { lio } from '@/layouts/tapbar/constants';
 import { Header } from '@/components/header';
 import { media } from '@/styles/media';
 

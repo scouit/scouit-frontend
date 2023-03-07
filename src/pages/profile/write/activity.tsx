@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Input } from '@/components/common/input';
 import { DateInput } from '@/components/common/input/Date';
-import { ProfileTapbarLayout } from '@/layouts/ProfileTapbar';
+import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
 import { TextArea } from '@/components/textarea';
 import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
 

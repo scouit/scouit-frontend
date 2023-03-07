@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Input } from '@/components/common/input';
 import { DateInput } from '@/components/common/input/Date';
 import { Line } from '@/components/common/line';
-import { ProfileTapbarLayout } from '@/layouts/ProfileTapbar';
+import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
 import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
 
 const education = 'education';
