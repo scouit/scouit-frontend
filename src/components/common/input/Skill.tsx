@@ -33,7 +33,7 @@ export const SkillInput = ({
         {Array(10)
           .fill(0)
           .map(() => (
-            <Tag margin="4.25px 0" padding="7px" color="gray900">
+            <Tag color="gray900">
               <React />
               <Text color="gray100">React</Text>
             </Tag>

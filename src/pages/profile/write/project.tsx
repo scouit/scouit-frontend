@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Input } from '@/components/common/input';
 import { DateInput } from '@/components/common/input/Date';
 import { TextListInput } from '@/components/common/input/TextList';
-import { ProfileTapbarLayout } from '@/layouts/ProfileTapbar';
+import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
 import { TextArea } from '@/components/textarea';
 import { ImgLeader } from '@/components/common/input/FileLeader';
 import {
@@ -11,7 +11,7 @@ import {
   useProfileUpdate,
 } from '@/hooks/useProfile';
 import { SkillInput } from '@/components/common/input/Skill';
-import { Line } from '@/components/common/line';
+import { _Line } from './education';
 
 const project = 'project';
 
@@ -24,7 +24,7 @@ const ProjectPage = () => {
     <ProfileTapbarLayout title="프로젝트" onClick={() => {}}>
       {profile.project.map((e, idx) => (
         <>
-          <Line height="3px" color="gray400" />
+          <_Line />
           <Input
             name="name"
             value={e.name}

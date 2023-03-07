@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { Input } from '@/components/common/input';
 import { DateInput } from '@/components/common/input/Date';
-import { ProfileTapbarLayout } from '@/layouts/ProfileTapbar';
+import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
 import { TextArea } from '@/components/textarea';
 import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
+import { _Line } from './education';
 
 const activity = 'activity';
 
@@ -15,6 +16,7 @@ const ActivePage = () => {
     <ProfileTapbarLayout title="활동" onClick={() => {}}>
       {profile.activity.map((e, idx) => (
         <>
+          <_Line />
           <Input
             name={e.content}
             onChange={listChange(idx)}

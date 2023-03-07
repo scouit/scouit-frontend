@@ -7,7 +7,7 @@ export const PAGE_LIST = [
   'myPage',
   'makesPeople',
   'frequentlyAskedQuestions',
-  'profile/write/active',
+  'profile/write/activity',
   'profile/write/technology',
   'profile/write/basic',
   'profile/write/education',

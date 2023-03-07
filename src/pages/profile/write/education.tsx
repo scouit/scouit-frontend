@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
+import styled from 'styled-components';
 import { Input } from '@/components/common/input';
 import { DateInput } from '@/components/common/input/Date';
-import { Line } from '@/components/common/line';
-import { ProfileTapbarLayout } from '@/layouts/ProfileTapbar';
+import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
 import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
 
 const education = 'education';
@@ -15,7 +15,7 @@ const EducatePage = () => {
     <ProfileTapbarLayout title="학력" onClick={addContent}>
       {profile.education.map((e, idx) => (
         <>
-          <Line height="3px" color="gray400" />
+          <_Line />
           <Input
             name="name"
             label="학교 이름"
@@ -29,5 +29,11 @@ const EducatePage = () => {
     </ProfileTapbarLayout>
   );
 };
+
+export const _Line = styled.div`
+  width: 100%;
+  height: 3px;
+  background-color: ${({ theme }) => theme.color.gray400};
+`;
 
 export default EducatePage;

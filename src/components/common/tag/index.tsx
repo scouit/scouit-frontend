@@ -1,17 +1,13 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { keyOfColor } from '@/styles/theme/color';
 
 interface PropsType {
-  padding?: string;
-  margin?: string;
   color?: keyOfColor;
   children: React.ReactNode;
 }
 
-export const Tag = ({ padding, margin, color, children }: PropsType) => (
-  <_Wrapper margin={margin} padding={padding} color={color}>
-    {children}
-  </_Wrapper>
+export const Tag = ({ color, children }: PropsType) => (
+  <_Wrapper color={color}>{children}</_Wrapper>
 );
 
 const _Wrapper = styled.div<{
@@ -22,17 +18,9 @@ const _Wrapper = styled.div<{
   display: flex;
   align-items: center;
   gap: 7px;
-  margin: ${({ margin }) => margin};
-  padding: ${({ padding }) => padding};
+  margin: 4.25px 0;
+  padding: 7px;
   ${({ theme }) => theme.font.body4};
-  ${({ theme, color }) =>
-    color
-      ? css`
-          background-color: ${theme.color[color]};
-          border-radius: 8px;
-        `
-      : css`
-          border: 0.0625rem solid ${theme.color.gray300};
-          border-radius: 6.25rem;
-        `};
+  background-color: ${({ theme, color }) => theme.color[color]};
+  border-radius: 8px;
 `;

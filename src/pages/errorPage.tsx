@@ -5,7 +5,6 @@ import { Text } from '@/components/common/text';
 import { ColumnGap } from '@/layouts/DirectionGap';
 import { Error403, Error404 } from '@/assets';
 import { media } from '@/styles/media';
-import { Line } from '@/components/common/line';
 
 const ErrorState = {
   notFound: {
@@ -36,7 +35,6 @@ const NotFoundPage = ({ type }: PropsType) => {
             {name}
           </Text>
           <_ErrorNumber>{number}</_ErrorNumber>
-          <Line color="gray900" width="208px" height="4px" />
           <Text size="title1">
             <ColumnGap gap="16px">
               <div>{content}</div>
@@ -67,9 +65,11 @@ const _Content = styled.div`
 `;
 
 const _ErrorNumber = styled.div`
+  width: fit-content;
   font-size: 120px;
   font-weight: 900;
-  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 4px solid ${({ theme }) => theme.color.gray900};
 `;
 
 const _BackGroundImg = styled.img`

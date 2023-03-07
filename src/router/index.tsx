@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useEffect, useState, lazy, Suspense } from 'react';
 import { PAGE_LIST } from './constants';
+import NotFoundPage from '@/pages/errorPage';
 
 const pathRex = /(\[)(:)((\D)+)(\])/g;
 
@@ -8,6 +9,7 @@ export const Router = () => (
   <BrowserRouter>
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
+        <Route path="/*" element={<NotFoundPage type="notFound" />} />
         {PAGE_LIST.map((path) => {
           const componentPath = path.replace(pathRex, '$2$3');
           const filePath = path.replace(pathRex, '$1$3$5');

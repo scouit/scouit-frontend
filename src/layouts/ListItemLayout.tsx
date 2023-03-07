@@ -9,7 +9,7 @@ interface PropsType {
   children: ReactNode;
 }
 
-export const ProfileCard = ({ isProfile, children }: PropsType) => {
+export const ListItemLayout = ({ isProfile, children }: PropsType) => {
   const navigate = useNavigate();
   return (
     <_Wrapper>
