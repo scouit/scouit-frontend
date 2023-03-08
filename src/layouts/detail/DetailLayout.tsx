@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { DetailProfile } from '@/components/card/detail/Profile';
 import { Header } from '@/components/header';
-import { media } from '@/styles/media';
+import { media } from '@scouit/design-system';
 import { Columns, ColumnContent } from '../Columns';
 import { detailDummy } from '@/_dummy/profile';
 
