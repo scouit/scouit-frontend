@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { media } from '@/styles/media';
+import { media } from '@scouit/design-system/dist/styles/media/index';
 
 type ListType = {
   name?: string | JSX.Element;

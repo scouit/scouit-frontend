@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '@scouit/design-system/dist/styles/media/index';
 import {
   ColumnCenterGap,
   ColumnGap,
@@ -10,7 +11,6 @@ import { HeaderWrapper } from '@/layouts/wrapper/Header';
 import { cardDummy } from '@/_dummy/profile';
 import { NextJs, React, Typescript } from '@/assets';
 import { Text } from '@/components/common/text';
-import { media } from '@/styles/media';
 import { ListItemLayout } from '@/layouts/ListItemLayout';
 
 const AdminClubPage = () => (

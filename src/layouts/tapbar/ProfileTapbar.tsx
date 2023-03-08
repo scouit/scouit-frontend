@@ -1,12 +1,12 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { media } from '@scouit/design-system/dist/styles/media/index';
 import { ColumnStartGap } from '@/layouts/DirectionGap';
 import { Button } from '@/components/common/button';
 import { Text } from '@/components/common/text';
 import { lio } from './constants';
 import { Header } from '@/components/header';
-import { media } from '@/styles/media';
 
 interface PropsType {
   title: string;

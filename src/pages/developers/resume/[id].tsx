@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import { media } from '@scouit/design-system/dist/styles/media/index';
 import { ColumnContent, Columns } from '@/layouts/Columns';
 import { developersDummy } from '@/_dummy/developers';
-import { media } from '@/styles/media';
 import { Header } from '@/components/header';
 import { detailDummy } from '@/_dummy/profile';
 import { Text } from '@/components/common/text';

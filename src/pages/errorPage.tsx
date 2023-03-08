@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { media } from '@scouit/design-system/dist/styles/media/index';
 import { Button } from '@/components/common/button';
 import { Text } from '@/components/common/text';
 import { ColumnGap } from '@/layouts/DirectionGap';
 import { Error403, Error404 } from '@/assets';
-import { media } from '@/styles/media';
 
 const ErrorState = {
   notFound: {

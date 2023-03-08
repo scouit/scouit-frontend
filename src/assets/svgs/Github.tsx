@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { keyOfColor } from '@/styles/theme/color';
+import { keyOfColor } from '@scouit/design-system/dist/styles/theme/color';
 
 interface PropsType {
   hover?: keyOfColor;

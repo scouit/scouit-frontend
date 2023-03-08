@@ -1,10 +1,10 @@
 import { ReactNode, FormEvent } from 'react';
 import styled, { css } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { media } from '@scouit/design-system/dist/styles/media/index';
+import { keyOfColor } from '@scouit/design-system/dist/styles/theme/color';
+import { appearArray } from '@scouit/design-system/dist/styles/animation/slider';
 import { Arrow, AuthBack, IMac, IPhone, LabTap } from '@/assets';
-import { media } from '@/styles/media';
-import { keyOfColor } from '@/styles/theme/color';
-import { appearArray } from '@/styles/animation/slider';
 import { useSlide } from '@/hooks/useSlide';
 import { Text } from '@/components/common/text';
 import { ColumnCenterGap } from '../DirectionGap';

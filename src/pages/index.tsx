@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '@scouit/design-system/dist/styles/media/index';
 import {
   ColumnCenterGap,
   ColumnGap,
@@ -8,7 +9,6 @@ import {
 } from '@/layouts/DirectionGap';
 import { HeaderWrapper } from '@/layouts/wrapper/Header';
 import { cardDummy } from '@/_dummy/profile';
-import { media } from '@/styles/media';
 import { Text } from '@/components/common/text';
 import { NextJs, React, Typescript } from '@/assets';
 import { ListItemLayout } from '@/layouts/ListItemLayout';
