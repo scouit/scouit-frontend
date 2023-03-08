@@ -1,11 +1,11 @@
 import { ReactNode } from 'react';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import { ProfileType } from '@/apis/profile/type';
 import { getUserProfile } from '@/apis/profile/getProfile';
 import { atomProfile } from '@/store/write';
-import { media } from '@/styles/media';
+import { media } from '@scouit/design-system';
 import { Columns, ColumnContent } from '../Columns';
 
 interface PropsType {
