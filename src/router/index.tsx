@@ -3,11 +3,11 @@ import { useEffect, useState, lazy, Suspense } from 'react';
 import { PageListType, PAGE_LIST } from './constants';
 import NotFoundPage from '@/pages/errorPage';
 
-const pathRex = /(\[)(:)((\D)+)(\])/g;
+const pathRegex = /(\[)(:)((\D)+)(\])/g;
 
 const PathComponent = ({ replace }: PageListType) => {
-  const componentPath = replace(pathRex, '$2$3');
-  const filePath = replace(pathRex, '$1$3$5');
+  const componentPath = replace(pathRegex, '$2$3');
+  const filePath = replace(pathRegex, '$1$3$5');
   const [Component, setComponent] = useState(null);
   useEffect(() => {
     const importModule = async () => {
