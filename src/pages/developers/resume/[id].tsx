@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { media } from '@scouit/design-system/dist/styles/media/index';
+import { media } from '@scouit/design-system';
 import { ColumnContent, Columns } from '@/layouts/Columns';
 import { developersDummy } from '@/_dummy/developers';
 import { Header } from '@/components/header';

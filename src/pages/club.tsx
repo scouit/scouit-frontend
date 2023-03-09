@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { media } from '@scouit/design-system/dist/styles/media/index';
+import { media } from '@scouit/design-system';
 import { HeaderWrapper } from '@/layouts/wrapper/Header';
 import { cardDummy } from '@/_dummy/profile';
 import {

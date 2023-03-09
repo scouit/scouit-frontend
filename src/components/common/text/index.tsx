@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { ReactNode } from 'react';
-import { keyOfColor } from '@scouit/design-system/dist/styles/theme/color';
-import { keyOfFont } from '@scouit/design-system/dist/styles/theme/font';
+import { keyOfColor, keyOfFont } from '@scouit/design-system';
 
 type alignType = 'start' | 'center' | 'end';
 

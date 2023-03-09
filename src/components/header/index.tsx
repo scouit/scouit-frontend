@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { useRecoilState } from 'recoil';
 import ReactOutsideClickHandler from 'react-outside-click-handler';
-import { media } from '@scouit/design-system/dist/styles/media/index';
+import { media } from '@scouit/design-system';
 import { Hamburger, LogoWithText, Profile } from '@/assets';
 import { NavigationList } from '../common/list/Navigation';
 import { NavListIsLogin } from './constants';

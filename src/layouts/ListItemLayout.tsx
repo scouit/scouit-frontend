@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { media } from '@scouit/design-system/dist/styles/media/index';
+import { media } from '@scouit/design-system';
 import { Button } from '../components/common/button';
 
 interface PropsType {
