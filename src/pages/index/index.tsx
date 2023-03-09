@@ -39,7 +39,6 @@ const HomePage = () => (
             아닌 여러 답을 도출하고 그 중에 가장 올바른 결정을 합니다.
           </Text>
         </_Inner>
-        <Link to="/club" />
       </_SideController>
     </_Wrapper>
   </>

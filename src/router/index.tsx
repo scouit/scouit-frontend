@@ -7,18 +7,16 @@ const pathRegex = /(\[)(:)((\D)+)(\])/g;
 
 const PathComponent = (path: (typeof PAGE_LIST)[number]) => {
   const componentPath = path.replace(pathRegex, '$2$3');
-  console.log(componentPath);
-  const filePath = path.replace(pathRegex, '$1$3$5');
+  const filePath = path.replace(pathRegex, '$1$3$5').slice(1);
   const [Component, setComponent] = useState(null);
 
   useEffect(() => {
     const importModule = async () => {
-      const component = lazy(() => import(`../pages/${filePath}`));
+      const component = lazy(() => import(`../pages/${filePath || 'index'}`));
       setComponent(component);
     };
     importModule();
   }, [filePath]);
-
   return Component && <Route path={componentPath} element={<Component />} />;
 };
 
