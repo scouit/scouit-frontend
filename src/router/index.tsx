@@ -5,9 +5,9 @@ import NotFoundPage from '@/pages/errorPage';
 
 const pathRegex = /(\[)(:)((\D)+)(\])/g;
 
-const PathComponent = ({ replace }: PageListType) => {
-  const componentPath = replace(pathRegex, '$2$3');
-  const filePath = replace(pathRegex, '$1$3$5');
+const PathComponent = (path: PageListType) => {
+  const componentPath = path.replace(pathRegex, '$2$3');
+  const filePath = path.replace(pathRegex, '$1$3$5');
   const [Component, setComponent] = useState(null);
   useEffect(() => {
     const importModule = async () => {
