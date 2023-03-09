@@ -36,7 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/runtime-corejs3", "npm:7.21.0"],\
             ["@mdx-js/react", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:1.6.22"],\
             ["@scouit/api-types", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:1.3.1"],\
-            ["@scouit/design-system", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:1.1.1"],\
+            ["@scouit/design-system", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:1.1.4"],\
             ["@storybook/addon-actions", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:6.5.16"],\
             ["@storybook/addon-docs", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:6.5.16"],\
             ["@storybook/addon-essentials", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:6.5.16"],\
@@ -5258,17 +5258,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@scouit/design-system", [\
-        ["npm:1.1.1", {\
-          "packageLocation": "./.yarn/cache/@scouit-design-system-npm-1.1.1-9c5d5a3837-b7eb609d48.zip/node_modules/@scouit/design-system/",\
+        ["npm:1.1.4", {\
+          "packageLocation": "./.yarn/cache/@scouit-design-system-npm-1.1.4-ed02c20680-871ad7290d.zip/node_modules/@scouit/design-system/",\
           "packageDependencies": [\
-            ["@scouit/design-system", "npm:1.1.1"]\
+            ["@scouit/design-system", "npm:1.1.4"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:1.1.1", {\
-          "packageLocation": "./.yarn/__virtual__/@scouit-design-system-virtual-d4ca1ee870/0/cache/@scouit-design-system-npm-1.1.1-9c5d5a3837-b7eb609d48.zip/node_modules/@scouit/design-system/",\
+        ["virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:1.1.4", {\
+          "packageLocation": "./.yarn/__virtual__/@scouit-design-system-virtual-00870b5fcf/0/cache/@scouit-design-system-npm-1.1.4-ed02c20680-871ad7290d.zip/node_modules/@scouit/design-system/",\
           "packageDependencies": [\
-            ["@scouit/design-system", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:1.1.1"],\
+            ["@scouit/design-system", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:1.1.4"],\
             ["@types/react", "npm:18.0.28"],\
             ["@types/react-dom", "npm:18.0.11"],\
             ["@types/styled-components", "npm:5.1.26"],\
@@ -24075,7 +24075,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/runtime-corejs3", "npm:7.21.0"],\
             ["@mdx-js/react", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:1.6.22"],\
             ["@scouit/api-types", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:1.3.1"],\
-            ["@scouit/design-system", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:1.1.1"],\
+            ["@scouit/design-system", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:1.1.4"],\
             ["@storybook/addon-actions", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:6.5.16"],\
             ["@storybook/addon-docs", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:6.5.16"],\
             ["@storybook/addon-essentials", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:6.5.16"],\

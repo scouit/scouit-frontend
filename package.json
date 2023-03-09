@@ -87,7 +87,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@scouit/design-system": "^1.1.1",
+    "@scouit/design-system": "^1.1.4",
     "@tanstack/react-query": "^4.26.1",
     "axios": "^1.2.5",
     "core-js": "^3.24.1",

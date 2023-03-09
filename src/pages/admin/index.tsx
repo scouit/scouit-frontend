@@ -7,14 +7,13 @@ import {
   RowEndGap,
   RowGap,
 } from '@/layouts/DirectionGap';
-import { HeaderWrapper } from '@/layouts/wrapper/Header';
 import { cardDummy } from '@/_dummy/profile';
 import { Text } from '@/components/common/text';
 import { NextJs, React, Typescript } from '@/assets';
 import { ListItemLayout } from '@/layouts/ListItemLayout';
 
 const AdminHomePage = () => (
-  <HeaderWrapper currentPage="홈" type="어드민">
+  <div>
     {cardDummy.map(({ url, name, role, description, tag }) => (
       <ListItemLayout isProfile>
         <ColumnCenterGap gap="2.25rem" padding="0 1.5rem">
@@ -47,7 +46,7 @@ const AdminHomePage = () => (
         </ColumnCenterGap>
       </ListItemLayout>
     ))}
-  </HeaderWrapper>
+  </div>
 );
 
 const _RoleWrapper = styled.div`

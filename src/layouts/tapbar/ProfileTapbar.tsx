@@ -20,7 +20,7 @@ export const ProfileTapbarLayout = ({
   children,
 }: PropsType) => (
   <>
-    <Header textList={lio} currentPage={title} gap="17px" isMedia />
+    {/* <Header textList={lio} currentPage={title} gap="17px" isMedia /> */}
     <_Wrapper>
       <_TitleWrapper>
         <Text size="heading1">{title}</Text>

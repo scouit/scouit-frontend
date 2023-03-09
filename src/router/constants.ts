@@ -1,7 +1,7 @@
 // 파일경로랑 === path
 // export default
 export const PAGE_LIST = [
-  '',
+  'index',
   'club',
   'side-project',
   'myPage',
@@ -27,4 +27,4 @@ export const PAGE_LIST = [
   'admin',
 ] as const;
 
-export type PageListType = (typeof PAGE_LIST)[number];
+export type PageListType = `/${(typeof PAGE_LIST)[number]}`;
