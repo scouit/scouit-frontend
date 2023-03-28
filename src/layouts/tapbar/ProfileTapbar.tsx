@@ -5,8 +5,14 @@ import { media } from '@scouit/design-system';
 import { ColumnStartGap } from '@/layouts/DirectionGap';
 import { Button } from '@/components/common/button';
 import { Text } from '@/components/common/text';
-import { lio } from './constants';
+import { lio, profileInit } from './constants';
 import { Header } from '@/components/header';
+import { ColumnContent, Columns } from '../Columns';
+import { useRecoilState } from 'recoil';
+import { ProfileType } from '@/apis/profile/type';
+import { atomProfile } from '@/store/write';
+import { useQuery } from '@tanstack/react-query';
+import { getUserProfile } from '@/apis/profile/getProfile';
 
 interface PropsType {
   title: string;
@@ -18,37 +24,61 @@ export const ProfileTapbarLayout = ({
   title,
   onClick,
   children,
-}: PropsType) => (
-  <>
-    {/* <Header textList={lio} currentPage={title} gap="17px" isMedia /> */}
-    <_Wrapper>
-      <_TitleWrapper>
-        <Text size="heading1">{title}</Text>
-        {onClick && <Button onClick={onClick}>추가하기</Button>}
-      </_TitleWrapper>
-      <ColumnStartGap gap="65px" padding="0 0 65px">
-        {children}
-      </ColumnStartGap>
-    </_Wrapper>
-    <_TapbarWrapper>
-      <_ActiveContent>
-        {lio.map((e) => (
-          <Link to={e.url}>
-            <Button
-              size="large"
-              color={e.title === title ? 'primary' : 'affirmative'}
-            >
-              {e.title}
-            </Button>
-          </Link>
-        ))}
-      </_ActiveContent>
-      <_ButtonWrapper>
-        <Button size="large">프로필 저장</Button>
-      </_ButtonWrapper>
-    </_TapbarWrapper>
-  </>
-);
+}: PropsType) => {
+  const [profile, setProfile] = useRecoilState<ProfileType>(atomProfile);
+  useQuery(['profile', profile], () => getUserProfile<ProfileType>(), {
+    onSuccess: () => {
+      setProfile(profileInit);
+    },
+    enabled: !!profile,
+  });
+  return (
+    <_EditWrapper>
+      <_EditContent direction="row" gap="24px" justify="space-between">
+        {/* <Header textList={lio} currentPage={title} gap="17px" isMedia /> */}
+        <_Wrapper>
+          <_TitleWrapper>
+            <Text size="heading1">{title}</Text>
+            {onClick && <Button onClick={onClick}>추가하기</Button>}
+          </_TitleWrapper>
+          <ColumnStartGap gap="65px" padding="0 0 65px">
+            {children}
+          </ColumnStartGap>
+        </_Wrapper>
+        <_TapbarWrapper>
+          <_ActiveContent>
+            {lio.map((e) => (
+              <Link to={e.url}>
+                <Button
+                  size="large"
+                  color={e.title === title ? 'primary' : 'affirmative'}
+                >
+                  {e.title}
+                </Button>
+              </Link>
+            ))}
+          </_ActiveContent>
+          <_ButtonWrapper>
+            <Button size="large">프로필 저장</Button>
+          </_ButtonWrapper>
+        </_TapbarWrapper>
+      </_EditContent>
+    </_EditWrapper>
+  );
+};
+
+const _EditWrapper = styled(Columns)`
+  height: 100%;
+  background-color: ${({ theme }) => theme.color.gray200};
+  position: relative;
+  padding: 184px 1.5rem 132px 1.5rem;
+`;
+
+const _EditContent = styled(ColumnContent)`
+  ${media._1024(`
+    flex-direction: column-reverse;
+  `)}
+`;
 
 const _Wrapper = styled.div`
   width: 100%;

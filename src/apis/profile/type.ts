@@ -18,7 +18,7 @@ export type IntroType = {
 export type ProjectType = {
   name: string;
   introduce: string;
-  period: TimeType;
+  period: string;
   url: string;
   works: string[];
   skills: string[];
@@ -27,7 +27,7 @@ export type ProjectType = {
 
 export type ExpType = {
   name: string;
-  period: TimeType;
+  period: string;
   role: string;
   works: string[];
 };
@@ -40,12 +40,12 @@ export type SkillType = {
 export type ActiveType = {
   name: string;
   content: string;
-  period: TimeType;
+  period: string;
 };
 
 export interface EducateType {
   name: string;
-  period: TimeType;
+  period: string;
 }
 
 export type TimeType = {

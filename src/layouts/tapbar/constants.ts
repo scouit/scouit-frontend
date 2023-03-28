@@ -1,3 +1,5 @@
+import { ProfileType } from '../../apis/profile/type';
+
 const writeUrl = '/profile/write/';
 
 export const URI = [
@@ -24,3 +26,23 @@ export const lio = [
   // '외국어',
   // 'URL',
 ];
+
+export const profileInit: ProfileType = {
+  basic: { role: '' },
+  introduce: { complex: '', simple: '' },
+  project: [
+    {
+      name: '',
+      introduce: '',
+      period: new Date().toLocaleDateString(),
+      url: '',
+      works: [],
+      skills: [],
+      img: [],
+    },
+  ],
+  experience: [{ name: '', period: '', role: '', works: [] }],
+  technology: { main: [], sub: [] },
+  activity: [{ name: '', content: '', period: '' }],
+  education: [{ name: '', period: '' }],
+};
