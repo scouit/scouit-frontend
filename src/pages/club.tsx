@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { HeaderWrapper } from '@/layouts/wrapper/Header';
+import { media } from '@scouit/design-system';
 import { cardDummy } from '@/_dummy/profile';
-import { media } from '@/styles/media';
 import {
   ColumnCenterGap,
   ColumnGap,
@@ -14,7 +13,7 @@ import { NextJs, React, Typescript } from '@/assets';
 import { ListItemLayout } from '@/layouts/ListItemLayout';
 
 const ClubPage = () => (
-  <HeaderWrapper currentPage="연합 동아리">
+  <div>
     {cardDummy.map(({ url, name, role, description, tag }) => (
       <ListItemLayout isProfile>
         <ColumnCenterGap gap="2.25rem" padding="0 1.5rem">
@@ -47,7 +46,7 @@ const ClubPage = () => (
         </ColumnCenterGap>
       </ListItemLayout>
     ))}
-  </HeaderWrapper>
+  </div>
 );
 
 const _RoleWrapper = styled.div`

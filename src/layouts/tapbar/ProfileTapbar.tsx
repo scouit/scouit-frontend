@@ -1,12 +1,12 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { media } from '@scouit/design-system';
 import { ColumnStartGap } from '@/layouts/DirectionGap';
 import { Button } from '@/components/common/button';
 import { Text } from '@/components/common/text';
 import { lio } from './constants';
 import { Header } from '@/components/header';
-import { media } from '@/styles/media';
 
 interface PropsType {
   title: string;
@@ -20,7 +20,7 @@ export const ProfileTapbarLayout = ({
   children,
 }: PropsType) => (
   <>
-    <Header textList={lio} currentPage={title} gap="17px" isMedia />
+    {/* <Header textList={lio} currentPage={title} gap="17px" isMedia /> */}
     <_Wrapper>
       <_TitleWrapper>
         <Text size="heading1">{title}</Text>

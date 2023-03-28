@@ -1,10 +1,8 @@
 import { ReactNode, FormEvent } from 'react';
 import styled, { css } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { media, keyOfColor, appearArray } from '@scouit/design-system';
 import { Arrow, AuthBack, IMac, IPhone, LabTap } from '@/assets';
-import { media } from '@/styles/media';
-import { keyOfColor } from '@/styles/theme/color';
-import { appearArray } from '@/styles/animation/slider';
 import { useSlide } from '@/hooks/useSlide';
 import { Text } from '@/components/common/text';
 import { ColumnCenterGap } from '../DirectionGap';

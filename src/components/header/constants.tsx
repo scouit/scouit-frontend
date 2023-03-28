@@ -1,4 +1,4 @@
-import { ProfileHeader } from './Profile';
+import { Profile } from '@/assets/imgs';
 
 const nonMemberNavList = [
   {
@@ -17,7 +17,7 @@ const memberNavList = [
     link: '/company/job-posting',
   },
   {
-    name: <ProfileHeader />,
+    name: <Profile />,
   },
 ];
 

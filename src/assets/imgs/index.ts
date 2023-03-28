@@ -9,3 +9,4 @@ export { default as Error404 } from './404.png';
 export { default as Error403 } from './403.png';
 export { default as Error401 } from './401.png';
 export { default as FileLeader } from './fileLeader.png';
+export { default as ProfileSide } from './profileSide.png';

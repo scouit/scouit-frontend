@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '@scouit/design-system';
 import {
   ColumnCenterGap,
   ColumnGap,
@@ -6,15 +7,14 @@ import {
   RowEndGap,
   RowGap,
 } from '@/layouts/DirectionGap';
-import { HeaderWrapper } from '@/layouts/wrapper/Header';
+// import { HeaderWrapper } from '@/layouts/wrapper/Header';
 import { cardDummy } from '@/_dummy/profile';
-import { media } from '@/styles/media';
 import { Text } from '@/components/common/text';
 import { NextJs, React, Typescript } from '@/assets';
 import { ListItemLayout } from '@/layouts/ListItemLayout';
 
 const SideProjectPage = () => (
-  <HeaderWrapper currentPage="사이드 프로젝트">
+  <div>
     {cardDummy.map(({ url, name, role, description, tag }) => (
       <ListItemLayout isProfile>
         <ColumnCenterGap gap="2.25rem" padding="0 1.5rem">
@@ -39,15 +39,15 @@ const SideProjectPage = () => (
               </ColumnGap>
             </RowCenterGap>
             <RowGap gap="0.5rem">
-              {tag.map((content) => (
+              {/* {tag.map((content) => (
                 <_Tag>{content}</_Tag>
-              ))}
+              ))} */}
             </RowGap>
           </ColumnGap>
         </ColumnCenterGap>
       </ListItemLayout>
     ))}
-  </HeaderWrapper>
+  </div>
 );
 
 const _RoleWrapper = styled.div`

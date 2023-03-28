@@ -1,5 +1,5 @@
 import styled, { DefaultTheme } from 'styled-components';
-import { keyOfColor } from '@/styles/theme/color';
+import { keyOfColor } from '@scouit/design-system';
 
 export interface CheckBoxType {
   disable?: boolean;

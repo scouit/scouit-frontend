@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 import { ColumnGap } from '@/layouts/DirectionGap';
-import { HeaderWrapper } from '@/layouts/wrapper/Header';
 import { cardDummy } from '@/_dummy/lounge';
 import { Text } from '@/components/common/text';
 import { ListItemLayout } from '@/layouts/ListItemLayout';
 
 const LoungeHomePage = () => (
-  <HeaderWrapper type="어드민" currentPage="홈">
+  <div>
     {cardDummy.map(({ title, content, peoples, kinda, url }) => (
       <ListItemLayout>
         <_Img src={url} />
@@ -28,7 +27,7 @@ const LoungeHomePage = () => (
         </ColumnGap>
       </ListItemLayout>
     ))}
-  </HeaderWrapper>
+  </div>
 );
 
 const _Img = styled.img`
