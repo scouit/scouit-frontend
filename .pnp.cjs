@@ -49,7 +49,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@testing-library/react", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:14.0.0"],\
             ["@types/axios", "npm:0.14.0"],\
-            ["@types/jest", "npm:29.4.0"],\
+            ["@types/jest", "npm:29.5.0"],\
             ["@types/react", "npm:18.0.28"],\
             ["@types/react-dom", "npm:18.0.11"],\
             ["@types/react-outside-click-handler", "npm:1.3.1"],\
@@ -7847,10 +7847,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/jest", [\
-        ["npm:29.4.0", {\
-          "packageLocation": "./.yarn/cache/@types-jest-npm-29.4.0-e28b79cadc-2376028236.zip/node_modules/@types/jest/",\
+        ["npm:29.5.0", {\
+          "packageLocation": "./.yarn/cache/@types-jest-npm-29.5.0-18eef6c3cc-cd877e5c56.zip/node_modules/@types/jest/",\
           "packageDependencies": [\
-            ["@types/jest", "npm:29.4.0"],\
+            ["@types/jest", "npm:29.5.0"],\
             ["expect", "npm:29.5.0"],\
             ["pretty-format", "npm:29.5.0"]\
           ],\
@@ -8247,7 +8247,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-testing-library__jest-dom-npm-5.14.5-251c4c9d75-dcb0541675.zip/node_modules/@types/testing-library__jest-dom/",\
           "packageDependencies": [\
             ["@types/testing-library__jest-dom", "npm:5.14.5"],\
-            ["@types/jest", "npm:29.4.0"]\
+            ["@types/jest", "npm:29.5.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -24069,7 +24069,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@testing-library/react", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:14.0.0"],\
             ["@types/axios", "npm:0.14.0"],\
-            ["@types/jest", "npm:29.4.0"],\
+            ["@types/jest", "npm:29.5.0"],\
             ["@types/react", "npm:18.0.28"],\
             ["@types/react-dom", "npm:18.0.11"],\
             ["@types/react-outside-click-handler", "npm:1.3.1"],\
@@ -26091,7 +26091,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/babel-jest", null],\
             ["@types/babel__core", null],\
             ["@types/esbuild", null],\
-            ["@types/jest", "npm:29.4.0"],\
+            ["@types/jest", "npm:29.5.0"],\
             ["@types/jest__types", null],\
             ["@types/typescript", null],\
             ["babel-jest", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:29.5.0"],\
