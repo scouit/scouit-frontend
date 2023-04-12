@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Input } from '@/components/common/input';
-import { DateInput } from '@/components/common/input/Date';
 import { TextListInput } from '@/components/common/input/TextList';
 import { _Line } from './education';
 import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
@@ -9,6 +8,7 @@ import {
   useProfileList,
   useProfileUpdate,
 } from '@/hooks/useProfile';
+import { DateInput } from '@scouit/design-system';
 
 const experience = 'experience';
 
@@ -29,7 +29,13 @@ const ExperiencePage = () => {
             label="회사 이름"
             placeholder="회사 이름을 작성해 주세요"
           />
-          <DateInput value={e.period} />
+          <DateInput
+            label="앙기모띠"
+            onSubmitAtInput={() => {}}
+            isDayInclude
+            value={e.startDate}
+            placeholder="날짜를 입력해 주세요"
+          />
           <Input
             name="role"
             value={e.role}

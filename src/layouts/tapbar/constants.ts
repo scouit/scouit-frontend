@@ -28,21 +28,25 @@ export const lio = [
 ];
 
 export const profileInit: ProfileType = {
-  basic: { role: '' },
-  introduce: { complex: '', simple: '' },
+  basic: { role: '', name: '', image: '' },
   project: [
     {
       name: '',
       introduce: '',
-      period: new Date().toLocaleDateString(),
-      url: '',
+      startDate: undefined,
+      endDate: undefined,
+      url: [],
       works: [],
       skills: [],
-      img: [],
+      images: [],
     },
   ],
-  experience: [{ name: '', period: '', role: '', works: [] }],
+  experience: [
+    { name: '', startDate: undefined, endDate: undefined, role: '', works: [] },
+  ],
   technology: { main: [], sub: [] },
-  activity: [{ name: '', content: '', period: '' }],
-  education: [{ name: '', period: '' }],
+  activity: [
+    { name: '', content: '', startDate: undefined, endDate: undefined },
+  ],
+  education: [{ name: '', startDate: undefined, endDate: undefined }],
 };

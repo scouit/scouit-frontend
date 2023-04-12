@@ -1,10 +1,10 @@
 import { Button } from '@/components/common/button';
 import { Input } from '@/components/common/input';
-import { DateInput } from '@/components/common/input/Date';
 import { ImgLeader } from '@/components/common/input/FileLeader';
 import { TextListInput } from '@/components/common/input/TextList';
 import { TextArea } from '@/components/textarea';
 import { useForm } from '@/hooks/useForm';
+import { DateInput } from '@scouit/design-system';
 
 interface ProjectType {
   title: string;
@@ -47,7 +47,13 @@ const WriteProject = () => {
         onChange={handleOnChange}
       />
       <ImgLeader name="imgs" listArrayChange={() => {}} />
-      <DateInput value={{ start: '', end: '' }} />
+      <DateInput
+        label="앙기모띠"
+        onSubmitAtInput={() => {}}
+        isDayInclude
+        value={{ year: 0, month: 0, day: 0 }}
+        placeholder="날짜를 입력해 주세요"
+      />
       <Input label="인원" placeholder="모집할 인원을 정해주세요" />
       <TextListInput
         name="condition"

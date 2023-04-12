@@ -1,24 +1,26 @@
 import { ChangeEvent } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { useRecoilState, useRecoilValue } from 'recoil';
+import { EditType, ProfileType } from '@/apis/profile/type';
 import {
-  ActiveType,
+  ActivityType,
   BasicType,
-  EditType,
-  EducateType,
-  ExpType,
-  IntroType,
-  ProfileType,
+  EducationType,
+  WorkExperienceType,
   ProjectType,
-  SkillType,
-} from '@/apis/profile/type';
+  TechnologyType,
+} from '@scouit/api-types';
 import { patchUserProfile } from '@/apis/profile/PostProfile';
 import { atomProfile } from '@/store/write';
 
 export type ArrayEditType = 'project' | 'experience' | 'activity' | 'education';
-export type ArrayProfileType = ProjectType | ExpType | ActiveType | EducateType;
-export type ContentEditType = 'basic' | 'introduce' | 'technology';
-export type ContentProfileType = BasicType | IntroType | SkillType;
+export type ArrayProfileType =
+  | ProjectType
+  | WorkExperienceType
+  | ActivityType
+  | EducationType;
+export type ContentEditType = 'basic' | 'technology';
+export type ContentProfileType = BasicType | TechnologyType;
 
 const arryaAddState = {
   project: {
@@ -40,10 +42,13 @@ const arryaAddState = {
   education: { name: '', period: { start: '', end: '' } },
 };
 
-const addValidation = (data: ArrayProfileType, ...arg: ('name' | 'period')[]) =>
+const addValidation = (
+  data: ArrayProfileType,
+  ...arg: ('name' | 'startDate' | 'endDate')[]
+) =>
   arg.every((e) => {
     if (e === 'name') return data[e].length;
-    if (e === 'period') return data[e].start || data[e].end;
+    if (e === 'startDate') return data[e];
     return false;
   });
 
@@ -61,7 +66,12 @@ export const useProfileArray = (type: ArrayEditType) => {
     };
 
   const addContent = () =>
-    addValidation(profile[type][profile[type].length - 1], 'name', 'period') &&
+    addValidation(
+      profile[type][profile[type].length - 1],
+      'name',
+      'startDate',
+      'endDate',
+    ) &&
     setProfile(() => ({
       ...profile,
       [type]: [...profile[type], arryaAddState[type]],
@@ -78,7 +88,7 @@ export const useProfileList = (type: ArrayEditType) => {
   const [profile, setProfile] = useRecoilState<ProfileType>(atomProfile);
   const addListArray =
     (index: number) =>
-    (name: 'works' | 'img' | 'skills', value: string | File) => {
+    (name: 'works' | 'images' | 'skills', value: string | File) => {
       if (!value) return;
       const temp = profile[type].map((e, idx) =>
         index === idx
@@ -93,7 +103,7 @@ export const useProfileList = (type: ArrayEditType) => {
 
   const removeArrayList =
     (index: number) =>
-    (name: 'works' | 'skills' | 'img', listIndex: number) => {
+    (name: 'works' | 'skills' | 'images', listIndex: number) => {
       const temp = profile[type].map((e, idx) =>
         index === idx
           ? {

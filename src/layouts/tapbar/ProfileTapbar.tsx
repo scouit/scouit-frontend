@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { media } from '@scouit/design-system';
-import { ColumnStartGap } from '@/layouts/DirectionGap';
+import { ColumnGap, ColumnStartGap } from '@/layouts/DirectionGap';
 import { Button } from '@/components/common/button';
 import { Text } from '@/components/common/text';
 import { lio, profileInit } from './constants';
@@ -13,6 +13,7 @@ import { ProfileType } from '@/apis/profile/type';
 import { atomProfile } from '@/store/write';
 import { useQuery } from '@tanstack/react-query';
 import { getUserProfile } from '@/apis/profile/getProfile';
+import { Banner } from '@/assets';
 
 interface PropsType {
   title: string;
@@ -27,43 +28,50 @@ export const ProfileTapbarLayout = ({
 }: PropsType) => {
   const [profile, setProfile] = useRecoilState<ProfileType>(atomProfile);
   useQuery(['profile', profile], () => getUserProfile<ProfileType>(), {
-    onSuccess: () => {
+    onSuccess: (data) => {
+      console.log(data);
       setProfile(profileInit);
     },
-    enabled: !!profile,
   });
+  console.log('왜안되');
   return (
-    <_EditWrapper>
-      <_EditContent direction="row" gap="24px" justify="space-between">
-        {/* <Header textList={lio} currentPage={title} gap="17px" isMedia /> */}
-        <_Wrapper>
-          <_TitleWrapper>
-            <Text size="heading1">{title}</Text>
+    <>
+      <Header />
+      <_EditWrapper>
+        <_EditContent direction="row" gap="24px" justify="space-between">
+          <ColumnGap gap="25px">
+            <_BannerImg src={Banner} />
+            <_Wrapper>
+              <_TitleWrapper>
+                <Text size="heading1">{title}</Text>
+              </_TitleWrapper>
+              <ColumnStartGap gap="65px" padding="0 0 65px">
+                {children}
+              </ColumnStartGap>
+            </_Wrapper>
             {onClick && <Button onClick={onClick}>추가하기</Button>}
-          </_TitleWrapper>
-          <ColumnStartGap gap="65px" padding="0 0 65px">
-            {children}
-          </ColumnStartGap>
-        </_Wrapper>
-        <_TapbarWrapper>
-          <_ActiveContent>
-            {lio.map((e) => (
-              <Link to={e.url}>
-                <Button
-                  size="large"
-                  color={e.title === title ? 'primary' : 'affirmative'}
-                >
-                  {e.title}
-                </Button>
-              </Link>
-            ))}
-          </_ActiveContent>
-          <_ButtonWrapper>
-            <Button size="large">프로필 저장</Button>
-          </_ButtonWrapper>
-        </_TapbarWrapper>
-      </_EditContent>
-    </_EditWrapper>
+          </ColumnGap>
+
+          <_TapbarWrapper>
+            <_ActiveContent>
+              {lio.map((e) => (
+                <Link to={e.url}>
+                  <Button
+                    size="large"
+                    color={e.title === title ? 'primary' : 'affirmative'}
+                  >
+                    {e.title}
+                  </Button>
+                </Link>
+              ))}
+            </_ActiveContent>
+            <_ButtonWrapper>
+              <Button size="large">프로필 저장</Button>
+            </_ButtonWrapper>
+          </_TapbarWrapper>
+        </_EditContent>
+      </_EditWrapper>
+    </>
   );
 };
 
@@ -115,6 +123,8 @@ const _TapbarWrapper = styled.div`
 `;
 
 const _ActiveContent = styled.div`
+  display: flex;
+  flex-direction: column;
   ${media._1024(`
     display:none;
   `)}
@@ -127,4 +137,11 @@ const _ButtonWrapper = styled.div`
   bottom: 0;
   left: 0;
 `)}
+`;
+
+const _BannerImg = styled.img`
+  width: 100%;
+  height: 162px;
+  object-fit: cover;
+  border-radius: ${({ theme }) => theme.borderRadius.medium};
 `;

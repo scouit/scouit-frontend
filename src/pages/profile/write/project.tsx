@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Input } from '@/components/common/input';
-import { DateInput } from '@/components/common/input/Date';
 import { TextListInput } from '@/components/common/input/TextList';
 import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
 import { TextArea } from '@/components/textarea';
@@ -12,6 +11,7 @@ import {
 } from '@/hooks/useProfile';
 import { SkillInput } from '@/components/common/input/Skill';
 import { _Line } from './education';
+import { DateInput } from '@scouit/design-system';
 
 const project = 'project';
 
@@ -39,7 +39,13 @@ const ProjectPage = () => {
             value={e.introduce}
             onChange={listChange(idx)}
           />
-          <DateInput value={e.period} />
+          <DateInput
+            label="앙기모띠"
+            onSubmitAtInput={() => {}}
+            isDayInclude
+            value={e.startDate}
+            placeholder="날짜를 입력해 주세요"
+          />
           <TextListInput
             name="works"
             value={e.works}
