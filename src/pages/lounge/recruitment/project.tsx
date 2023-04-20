@@ -49,6 +49,7 @@ const WriteProject = () => {
       <ImgLeader name="imgs" listArrayChange={() => {}} />
       <DateInput
         label="앙기모띠"
+        name="startDay"
         onSubmitAtInput={() => {}}
         isDayInclude
         value={{ year: 0, month: 0, day: 0 }}

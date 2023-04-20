@@ -1,18 +1,17 @@
 import styled from 'styled-components';
-import { TimeType } from '@/apis/profile/type';
+import { DateType } from '@scouit/api-types';
 import { RowGap } from '@/layouts/DirectionGap';
 import { Input } from '.';
 
 interface PropsType {
-  value: TimeType;
+  value: DateType;
   margin?: string;
   gap?: string;
 }
 
 export const DateInput = ({ value, margin, gap = '46px' }: PropsType) => (
   <_Wrapper margin={margin} gap={gap}>
-    <Input value={value.start} placeholder="yyyy-MM" label="시작일" />
-    <Input value={value.end} placeholder="yyyy-MM" label="종료일" />
+    <DateInput value={value} />
   </_Wrapper>
 );
 

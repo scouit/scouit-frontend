@@ -10,6 +10,7 @@ const PathComponent = (path: (typeof PAGE_LIST)[number]) => {
   const filePath = path.replace(pathRegex, '$1$3$5').slice(1);
   const [Component, setComponent] = useState(null);
 
+  console.log(filePath);
   useEffect(() => {
     const importModule = async () => {
       const component = lazy(() => import(`../pages/${filePath || 'index'}`));

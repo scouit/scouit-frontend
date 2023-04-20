@@ -2400,9 +2400,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@scouit/design-system@npm:^1.2.5":
-  version: 1.2.5
-  resolution: "@scouit/design-system@npm:1.2.5"
+"@scouit/design-system@npm:^1.2.9":
+  version: 1.2.9
+  resolution: "@scouit/design-system@npm:1.2.9"
   dependencies:
     core-js: ^3.30.0
     react-outside-click-handler: ^1.3.0
@@ -2411,7 +2411,7 @@ __metadata:
     react: ">= 18"
     react-dom: ">= 18"
     styled-components: ">= 5"
-  checksum: 8d7b4248f49469c8e172f3114807b820dfcedace4b15af5f24863803e3389959a692ed140cace3989b9159e0e71680b323f9fe66359626631ae9c2ab932ff34c
+  checksum: d1b89e256d8a216e56a4e0beac7d974470952e006d337aaeb20d25c73b76e7aeaba0008552697bda6d82a6df460bc574a5f3add5bc7026e84f50e5a703fff380
   languageName: node
   linkType: hard
 
@@ -17444,7 +17444,7 @@ __metadata:
     "@babel/runtime-corejs3": ^7.18.9
     "@mdx-js/react": ^1.6.22
     "@scouit/api-types": ^1.4.1
-    "@scouit/design-system": ^1.2.5
+    "@scouit/design-system": ^1.2.9
     "@storybook/addon-actions": ^6.5.16
     "@storybook/addon-docs": ^6.5.16
     "@storybook/addon-essentials": ^6.5.16

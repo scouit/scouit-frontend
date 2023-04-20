@@ -4,6 +4,7 @@ import { Input } from '@/components/common/input';
 import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
 import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
 import { DateInput } from '@scouit/design-system';
+import { ProfileLabel } from '@/layouts/ProfileLabel';
 
 const education = 'education';
 
@@ -15,21 +16,24 @@ const EducatePage = () => {
     <ProfileTapbarLayout title="학력" onClick={addContent}>
       {profile.education.map((e, idx) => (
         <>
-          <_Line />
-          <Input
-            name="name"
-            label="학교 이름"
-            placeholder="학교 이름을 입력해 주세요"
-            value={e.name}
-            onChange={listChange(idx)}
-          />
-          <DateInput
-            label="앙기모띠"
-            onSubmitAtInput={() => {}}
-            isDayInclude
-            value={e.startDate}
-            placeholder="날짜를 입력해 주세요"
-          />
+          <ProfileLabel label="학교 이름">
+            <Input
+              name="name"
+              placeholder="학교 이름을 입력해 주세요"
+              value={e.name}
+              onChange={listChange(idx)}
+            />
+          </ProfileLabel>
+
+          <ProfileLabel label="졸업일일">
+            <DateInput
+              name="startDate"
+              onSubmitAtInput={(value) => {}}
+              isDayInclude
+              value={e.startDate}
+              placeholder="날짜를 입력해 주세요"
+            />
+          </ProfileLabel>
         </>
       ))}
     </ProfileTapbarLayout>

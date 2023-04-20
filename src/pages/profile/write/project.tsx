@@ -11,56 +11,85 @@ import {
 } from '@/hooks/useProfile';
 import { SkillInput } from '@/components/common/input/Skill';
 import { _Line } from './education';
-import { DateInput } from '@scouit/design-system';
+import { DateInput, TextList, ImageInput } from '@scouit/design-system';
+import { ProfileLabel } from '@/layouts/ProfileLabel';
 
 const project = 'project';
 
 const ProjectPage = () => {
-  const { profile, listChange } = useProfileArray(project);
+  const { profile, setProfile, listChange } = useProfileArray(project);
   const { addListArray, removeArrayList } = useProfileList(project);
   const projectUpdate = useProfileUpdate(project);
   useEffect(() => () => projectUpdate(), [projectUpdate]);
   return (
     <ProfileTapbarLayout title="프로젝트" onClick={() => {}}>
-      {profile.project.map((e, idx) => (
-        <>
-          <_Line />
-          <Input
-            name="name"
-            value={e.name}
-            onChange={listChange(idx)}
-            label="프로젝트 이름"
-            placeholder="프로젝트 이름을 작성해 주세요"
-          />
-          <TextArea
-            name="intro"
-            label="소개"
-            placeholder="프로젝트를 설명해 주세요"
-            value={e.introduce}
-            onChange={listChange(idx)}
-          />
-          <DateInput
-            label="앙기모띠"
-            onSubmitAtInput={() => {}}
-            isDayInclude
-            value={e.startDate}
-            placeholder="날짜를 입력해 주세요"
-          />
-          <TextListInput
-            name="works"
-            value={e.works}
-            onSubmit={addListArray(idx)}
-            onListClick={removeArrayList(idx)}
-            label="상세 업무"
-            placeholder="프로젝트에서의 업무를 작성해 주세요"
-          />
-          <SkillInput
-            label="기술 스택"
-            placeholder="사용한 기술을 작성해 주세요"
-          />
-          <ImgLeader listArrayChange={() => {}} name="img" />
-        </>
-      ))}
+      {profile.project.map((e, idx) => {
+        const arrayListChange = (value: string[]) => {
+          setProfile({ ...e, works: value }, idx);
+          console.log(value);
+        };
+        return (
+          <>
+            <ProfileLabel label="프로젝트 이름">
+              <Input
+                name="name"
+                value={e.name}
+                onChange={listChange(idx)}
+                placeholder="프로젝트 이름을 작성해 주세요"
+              />
+            </ProfileLabel>
+            <ProfileLabel label="소개">
+              <TextArea
+                name="intro"
+                label=""
+                placeholder="프로젝트를 설명해 주세요"
+                value={e.introduce}
+                onChange={listChange(idx)}
+              />
+            </ProfileLabel>
+            <ProfileLabel label="시작일">
+              <DateInput
+                name="startDate"
+                onSubmitAtInput={() => {}}
+                isDayInclude
+                value={e.startDate}
+                placeholder="날짜를 입력해 주세요"
+              />
+            </ProfileLabel>
+            <ProfileLabel label="종료일">
+              <DateInput
+                name="endDate"
+                onSubmitAtInput={() => {}}
+                isDayInclude
+                value={e.startDate}
+                placeholder="날짜를 입력해 주세요"
+              />
+            </ProfileLabel>
+
+            <ProfileLabel label="상세 업무">
+              <TextList
+                name="works"
+                textList={e.works}
+                onChange={arrayListChange}
+                placeholder="프로젝트에서의 업무를 작성해 주세요"
+              />
+            </ProfileLabel>
+            <ProfileLabel label="기술 스택">
+              <SkillInput placeholder="사용한 기술을 작성해 주세요" />
+            </ProfileLabel>
+            <ProfileLabel label="이미지">
+              <ImageInput
+                name="img"
+                isLoading={true}
+                imageList={[]}
+                label=""
+                imgToUrl={() => new Promise(() => {})}
+                onChange={() => {}}
+              />
+            </ProfileLabel>
+          </>
+        );
+      })}
     </ProfileTapbarLayout>
   );
 };

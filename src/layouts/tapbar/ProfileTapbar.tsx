@@ -2,8 +2,12 @@ import { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { media } from '@scouit/design-system';
-import { ColumnGap, ColumnStartGap } from '@/layouts/DirectionGap';
-import { Button } from '@/components/common/button';
+import {
+  ColumnEndGap,
+  ColumnGap,
+  ColumnStartGap,
+} from '@/layouts/DirectionGap';
+import { Button } from '@scouit/design-system';
 import { Text } from '@/components/common/text';
 import { lio, profileInit } from './constants';
 import { Header } from '@/components/header';
@@ -14,6 +18,7 @@ import { atomProfile } from '@/store/write';
 import { useQuery } from '@tanstack/react-query';
 import { getUserProfile } from '@/apis/profile/getProfile';
 import { Banner } from '@/assets';
+import { Pc } from '@scouit/design-system';
 
 interface PropsType {
   title: string;
@@ -33,7 +38,6 @@ export const ProfileTapbarLayout = ({
       setProfile(profileInit);
     },
   });
-  console.log('왜안되');
   return (
     <>
       <Header />
@@ -45,28 +49,48 @@ export const ProfileTapbarLayout = ({
               <_TitleWrapper>
                 <Text size="heading1">{title}</Text>
               </_TitleWrapper>
-              <ColumnStartGap gap="65px" padding="0 0 65px">
+              <ColumnStartGap gap="60px" padding="0 0 65px">
                 {children}
+                <ColumnEndGap gap="0">
+                  {onClick && (
+                    <_RemoveButton
+                      kind="tonal"
+                      height="list"
+                      color="error500"
+                      radius="circle"
+                    >
+                      삭제하기
+                    </_RemoveButton>
+                  )}
+                </ColumnEndGap>
               </ColumnStartGap>
             </_Wrapper>
-            {onClick && <Button onClick={onClick}>추가하기</Button>}
+            {onClick && (
+              <Button
+                onClick={onClick}
+                kind="fill"
+                height="LargeButton"
+                radius="circle"
+              >
+                추가하기
+              </Button>
+            )}
           </ColumnGap>
 
           <_TapbarWrapper>
             <_ActiveContent>
               {lio.map((e) => (
                 <Link to={e.url}>
-                  <Button
-                    size="large"
-                    color={e.title === title ? 'primary' : 'affirmative'}
-                  >
+                  <Button kind="text" height="LargeButton" radius="circle">
                     {e.title}
                   </Button>
                 </Link>
               ))}
             </_ActiveContent>
             <_ButtonWrapper>
-              <Button size="large">프로필 저장</Button>
+              <Button kind="fill" height="LargeButton" radius="circle">
+                프로필 저장
+              </Button>
             </_ButtonWrapper>
           </_TapbarWrapper>
         </_EditContent>
@@ -77,7 +101,7 @@ export const ProfileTapbarLayout = ({
 
 const _EditWrapper = styled(Columns)`
   height: 100%;
-  background-color: ${({ theme }) => theme.color.gray200};
+  background-color: ${({ theme }) => theme.color.gray50};
   position: relative;
   padding: 184px 1.5rem 132px 1.5rem;
 `;
@@ -92,8 +116,9 @@ const _Wrapper = styled.div`
   width: 100%;
   position: relative;
   border-radius: 0.5rem;
-  background-color: ${({ theme }) => theme.color.gray100};
-  padding: 0 60px;
+  box-shadow: ${({ theme }) => theme.shadow.md};
+  padding: 40px 60px 0 60px;
+  background-color: ${({ theme }) => theme.color.gray0};
 `;
 
 const _TitleWrapper = styled.div`
@@ -101,11 +126,14 @@ const _TitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 40px 0;
+  padding-bottom: 20px;
+  margin-bottom: 50px;
+  border-bottom: 2px solid ${({ theme }) => theme.color.gray900};
 `;
 
 const _TapbarWrapper = styled.div`
-  width: 270px;
+  max-width: 264px;
+  width: 30%;
   height: 500px;
   border-radius: 0.5rem;
   top: 115px;
@@ -113,13 +141,9 @@ const _TapbarWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.color.gray100};
+  background-color: ${({ theme }) => theme.color.gray25};
+  box-shadow: ${({ theme }) => theme.shadow.md};
   position: sticky;
-  ${media._1024(`
-    padding: 0;
-    width: 0;
-    height: 0;
-  `)}
 `;
 
 const _ActiveContent = styled.div`
@@ -144,4 +168,8 @@ const _BannerImg = styled.img`
   height: 162px;
   object-fit: cover;
   border-radius: ${({ theme }) => theme.borderRadius.medium};
+`;
+
+const _RemoveButton = styled(Button)`
+  width: fit-content;
 `;

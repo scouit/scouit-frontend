@@ -78,7 +78,11 @@ export const useProfileArray = (type: ArrayEditType) => {
     }));
   return {
     profile,
-    setProfile,
+    setProfile: (value: any, index: number) => {
+      const copy = [...profile[type]];
+      copy.splice(index, 1, value);
+      setProfile({ ...profile, [type]: copy });
+    },
     listChange,
     addContent,
   };
