@@ -85,6 +85,7 @@ const _Button = styled.div`
   align-items: center;
   gap: 10px;
   justify-content: end;
+  z-index: 10;
   padding: 10px;
   background-color: ${({ theme }) => theme.color.gray0};
   box-shadow: ${({ theme }) => theme.shadow.sm};

@@ -11,3 +11,4 @@ export { default as Error401 } from './401.png';
 export { default as FileLeader } from './fileLeader.png';
 export { default as ProfileSide } from './profileSide.png';
 export { default as Banner } from './banner.png';
+export { default as LoungeBack } from './loungeBack.png';
