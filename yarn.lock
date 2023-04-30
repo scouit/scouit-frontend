@@ -17716,9 +17716,9 @@ __metadata:
     "@babel/preset-react": ^7.17.12
     "@babel/preset-typescript": ^7.17.12
     "@babel/runtime-corejs3": ^7.18.9
+    "@mdx-js/react": ^2.0.0
     "@scouit/api-types": ^1.4.1
     "@scouit/design-system": ^1.2.9
-    "@mdx-js/react": ^2.0.0
     "@storybook/addon-actions": ^6.5.16
     "@storybook/addon-docs": ^6.5.16
     "@storybook/addon-essentials": ^6.5.16
