@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { useRecoilState } from 'recoil';
 import ReactOutsideClickHandler from 'react-outside-click-handler';
 import { media } from '@scouit/design-system';
-import { Hamburger, LogoWithText, Profile } from '@/assets';
+import { Arrow, Hamburger, LogoWithText, Profile } from '@/assets';
 import { NavigationList } from '../common/list/Navigation';
 import { NavListIsLogin } from './constants';
 import { profileSelectBox } from '@/store/modal';
@@ -38,6 +38,10 @@ export const Header = () => {
           <Navigation list={['로그인/회원가입']} />
         </div>
       </_Wrapper>
+      <_Button>
+        <Arrow color="gray900" />
+        이전으로
+      </_Button>
       <_Padding />
     </>
   );
@@ -72,4 +76,19 @@ const _Wrapper = styled.header<{ display: boolean }>`
     margin: 0 auto;
     justify-content: space-between;
   }
+`;
+
+const _Button = styled.div`
+  width: 127px;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: end;
+  padding: 10px;
+  background-color: ${({ theme }) => theme.color.gray0};
+  box-shadow: ${({ theme }) => theme.shadow.sm};
+  border-radius: 0 8px 8px 0;
+  top: 90px;
+  font-size: ${({ theme }) => theme.font.heading2};
 `;

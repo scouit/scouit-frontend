@@ -52,10 +52,10 @@ const WriteProject = () => {
         name="startDay"
         onSubmitAtInput={() => {}}
         isDayInclude
-        value={{ year: 0, month: 0, day: 0 }}
+        value={undefined}
         placeholder="날짜를 입력해 주세요"
       />
-      <Input label="인원" placeholder="모집할 인원을 정해주세요" />
+      <Input label="인원" placeholder="모집할 인원을 정해주세요" value="" />
       <TextListInput
         name="condition"
         value={text.condition}
@@ -86,7 +86,6 @@ const WriteProject = () => {
         label="추가 링크"
         placeholder="추가 링크를 정해 주세요"
       />
-      <Button size="large">작성하기</Button>
     </>
   );
 };

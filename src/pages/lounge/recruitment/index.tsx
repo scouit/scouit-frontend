@@ -7,26 +7,24 @@ import { Columns, ColumnContent } from '@/layouts/Columns';
 import { Header } from '@/components/header';
 import { SelectFalse, SelectTrue } from '@/assets';
 import { Text } from '@/components/common/text';
+import { Selector } from '@/components/common/selector';
+import { Button } from '@scouit/design-system';
 
 const kinda = ['모각코', '사이드 프로젝트', '스터디'];
 
 const LoungeWrite = () => {
   const [kind, setKind] = useState<string>('모각코');
+  console.log(kind);
   return (
     <>
       <Header />
-      <Columns padding="140px 0">
-        <ColumnContent width="35.25rem" gap="35px">
-          <RowGap width="fit-content" gap="33px" margin="0 0 50px">
-            {kinda.map((e, idx) => (
-              <_Wrapper onClick={() => setKind(e)}>
-                {kinda[idx] === kind ? <SelectTrue /> : <SelectFalse />}
-                <Text size="body1" color="gray700">
-                  {e}
-                </Text>
-              </_Wrapper>
-            ))}
-          </RowGap>
+      <Columns padding="40px 0">
+        <ColumnContent gap="40px">
+          <Selector
+            list={['모각코', '사이드 프로젝트', '스터디']}
+            value={kind}
+            onClick={setKind}
+          />
           {
             {
               '모각코': <WriteStudy />,
@@ -34,17 +32,24 @@ const LoungeWrite = () => {
               '스터디': <WriteStudy />,
             }[kind]
           }
+          <_ButtonWrapper>
+            <_Button kind="fill" radius="circle" height="LargeButton">
+              작성하기
+            </_Button>
+          </_ButtonWrapper>
         </ColumnContent>
       </Columns>
     </>
   );
 };
 
-const _Wrapper = styled.div`
-  cursor: pointer;
+const _ButtonWrapper = styled.div`
   display: flex;
-  align-items: center;
-  gap: 14px;
+  justify-content: end;
 `;
 
+const _Button = styled(Button)`
+  width: fit-content;
+  padding: 15px 85px;
+`;
 export default LoungeWrite;
