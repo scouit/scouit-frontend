@@ -13,3 +13,4 @@ export { default as ProfileSide } from './profileSide.png';
 export { default as Banner } from './banner.png';
 export { default as LoungeBack } from './loungeBack.png';
 export { default as ClubBack } from './clubBack.png';
+export { default as JobBack } from './jobBack.png';
