@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
+import { Select, Textarea } from '@scouit/design-system';
+import styled from 'styled-components';
 import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
 import { Input } from '@/components/common/input';
 import { useProfileUpdate } from '@/hooks/useProfile';
 import { ProfileLabel } from '@/layouts/ProfileLabel';
-import { Select, Textarea } from '@scouit/design-system';
-import { ColumnGap, RowGap } from '@/layouts/DirectionGap';
-import styled from 'styled-components';
+import { RowGap } from '@/layouts/DirectionGap';
 import { Back } from '@/assets';
 
 const basic = 'basic';

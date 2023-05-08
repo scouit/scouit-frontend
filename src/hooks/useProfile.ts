@@ -1,7 +1,6 @@
 import { ChangeEvent } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { EditType, ProfileType } from '@/apis/profile/type';
 import {
   ActivityType,
   BasicType,
@@ -10,6 +9,7 @@ import {
   ProjectType,
   TechnologyType,
 } from '@scouit/api-types';
+import { EditType, ProfileType } from '@/apis/profile/type';
 import { patchUserProfile } from '@/apis/profile/PostProfile';
 import { atomProfile } from '@/store/write';
 

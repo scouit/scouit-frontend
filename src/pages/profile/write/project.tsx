@@ -1,24 +1,16 @@
 import { useEffect } from 'react';
+import { DateInput, TextList, ImageInput } from '@scouit/design-system';
 import { Input } from '@/components/common/input';
-import { TextListInput } from '@/components/common/input/TextList';
 import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
 import { TextArea } from '@/components/textarea';
-import { ImgLeader } from '@/components/common/input/FileLeader';
-import {
-  useProfileArray,
-  useProfileList,
-  useProfileUpdate,
-} from '@/hooks/useProfile';
+import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
 import { SkillInput } from '@/components/common/input/Skill';
-import { _Line } from './education';
-import { DateInput, TextList, ImageInput } from '@scouit/design-system';
 import { ProfileLabel } from '@/layouts/ProfileLabel';
 
 const project = 'project';
 
 const ProjectPage = () => {
   const { profile, setProfile, listChange } = useProfileArray(project);
-  const { addListArray, removeArrayList } = useProfileList(project);
   const projectUpdate = useProfileUpdate(project);
   useEffect(() => () => projectUpdate(), [projectUpdate]);
   return (
@@ -80,7 +72,7 @@ const ProjectPage = () => {
             <ProfileLabel label="이미지">
               <ImageInput
                 name="img"
-                isLoading={true}
+                isLoading
                 imageList={[]}
                 label=""
                 imgToUrl={() => new Promise(() => {})}

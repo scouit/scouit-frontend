@@ -1,17 +1,7 @@
-import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-import { useRecoilState } from 'recoil';
-import ReactOutsideClickHandler from 'react-outside-click-handler';
-import { media } from '@scouit/design-system';
-import { Arrow, Hamburger, LogoWithText, Profile } from '@/assets';
-import { NavigationList } from '../common/list/Navigation';
-import { NavListIsLogin } from './constants';
-import { profileSelectBox } from '@/store/modal';
-import { localStorgeGetItem } from '@/utils/storge';
-import { ColumnContent, Columns } from '@/layouts/Columns';
+import { useEffect } from 'react';
+import { Arrow } from '@/assets';
 import { Text } from '../common/text';
-import { Button } from '../common/button';
-import { useState, useEffect } from 'react';
 import { useInversion } from '@/hooks/useInversion';
 import { Navigation } from '../common/Navigation';
 
@@ -19,13 +9,12 @@ export const Header = () => {
   const { state: display, correctState, incorrectState } = useInversion();
 
   useEffect(() => {
-    let lastScroll = document.documentElement.scrollTop;
     document.addEventListener('scroll', () => {
       const currentScroll = document.documentElement.scrollTop;
       if (currentScroll > 0) correctState();
       else incorrectState();
 
-      lastScroll = currentScroll;
+      document.documentElement.scrollTop = currentScroll;
     });
   }, []);
 

@@ -9,7 +9,7 @@ export const ResumeCard = ({ url }: PropsType) => {
   return (
     <_ResumeCard>
       <div>
-        <img src={url} />
+        <img src={url} alt="프로필 이미지" />
         <Text size="title1" as="div">
           조상현
         </Text>

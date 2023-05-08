@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useEffect, useState, lazy, Suspense } from 'react';
-import { PageListType, PAGE_LIST } from './constants';
+import { PAGE_LIST } from './constants';
 import NotFoundPage from '@/pages/errorPage';
 
 const pathRegex = /(\[)(:)((\D)+)(\])/g;

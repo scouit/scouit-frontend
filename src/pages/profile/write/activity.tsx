@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
+import { DateInput } from '@scouit/design-system';
 import { Input } from '@/components/common/input';
 import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
 import { TextArea } from '@/components/textarea';
 import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
-import { _Line } from './education';
-import { DateInput } from '@scouit/design-system';
 import { ProfileLabel } from '@/layouts/ProfileLabel';
 
 const activity = 'activity';

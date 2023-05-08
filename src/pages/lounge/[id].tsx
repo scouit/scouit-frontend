@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Back } from '@/assets';
 import { Text } from '@/components/common/text';
-import { ColumnGap, RowGap } from '@/layouts/DirectionGap';
+import { ColumnGap } from '@/layouts/DirectionGap';
 import { Columns, ColumnContent } from '@/layouts/Columns';
 import { detailDummy } from '@/_dummy/lounge';
 import { Header } from '@/components/header';

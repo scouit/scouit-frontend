@@ -1,14 +1,8 @@
 import { useEffect } from 'react';
-import { Input } from '@/components/common/input';
-import { TextListInput } from '@/components/common/input/TextList';
-import { _Line } from './education';
-import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
-import {
-  useProfileArray,
-  useProfileList,
-  useProfileUpdate,
-} from '@/hooks/useProfile';
 import { DateInput, TextList } from '@scouit/design-system';
+import { Input } from '@/components/common/input';
+import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
+import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
 import { ProfileLabel } from '@/layouts/ProfileLabel';
 
 const experience = 'experience';

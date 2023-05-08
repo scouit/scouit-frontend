@@ -1,18 +1,9 @@
 import styled from 'styled-components';
-import {
-  ColumnCenterGap,
-  ColumnGap,
-  RowCenterGap,
-  RowEndGap,
-  RowGap,
-} from '@/layouts/DirectionGap';
-import { cardDummy } from '@/_dummy/profile';
-import { NextJs, ProfileSide, React, Typescript } from '@/assets';
-import { ListItemLayout } from '@/layouts/ListItemLayout';
 import { Text } from '@scouit/design-system';
+import { cardDummy } from '@/_dummy/profile';
+import { ProfileSide } from '@/assets';
 import { Header } from '@/components/header';
 import { ResumeCard } from './ResumeCard';
-import { Link } from '@/router/Link';
 
 const HomePage = () => (
   <>
@@ -26,7 +17,12 @@ const HomePage = () => (
       <_SideController>
         <_Inner>
           <_Profile>
-            <img width={60} height={60} src={ProfileSide} />
+            <img
+              width={60}
+              height={60}
+              src={ProfileSide}
+              alt="프로필 사이드이미지"
+            />
             <div>
               <_Name as="div">조경현</_Name>
               <Text size="body2" as="div">

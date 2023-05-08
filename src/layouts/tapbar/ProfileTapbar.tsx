@@ -1,24 +1,23 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { media } from '@scouit/design-system';
+import { media, Button } from '@scouit/design-system';
+import { useRecoilState } from 'recoil';
+import { useQuery } from '@tanstack/react-query';
 import {
   ColumnEndGap,
   ColumnGap,
   ColumnStartGap,
 } from '@/layouts/DirectionGap';
-import { Button } from '@scouit/design-system';
+
 import { Text } from '@/components/common/text';
 import { lio, profileInit } from './constants';
 import { Header } from '@/components/header';
 import { ColumnContent, Columns } from '../Columns';
-import { useRecoilState } from 'recoil';
 import { ProfileType } from '@/apis/profile/type';
 import { atomProfile } from '@/store/write';
-import { useQuery } from '@tanstack/react-query';
 import { getUserProfile } from '@/apis/profile/getProfile';
 import { Banner } from '@/assets';
-import { Pc } from '@scouit/design-system';
 
 interface PropsType {
   title: string;

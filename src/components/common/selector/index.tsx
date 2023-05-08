@@ -7,21 +7,19 @@ interface PropsType {
   onClick: (value: string) => void;
 }
 
-export const Selector = ({ list, value, onClick }: PropsType) => {
-  return (
-    <_Wrapper>
-      {list.map((str) => (
-        <_Button
-          kind="text"
-          isSelect={str === value}
-          onClick={() => onClick(str)}
-        >
-          {str}
-        </_Button>
-      ))}
-    </_Wrapper>
-  );
-};
+export const Selector = ({ list, value, onClick }: PropsType) => (
+  <_Wrapper>
+    {list.map((str) => (
+      <_Button
+        kind="text"
+        isSelect={str === value}
+        onClick={() => onClick(str)}
+      >
+        {str}
+      </_Button>
+    ))}
+  </_Wrapper>
+);
 
 const _Wrapper = styled.div`
   display: flex;
@@ -36,14 +34,14 @@ const _Button = styled(Button)<{ isSelect: boolean }>`
   color: ${({ theme }) => theme.color.primary700};
   border-radius: ${({ theme }) => theme.borderRadius.circle};
   ${({ theme, isSelect }) => {
-    const color = theme.color;
+    const { gray0, primary700 } = theme.color;
     return (
       isSelect &&
       css`
-        color: ${color.gray0};
-        background-color: ${color.primary700};
+        color: ${gray0};
+        background-color: ${primary700};
         :hover {
-          background-color: ${color.primary700};
+          background-color: ${primary700};
         }
       `
     );

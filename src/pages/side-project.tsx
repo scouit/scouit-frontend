@@ -7,7 +7,6 @@ import {
   RowEndGap,
   RowGap,
 } from '@/layouts/DirectionGap';
-// import { HeaderWrapper } from '@/layouts/wrapper/Header';
 import { cardDummy } from '@/_dummy/profile';
 import { Text } from '@/components/common/text';
 import { NextJs, React, Typescript } from '@/assets';
@@ -15,7 +14,7 @@ import { ListItemLayout } from '@/layouts/ListItemLayout';
 
 const SideProjectPage = () => (
   <div>
-    {cardDummy.map(({ url, name, role, description, tag }) => (
+    {cardDummy.map(({ url, name, role, description }) => (
       <ListItemLayout isProfile>
         <ColumnCenterGap gap="2.25rem" padding="0 1.5rem">
           <ColumnGap gap="0.4375rem">
@@ -38,11 +37,7 @@ const SideProjectPage = () => (
                 <Text size="body4">{description}</Text>
               </ColumnGap>
             </RowCenterGap>
-            <RowGap gap="0.5rem">
-              {/* {tag.map((content) => (
-                <_Tag>{content}</_Tag>
-              ))} */}
-            </RowGap>
+            <RowGap gap="0.5rem" />
           </ColumnGap>
         </ColumnCenterGap>
       </ListItemLayout>
@@ -75,12 +70,6 @@ const _Img = styled.img`
   width: 6.25rem;
   height: 6.25rem;
   border-radius: 100px;
-`;
-
-const _Tag = styled.div`
-  border: 0.0625rem solid ${({ theme }) => theme.color.gray300};
-  border-radius: 6.25rem;
-  padding: 0.5625rem 1.125rem;
 `;
 
 export default SideProjectPage;

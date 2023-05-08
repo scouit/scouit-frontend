@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { DateType } from '@scouit/api-types';
 import { RowGap } from '@/layouts/DirectionGap';
-import { Input } from '.';
 
 interface PropsType {
   value: DateType;

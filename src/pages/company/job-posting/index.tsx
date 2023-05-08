@@ -5,7 +5,7 @@ import { Header } from '@/components/header';
 import { Text } from '@/components/common/text';
 import { useGetCompanyList } from '@/hooks/Query';
 import { Columns, ColumnContent } from '@/layouts/Columns';
-import { Back, Company, JobBack } from '@/assets';
+import { Back, JobBack } from '@/assets';
 import { PageTitle } from '@/components/PageTitle';
 import { Selector } from '@/components/common/selector';
 import { ColumnGap, RowGap } from '@/layouts/DirectionGap';
@@ -29,9 +29,9 @@ const JobPostingPage = () => {
             wrap
           >
             {data &&
-              data.map(({ workingPosition, _id }) => (
+              data.map(({ _id }) => (
                 <Link to={`/company/job-posting/${_id}`}>
-                  <_ItemWrapper></_ItemWrapper>
+                  <_ItemWrapper />
                 </Link>
               ))}
             {Array(10)

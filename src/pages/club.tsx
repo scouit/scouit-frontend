@@ -1,19 +1,10 @@
 import styled from 'styled-components';
-import { media } from '@scouit/design-system';
 import { cardDummy } from '@/_dummy/profile';
-import {
-  ColumnCenterGap,
-  ColumnGap,
-  RowCenterGap,
-  RowEndGap,
-  RowGap,
-} from '@/layouts/DirectionGap';
+import { ColumnGap, RowGap } from '@/layouts/DirectionGap';
 import { Text } from '@/components/common/text';
-import { Back, ClubBack, NextJs, React, Typescript } from '@/assets';
-import { ListItemLayout } from '@/layouts/ListItemLayout';
+import { Back, ClubBack } from '@/assets';
 import { ColumnContent, Columns } from '@/layouts/Columns';
 import { Header } from '@/components/header';
-import { Selector } from '@/components/common/selector';
 import { PageTitle } from '@/components/PageTitle';
 
 const ClubPage = () => (
@@ -22,7 +13,7 @@ const ClubPage = () => (
     <PageTitle src={ClubBack} title="연합동아리" margin="0 0 40px" isWhite />
     <Columns>
       <ColumnContent gap="24px" direction="row" wrap>
-        {cardDummy.map(({ url, name, role, description, tag }) => (
+        {cardDummy.map(({ name, role, description }) => (
           <_ItemWrapper>
             <_Img src={Back} />
             <_ItemContent>

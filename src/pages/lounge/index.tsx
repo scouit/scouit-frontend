@@ -2,12 +2,11 @@ import styled from 'styled-components';
 import { ColumnGap } from '@/layouts/DirectionGap';
 import { cardDummy } from '@/_dummy/lounge';
 import { Text } from '@/components/common/text';
-import { ListItemLayout } from '@/layouts/ListItemLayout';
 import { ColumnContent, Columns } from '@/layouts/Columns';
 import { Selector } from '@/components/common/selector';
 import { Header } from '@/components/header';
 import { PageTitle } from '@/components/PageTitle';
-import { Back, LoungeBack } from '@/assets';
+import { LoungeBack } from '@/assets';
 
 const LoungeHomePage = () => (
   <>
