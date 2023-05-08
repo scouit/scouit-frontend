@@ -2529,12 +2529,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@scouit/api-types@npm:^1.2.0":
-  version: 1.3.1
-  resolution: "@scouit/api-types@npm:1.3.1"
+"@scouit/api-types@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "@scouit/api-types@npm:1.4.1"
   peerDependencies:
     typescript: ">= 4"
-  checksum: 408305b11365328d1a17d93ab544a902d74dcb228c5f3505d6976319b38ba030f1326581b722e48c25b995443eeb778facc6403873e9c3003b78d8d107216763
+  checksum: c6a6be2f0838d4d3a3adc6c940a51d2f15ea893d5447e9658e571d9319d8ff97552b2d8d6686c87a12c4cd8186e276e574573677f6893c47414eb01cb378e1e2
+  languageName: node
+  linkType: hard
+
+"@scouit/design-system@npm:^1.2.9":
+  version: 1.2.9
+  resolution: "@scouit/design-system@npm:1.2.9"
+  dependencies:
+    core-js: ^3.30.0
+    react-outside-click-handler: ^1.3.0
+    react-responsive: ^9.0.2
+  peerDependencies:
+    react: ">= 18"
+    react-dom: ">= 18"
+    styled-components: ">= 5"
+  checksum: d1b89e256d8a216e56a4e0beac7d974470952e006d337aaeb20d25c73b76e7aeaba0008552697bda6d82a6df460bc574a5f3add5bc7026e84f50e5a703fff380
   languageName: node
   linkType: hard
 
@@ -3950,6 +3965,32 @@ __metadata:
     postcss: ">=7.0.0"
     postcss-syntax: ">=0.36.2"
   checksum: efb32b4aab38a8fcebc07a26bc49afe92e3d9dea63547fd4bb7e2a4a42c4f7534173e696ba61f5e4030961081f210ae52aea3b4829a2fe67acd3c9dc14c91b0f
+  languageName: node
+  linkType: hard
+
+"@tanstack/query-core@npm:4.26.1":
+  version: 4.26.1
+  resolution: "@tanstack/query-core@npm:4.26.1"
+  checksum: c7bc751d7d08ce27dd7262aa75a263808b128902b8f3a5dd1ff9b1dfda6511af965388bcdb7d8130bdf10756c1d583f527ead274b1d3e4f4db29c83260b416b0
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^4.26.1":
+  version: 4.26.1
+  resolution: "@tanstack/react-query@npm:4.26.1"
+  dependencies:
+    "@tanstack/query-core": 4.26.1
+    use-sync-external-store: ^1.2.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-native: "*"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: 3b43a5acc84841364c08ed7c7d0f495008214f1f39b7fb073a95a53528ce40b4841dbc407070b4c0082d73990277bbcf9bc88df40217e70c226be4931efaa081
   languageName: node
   linkType: hard
 
@@ -7703,6 +7744,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"core-js@npm:^3.30.0":
+  version: 3.30.0
+  resolution: "core-js@npm:3.30.0"
+  checksum: 276d4444a1261739ea4c350ef3f6aeab4c7ae7f36ac197f02d197a4566b42867c3a9b12c2fcda8a736aeca888d2c4131c8cb58ad17ed02294a10c9c97606df71
+  languageName: node
+  linkType: hard
+
 "core-util-is@npm:~1.0.0":
   version: 1.0.3
   resolution: "core-util-is@npm:1.0.3"
@@ -7949,6 +7997,13 @@ __metadata:
   peerDependencies:
     webpack: ^5.0.0
   checksum: 473cc32b6c837c2848e2051ad1ba331c1457449f47442e75a8c480d9891451434ada241f7e3de2347e57de17fcd84610b3bcfc4a9da41102cdaedd1e17902d31
+  languageName: node
+  linkType: hard
+
+"css-mediaquery@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "css-mediaquery@npm:0.1.2"
+  checksum: 8e26ae52d8aaaa71893f82fc485363ff0fab494b7d3b3464572aaed50714b8b538d33dbdaa69f0c02cf7f80d1f4d9a77519306c0492223ce91b3987475031a69
   languageName: node
   linkType: hard
 
@@ -11499,6 +11554,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hyphenate-style-name@npm:^1.0.0":
+  version: 1.0.4
+  resolution: "hyphenate-style-name@npm:1.0.4"
+  checksum: 4f5bf4b055089754924babebaa23c17845937bcca6aee95d5d015f8fa1e6814279002bd6a9e541e3fac2cd02519fc76305396727066c57c8e21a7e73e7a12137
+  languageName: node
+  linkType: hard
+
 "iconv-lite@npm:0.4.24":
   version: 0.4.24
   resolution: "iconv-lite@npm:0.4.24"
@@ -13910,6 +13972,15 @@ __metadata:
     "@babel/runtime": ^7.12.5
     remove-accents: 0.4.2
   checksum: a4b02b676ac4ce64a89a091539ee4a70a802684713bcf06f2b70787927f510fe8a2adc849f9288857a90906083ad303467e530e8723b4a9756df9994fc164550
+  languageName: node
+  linkType: hard
+
+"matchmediaquery@npm:^0.3.0":
+  version: 0.3.1
+  resolution: "matchmediaquery@npm:0.3.1"
+  dependencies:
+    css-mediaquery: ^0.1.2
+  checksum: 154e1650f79d78858424d7086093756ad2fdb1cd9ad19230b99a47c363a1da9c6692d6ca56ea49447fb516f580c59fd60d8b9a06247e088d8e1a658e6e5604d7
   languageName: node
   linkType: hard
 
@@ -16425,7 +16496,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.0.0, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.0.0, prop-types@npm:^15.6.1, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -16796,7 +16867,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-query@npm:*, react-query@npm:^3.39.3":
+"react-query@npm:*":
   version: 3.39.3
   resolution: "react-query@npm:3.39.3"
   dependencies:
@@ -16818,6 +16889,20 @@ __metadata:
   version: 0.11.0
   resolution: "react-refresh@npm:0.11.0"
   checksum: 112178a05b1e0ffeaf5d9fb4e56b4410a34a73adeb04dbf13abdc50d9ac9df2ada83e81485156cca0b3fa296aa3612751b3d6cd13be4464642a43679b819cbc7
+  languageName: node
+  linkType: hard
+
+"react-responsive@npm:^9.0.2":
+  version: 9.0.2
+  resolution: "react-responsive@npm:9.0.2"
+  dependencies:
+    hyphenate-style-name: ^1.0.0
+    matchmediaquery: ^0.3.0
+    prop-types: ^15.6.1
+    shallow-equal: ^1.2.1
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 97c827db903125f256d7197161bf4c1d77044b12aa2fee05b7d0dc2317eab62897c006a68940c5399c209da2732e4901e92a93bf09c113ac9334232bb842ffd4
   languageName: node
   linkType: hard
 
@@ -17632,7 +17717,8 @@ __metadata:
     "@babel/preset-typescript": ^7.17.12
     "@babel/runtime-corejs3": ^7.18.9
     "@mdx-js/react": ^2.0.0
-    "@scouit/api-types": ^1.2.0
+    "@scouit/api-types": ^1.4.1
+    "@scouit/design-system": ^1.2.9
     "@storybook/addon-actions": ^6.5.16
     "@storybook/addon-docs": ^6.5.16
     "@storybook/addon-essentials": ^6.5.16
@@ -17643,6 +17729,7 @@ __metadata:
     "@storybook/react": ^6.5.16
     "@storybook/testing-library": ^0.1.0
     "@stylelint/postcss-css-in-js": ^0.38.0
+    "@tanstack/react-query": ^4.26.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^14.0.0
     "@types/axios": ^0.14.0
@@ -17689,7 +17776,6 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
     react-outside-click-handler: ^1.3.0
-    react-query: ^3.39.3
     react-router-dom: ^6.7.0
     react-toastify: ^9.1.1
     recoil: ^0.7.6
@@ -17928,6 +18014,13 @@ __metadata:
   dependencies:
     kind-of: ^6.0.2
   checksum: 39b3dd9630a774aba288a680e7d2901f5c0eae7b8387fc5c8ea559918b29b3da144b7bdb990d7ccd9e11be05508ac9e459ce51d01fd65e583282f6ffafcba2e7
+  languageName: node
+  linkType: hard
+
+"shallow-equal@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "shallow-equal@npm:1.2.1"
+  checksum: 4f1645cc516e7754c4438db687e1da439a5f29a7dba2ba90c5f88e5708aeb17bc4355ba45cad805b0e95dc898e37d8bf6d77d854919c7512f89939986cff8cd1
   languageName: node
   linkType: hard
 
@@ -19985,6 +20078,15 @@ __metadata:
     punycode: 1.3.2
     querystring: 0.2.0
   checksum: 50d100d3dd2d98b9fe3ada48cadb0b08aa6be6d3ac64112b867b56b19be4bfcba03c2a9a0d7922bfd7ac17d4834e88537749fe182430dfd9b68e520175900d90
+  languageName: node
+  linkType: hard
+
+"use-sync-external-store@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "use-sync-external-store@npm:1.2.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 5c639e0f8da3521d605f59ce5be9e094ca772bd44a4ce7322b055a6f58eeed8dda3c94cabd90c7a41fb6fa852210092008afe48f7038792fd47501f33299116a
   languageName: node
   linkType: hard
 

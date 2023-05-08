@@ -1,5 +1,5 @@
 import { ToastContainer } from 'react-toastify';
-import { StyleProvider } from './styles';
+import { StyleProvider } from '@scouit/design-system';
 import { Router } from './router';
 import 'react-toastify/dist/ReactToastify.css';
 

@@ -1,4 +1,3 @@
-import { Button } from '@/components/common/button';
 import { Input } from '@/components/common/input';
 import { TextListInput } from '@/components/common/input/TextList';
 import { TextArea } from '@/components/textarea';
@@ -96,7 +95,6 @@ const WriteStudy = () => {
         onListClick={removeTextList}
         placeholder="추가 링크를 정해 주세요"
       />
-      <Button size="large">작성하기</Button>
     </>
   );
 };

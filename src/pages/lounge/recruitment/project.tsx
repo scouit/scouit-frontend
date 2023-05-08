@@ -1,6 +1,5 @@
-import { Button } from '@/components/common/button';
+import { DateInput } from '@scouit/design-system';
 import { Input } from '@/components/common/input';
-import { DateInput } from '@/components/common/input/Date';
 import { ImgLeader } from '@/components/common/input/FileLeader';
 import { TextListInput } from '@/components/common/input/TextList';
 import { TextArea } from '@/components/textarea';
@@ -47,8 +46,15 @@ const WriteProject = () => {
         onChange={handleOnChange}
       />
       <ImgLeader name="imgs" listArrayChange={() => {}} />
-      <DateInput value={{ start: '', end: '' }} />
-      <Input label="인원" placeholder="모집할 인원을 정해주세요" />
+      <DateInput
+        label="앙기모띠"
+        name="startDay"
+        onSubmitAtInput={() => {}}
+        isDayInclude
+        value={undefined}
+        placeholder="날짜를 입력해 주세요"
+      />
+      <Input label="인원" placeholder="모집할 인원을 정해주세요" value="" />
       <TextListInput
         name="condition"
         value={text.condition}
@@ -79,7 +85,6 @@ const WriteProject = () => {
         label="추가 링크"
         placeholder="추가 링크를 정해 주세요"
       />
-      <Button size="large">작성하기</Button>
     </>
   );
 };

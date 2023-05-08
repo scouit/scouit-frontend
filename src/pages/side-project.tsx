@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '@scouit/design-system';
 import {
   ColumnCenterGap,
   ColumnGap,
@@ -6,16 +7,14 @@ import {
   RowEndGap,
   RowGap,
 } from '@/layouts/DirectionGap';
-import { HeaderWrapper } from '@/layouts/wrapper/Header';
 import { cardDummy } from '@/_dummy/profile';
-import { media } from '@/styles/media';
 import { Text } from '@/components/common/text';
 import { NextJs, React, Typescript } from '@/assets';
 import { ListItemLayout } from '@/layouts/ListItemLayout';
 
 const SideProjectPage = () => (
-  <HeaderWrapper currentPage="사이드 프로젝트">
-    {cardDummy.map(({ url, name, role, description, tag }) => (
+  <div>
+    {cardDummy.map(({ url, name, role, description }) => (
       <ListItemLayout isProfile>
         <ColumnCenterGap gap="2.25rem" padding="0 1.5rem">
           <ColumnGap gap="0.4375rem">
@@ -38,16 +37,12 @@ const SideProjectPage = () => (
                 <Text size="body4">{description}</Text>
               </ColumnGap>
             </RowCenterGap>
-            <RowGap gap="0.5rem">
-              {tag.map((content) => (
-                <_Tag>{content}</_Tag>
-              ))}
-            </RowGap>
+            <RowGap gap="0.5rem">이상한프로필</RowGap>
           </ColumnGap>
         </ColumnCenterGap>
       </ListItemLayout>
     ))}
-  </HeaderWrapper>
+  </div>
 );
 
 const _RoleWrapper = styled.div`
@@ -75,12 +70,6 @@ const _Img = styled.img`
   width: 6.25rem;
   height: 6.25rem;
   border-radius: 100px;
-`;
-
-const _Tag = styled.div`
-  border: 0.0625rem solid ${({ theme }) => theme.color.gray300};
-  border-radius: 6.25rem;
-  padding: 0.5625rem 1.125rem;
 `;
 
 export default SideProjectPage;

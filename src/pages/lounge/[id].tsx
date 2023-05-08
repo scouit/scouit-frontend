@@ -12,6 +12,8 @@ interface DetailDataType {
 }
 
 const detailData: DetailDataType[] = [
+  { title: '내용', name: 'content' },
+  { title: '기간', name: 'date' },
   { title: '장소', name: 'location' },
   { title: '일정', name: 'schedule' },
   { title: '인원', name: 'person' },
@@ -25,33 +27,38 @@ const LoungeDetail = () => (
   <>
     <Header />
     <Columns padding="127px 16px">
-      <ColumnContent width="59.75rem" gap="35px">
-        <Text size="title1">{detailDummy.title}</Text>
-        <Text size="heading2">{detailDummy.kind}</Text>
-        <Text size="body1">{detailDummy.date}</Text>
-        <_Img src={Back} />
-        <Text size="body1" margin="0 0 70px">
-          {detailDummy.content}
-        </Text>
+      <ColumnContent width="59.75rem" gap="32px">
+        <ColumnGap gap="8px" margin="0 0 32px">
+          <ColumnGap gap="8px">
+            <Text size="title1">{detailDummy.title}</Text>
+            <Text size="heading2">{detailDummy.kind}</Text>
+            <Text size="body1">{detailDummy.date}</Text>
+          </ColumnGap>
+          <_Img src={Back} />
+        </ColumnGap>
         {detailData.map(({ title, name }) => {
           const data = detailDummy[name];
           return (
-            <_Wrapper>
-              <_Text size="title2">{title}</_Text>
-              <_Content>
-                {Array.isArray(data) ? (
-                  <ColumnGap gap="20px">
-                    {data.map((e) => (
-                      <Text as="li" size="body1">
-                        {e}
-                      </Text>
-                    ))}
-                  </ColumnGap>
-                ) : (
-                  <Text size="body1">{data}</Text>
-                )}
-              </_Content>
-            </_Wrapper>
+            <ColumnGap gap="24px">
+              <Wrapper>
+                <_Text size="title2" color="primary400">
+                  {title}
+                </_Text>
+                <_Line />
+              </Wrapper>
+
+              {Array.isArray(data) ? (
+                <ColumnGap gap="20px">
+                  {data.map((e) => (
+                    <Text as="li" size="body1">
+                      {e}
+                    </Text>
+                  ))}
+                </ColumnGap>
+              ) : (
+                <Text size="body1">{data}</Text>
+              )}
+            </ColumnGap>
           );
         })}
       </ColumnContent>
@@ -59,18 +66,20 @@ const LoungeDetail = () => (
   </>
 );
 
-const _Wrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
+  align-items: center;
+  gap: 24px;
+`;
+
+const _Line = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: ${({ theme }) => theme.color.primary400};
 `;
 
 const _Text = styled(Text)`
   white-space: nowrap;
-`;
-
-const _Content = styled.div`
-  border-left: 2px solid ${({ theme }) => theme.color.gray900};
-  padding-left: 25px;
-  margin-left: 40px;
 `;
 
 const _Img = styled.img`
