@@ -37,7 +37,7 @@ const SideProjectPage = () => (
                 <Text size="body4">{description}</Text>
               </ColumnGap>
             </RowCenterGap>
-            <RowGap gap="0.5rem" />
+            <RowGap gap="0.5rem">이상한프로필</RowGap>
           </ColumnGap>
         </ColumnCenterGap>
       </ListItemLayout>
