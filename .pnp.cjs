@@ -87,7 +87,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-environment-jsdom", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:29.5.0"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["lint-staged", "npm:13.1.4"],\
-            ["mini-css-extract-plugin", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:2.7.2"],\
+            ["mini-css-extract-plugin", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:2.7.5"],\
             ["postcss", "npm:8.4.21"],\
             ["postcss-syntax", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:0.36.2"],\
             ["prettier", "npm:2.8.4"],\
@@ -5482,7 +5482,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/@scouit-design-system-virtual-7b2c7b116b/0/cache/@scouit-design-system-npm-1.2.9-e757703374-d1b89e256d.zip/node_modules/@scouit/design-system/",\
           "packageDependencies": [\
             ["@scouit/design-system", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:1.2.9"],\
-            ["@types/react", "npm:18.0.28"],\
+            ["@types/react", "npm:18.0.34"],\
             ["@types/react-dom", "npm:18.0.11"],\
             ["@types/styled-components", "npm:5.1.26"],\
             ["core-js", "npm:3.30.0"],\
@@ -7783,7 +7783,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@tanstack/react-query", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:4.26.1"],\
             ["@tanstack/query-core", "npm:4.26.1"],\
-            ["@types/react", "npm:18.0.28"],\
+            ["@types/react", "npm:18.0.34"],\
             ["@types/react-dom", "npm:18.0.11"],\
             ["@types/react-native", null],\
             ["react", "npm:18.2.0"],\
@@ -20193,17 +20193,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["mini-css-extract-plugin", [\
-        ["npm:2.7.2", {\
-          "packageLocation": "./.yarn/cache/mini-css-extract-plugin-npm-2.7.2-bc3d177aec-cd65611d6d.zip/node_modules/mini-css-extract-plugin/",\
+        ["npm:2.7.5", {\
+          "packageLocation": "./.yarn/cache/mini-css-extract-plugin-npm-2.7.5-7e01d66430-afc37cdfb7.zip/node_modules/mini-css-extract-plugin/",\
           "packageDependencies": [\
-            ["mini-css-extract-plugin", "npm:2.7.2"]\
+            ["mini-css-extract-plugin", "npm:2.7.5"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:2.7.2", {\
-          "packageLocation": "./.yarn/__virtual__/mini-css-extract-plugin-virtual-8e187b3e9f/0/cache/mini-css-extract-plugin-npm-2.7.2-bc3d177aec-cd65611d6d.zip/node_modules/mini-css-extract-plugin/",\
+        ["virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:2.7.5", {\
+          "packageLocation": "./.yarn/__virtual__/mini-css-extract-plugin-virtual-9acb29694c/0/cache/mini-css-extract-plugin-npm-2.7.5-7e01d66430-afc37cdfb7.zip/node_modules/mini-css-extract-plugin/",\
           "packageDependencies": [\
-            ["mini-css-extract-plugin", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:2.7.2"],\
+            ["mini-css-extract-plugin", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:2.7.5"],\
             ["@types/webpack", null],\
             ["schema-utils", "npm:4.0.0"],\
             ["webpack", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:5.75.0"]\
@@ -23559,14 +23559,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         ["virtual:7b2c7b116b93f59cb274534dcf94892fbc6a6ef4f8d5b1dee5f6e705ddc208bb34444584e397b8238ef71b6171b5ab281d77012ee773f04d57adb2174948f5e6#npm:9.0.2", {\
           "packageLocation": "./.yarn/__virtual__/react-responsive-virtual-3f279a3d20/0/cache/react-responsive-npm-9.0.2-bca9a3ccf7-97c827db90.zip/node_modules/react-responsive/",\
           "packageDependencies": [\
-            ["react-query", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:3.39.3"],\
-            ["@babel/runtime", "npm:7.21.0"],\
-            ["@types/react", "npm:18.0.34"],\
-            ["@types/react-dom", "npm:18.0.11"],\
-            ["@types/react-native", null],\
-            ["broadcast-channel", "npm:3.7.0"],\
-            ["match-sorter", "npm:6.3.1"],\
             ["react-responsive", "virtual:7b2c7b116b93f59cb274534dcf94892fbc6a6ef4f8d5b1dee5f6e705ddc208bb34444584e397b8238ef71b6171b5ab281d77012ee773f04d57adb2174948f5e6#npm:9.0.2"],\
+            ["@types/react", "npm:18.0.34"],\
             ["hyphenate-style-name", "npm:1.0.4"],\
             ["matchmediaquery", "npm:0.3.1"],\
             ["prop-types", "npm:15.8.1"],\
@@ -24546,7 +24540,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-environment-jsdom", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:29.5.0"],\
             ["jest-transform-stub", "npm:2.0.0"],\
             ["lint-staged", "npm:13.1.4"],\
-            ["mini-css-extract-plugin", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:2.7.2"],\
+            ["mini-css-extract-plugin", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:2.7.5"],\
             ["postcss", "npm:8.4.21"],\
             ["postcss-syntax", "virtual:78b2f6c6810fa22a330aab52d83a5a7a62976271c4876045e7e06d76b7872c837a4e45ae7e9172e019c76044baa61de4637e9b226297db3c9d30489a4c09a57f#npm:0.36.2"],\
             ["prettier", "npm:2.8.4"],\
@@ -27322,7 +27316,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/use-sync-external-store-virtual-246a5229ec/0/cache/use-sync-external-store-npm-1.2.0-44f75d2564-5c639e0f8d.zip/node_modules/use-sync-external-store/",\
           "packageDependencies": [\
             ["use-sync-external-store", "virtual:962a1e6844c7526b46dd7918f1212c467ff471ebf32db35ace3f87f61797c5fe5baf5e3c8173c1c365972f439925b72828b01dd29ca038b1adf5ad6d4be3ff47#npm:1.2.0"],\
-            ["@types/react", "npm:18.0.28"],\
+            ["@types/react", "npm:18.0.34"],\
             ["react", "npm:18.2.0"]\
           ],\
           "packagePeers": [\
