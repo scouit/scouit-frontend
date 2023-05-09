@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Columns = styled.div<{ padding?: string }>`
   width: 100%;
+  position: relative;
   padding: ${({ padding }) => padding || '0 1rem'};
 `;
 

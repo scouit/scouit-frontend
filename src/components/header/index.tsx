@@ -43,6 +43,7 @@ const _Padding = styled.div`
 const _Wrapper = styled.header<{ display: boolean }>`
   position: fixed;
   display: flex;
+  z-index: 10;
   justify-content: center;
   width: 100%;
   height: 56px;
