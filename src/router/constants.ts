@@ -25,6 +25,9 @@ export const PAGE_LIST = [
   '/auth/resetPassword',
   '/admin/club',
   '/admin',
+  '/admin/recruitment/club',
+  '/admin/recruitment/job-post',
+  '/admin/profile',
 ] as const;
 
 export type PageListType = (typeof PAGE_LIST)[number];

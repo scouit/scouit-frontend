@@ -7,6 +7,7 @@ import { Selector } from '@/components/common/selector';
 import { Header } from '@/components/header';
 import { PageTitle } from '@/components/PageTitle';
 import { LoungeBack } from '@/assets';
+import { Link } from 'react-router-dom';
 
 const LoungeHomePage = () => (
   <>
@@ -23,34 +24,36 @@ const LoungeHomePage = () => (
 
       <ColumnContent wrap direction="row" justify="center">
         {cardDummy.map(({ title, content, peoples, kinda, url, location }) => (
-          <_ItemWrapper>
-            <_Img src={url} />
-            <ColumnGap gap="16px" margin="8px 0" padding="0 18px">
-              <Text size="title1" color="gray900">
-                {title}
-              </Text>
-              {kinda && (
-                <Text size="body1" color="gray900">
-                  {kinda}
+          <Link to="yourid">
+            <_ItemWrapper>
+              <_Img src={url} />
+              <ColumnGap gap="16px" margin="8px 0" padding="0 18px">
+                <Text size="title1" color="gray900">
+                  {title}
                 </Text>
-              )}
-              {location && (
-                <Text size="body1" color="gray900">
-                  {location}
-                </Text>
-              )}
-              {content && (
-                <_ItemContentText size="body2" color="gray900">
-                  {content}
-                </_ItemContentText>
-              )}
-              {peoples && (
-                <Text size="body1" color="gray900">
-                  {peoples}
-                </Text>
-              )}
-            </ColumnGap>
-          </_ItemWrapper>
+                {kinda && (
+                  <Text size="body1" color="gray900">
+                    {kinda}
+                  </Text>
+                )}
+                {location && (
+                  <Text size="body1" color="gray900">
+                    {location}
+                  </Text>
+                )}
+                {content && (
+                  <_ItemContentText size="body2" color="gray900">
+                    {content}
+                  </_ItemContentText>
+                )}
+                {peoples && (
+                  <Text size="body1" color="gray900">
+                    {peoples}
+                  </Text>
+                )}
+              </ColumnGap>
+            </_ItemWrapper>
+          </Link>
         ))}
       </ColumnContent>
     </Columns>

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { media } from '@scouit/design-system';
+import { media, Text } from '@scouit/design-system';
 
 type ListType = {
   name?: string | JSX.Element;
@@ -15,11 +15,11 @@ interface PropsType {
 export const NavigationList = ({ list }: PropsType) => (
   <_Wrapper>
     {list.map(({ link, name, target }) => (
-      <li>
+      <Text size="heading3" as="li">
         <Link target={target} to={link}>
           {name}
         </Link>
-      </li>
+      </Text>
     ))}
   </_Wrapper>
 );

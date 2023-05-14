@@ -1,25 +1,26 @@
 import { Profile } from '@/assets/imgs';
 
-const nonMemberNavList = [
+export const staticMember = [
   {
     name: '채용공고',
     link: '/company/job-posting',
   },
   {
-    name: '로그인/회원가입',
-    link: '/sign-in',
+    name: '연합동아리',
+    link: '/club',
+  },
+  {
+    name: '라운지',
+    link: '/lounge',
   },
 ];
 
-const memberNavList = [
-  {
-    name: '채용공고',
-    link: '/company/job-posting',
-  },
-  {
-    name: <Profile />,
-  },
-];
+export const writeProfileLink = {
+  name: '이력서 작성',
+  link: '/profile/write/basic',
+};
 
-export const NavListIsLogin = (isLogin: boolean) =>
-  isLogin ? memberNavList : nonMemberNavList;
+
+export const NavListIsLogin = (isLogin: boolean) => {
+  return <div></div>;
+};

@@ -6,6 +6,7 @@ import { Back, ClubBack } from '@/assets';
 import { ColumnContent, Columns } from '@/layouts/Columns';
 import { Header } from '@/components/header';
 import { PageTitle } from '@/components/PageTitle';
+import { Link } from 'react-router-dom';
 
 const ClubPage = () => (
   <>
@@ -14,23 +15,25 @@ const ClubPage = () => (
     <Columns>
       <ColumnContent gap="24px" direction="row" wrap>
         {cardDummy.map(({ name, role, description }) => (
-          <_ItemWrapper>
-            <_Img src={Back} />
-            <_ItemContent>
-              <ColumnGap gap="5px">
-                <_Title size="title1">{name}</_Title>
-                <Text size="heading2">{role}</Text>
-                <Text size="heading2">{description}</Text>
-              </ColumnGap>
-              <RowGap gap="15px">
-                <_Logo src={Back} />
-                <ColumnGap gap="3px">
-                  <Text size="title2">기업 이름</Text>
-                  <Text size="body3">날짜</Text>
+          <Link to="yourid">
+            <_ItemWrapper>
+              <_Img src={Back} />
+              <_ItemContent>
+                <ColumnGap gap="5px">
+                  <_Title size="title1">{name}</_Title>
+                  <Text size="heading2">{role}</Text>
+                  <Text size="heading2">{description}</Text>
                 </ColumnGap>
-              </RowGap>
-            </_ItemContent>
-          </_ItemWrapper>
+                <RowGap gap="15px">
+                  <_Logo src={Back} />
+                  <ColumnGap gap="3px">
+                    <Text size="title2">기업 이름</Text>
+                    <Text size="body3">날짜</Text>
+                  </ColumnGap>
+                </RowGap>
+              </_ItemContent>
+            </_ItemWrapper>
+          </Link>
         ))}
       </ColumnContent>
     </Columns>

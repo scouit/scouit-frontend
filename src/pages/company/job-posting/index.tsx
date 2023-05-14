@@ -37,20 +37,22 @@ const JobPostingPage = () => {
             {Array(10)
               .fill(1)
               .map(() => (
-                <_ItemWrapper>
-                  <_Img src={Back} />
-                  <ColumnGap gap="10px" padding="10px 30px">
-                    <RowGap gap="15px">
-                      <_Logo src={Back} />
-                      <div>
-                        <Text size="title2">회사 이름</Text>
-                        <Text size="body4">날짜</Text>
-                      </div>
-                    </RowGap>
-                    <_ItemContent size="body4">내용</_ItemContent>
-                    <Text size="body4">3년 이상</Text>
-                  </ColumnGap>
-                </_ItemWrapper>
+                <Link to="iasgagasg">
+                  <_ItemWrapper>
+                    <_Img src={Back} />
+                    <ColumnGap gap="10px" padding="10px 30px">
+                      <RowGap gap="15px">
+                        <_Logo src={Back} />
+                        <div>
+                          <Text size="title2">회사 이름</Text>
+                          <Text size="body4">날짜</Text>
+                        </div>
+                      </RowGap>
+                      <_ItemContent size="body4">내용</_ItemContent>
+                      <Text size="body4">3년 이상</Text>
+                    </ColumnGap>
+                  </_ItemWrapper>
+                </Link>
               ))}
           </_ListWrapper>
         </Columns>

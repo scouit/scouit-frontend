@@ -71,7 +71,7 @@ const JobPostingDetailPage = () => {
         <ColumnGap gap="47px">
           <RowGap gap="10px">
             {buttonList.map((list) => (
-              <_Button kind="fill" height="smallButton" radius="circle">
+              <_Button kind="fill" height="40" radius="circle">
                 {list}
               </_Button>
             ))}
@@ -88,10 +88,13 @@ const JobPostingDetailPage = () => {
         </ColumnGap>
         <ColumnEndGap gap="46px">
           <Text size="title2">모집기간 </Text>
-          <ColumnGap gap="22px">
+          <ColumnGap gap="22px" width="fit-content">
             <Text size="title1">Company.</Text>
             <_DetailImg src={Back} />
           </ColumnGap>
+          <_Button kind="text" height="40" radius="circle">
+            지원하기
+          </_Button>
         </ColumnEndGap>
       </_DetailWrapper>
     </>
@@ -135,7 +138,7 @@ const _SideBoxContent = styled.div`
   border: 1px solid: ${({ theme }) => theme.color.gray0};
   height: 100%;
   padding: 10px;
-  background-color: ${({ theme }) => theme.color.gray0 + '1A'}
+  background-color: ${({ theme }) => theme.color.gray0 + '1A'};
 `;
 
 const _TagList = styled.div`
@@ -164,7 +167,7 @@ const _DetailWrapper = styled.div`
   background-color: ${({ theme }) => theme.color.gray800};
   display: flex;
   padding: 33px 35px 100px 88px;
-  gap: 50px;
+  gap: 125px;
   justify-content: space-between;
   div {
     color: ${({ theme }) => theme.color.gray0};
