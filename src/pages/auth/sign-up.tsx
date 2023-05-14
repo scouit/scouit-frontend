@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { Button } from '@/components/common/button';
-import { Input } from '@/components/common/input';
+import { Input, Button } from '@scouit/design-system';
 import { AuthWrapper } from '@/layouts/wrapper/Auth';
 import { useSignUpQuery } from '@/hooks/Query';
 import { useForm } from '@/hooks/useForm';
@@ -63,7 +62,7 @@ const SignUpPage = () => {
           placeholder="example@email.com"
           label="아이디"
           value={text.email}
-          onChange={handleOnChange}
+          onChange={handleOnChange as any}
         />
         <Input
           type="text"
@@ -71,9 +70,9 @@ const SignUpPage = () => {
           placeholder="홍길동"
           label="이름"
           value={text.name}
-          onChange={handleOnChange}
+          onChange={handleOnChange as any}
           isError={isError.name}
-          errorMsg="이름을 2자 이상 10자 이하로 설정해 주세요"
+          hint="이름을 2자 이상 10자 이하로 설정해 주세요"
         />
         <Input
           type="password"
@@ -81,9 +80,9 @@ const SignUpPage = () => {
           placeholder="•••••••••••"
           label="비밀번호"
           value={text.password}
-          onChange={handleOnChange}
+          onChange={handleOnChange as any}
           isError={isError.password}
-          errorMsg="비밀번호가 너무 짧거나 대문자와 특수 문자를 넣어주세요"
+          hint="대문자와 특수 문자를 넣어주세요"
         />
         <Input
           type="password"
@@ -91,14 +90,16 @@ const SignUpPage = () => {
           placeholder="•••••••••••"
           label="비밀번호 확인"
           value={text.passwordCheck}
-          onChange={handleOnChange}
+          onChange={handleOnChange as any}
           isError={isError.passwordCheck}
-          errorMsg="비밀번호가 틀립니다."
+          hint="비밀번호가 다시 입력해 주세요."
         />
       </ColumnCenterGap>
-      <Button size="large">회원가입</Button>
+      <Button height="45" kind="fill" width="100%" radius="small">
+        회원가입
+      </Button>
       <Link to="/sign-in">
-        <Button size="large" color="primary">
+        <Button height="45" width="100%" radius="small">
           로그인
         </Button>
       </Link>
