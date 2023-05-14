@@ -4,6 +4,7 @@ import { cardDummy } from '@/_dummy/profile';
 import { ProfileSide } from '@/assets';
 import { Header } from '@/components/header';
 import { ResumeCard } from './ResumeCard';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => (
   <>
@@ -11,7 +12,9 @@ const HomePage = () => (
     <_Wrapper>
       <_ResumeCardWrapper>
         {cardDummy.map(({ url }) => (
-          <ResumeCard url={url} />
+          <Link to="/developers/resume/yourid">
+            <ResumeCard url={url} />
+          </Link>
         ))}
       </_ResumeCardWrapper>
       <_SideController>
