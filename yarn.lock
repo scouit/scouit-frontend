@@ -2530,11 +2530,11 @@ __metadata:
   linkType: hard
 
 "@scouit/api-types@npm:^1.4.1":
-  version: 1.4.1
-  resolution: "@scouit/api-types@npm:1.4.1"
+  version: 1.4.2
+  resolution: "@scouit/api-types@npm:1.4.2"
   peerDependencies:
     typescript: ">= 4"
-  checksum: c6a6be2f0838d4d3a3adc6c940a51d2f15ea893d5447e9658e571d9319d8ff97552b2d8d6686c87a12c4cd8186e276e574573677f6893c47414eb01cb378e1e2
+  checksum: cfa065e3b7c9c10e90cef890c4b0516da4e216ebb7fafb238d0ff6694a22541267e05369001ae51f10b8e6320de24dcd95499c3e5055e9f67c9c98f0caf4bbf7
   languageName: node
   linkType: hard
 
