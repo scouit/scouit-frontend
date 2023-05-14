@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { DateInput, TextList } from '@scouit/design-system';
-import { Input } from '@/components/common/input';
+import { Input } from '@scouit/design-system';
 import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
 import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
 import { ProfileLabel } from '@/layouts/ProfileLabel';
@@ -23,9 +23,10 @@ const ExperiencePage = () => {
           <>
             <ProfileLabel label="이름" important>
               <Input
+                label=""
                 name="name"
                 value={e.name}
-                onChange={listChange(idx)}
+                onChange={listChange(idx) as any}
                 placeholder="회사 이름을 작성해 주세요"
               />
             </ProfileLabel>
@@ -42,9 +43,10 @@ const ExperiencePage = () => {
 
             <ProfileLabel label="개발 직군">
               <Input
+                label=""
                 name="role"
                 value={e.role}
-                onChange={listChange(idx)}
+                onChange={listChange(idx) as any}
                 placeholder="직군을 입력해 주세요"
               />
             </ProfileLabel>

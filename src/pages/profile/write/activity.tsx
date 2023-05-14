@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { DateInput } from '@scouit/design-system';
-import { Input } from '@/components/common/input';
+import { Input } from '@scouit/design-system';
 import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
-import { TextArea } from '@/components/textarea';
+import { Textarea } from '@scouit/design-system';
 import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
 import { ProfileLabel } from '@/layouts/ProfileLabel';
 
@@ -19,13 +19,15 @@ const ActivePage = () => {
           <>
             <ProfileLabel label="이름">
               <Input
+                label=""
+                value=""
                 name={e.content}
-                onChange={listChange(idx)}
+                onChange={listChange(idx) as any}
                 placeholder="참가한 활동의 이름을 적어주세요"
               />
             </ProfileLabel>
             <ProfileLabel label="이름">
-              <TextArea
+              <Textarea
                 label=""
                 name="content"
                 placeholder="참가한 활동의 내용을 적어주세요"
