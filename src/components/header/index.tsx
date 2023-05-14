@@ -23,7 +23,6 @@ export const Header = () => {
 
   const isLogin = localStorage.getItem('access_token');
 
-  console.log(isLogin);
   return (
     <>
       <_Wrapper display={display}>
@@ -70,6 +69,7 @@ const _Wrapper = styled.header<{ display: boolean }>`
   justify-content: center;
   width: 100%;
   height: 70px;
+  box-shadow: ${({ theme }) => theme.shadow.md};
   transition: background 300ms cubic-bezier(0.31, 0.27, 0.15, 0.99) 0s,
     height 300ms cubic-bezier(0.31, 0.27, 0.15, 0.99) 0s,
     border 300ms cubic-bezier(0.31, 0.27, 0.15, 0.99) 0s;
