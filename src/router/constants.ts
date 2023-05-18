@@ -2,10 +2,11 @@
 // export default
 export const PAGE_LIST = [
   '/',
-  '/club',
   '/side-project',
   '/myPage',
   '/makesPeople',
+  '/club',
+  '/club/[:id]',
   '/frequentlyAskedQuestions',
   '/profile/write/activity',
   '/profile/write/technology',

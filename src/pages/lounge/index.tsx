@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 const LoungeHomePage = () => (
   <>
     <Header />
-    <PageTitle src={LoungeBack} title="앙기모띠" />
+    <PageTitle src={LoungeBack} title="라운지" />
     <Columns>
       <_SelectorWrapper>
         <Selector
