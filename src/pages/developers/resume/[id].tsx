@@ -3,11 +3,9 @@ import { media } from '@scouit/design-system';
 import { ColumnContent, Columns } from '@/layouts/Columns';
 import { developersDummy } from '@/_dummy/developers';
 import { Header } from '@/components/header';
-import { detailDummy } from '@/_dummy/profile';
 import { Text } from '@/components/common/text';
-import { ColumnGap, ColumnStartGap } from '@/layouts/DirectionGap';
-import { Tag } from '@/components/common/tag';
-import { Profile, ProfileDetail, React } from '@/assets';
+import { ColumnGap } from '@/layouts/DirectionGap';
+import { Profile, ProfileDetail } from '@/assets';
 import { ContentCard } from './ContentCard';
 
 interface ContentCardType {
