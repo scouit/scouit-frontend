@@ -1,8 +1,12 @@
 import { useEffect } from 'react';
-import { DateInput, TextList, ImageInput } from '@scouit/design-system';
-import { Input } from '@/components/common/input';
+import {
+  DateInput,
+  TextList,
+  ImageInput,
+  Input,
+  Textarea,
+} from '@scouit/design-system';
 import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
-import { TextArea } from '@/components/textarea';
 import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
 import { SkillInput } from '@/components/common/input/Skill';
 import { ProfileLabel } from '@/layouts/ProfileLabel';
@@ -24,14 +28,15 @@ const ProjectPage = () => {
           <>
             <ProfileLabel label="프로젝트 이름">
               <Input
+                label=""
                 name="name"
                 value={e.name}
-                onChange={listChange(idx)}
+                onChange={listChange(idx) as any}
                 placeholder="프로젝트 이름을 작성해 주세요"
               />
             </ProfileLabel>
             <ProfileLabel label="소개">
-              <TextArea
+              <Textarea
                 name="intro"
                 label=""
                 placeholder="프로젝트를 설명해 주세요"
@@ -69,7 +74,7 @@ const ProjectPage = () => {
             <ProfileLabel label="기술 스택">
               <SkillInput placeholder="사용한 기술을 작성해 주세요" />
             </ProfileLabel>
-            <ProfileLabel label="이미지">
+            <ProfileLabel label="이미지" wrap>
               <ImageInput
                 name="img"
                 isLoading

@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Button } from '@/components/common/button';
-import { Input } from '@/components/common/input';
+import { Button } from '@scouit/design-system';
+import { Input } from '@scouit/design-system';
 import { Text } from '@/components/common/text';
 import { AuthWrapper } from '@/layouts/wrapper/Auth';
 import { useSignInQuery } from '@/hooks/Query';
 import { useForm } from '@/hooks/useForm';
-import { ColumnCenterGap } from '@/layouts/DirectionGap';
+import { ColumnCenterGap, ColumnStartGap } from '@/layouts/DirectionGap';
 import { useInversion } from '@/hooks/useInversion';
 import { CheckBoxUnSelected, CheckBoxClicked } from '@/assets';
 
@@ -22,12 +22,13 @@ const SignInPage = () => {
   return (
     <AuthWrapper onSubmit={() => signInMutate.mutate()}>
       <Text size="heading1">로그인</Text>
-      <ColumnCenterGap gap="1.875rem" margin="4.0625rem 0 1.75rem">
+      <ColumnStartGap gap="1.875rem" margin="4.0625rem 0 1.75rem">
         <Input
+          width="100%"
           type="text"
           name="email"
           value={text.email}
-          onChange={handleOnChange}
+          onChange={handleOnChange as any}
           placeholder="example@email.com"
           label="아이디"
         />
@@ -35,20 +36,22 @@ const SignInPage = () => {
           type="password"
           name="password"
           value={text.password}
-          onChange={handleOnChange}
+          onChange={handleOnChange as any}
           placeholder="•••••••••••"
           label="비밀번호"
         />
-      </ColumnCenterGap>
+      </ColumnStartGap>
       <_CheckBoxWrapper onClick={invertState}>
         {check ? <CheckBoxClicked /> : <CheckBoxUnSelected />}
         <Text size="body1" color="gray900">
           아이디 저장
         </Text>
       </_CheckBoxWrapper>
-      <Button size="large">로그인</Button>
-      <Link to="/sign-up">
-        <Button size="large" color="primary">
+      <Button height="45" kind="fill" width="100%" radius="small">
+        로그인
+      </Button>
+      <Link to="/auth/sign-up">
+        <Button height="45" width="100%" radius="small">
           회원가입
         </Button>
       </Link>

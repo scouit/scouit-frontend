@@ -1,9 +1,12 @@
 import styled, { css } from 'styled-components';
 import { useEffect } from 'react';
-import { Arrow } from '@/assets';
+import { Arrow, Profile, ProfileSide } from '@/assets';
 import { Text } from '../common/text';
 import { useInversion } from '@/hooks/useInversion';
 import { Navigation } from '../common/Navigation';
+import { staticMember, writeProfileLink } from './constants';
+import { NavigationList } from '../common/list/Navigation';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const { state: display, correctState, incorrectState } = useInversion();
@@ -18,13 +21,26 @@ export const Header = () => {
     });
   }, []);
 
+  const isLogin = localStorage.getItem('access_token');
+
   return (
     <>
       <_Wrapper display={display}>
         <div>
-          <Text size="heading1">SCOUIT</Text>
-          <Navigation list={['채용공고', '이력서']} />
-          <Navigation list={['로그인/회원가입']} />
+          <Link to="/">
+            <Text size="heading1">SCOUIT</Text>
+          </Link>
+
+          <NavigationList
+            list={[...staticMember, isLogin && writeProfileLink].filter(
+              Boolean,
+            )}
+          />
+          {isLogin ? (
+            <_ProfileImg src={Profile} width={50} height={50} />
+          ) : (
+            <Navigation list={['로그인/회원가입']} />
+          )}
         </div>
       </_Wrapper>
       <_Button>
@@ -40,19 +56,27 @@ const _Padding = styled.div`
   padding-top: 70px;
 `;
 
+const _ProfileImg = styled.img`
+  width: 45px;
+  height: 45px;
+  border-radius: ${({ theme }) => theme.borderRadius.circle};
+`;
+
 const _Wrapper = styled.header<{ display: boolean }>`
   position: fixed;
   display: flex;
+  z-index: 10;
   justify-content: center;
   width: 100%;
-  height: 56px;
+  height: 70px;
+  box-shadow: ${({ theme }) => theme.shadow.md};
   transition: background 300ms cubic-bezier(0.31, 0.27, 0.15, 0.99) 0s,
     height 300ms cubic-bezier(0.31, 0.27, 0.15, 0.99) 0s,
     border 300ms cubic-bezier(0.31, 0.27, 0.15, 0.99) 0s;
   ${({ display }) =>
     display &&
     css`
-      height: 40px;
+      height: 50px;
       border-bottom: 1px solid rgba(0, 0, 0, 0.11);
       background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(20px);

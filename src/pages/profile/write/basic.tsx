@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Select, Textarea } from '@scouit/design-system';
 import styled from 'styled-components';
 import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
-import { Input } from '@/components/common/input';
+import { Input } from '@scouit/design-system';
 import { useProfileUpdate } from '@/hooks/useProfile';
 import { ProfileLabel } from '@/layouts/ProfileLabel';
 import { RowGap } from '@/layouts/DirectionGap';
@@ -22,7 +22,13 @@ const BasicPage = () => {
         </label>
         <_Content>
           <ProfileLabel label="이름">
-            <Input name="gas" placeholder="" />
+            <Input
+              label=""
+              value=""
+              onChange={() => {}}
+              name="gas"
+              placeholder=""
+            />
           </ProfileLabel>
           <ProfileLabel label="직군">
             <Select
@@ -33,10 +39,17 @@ const BasicPage = () => {
               value=""
             />
           </ProfileLabel>
-          <ProfileLabel label="간단소개">
-            <Input name="gas" placeholder="" />
+          <ProfileLabel label="간단소개" wrap>
+            <Input
+              width="100%"
+              label=""
+              value=""
+              onChange={() => {}}
+              name="gas"
+              placeholder=""
+            />
           </ProfileLabel>
-          <ProfileLabel label="자기소개">
+          <ProfileLabel label="자기소개" wrap>
             <Textarea
               name=""
               label=""

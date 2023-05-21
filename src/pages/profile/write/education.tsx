@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
 import { DateInput } from '@scouit/design-system';
-import { Input } from '@/components/common/input';
+import { Input } from '@scouit/design-system';
 import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
 import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
 import { ProfileLabel } from '@/layouts/ProfileLabel';
@@ -18,10 +18,11 @@ const EducatePage = () => {
         <>
           <ProfileLabel label="학교 이름">
             <Input
+              label=""
               name="name"
               placeholder="학교 이름을 입력해 주세요"
               value={e.name}
-              onChange={listChange(idx)}
+              onChange={listChange(idx) as any}
             />
           </ProfileLabel>
 

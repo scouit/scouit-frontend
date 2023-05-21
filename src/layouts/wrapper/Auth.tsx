@@ -6,7 +6,7 @@ import { Arrow, AuthBack, IMac, IPhone, LabTap } from '@/assets';
 import { useSlide } from '@/hooks/useSlide';
 import { Text } from '@/components/common/text';
 import { ColumnCenterGap } from '../DirectionGap';
-import { Button } from '@/components/common/button';
+import { Button } from '@scouit/design-system';
 
 interface PropsType {
   children: ReactNode;
@@ -27,13 +27,10 @@ export const AuthWrapper = ({ children, onSubmit }: PropsType) => {
     <_Wrapper>
       <_Content>
         <form onSubmit={onSubmitPreventDefault}>
-          <Button
-            clickType="button"
-            icon={{ isLeft: true, Element: <Arrow color="primary700" /> }}
-            onClick={() => navigate(-1)}
-          >
+          <_Button type="button" onClick={() => navigate(-1)}>
+            <Arrow color="primary700" />
             뒤로가기
-          </Button>
+          </_Button>
           {children}
         </form>
       </_Content>
@@ -82,7 +79,7 @@ const _Wrapper = styled.div`
 const _Content = styled.div`
   width: 32rem;
   padding: 0 2.5rem;
-  background-color: ${({ theme }) => theme.color.gray100};
+  background-color: ${({ theme }) => theme.color.gray0};
   position: relative;
   display: flex;
   flex-direction: column;
@@ -93,6 +90,9 @@ const _Content = styled.div`
     padding: 0 1.5rem
   `)};
   ${media._360('padding: 0 1rem')};
+`;
+const _Button = styled(Button)`
+  margin-bottom: 10px;
 `;
 
 const _BackgroundImg = styled.img`

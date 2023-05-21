@@ -54,7 +54,7 @@ export const ProfileTapbarLayout = ({
                   {onClick && (
                     <_RemoveButton
                       kind="tonal"
-                      height="list"
+                      height="37"
                       color="error500"
                       radius="circle"
                     >
@@ -68,8 +68,9 @@ export const ProfileTapbarLayout = ({
               <Button
                 onClick={onClick}
                 kind="fill"
-                height="LargeButton"
+                height="45"
                 radius="circle"
+                width="100%"
               >
                 추가하기
               </Button>
@@ -80,14 +81,14 @@ export const ProfileTapbarLayout = ({
             <_ActiveContent>
               {lio.map((e) => (
                 <Link to={e.url}>
-                  <Button kind="text" height="LargeButton" radius="circle">
+                  <Button kind="text" height="45" radius="circle" width="100%">
                     {e.title}
                   </Button>
                 </Link>
               ))}
             </_ActiveContent>
             <_ButtonWrapper>
-              <Button kind="fill" height="LargeButton" radius="circle">
+              <Button kind="fill" height="45" radius="circle" width="100%">
                 프로필 저장
               </Button>
             </_ButtonWrapper>
@@ -102,7 +103,7 @@ const _EditWrapper = styled(Columns)`
   height: 100%;
   background-color: ${({ theme }) => theme.color.gray50};
   position: relative;
-  padding: 184px 1.5rem 132px 1.5rem;
+  padding: 90px 1.5rem 132px 1.5rem;
 `;
 
 const _EditContent = styled(ColumnContent)`

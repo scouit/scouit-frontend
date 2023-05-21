@@ -14,3 +14,4 @@ export { default as Banner } from './banner.png';
 export { default as LoungeBack } from './loungeBack.png';
 export { default as ClubBack } from './clubBack.png';
 export { default as JobBack } from './jobBack.png';
+export { default as ProfileDetail } from './profileDetail.png';

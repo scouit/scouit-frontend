@@ -28,9 +28,9 @@ const LoungeWrite = () => {
             }[kind]
           }
           <_ButtonWrapper>
-            <_Button kind="fill" radius="circle" height="LargeButton">
+            <Button kind="fill" radius="circle" height="45">
               작성하기
-            </_Button>
+            </Button>
           </_ButtonWrapper>
         </ColumnContent>
       </Columns>
