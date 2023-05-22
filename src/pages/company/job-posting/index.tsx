@@ -9,6 +9,7 @@ import { Back, JobBack } from '@/assets';
 import { PageTitle } from '@/components/PageTitle';
 import { Selector } from '@/components/common/selector';
 import { ColumnGap, RowGap } from '@/layouts/DirectionGap';
+import { companyListDummy } from '@/_dummy/company';
 
 const JobPostingPage = () => {
   const { data } = useGetCompanyList();
@@ -19,7 +20,11 @@ const JobPostingPage = () => {
         <PageTitle src={JobBack} title="채용 공고" isWhite />
         <Columns padding="0 94px">
           <_SelectWrapper>
-            <Selector value="" list={['프론트엔드']} onClick={() => {}} />
+            <Selector
+              value="전체"
+              list={['전체', '마케팅', '개발', '영업', '운영']}
+              onClick={() => {}}
+            />
           </_SelectWrapper>
           <_ListWrapper
             width="1196px"
@@ -34,26 +39,31 @@ const JobPostingPage = () => {
                   <_ItemWrapper />
                 </Link>
               ))}
-            {Array(10)
-              .fill(1)
-              .map(() => (
+            {companyListDummy.map(
+              ({ name, url, logo, date, job, content, condition }) => (
                 <Link to="iasgagasg">
                   <_ItemWrapper>
-                    <_Img src={Back} />
+                    <_Img src={url} />
                     <ColumnGap gap="10px" padding="10px 30px">
                       <RowGap gap="15px">
-                        <_Logo src={Back} />
+                        <_Logo src={logo} />
                         <div>
-                          <Text size="title2">회사 이름</Text>
-                          <Text size="body4">날짜</Text>
+                          <Text size="title2">{name}</Text>
+                          <Text size="body4">{date}</Text>
                         </div>
                       </RowGap>
-                      <_ItemContent size="body4">내용</_ItemContent>
-                      <Text size="body4">3년 이상</Text>
+                      <_ItemContent size="body4">
+                        <ColumnGap gap="10px">
+                          <div>{job}</div>
+                          <div>{content}</div>
+                        </ColumnGap>
+                      </_ItemContent>
+                      <Text size="body4">{condition}</Text>
                     </ColumnGap>
                   </_ItemWrapper>
                 </Link>
-              ))}
+              ),
+            )}
           </_ListWrapper>
         </Columns>
         <Footer />
@@ -71,7 +81,6 @@ const _ListWrapper = styled(ColumnContent)`
 
 const _ItemWrapper = styled.article`
   width: 284px;
-  height: 275px;
   cursor: pointer;
   border-radius: ${({ theme }) => theme.borderRadius.large};
   box-shadow: ${({ theme }) => theme.shadow.lg};
@@ -91,9 +100,7 @@ const _Logo = styled.img`
   border-radius: ${({ theme }) => theme.borderRadius.circle};
 `;
 
-const _ItemContent = styled(Text)`
-  height: 70px;
-`;
+const _ItemContent = styled(Text)``;
 
 const _SelectWrapper = styled(ColumnContent)`
   margin-bottom: 30px;

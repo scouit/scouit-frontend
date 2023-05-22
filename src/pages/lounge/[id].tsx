@@ -34,31 +34,35 @@ const LoungeDetail = () => (
             <Text size="heading2">{detailDummy.kind}</Text>
             <Text size="body1">{detailDummy.date}</Text>
           </ColumnGap>
-          <_Img src={Back} />
+          <_Img src={detailDummy.url} />
         </ColumnGap>
         {detailData.map(({ title, name }) => {
           const data = detailDummy[name];
           return (
-            <ColumnGap gap="24px">
-              <Wrapper>
-                <_Text size="title2" color="primary400">
-                  {title}
-                </_Text>
-                <_Line />
-              </Wrapper>
+            data && (
+              <ColumnGap gap="24px">
+                <Wrapper>
+                  <_Text size="title2" color="primary400">
+                    {title}
+                  </_Text>
+                  <_Line />
+                </Wrapper>
 
-              {Array.isArray(data) ? (
-                <ColumnGap gap="20px">
-                  {data.map((e) => (
-                    <Text as="li" size="body1">
-                      {e}
-                    </Text>
-                  ))}
-                </ColumnGap>
-              ) : (
-                <Text size="body1">{data}</Text>
-              )}
-            </ColumnGap>
+                <_ContentPreWrap>
+                  {Array.isArray(data) ? (
+                    <ColumnGap gap="20px">
+                      {data.map((e) => (
+                        <Text as="li" size="body1">
+                          {e}
+                        </Text>
+                      ))}
+                    </ColumnGap>
+                  ) : (
+                    <Text size="body1">{data}</Text>
+                  )}
+                </_ContentPreWrap>
+              </ColumnGap>
+            )
           );
         })}
       </ColumnContent>
@@ -70,6 +74,12 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
+`;
+
+const _ContentPreWrap = styled.div`
+  > div {
+    white-space: pre-wrap;
+  }
 `;
 
 const _Line = styled.div`

@@ -1,24 +1,27 @@
+import { ColumnGap } from '@/layouts/DirectionGap';
 import { Text } from '@scouit/design-system';
 import styled from 'styled-components';
 
 interface PropsType {
+  name: string;
+  description: string;
   url: string;
+  role: string;
 }
 
-export const ResumeCard = ({ url }: PropsType) => {
+export const ResumeCard = ({ url, name, description, role }: PropsType) => {
   return (
     <_ResumeCard>
-      <div>
-        <img src={url} alt="프로필 이미지" />
-        <Text size="title1" as="div">
-          조상현
-        </Text>
-        <div>UI / UX 디자이너</div>
-      </div>
-      <div>
-        항상 더 좋은 프로덕트에 대해 고민하고결정해요. 단순한 의사결정이 아닌
-        여러 답을 도출하고 그 중에 가장 올바른 결정을 합니다.
-      </div>
+      <ColumnGap gap="20px">
+        <_ProfileImg src={url} alt="프로필 이미지" />
+        <ColumnGap gap="5px">
+          <Text size="title1" as="div">
+            {name}
+          </Text>
+          <div>{role}</div>
+        </ColumnGap>
+      </ColumnGap>
+      <div>{description}</div>
     </_ResumeCard>
   );
 };
@@ -28,4 +31,11 @@ const _ResumeCard = styled.article`
   display: flex;
   flex-direction: column;
   gap: 14px;
+`;
+
+const _ProfileImg = styled.img`
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: ${({ theme }) => theme.borderRadius.medium};
 `;

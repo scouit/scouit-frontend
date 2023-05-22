@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { ColumnGap } from '@/layouts/DirectionGap';
-import { cardDummy } from '@/_dummy/lounge';
+import { cardLoungeDummy } from '@/_dummy/lounge';
 import { Text } from '@/components/common/text';
 import { ColumnContent, Columns } from '@/layouts/Columns';
 import { Selector } from '@/components/common/selector';
@@ -23,38 +23,40 @@ const LoungeHomePage = () => (
       </_SelectorWrapper>
 
       <ColumnContent wrap direction="row" justify="center">
-        {cardDummy.map(({ title, content, peoples, kinda, url, location }) => (
-          <Link to="yourid">
-            <_ItemWrapper>
-              <_Img src={url} />
-              <ColumnGap gap="16px" margin="8px 0" padding="0 18px">
-                <Text size="title1" color="gray900">
-                  {title}
-                </Text>
-                {kinda && (
-                  <Text size="body1" color="gray900">
-                    {kinda}
+        {cardLoungeDummy.map(
+          ({ title, content, peoples, kinda, url, location }) => (
+            <Link to="yourid">
+              <_ItemWrapper>
+                <_Img src={url} />
+                <ColumnGap gap="16px" margin="8px 0" padding="0 18px">
+                  <Text size="title1" color="gray900">
+                    {title}
                   </Text>
-                )}
-                {location && (
-                  <Text size="body1" color="gray900">
-                    {location}
-                  </Text>
-                )}
-                {content && (
-                  <_ItemContentText size="body2" color="gray900">
-                    {content}
-                  </_ItemContentText>
-                )}
-                {peoples && (
-                  <Text size="body1" color="gray900">
-                    {peoples}
-                  </Text>
-                )}
-              </ColumnGap>
-            </_ItemWrapper>
-          </Link>
-        ))}
+                  {kinda && (
+                    <Text size="body1" color="gray900">
+                      {kinda}
+                    </Text>
+                  )}
+                  {location && (
+                    <Text size="body1" color="gray900">
+                      {location}
+                    </Text>
+                  )}
+                  {content && (
+                    <_ItemContentText size="body2" color="gray900">
+                      {content}
+                    </_ItemContentText>
+                  )}
+                  {peoples && (
+                    <Text size="body1" color="gray900">
+                      {peoples}
+                    </Text>
+                  )}
+                </ColumnGap>
+              </_ItemWrapper>
+            </Link>
+          ),
+        )}
       </ColumnContent>
     </Columns>
   </>

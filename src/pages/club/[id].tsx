@@ -1,89 +1,102 @@
 import styled from 'styled-components';
 import { Back } from '@/assets';
 import { Text } from '@/components/common/text';
-import { ColumnGap } from '@/layouts/DirectionGap';
+import { ColumnGap, RowGap } from '@/layouts/DirectionGap';
 import { Columns, ColumnContent } from '@/layouts/Columns';
 import { detailDummy } from '@/_dummy/lounge';
 import { Header } from '@/components/header';
+import { clubDetail } from '@/_dummy/club';
 
 interface DetailDataType {
   title: string;
-  name: keyof typeof detailDummy;
+  name: keyof typeof clubDetail;
 }
 
 const detailData: DetailDataType[] = [
   { title: '내용', name: 'content' },
   { title: '사진', name: 'imgList' },
-  { title: '기간', name: 'date' },
-  { title: '장소', name: 'location' },
-  { title: '일정', name: 'schedule' },
-  { title: '인원', name: 'person' },
-  { title: '조건', name: 'condition' },
-  { title: '설명', name: 'explanation' },
-  { title: '연락', name: 'communication' },
+  { title: '일정', name: 'date' },
+  { title: '모집 인원', name: 'person' },
+  { title: '모집 조건', name: 'condition' },
   { title: '링크', name: 'link' },
 ];
 
-const ClubDetail = () => (
-  <>
-    <Header />
-    <Columns padding="127px 16px">
-      <ColumnContent width="59.75rem" gap="32px" direction="row">
-        <ColumnGap gap="32px">
-          <ColumnGap gap="8px" margin="0 0 32px">
-            <ColumnGap gap="8px">
-              <Text size="title1">{detailDummy.title}</Text>
-              <Text size="heading2">{detailDummy.kind}</Text>
-              <Text size="body1">{detailDummy.date}</Text>
-            </ColumnGap>
-            <_Img src={Back} />
-          </ColumnGap>
-          {detailData.map(({ title, name }) => {
-            const data = detailDummy[name];
-            return (
-              <ColumnGap gap="24px">
-                <Wrapper>
-                  <_Text size="title2" color="primary400">
-                    {title}
-                  </_Text>
-                  <_Line />
-                </Wrapper>
-
-                {Array.isArray(data) ? (
-                  <ColumnGap gap="20px">
-                    {data.map((e) => (
-                      <Text as="li" size="body1">
-                        {e}
-                      </Text>
-                    ))}
-                  </ColumnGap>
-                ) : (
-                  <Text size="body1">{data}</Text>
-                )}
+const ClubDetail = () => {
+  const { name, jobCondition, introduce, url, logo, title, content } =
+    clubDetail;
+  return (
+    <>
+      <Header />
+      <Columns padding="127px 16px">
+        <ColumnContent gap="32px" direction="row">
+          <ColumnGap gap="32px">
+            <ColumnGap gap="8px" margin="0 0 32px">
+              <ColumnGap gap="8px">
+                <Text size="title1">{title}</Text>
               </ColumnGap>
-            );
-          })}
-        </ColumnGap>
-        <_ProfileCard>
-          <_TitleWrapper>
-            <_ProfileImg src={Back} />
-            <Text size="title1">디자인과 프레임워크의 만남</Text>
-          </_TitleWrapper>
-          <Text size="title2">대학생 전용입니다.</Text>
-          <Text size="title2">
-            Lorem ipsum dolor sit amet consectetur. Ultrices aliquam tempor
-            etiam pulvinar. Ut egestas dolor a arcu venenatis mi amet eget.
-          </Text>
-        </_ProfileCard>
-      </ColumnContent>
-    </Columns>
-  </>
-);
+              <_Img src={url} />
+            </ColumnGap>
+            {detailData.map(({ title, name }) => {
+              const data = clubDetail[name];
+              return (
+                data && (
+                  <ColumnGap gap="24px">
+                    <Wrapper>
+                      <Text size="title2" color="primary400">
+                        {title}
+                      </Text>
+                      <_Line />
+                    </Wrapper>
+
+                    <ContentPreWrap>
+                      {Array.isArray(data) ? (
+                        name !== 'imgList' ? (
+                          <ColumnGap gap="20px">
+                            {data.map((e) => (
+                              <Text as="li" size="body1">
+                                {e}
+                              </Text>
+                            ))}
+                          </ColumnGap>
+                        ) : (
+                          <RowGap gap="20px">
+                            {data.map((e) => (
+                              <_SubImg src={e} />
+                            ))}
+                          </RowGap>
+                        )
+                      ) : (
+                        <Text size="body1">{data}</Text>
+                      )}
+                    </ContentPreWrap>
+                  </ColumnGap>
+                )
+              );
+            })}
+          </ColumnGap>
+          <_ProfileCard>
+            <_TitleWrapper>
+              <_ProfileImg src={logo} />
+              <Text size="title1">{name}</Text>
+            </_TitleWrapper>
+            <Text size="title2">{jobCondition}</Text>
+            <Text size="title2">{introduce}</Text>
+          </_ProfileCard>
+        </ColumnContent>
+      </Columns>
+    </>
+  );
+};
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
+  > div {
+    :first-child {
+      flex-shrink: 0;
+    }
+  }
 `;
 
 const _Line = styled.div`
@@ -92,13 +105,22 @@ const _Line = styled.div`
   background-color: ${({ theme }) => theme.color.primary400};
 `;
 
-const _Text = styled(Text)`
-  white-space: nowrap;
+const ContentPreWrap = styled.div`
+  div {
+    white-space: pre-wrap;
+  }
 `;
 
 const _Img = styled.img`
   width: 100%;
   object-fit: cover;
+`;
+
+const _SubImg = styled.img`
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: ${({ theme }) => theme.borderRadius.large};
 `;
 
 const _ProfileCard = styled.div`

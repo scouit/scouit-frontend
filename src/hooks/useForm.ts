@@ -13,18 +13,11 @@ export const useForm = <T>(initalState: T) => {
     });
   };
 
-  const addTextList = (name: keyof typeof text, value: string) => {
+  const onTextListChange = (name: string, value: string[]) => {
     if (!value) return;
     setText((prev) => ({
       ...prev,
-      [name]: (prev[name] as unknown[]).concat(value),
-    }));
-  };
-
-  const removeTextList = (name: keyof typeof text, removeIndex: number) => {
-    setText((prev) => ({
-      ...prev,
-      [name]: (prev[name] as unknown[]).filter((_, idx) => removeIndex !== idx),
+      [name]: value,
     }));
   };
 
@@ -32,7 +25,6 @@ export const useForm = <T>(initalState: T) => {
     text,
     setText,
     handleOnChange,
-    addTextList,
-    removeTextList,
+    onTextListChange,
   };
 };

@@ -8,29 +8,37 @@ import { Footer } from '@/components/footer';
 import { Back, BookMark, Company, Share } from '@/assets';
 import { Button } from '@scouit/design-system';
 import { ColumnEndGap, ColumnGap, RowGap } from '@/layouts/DirectionGap';
+import { companyDetail } from '@/_dummy/company';
 
 const buttonList = ['주요 업무', '채용 정보', '계약 내용'];
 
 const JobPostingDetailPage = () => {
-  const { id } = useParams();
-  const { data } = useGetCompanyByIdList(id);
+  // const { id } = useParams();
+  // const { data } = useGetCompanyByIdList(id);
+  const {
+    url,
+    logo,
+    name,
+    content,
+    location,
+    tag,
+    jobContent,
+    condition,
+    contract,
+    date,
+    contentImgs,
+  } = companyDetail;
   return (
     <>
       <Header />
       <Columns>
         <ColumnContent justify="start">
-          {/* {data && (
-            <div>
-              <Text size="heading1">FrontEnd Developer</Text>
-              <>{data.career}</>
-            </div>
-          )} */}
           <_CompanyWrapper>
             <RowGap gap="20px">
-              <_CompanyImg width={72} height={72} src={Back} />
-              <_CompanyName>서핏</_CompanyName>
+              <_CompanyImg width={72} height={72} src={logo} />
+              <_CompanyName>{name}</_CompanyName>
             </RowGap>
-            <_CompanyIntroduce>어쩌구 저쩌구</_CompanyIntroduce>
+            <_CompanyIntroduce>{content}</_CompanyIntroduce>
           </_CompanyWrapper>
           <RowGap gap="10px" margin="0 0 40px">
             <_SideIntroduceBox>
@@ -38,11 +46,9 @@ const JobPostingDetailPage = () => {
                 <div>
                   <Text color="gray0">Tag.</Text>
                   <_TagList>
-                    {Array(5)
-                      .fill(0)
-                      .map(() => (
-                        <_Tag color="gray0">태그</_Tag>
-                      ))}
+                    {tag.map((tagText) => (
+                      <_Tag color="gray0">{tagText}</_Tag>
+                    ))}
                   </_TagList>
                 </div>
               </_SideBoxContent>
@@ -52,7 +58,7 @@ const JobPostingDetailPage = () => {
                 <div>
                   <Text color="gray0">location</Text>
                   <Text color="gray0" size="title2">
-                    대전 유성구
+                    {location}
                   </Text>
                 </div>
                 <div>
@@ -64,7 +70,7 @@ const JobPostingDetailPage = () => {
               </_SideBoxContent>
             </_SideIntroduceBox>
           </RowGap>
-          <_SideImg src={Back} />
+          <_SideImg src={url} />
         </ColumnContent>
       </Columns>
       <_DetailWrapper>
@@ -76,21 +82,13 @@ const JobPostingDetailPage = () => {
               </_Button>
             ))}
           </RowGap>
-          <Text size="heading2">
-            서핏에 오게되시면 회사 시스템에 적응하실 수 있도록 현장체험
-            프로그램을 진행하고 있습니다. 어디서 어떤 분들이 일하고 있는지
-            알아야, 필요할 때 찾아갈 수 있으니까요 ✨ IOS 분야는 저희 서핏
-            서비스 구축 및 유지보수 뿐만 아니라 회사내 복지 서비스 프로젝트 참여
-            및 문서 정리 등 다양한 활동을 하게 됩니다. 저희가 필요하다 생각되는
-            MVVM에 대해 파트너 분들과 소통하고 토론합니다. IOS 시니어 분들과
-            같이 협업하며 프로젝트를 진행해요! 앞으로도 잘 부탁해요 👏
-          </Text>
+          <Text size="heading2">{jobContent}</Text>
         </ColumnGap>
         <ColumnEndGap gap="46px">
-          <Text size="title2">모집기간 </Text>
+          <Text size="title2">{date}</Text>
           <ColumnGap gap="22px" width="fit-content">
             <Text size="title1">Company.</Text>
-            <_DetailImg src={Back} />
+            <_DetailImg src={contentImgs[0]} />
           </ColumnGap>
           <_Button kind="text" height="40" radius="circle">
             지원하기

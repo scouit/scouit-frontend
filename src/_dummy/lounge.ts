@@ -1,59 +1,80 @@
 import { Back, ProfileDetail, Profile } from '@/assets';
 
-export const cardDummy = [
+interface CardLoungType {
+  title: string;
+  content?: string;
+  peoples?: string;
+  location?: string;
+  date?: string;
+  kinda?: string;
+  url?: string;
+}
+
+const defaultImg =
+  'https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fa491551c-2eeb-4163-8938-dbf3b0d0656f%2FUntitled.png&blockId=7746c1ff-31d2-4c79-8e90-4a6f6811ab63';
+
+export const cardLoungeDummy: CardLoungType[] = [
   {
-    title: '헤더를 장식하는 새로운 스터디',
+    title: '애피타이저 프론트엔드 공고',
     content:
-      '당신이 프로그래밍을 배울 때 가장 먼저 배웠던 자료구조는 무엇이었나?높은 확률로 아마도 배열일 것이다. 그렇다면 배열은 왜 배움에 있어서 가장 우선시 되는 자료구조일까',
-    peoples: '프론트 엔드 2명을 모집합니다',
-    location: '을지로 옆문동 1224',
-    kinda: '',
-    url: Back,
+      '도서 내용 요약 컨텐츠 서비스의 프론트엔드 개발 후반 작업 참여할 분을 찾습니다.',
+    peoples: '프론트 엔드 팀원 1명을 모집합니다',
+    date: '2023.5.20',
+    url: 'data:image/jpeg;base64,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',
   },
   {
-    title: '헤더를 장식하는 새로운 스터디',
-    content:
-      '당신이 프로그래밍을 배울 때 가장 먼저 배웠던 자료구조는 무엇이었나?높은 확률로 아마도 배열일 것이다. 그렇다면 배열은 왜 배움에 있어서 가장 우선시 되는 자료구조일까',
-    peoples: '프론트 엔드 2명을 모집합니다',
-    kinda: '',
-    url: Back,
+    title: '서로서로 도와요 with frontEnd',
+    peoples: '웹에 관심있어 하시는 분',
+    location: '서울특별시 종로구 계동 계동2길 4 카페 공드리',
+    kinda: 'Js / css / react',
+    url: 'data:image/png;base64,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',
   },
   {
-    title: '헤더를 장식하는 새로운 스터디',
-    content:
-      '당신이 프로그래밍을 배울 때 가장 먼저 배웠던 자료구조는 무엇이었나?높은 확률로 아마도 배열일 것이다. 그렇다면 배열은 왜 배움에 있어서 가장 우선시 되는 자료구조일까',
-    peoples: '프론트 엔드 2명을 모집합니다',
-    kinda: '',
-    url: Back,
-  },
-  {
-    title: '헤더를 장식하는 새로운 스터디',
-    content:
-      '당신이 프로그래밍을 배울 때 가장 먼저 배웠던 자료구조는 무엇이었나?높은 확률로 아마도 배열일 것이다. 그렇다면 배열은 왜 배움에 있어서 가장 우선시 되는 자료구조일까',
-    peoples: '프론트 엔드 2명을 모집합니다',
-    kinda: '',
-    url: Back,
+    title: '코뮤니티 모각코',
+    location: '모각코 오픈카톡방',
+    peoples: '으쌰으쌰 코딩 공부할 분들',
+    kinda: '파이썬 책 스터디',
+    url: defaultImg,
   },
 ];
 
-export const detailDummy = {
-  title: '헤더를 장식하는 새로운 스터디',
-  kind: 'With JS',
+interface detailLoungeType {
+  title: string;
+  kind: string;
+  date: string;
+  content: string;
+  url?: string;
+  imgList?: string[];
+  location?: string;
+  schedule?: string;
+  person?: string;
+  condition?: string[];
+  explanation?: string;
+  communication?: string;
+  link: string[];
+}
+
+export const detailDummy: detailLoungeType = {
+  title: '코뮤니티 모각코',
+  kind: '파이썬 책 스터디',
   date: '2023.2.23 ~ 2023.2.24',
-  content:
-    '당신이 프로그래밍을 배울 때 가장 먼저 배웠던 자료구조는 무엇이었나?높은 확률로 아마도 배열일 것이다. 그렇다면 배열은 왜 배움에 있어서 가장 우선시 되는 자료구조일까?"배열은 가장 많이 사용되는 자료구조이기 때문이다."그렇다면 왜 배열은 가장 많이 사용되는 자료구조일까? 배열은 어떤 특징을 가지고 있을까?그리고, 나는 배열을 잘 사용하고 있을까?나처럼 배열의 모든 것을 다 안다고 착각했던 사람들에게 이 글을 바친다.',
-  url: Back,
+  content: `현업의 개발자를 위한 커뮤니티는 많지만 코딩을 배우는 다수를 위한 커뮤니티는 없습니다.
+그래서 만들어진 코딩 커뮤니티, 코뮤니티!
+27,000명 이상의 회원들과 함께 코딩을 쉽고 재미있게 공부할 수 있는 곳입니다. 
+혹시 코딩 공부에 의지를 가지는 게 쉽지 않나요?
+함께 으쌰으쌰 코딩 공부할 사람이 필요하지 않나요?
+내가 코딩 공부를 잘 하고 있는 건지 헷갈리지 않나요?
+이런 분들을 위해 만든 것이 바로 코뮤니티 모각코입니다.
+모여서 각자 코딩의 줄임말인 모각코라는 이름처럼
+코딩의 습관을 만들어 주고,
+함께 코딩 공부할 사람들을 만들어주는
+무료 온라인 코딩 스터디 과정입니다. `,
+  url: defaultImg,
   imgList: [Back, ProfileDetail, Profile],
-  location: '을지로 옆문동 1224',
-  schedule: '매주 3일 3시간씩',
-  person: '사람 10명',
-  condition: [
-    '전자문서 유통 기관 등록 기능 개발',
-    '전자문서 유통 기관 등록 기능 개발',
-    '전자문서 유통 기관 등록 기능 개발',
-  ],
-  explanation:
-    '저희의 스터디는 다른 모든 스터디와 다른 차이점이 존재합니다. 바로 저희만의 특별한 꺽이지 않는 마음을 갖고 있습니다',
-  communication: '카카오톡',
-  link: ['https:/github', 'https:/github', 'https:/github'],
+  location: '모각코 오픈 채팅방',
+  schedule:
+    '오픈카톡방에 모여 소통하고 매일매일 원하는 시간에 코딩해 사진을 올려 인증합니다.',
+  person: '27,000명 이상의 회원들과 함께 코딩 공부를 하실 수 있습니다.',
+  communication: '카카오톡 오픈 채팅방',
+  link: ['https://cafe.naver.com/codeuniv'],
 };

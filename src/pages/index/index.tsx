@@ -5,20 +5,26 @@ import { ProfileSide } from '@/assets';
 import { Header } from '@/components/header';
 import { ResumeCard } from './ResumeCard';
 import { Link } from 'react-router-dom';
+import { ColumnGap } from '@/layouts/DirectionGap';
 
 const HomePage = () => (
   <>
     <Header />
     <_Wrapper>
       <_ResumeCardWrapper>
-        {cardDummy.map(({ url }) => (
+        {cardDummy.map(({ url, name, description, role }) => (
           <Link to="/developers/resume/yourid">
-            <ResumeCard url={url} />
+            <ResumeCard
+              url={url}
+              name={name}
+              description={description}
+              role={role}
+            />
           </Link>
         ))}
       </_ResumeCardWrapper>
       <_SideController>
-        <_Inner>
+        <ColumnGap gap="20px" padding="40px 20px">
           <_Profile>
             <img
               width={60}
@@ -37,15 +43,11 @@ const HomePage = () => (
             항상 더 좋은 프로덕트에 대해 고민하고결정해요. 단순한 의사결정이
             아닌 여러 답을 도출하고 그 중에 가장 올바른 결정을 합니다.
           </Text>
-        </_Inner>
+        </ColumnGap>
       </_SideController>
     </_Wrapper>
   </>
 );
-
-const _Inner = styled.div`
-  padding: 40px 20px;
-`;
 
 const _Profile = styled.div`
   display: flex;
