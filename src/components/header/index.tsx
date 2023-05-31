@@ -1,15 +1,16 @@
 import styled, { css } from 'styled-components';
 import { useEffect } from 'react';
-import { Arrow, Profile, ProfileSide } from '@/assets';
+import { Arrow, MainProfile, Profile, ProfileSide } from '@/assets';
 import { Text } from '../common/text';
 import { useInversion } from '@/hooks/useInversion';
 import { Navigation } from '../common/Navigation';
 import { staticMember, writeProfileLink } from './constants';
 import { NavigationList } from '../common/list/Navigation';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Header = () => {
   const { state: display, correctState, incorrectState } = useInversion();
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.addEventListener('scroll', () => {
@@ -37,16 +38,19 @@ export const Header = () => {
             )}
           />
           {isLogin ? (
-            <_ProfileImg src={Profile} width={50} height={50} />
+            <_ProfileImg src={MainProfile} width={50} height={50} />
           ) : (
-            <Navigation list={['로그인/회원가입']} />
+            <NavigationList
+              list={[{ name: '로그인/회원가입', link: '/auth/sign-in' }]}
+            />
           )}
         </div>
       </_Wrapper>
-      <_Button>
+      <_Button onClick={() => navigate(-1)}>
         <Arrow color="gray900" />
         이전으로
       </_Button>
+
       <_Padding />
     </>
   );
@@ -59,6 +63,7 @@ const _Padding = styled.div`
 const _ProfileImg = styled.img`
   width: 45px;
   height: 45px;
+  object-fit: cover;
   border-radius: ${({ theme }) => theme.borderRadius.circle};
 `;
 
@@ -100,6 +105,7 @@ const _Button = styled.div`
   justify-content: end;
   z-index: 10;
   padding: 10px;
+  cursor: pointer;
   background-color: ${({ theme }) => theme.color.gray0};
   box-shadow: ${({ theme }) => theme.shadow.sm};
   border-radius: 0 8px 8px 0;

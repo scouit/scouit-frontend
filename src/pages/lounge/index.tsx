@@ -6,18 +6,24 @@ import { ColumnContent, Columns } from '@/layouts/Columns';
 import { Selector } from '@/components/common/selector';
 import { Header } from '@/components/header';
 import { PageTitle } from '@/components/PageTitle';
-import { LoungeBack } from '@/assets';
+import { BookMark, LoungeBack } from '@/assets';
 import { Link } from 'react-router-dom';
+import { Write } from '@/assets/svgs/Write';
 
 const LoungeHomePage = () => (
   <>
     <Header />
-    <PageTitle src={LoungeBack} title="라운지" />
-    <Columns>
+    <PageTitle src={LoungeBack} title="라운지" />{' '}
+    <Link to="/lounge/recruitment">
+      <_ToWrite>
+        <Write />
+      </_ToWrite>
+    </Link>
+    <Columns padding="0 1rem 1rem 1rem">
       <_SelectorWrapper>
         <Selector
           list={['전체', '프로젝트', '스터디', '모각코']}
-          value=""
+          value="전체"
           onClick={() => {}}
         />
       </_SelectorWrapper>
@@ -87,6 +93,25 @@ const _ItemContentText = styled(Text)`
 const _SelectorWrapper = styled(ColumnContent)`
   margin-bottom: 35px;
   margin-top: 40px;
+`;
+
+const _ToWrite = styled.div`
+  cursor: pointer;
+  position: sticky;
+  overflow-y: auto;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: ${({ theme }) => theme.borderRadius.circle};
+  background-color: ${({ theme }) => theme.color.gray100};
+  margin-left: 90%;
+  top: 330px;
+  :hover {
+    background-color: ${({ theme }) => theme.color.gray200};
+  }
 `;
 
 export default LoungeHomePage;

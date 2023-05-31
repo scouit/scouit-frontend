@@ -5,10 +5,10 @@ import {
   ImageInput,
   Input,
   Textarea,
+  TagInput,
 } from '@scouit/design-system';
 import { ProfileTapbarLayout } from '@/layouts/tapbar/ProfileTapbar';
 import { useProfileArray, useProfileUpdate } from '@/hooks/useProfile';
-import { SkillInput } from '@/components/common/input/Skill';
 import { ProfileLabel } from '@/layouts/ProfileLabel';
 
 const project = 'project';
@@ -72,7 +72,11 @@ const ProjectPage = () => {
               />
             </ProfileLabel>
             <ProfileLabel label="기술 스택">
-              <SkillInput placeholder="사용한 기술을 작성해 주세요" />
+              <TagInput
+                onChange={() => {}}
+                list={[]}
+                placeholder="사용한 기술을 작성해 주세요"
+              />
             </ProfileLabel>
             <ProfileLabel label="이미지" wrap>
               <ImageInput

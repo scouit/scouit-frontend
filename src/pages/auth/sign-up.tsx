@@ -16,7 +16,7 @@ interface ErrorType {
 
 /** 프로필, 이메일 인증 추가 요망 */
 const SignUpPage = () => {
-  const { text, handleOnChange } = useForm({
+  const { text, modernHandleChange } = useForm({
     name: '',
     email: '',
     password: '',
@@ -62,7 +62,7 @@ const SignUpPage = () => {
           placeholder="example@email.com"
           label="아이디"
           value={text.email}
-          onChange={handleOnChange as any}
+          onChange={modernHandleChange as any}
         />
         <Input
           type="text"
@@ -70,27 +70,27 @@ const SignUpPage = () => {
           placeholder="홍길동"
           label="이름"
           value={text.name}
-          onChange={handleOnChange as any}
+          onChange={modernHandleChange as any}
           isError={isError.name}
           hint="이름을 2자 이상 10자 이하로 설정해 주세요"
         />
         <Input
-          type="password"
           name="password"
           placeholder="•••••••••••"
           label="비밀번호"
           value={text.password}
-          onChange={handleOnChange as any}
+          onChange={modernHandleChange as any}
           isError={isError.password}
+          rightIconType="eye"
           hint="대문자와 특수 문자를 넣어주세요"
         />
         <Input
-          type="password"
           name="passwordCheck"
           placeholder="•••••••••••"
           label="비밀번호 확인"
           value={text.passwordCheck}
-          onChange={handleOnChange as any}
+          onChange={modernHandleChange as any}
+          rightIconType="eye"
           isError={isError.passwordCheck}
           hint="비밀번호가 다시 입력해 주세요."
         />
@@ -98,7 +98,7 @@ const SignUpPage = () => {
       <Button height="45" kind="fill" width="100%" radius="small">
         회원가입
       </Button>
-      <Link to="/sign-in">
+      <Link to="/auth/sign-in">
         <Button height="45" width="100%" radius="small">
           로그인
         </Button>

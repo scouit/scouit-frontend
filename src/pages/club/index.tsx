@@ -21,10 +21,12 @@ const ClubPage = () => (
               <_ItemWrapper>
                 <_Img src={url} />
                 <_ItemContent>
-                  <ColumnGap gap="5px">
-                    <Text size="title1">{title}</Text>
-                    <Text size="heading2">{condition}</Text>
-                    <Text size="heading2">{job}</Text>
+                  <ColumnGap gap="10px">
+                    <Text size="title2">{title}</Text>
+                    <div>
+                      <Text size="body1">{condition}</Text>
+                      <Text size="body1">{job}</Text>
+                    </div>
                   </ColumnGap>
                   <RowGap gap="15px">
                     <_Logo src={logo} />
@@ -45,7 +47,6 @@ const ClubPage = () => (
 
 const _ItemWrapper = styled.div`
   width: 360px;
-  min-height: 340px;
   box-shadow: ${({ theme }) => theme.shadow.lg};
   border-radius: ${({ theme }) => theme.borderRadius.large};
 `;

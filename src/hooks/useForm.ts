@@ -12,6 +12,15 @@ export const useForm = <T>(initalState: T) => {
       [name]: value,
     });
   };
+  const modernHandleChange = ({
+    value,
+    name,
+  }: {
+    value: string;
+    name: string;
+  }) => {
+    setText({ ...text, [name]: value });
+  };
 
   const onTextListChange = (name: string, value: string[]) => {
     if (!value) return;
@@ -25,6 +34,7 @@ export const useForm = <T>(initalState: T) => {
     text,
     setText,
     handleOnChange,
+    modernHandleChange,
     onTextListChange,
   };
 };

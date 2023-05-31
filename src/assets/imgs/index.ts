@@ -15,3 +15,4 @@ export { default as LoungeBack } from './loungeBack.png';
 export { default as ClubBack } from './clubBack.png';
 export { default as JobBack } from './jobBack.png';
 export { default as ProfileDetail } from './profileDetail.png';
+export { default as MainProfile } from './mainProfile.jpg';

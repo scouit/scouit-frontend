@@ -1,9 +1,11 @@
+import { keyOfColor } from '@scouit/design-system';
 import styled from 'styled-components';
 
-export const Columns = styled.div<{ padding?: string }>`
+export const Columns = styled.div<{ padding?: string; bg?: keyOfColor }>`
   width: 100%;
   position: relative;
   padding: ${({ padding }) => padding || '0 1rem'};
+  background-color: ${({ theme, bg }) => theme.color[bg] || 'transparent'};
 `;
 
 export const ColumnContent = styled.div<{
@@ -23,4 +25,5 @@ export const ColumnContent = styled.div<{
   gap: ${({ gap }) => gap || '1.5rem'};
   align-items: ${({ align }) => align};
   justify-content: ${({ justify }) => justify};
+  align-self: flex-start;
 `;

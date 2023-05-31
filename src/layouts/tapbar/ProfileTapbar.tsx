@@ -18,6 +18,7 @@ import { ProfileType } from '@/apis/profile/type';
 import { atomProfile } from '@/store/write';
 import { getUserProfile } from '@/apis/profile/getProfile';
 import { Banner } from '@/assets';
+import { toast } from 'react-toastify';
 
 interface PropsType {
   title: string;
@@ -37,6 +38,8 @@ export const ProfileTapbarLayout = ({
       setProfile(profileInit);
     },
   });
+  const save = () =>
+    toast('프로필이 저장되었습니다.', { type: 'success', autoClose: 1000 });
   return (
     <>
       <Header />
@@ -88,7 +91,13 @@ export const ProfileTapbarLayout = ({
               ))}
             </_ActiveContent>
             <_ButtonWrapper>
-              <Button kind="fill" height="45" radius="circle" width="100%">
+              <Button
+                onClick={save}
+                kind="fill"
+                height="45"
+                radius="circle"
+                width="100%"
+              >
                 프로필 저장
               </Button>
             </_ButtonWrapper>

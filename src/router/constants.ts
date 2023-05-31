@@ -3,7 +3,9 @@
 export const PAGE_LIST = [
   '/',
   '/side-project',
-  '/myPage',
+  '/myPage/application',
+  '/myPage/suggestion',
+  '/myPage/notification',
   '/makesPeople',
   '/club',
   '/club/[:id]',

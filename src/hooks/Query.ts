@@ -14,7 +14,7 @@ export const useSignUpQuery = (req: PostSignUpReqeustType) => {
   const navigate = useNavigate();
   return useMutation(() => postSignUp(req), {
     onSuccess: () => {
-      navigate('/sign-in');
+      navigate('/auth/sign-in');
       customToast('성공적으로 회원가입하였습니다.', 'success');
     },
     onError: () => {

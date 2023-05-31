@@ -11,7 +11,7 @@ import { useInversion } from '@/hooks/useInversion';
 import { CheckBoxUnSelected, CheckBoxClicked } from '@/assets';
 
 const SignInPage = () => {
-  const { text, handleOnChange } = useForm({
+  const { text, modernHandleChange } = useForm({
     email: '',
     password: '',
   });
@@ -28,15 +28,15 @@ const SignInPage = () => {
           type="text"
           name="email"
           value={text.email}
-          onChange={handleOnChange as any}
+          onChange={modernHandleChange as any}
           placeholder="example@email.com"
           label="아이디"
         />
         <Input
-          type="password"
+          rightIconType="eye"
           name="password"
           value={text.password}
-          onChange={handleOnChange as any}
+          onChange={modernHandleChange as any}
           placeholder="•••••••••••"
           label="비밀번호"
         />

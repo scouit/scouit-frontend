@@ -57,6 +57,7 @@ const _Content = styled(ColumnContent)`
 
 const _ProfileCard = styled.div`
   width: 260px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: end;

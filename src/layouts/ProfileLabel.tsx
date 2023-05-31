@@ -35,8 +35,12 @@ const _Wrapper = styled.div<{ wrap: boolean }>`
       :nth-child(2) {
         width: ${wrap ? '100%' : '70%'};
       }
+      > div {
+        width: 100%;
+      }
     }
   `};
+
   flex-wrap: wrap;
   gap: 10px;
   justify-content: space-between;

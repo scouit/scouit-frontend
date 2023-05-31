@@ -1,9 +1,9 @@
-import { Profile } from '@/assets';
+import { MainProfile, Profile, ProfileSide } from '@/assets';
 
 export const cardDummy = [
   {
-    name: '조상현',
-    url: Profile,
+    name: '조경현',
+    url: MainProfile,
     role: 'UI/UX 엔지니어',
     description:
       '항상 더 좋은 프로덕트에 대해 고민하고결정해요. 단순한 의사결정이아닌 여러 답을 도출하고 그 중에 가장 올바른 결정을 합니다.',

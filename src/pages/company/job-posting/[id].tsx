@@ -9,6 +9,7 @@ import { Back, BookMark, Company, Share } from '@/assets';
 import { Button } from '@scouit/design-system';
 import { ColumnEndGap, ColumnGap, RowGap } from '@/layouts/DirectionGap';
 import { companyDetail } from '@/_dummy/company';
+import { Selector } from '@/components/common/selector';
 
 const buttonList = ['주요 업무', '채용 정보', '계약 내용'];
 
@@ -34,10 +35,10 @@ const JobPostingDetailPage = () => {
       <Columns>
         <ColumnContent justify="start">
           <_CompanyWrapper>
-            <RowGap gap="20px">
+            <_TitleGap>
               <_CompanyImg width={72} height={72} src={logo} />
               <_CompanyName>{name}</_CompanyName>
-            </RowGap>
+            </_TitleGap>
             <_CompanyIntroduce>{content}</_CompanyIntroduce>
           </_CompanyWrapper>
           <RowGap gap="10px" margin="0 0 40px">
@@ -75,13 +76,12 @@ const JobPostingDetailPage = () => {
       </Columns>
       <_DetailWrapper>
         <ColumnGap gap="47px">
-          <RowGap gap="10px">
-            {buttonList.map((list) => (
-              <_Button kind="fill" height="40" radius="circle">
-                {list}
-              </_Button>
-            ))}
-          </RowGap>
+          <Selector
+            list={buttonList}
+            value="주요 업무"
+            onClick={() => {}}
+            bottomLine
+          />
           <Text size="heading2">{jobContent}</Text>
         </ColumnGap>
         <ColumnEndGap gap="46px">
@@ -110,18 +110,26 @@ const _CompanyWrapper = styled.div`
   margin-top: 50px;
 `;
 
+const _TitleGap = styled.div`
+  gap: 10px;
+  display: flex;
+  align-items: end;
+`;
+
 const _CompanyImg = styled.img`
   border-radius: 100px;
 `;
 
 const _CompanyName = styled.div`
-  font-size: 48px;
+  font-size: 38px;
   font-weight: bold;
+  margin-bottom: 10px;
 `;
 
 const _CompanyIntroduce = styled.div`
   border-top: dashed;
   padding: 20px 10px;
+  white-space: pre-wrap;
   ${({ theme }) => theme.font.title2};
 `;
 
@@ -164,11 +172,12 @@ const _SideImg = styled.img`
 const _DetailWrapper = styled.div`
   background-color: ${({ theme }) => theme.color.gray800};
   display: flex;
-  padding: 33px 35px 100px 88px;
+  padding: 33px 85px 20px 185px;
   gap: 125px;
   justify-content: space-between;
   div {
     color: ${({ theme }) => theme.color.gray0};
+    white-space: pre-wrap;
   }
 `;
 
