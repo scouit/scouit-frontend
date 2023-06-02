@@ -6,7 +6,7 @@ type alignType = 'start' | 'center' | 'end';
 
 interface PropsType {
   className?: string;
-  as?: 'div' | 'li';
+  as?: 'div' | 'li' | 'a';
   lineHeight?: string;
   height?: string;
   align?: alignType;
