@@ -92,9 +92,12 @@ const ResumeDetailPage = () => {
                     ))}
                     <TagList tags={skills} />
 
-                    {imgs.map((img) => (
-                      <_Img src={img} />
-                    ))}
+                    <RowGap gap="10px" wrap>
+                      {imgs.map((img) => (
+                        <_Img src={img} />
+                      ))}
+                    </RowGap>
+
                     <Text size="title3" as="a">
                       {url}
                     </Text>
