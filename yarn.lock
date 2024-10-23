@@ -11395,8 +11395,8 @@ __metadata:
   linkType: hard
 
 "html-webpack-plugin@npm:^5.0.0, html-webpack-plugin@npm:^5.5.0":
-  version: 5.5.0
-  resolution: "html-webpack-plugin@npm:5.5.0"
+  version: 5.6.3
+  resolution: "html-webpack-plugin@npm:5.6.3"
   dependencies:
     "@types/html-minifier-terser": ^6.0.0
     html-minifier-terser: ^6.0.2
@@ -11404,8 +11404,14 @@ __metadata:
     pretty-error: ^4.0.0
     tapable: ^2.0.0
   peerDependencies:
+    "@rspack/core": 0.x || 1.x
     webpack: ^5.20.0
-  checksum: f3d84d0df71fe2f5bac533cc74dce41ab058558cdcc6ff767d166a2abf1cf6fb8491d54d60ddbb34e95c00394e379ba52e0468e0284d1d0cc6a42987056e8219
+  peerDependenciesMeta:
+    "@rspack/core":
+      optional: true
+    webpack:
+      optional: true
+  checksum: 59e7d971b0cfd9ba34c7acaa3c161e43c62596474dd8cd35d7b690498ff5891f21296de0aa1d2e7810348caa657e938461267155dda47913b5eeca7124406270
   languageName: node
   linkType: hard
 
